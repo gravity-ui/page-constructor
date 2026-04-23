@@ -1,16 +1,18 @@
+import * as React from 'react';
+
 import {Pencil} from '@gravity-ui/icons';
 import {Button, ClipboardButton, Icon, SegmentedRadioGroup} from '@gravity-ui/uikit';
 import yaml from 'js-yaml';
 import _ from 'lodash';
-import * as React from 'react';
 
 import {PageContent} from '../../../models';
+import {MessageCard} from '../../components/MessageCard/MessageCard';
+import {MESSAGES} from '../../constants/messages';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {generateChildrenPathFromArray} from '../../utils';
 import {editorCn} from '../../utils/cn';
+
 import {UpdateModal} from './UpdateModal/UpdateModal';
-import {MessageCard} from '../../components/MessageCard/MessageCard';
-import {MESSAGES} from '../../constants/messages';
 
 import './SourceCode.scss';
 

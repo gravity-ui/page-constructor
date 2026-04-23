@@ -1,6 +1,7 @@
+import * as React from 'react';
+
 import {Xmark} from '@gravity-ui/icons';
 import {Button, Icon, Loader} from '@gravity-ui/uikit';
-import * as React from 'react';
 
 import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {IframeContext} from '../../context/iframeContext';

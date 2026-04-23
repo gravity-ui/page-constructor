@@ -1,5 +1,7 @@
 import * as React from 'react';
+
 import {Divider} from '@gravity-ui/uikit';
+
 import ChildrenItemWrap from '../../../../src/components/editor/ChildrenItemWrap/ChildrenItemWrap';
 import ChildrensWrap from '../../../../src/components/editor/ChildrensWrap/ChildrensWrap';
 

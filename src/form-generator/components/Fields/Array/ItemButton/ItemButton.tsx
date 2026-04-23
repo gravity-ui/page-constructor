@@ -1,6 +1,7 @@
+import * as React from 'react';
+
 import {ArrowDown, ArrowUp, EllipsisVertical, TrashBin} from '@gravity-ui/icons';
 import {Button, Icon, Menu, Popup} from '@gravity-ui/uikit';
-import * as React from 'react';
 
 import {formGeneratorCn} from '../../../../utils/cn';
 

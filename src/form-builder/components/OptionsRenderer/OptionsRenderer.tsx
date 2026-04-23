@@ -1,12 +1,14 @@
 import * as React from 'react';
-import {formBuilderCn} from '../../utils/cn';
+
 import {Button} from '@gravity-ui/uikit';
+
 import {ConfigInput} from '../../../form-generator';
+import {useFormContext} from '../../hooks/FormContext';
+import {FormOptionsField, InputTypeMenuItem} from '../../types';
+import {formBuilderCn} from '../../utils/cn';
 import {AddPropertyButton} from '../AddPropertyButton/AddPropertyButton';
 import {OptionHeader} from '../OptionHeader/OptionHeader';
 import {SectionHeader} from '../SectionHeader/SectionHeader';
-import {useFormContext} from '../../hooks/FormContext';
-import {FormOptionsField, InputTypeMenuItem} from '../../types';
 
 import './OptionsRenderer.scss';
 

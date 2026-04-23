@@ -3,12 +3,12 @@ import * as React from 'react';
 import {cloneDeep, set, unset} from 'lodash';
 
 import {DynamicFormValue} from '../form-generator/types';
+import {ClassNameProps} from '../models/common';
 
 import Fields from './components/Fields/Fields';
 import {Content, Fields as FieldsType, OnUpdate} from './types';
-import {getValueByPath} from './utils/fields';
 import {formGeneratorCn} from './utils/cn';
-import {ClassNameProps} from '../models/common';
+import {getValueByPath} from './utils/fields';
 
 import './FormGenerator.scss';
 

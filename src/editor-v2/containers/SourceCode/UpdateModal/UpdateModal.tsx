@@ -1,5 +1,6 @@
-import {Alert, Dialog, TextArea} from '@gravity-ui/uikit';
 import * as React from 'react';
+
+import {Alert, Dialog, TextArea} from '@gravity-ui/uikit';
 
 import {editorCn} from '../../../utils/cn';
 

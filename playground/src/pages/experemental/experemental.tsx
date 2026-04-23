@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 // @gravity-ui/page-constructor
 import {NavigationData, PageConstructor, PageConstructorProvider} from '../../../../src';
 // Custom blocks — atoms
@@ -7,21 +8,22 @@ import AlertBlockConfig from '../../blocks/AlertBlock';
 import AvatarBlockConfig from '../../blocks/AvatarBlock';
 import BreadcrumbsBlockConfig from '../../blocks/BreadcrumbsBlock';
 import ButtonBlockConfig from '../../blocks/ButtonBlock';
+import CardContainerConfig from '../../blocks/CardContainer';
+import ColumnsContainerConfig from '../../blocks/ColumnsContainer';
+import DefinitionListBlockConfig from '../../blocks/DefinitionListBlock';
 import LabelBlockConfig from '../../blocks/LabelBlock';
 import ProgressBlockConfig from '../../blocks/ProgressBlock';
+import SectionContainerConfig from '../../blocks/SectionContainer';
 import TabsAtomBlockConfig from '../../blocks/TabsAtomBlock';
 import UserBlockConfig from '../../blocks/UserBlock';
 // Custom blocks — containers
-import CardContainerConfig from '../../blocks/CardContainer';
-import ColumnsContainerConfig from '../../blocks/ColumnsContainer';
-import SectionContainerConfig from '../../blocks/SectionContainer';
-import DefinitionListBlockConfig from '../../blocks/DefinitionListBlock';
 // Example 1
+import {experementalBlocksExtension} from '../../custom-plugin';
+
 import contentExample1 from './example-1/content.json';
 // Example 2
 import contentExample2 from './example-2/content.json';
 import navigationExample2 from './example-2/navigation.json';
-import {ExperementalBlocksExtension} from '../../custom-plugin';
 
 const customBlocks = [
     // Atoms
@@ -67,7 +69,7 @@ export default function PCPage({id}: PCPageProps) {
 
     return (
         <PageConstructorProvider blocks={customBlocks}>
-            <PageConstructor content={page.content} extensions={[ExperementalBlocksExtension()]} />
+            <PageConstructor content={page.content} extensions={[experementalBlocksExtension()]} />
         </PageConstructorProvider>
     );
 }

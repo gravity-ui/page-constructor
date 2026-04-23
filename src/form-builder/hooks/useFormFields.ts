@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {AnyOfInput, ConfigInput, ObjectInput, OneOfInput} from '../../form-generator';
 import {FormArrayField, FormField} from '../types';
 

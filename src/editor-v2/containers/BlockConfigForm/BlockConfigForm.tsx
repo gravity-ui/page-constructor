@@ -24,7 +24,7 @@ const BlockConfigForm = ({className}: BlockConfigFormProps) => {
     const currentSchema = [...blocks, ...subBlocks].find(({type}) => type === currentConfig?.type);
 
     const onUpdateByKey = (key: string, value: unknown) => {
-        updateField('blocks' + currentBlockPath + '.' + key, value as any);
+        updateField('blocks' + currentBlockPath + '.' + key, value);
     };
 
     if (!currentConfig) {

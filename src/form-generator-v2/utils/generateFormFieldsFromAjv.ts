@@ -1,6 +1,6 @@
 import type {JSONSchemaType} from 'ajv';
 
-import type {Fields, SegmentedRadioGroupField, SectionField, When} from '../types';
+import type {Fields, SectionField, SegmentedRadioGroupField, When} from '../types';
 
 export type GenerateFormFieldsFromAjvSchemaOptions = {
     arrayIndexPlaceholder?: (arrayDepth: number) => string;
@@ -98,7 +98,7 @@ function sanitizeWhen(when: When | undefined): When | undefined {
         }
     }
 
-    while (result.length > 0 && !result[result.length - 1]!.field) {
+    while (result.length > 0 && !result[result.length - 1]?.field) {
         result.pop();
     }
 
@@ -192,7 +192,10 @@ function convertScalar(
                     type: 'select' as const,
                     name: fieldPath,
                     title,
-                    options: enumValues!.map((e) => ({value: String(e), content: String(e)})),
+                    options: (enumValues ?? []).map((e) => ({
+                        value: String(e),
+                        content: String(e),
+                    })),
                 },
                 when,
             ),

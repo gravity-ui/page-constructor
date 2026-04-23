@@ -1,5 +1,5 @@
-import {BlockConfig, ConfigInput} from '../../form-generator';
 import {imageInputs} from '../../components/Image/dynamic-form';
+import {BlockConfig, ConfigInput} from '../../form-generator';
 import {Theme} from '../../models';
 
 const mediaInputs: ConfigInput[] = [

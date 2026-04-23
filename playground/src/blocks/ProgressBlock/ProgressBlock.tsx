@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {Progress} from '@gravity-ui/uikit';
 
 export interface ProgressBlockProps {

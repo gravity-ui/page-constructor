@@ -1,10 +1,11 @@
 import * as React from 'react';
-import {formBuilderCn} from '../../utils/cn';
+
 import {ConfigInput} from '../../../form-generator';
-import {AddPropertyButton} from '../AddPropertyButton/AddPropertyButton';
-import {SectionHeader} from '../SectionHeader/SectionHeader';
 import {useFormContext} from '../../hooks/FormContext';
 import {FormObjectField, InputTypeMenuItem} from '../../types';
+import {formBuilderCn} from '../../utils/cn';
+import {AddPropertyButton} from '../AddPropertyButton/AddPropertyButton';
+import {SectionHeader} from '../SectionHeader/SectionHeader';
 
 import './ObjectFieldRenderer.scss';
 

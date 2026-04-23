@@ -1,13 +1,8 @@
 import * as React from 'react';
+
 import {Card} from '@gravity-ui/uikit';
-import {formBuilderCn} from '../../utils/cn';
+
 import {ConfigInput} from '../../../form-generator';
-import {ConfigRow} from '../ConfigRow/ConfigRow';
-import {FieldHeader} from '../FieldHeader/FieldHeader';
-import {ArrayFieldRenderer} from '../ArrayFieldRenderer/ArrayFieldRenderer';
-import {ObjectFieldRenderer} from '../ObjectFieldRenderer/ObjectFieldRenderer';
-import {OptionsRenderer} from '../OptionsRenderer/OptionsRenderer';
-import {SelectFieldRenderer} from '../SelectFieldRenderer/SelectFieldRenderer';
 import {useFormContext} from '../../hooks/FormContext';
 import {
     FormAnyOfField,
@@ -17,6 +12,13 @@ import {
     FormOneOfField,
     InputTypeMenuItem,
 } from '../../types';
+import {formBuilderCn} from '../../utils/cn';
+import {ArrayFieldRenderer} from '../ArrayFieldRenderer/ArrayFieldRenderer';
+import {ConfigRow} from '../ConfigRow/ConfigRow';
+import {FieldHeader} from '../FieldHeader/FieldHeader';
+import {ObjectFieldRenderer} from '../ObjectFieldRenderer/ObjectFieldRenderer';
+import {OptionsRenderer} from '../OptionsRenderer/OptionsRenderer';
+import {SelectFieldRenderer} from '../SelectFieldRenderer/SelectFieldRenderer';
 
 import './FieldCard.scss';
 

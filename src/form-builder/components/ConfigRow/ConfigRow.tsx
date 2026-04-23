@@ -1,5 +1,7 @@
 import * as React from 'react';
+
 import {Text, TextInput} from '@gravity-ui/uikit';
+
 import {formBuilderCn} from '../../utils/cn';
 
 import './ConfigRow.scss';

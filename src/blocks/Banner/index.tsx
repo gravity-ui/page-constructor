@@ -5,6 +5,7 @@ import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/gen
 
 import BannerBlock from './Banner';
 import {BannerCardProps} from './schema';
+
 import icon from './icon.svg';
 
 const BannerBlockConfig: BlockData = {

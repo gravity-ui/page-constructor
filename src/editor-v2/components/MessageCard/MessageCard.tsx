@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {Icon, IconData, Text} from '@gravity-ui/uikit';
+
 import {Check, CircleInfo, TriangleExclamation, Xmark} from '@gravity-ui/icons';
+import {Icon, IconData, Text} from '@gravity-ui/uikit';
 
 import {editorCn} from '../../utils/cn';
 

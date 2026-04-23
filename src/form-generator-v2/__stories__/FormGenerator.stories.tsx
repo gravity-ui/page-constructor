@@ -1,4 +1,3 @@
-import {Card, Icon, Label, Progress, Text, ThemeProvider, User, UserLabel} from '@gravity-ui/uikit';
 import {
     ArrowRight,
     CircleInfoFill,
@@ -18,6 +17,7 @@ import {
     TriangleExclamationFill,
     Wrench,
 } from '@gravity-ui/icons';
+import {Card, Icon, Label, Progress, Text, ThemeProvider, User, UserLabel} from '@gravity-ui/uikit';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {useResultPanel} from '../../../.storybook/addons/result-addon/useResultPanel';
@@ -179,6 +179,149 @@ interface Route {
     warp?: string;
 }
 
+interface StatusBadgesProps {
+    faction?: string;
+    factionTheme: string;
+    shipClass?: string;
+    armed?: boolean;
+    weaponSystem?: string;
+}
+
+const StatusBadges = ({
+    faction,
+    factionTheme,
+    shipClass,
+    armed,
+    weaponSystem,
+}: StatusBadgesProps) => (
+    <div style={{display: 'flex', gap: 6, flexWrap: 'wrap'}}>
+        {faction && (
+            <Label theme={factionTheme as Parameters<typeof Label>[0]['theme']} size="s">
+                {FACTION_LABEL[faction] ?? faction}
+            </Label>
+        )}
+        {shipClass && (
+            <Label theme="normal" size="s" icon={<Icon data={Globe} size={12} />}>
+                {capitalize(shipClass)}
+            </Label>
+        )}
+        <Label
+            theme={armed ? 'danger' : 'normal'}
+            size="s"
+            icon={armed ? <Icon data={TriangleExclamationFill} size={12} /> : undefined}
+        >
+            {armed ? 'Armed' : 'Unarmed'}
+        </Label>
+        {armed && weaponSystem && (
+            <Label theme="warning" size="s">
+                {WEAPON_LABEL[weaponSystem] ?? weaponSystem}
+            </Label>
+        )}
+    </div>
+);
+
+const CrewManifest = ({crew}: {crew: CrewMember[]}) => (
+    <div>
+        <div style={{display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10}}>
+            <span style={{color: 'var(--g-color-text-hint)', display: 'flex'}}>
+                <Icon data={Grip} size={14} />
+            </span>
+            <Text variant="caption-2" color="hint">
+                CREW MANIFEST
+            </Text>
+        </div>
+        {crew.length > 0 ? (
+            <div style={{display: 'flex', flexDirection: 'column', gap: 8}}>
+                {crew.map((member, i) => (
+                    <div
+                        key={i}
+                        style={{display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap'}}
+                    >
+                        <UserLabel
+                            text={member.name || '—'}
+                            type={member.species === 'droid' ? 'empty' : 'person'}
+                            size="s"
+                        />
+                        {member.role && (
+                            <Label theme="normal" size="s" icon={ROLE_ICON[member.role]}>
+                                {capitalize(member.role)}
+                            </Label>
+                        )}
+                        {member.species && (
+                            <Label theme="unknown" size="s" icon={SPECIES_ICON[member.species]}>
+                                {capitalize(member.species)}
+                            </Label>
+                        )}
+                    </div>
+                ))}
+            </div>
+        ) : (
+            <Text variant="body-1" color="hint">
+                No crew assigned
+            </Text>
+        )}
+    </div>
+);
+
+const FlightPlan = ({routes}: {routes: Route[]}) => (
+    <div>
+        <div style={{display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10}}>
+            <span style={{color: 'var(--g-color-text-hint)', display: 'flex'}}>
+                <Icon data={CircleInfoFill} size={14} />
+            </span>
+            <Text variant="caption-2" color="hint">
+                FLIGHT PLAN
+            </Text>
+        </div>
+        {routes.length > 0 ? (
+            <div style={{display: 'flex', flexDirection: 'column', gap: 12}}>
+                {routes.map((route, i) => {
+                    const warpProgress = route.warp ? (WARP_PROGRESS[route.warp] ?? 50) : 50;
+                    const warpProgressTheme = route.warp
+                        ? (WARP_PROGRESS_THEME[route.warp] ?? 'default')
+                        : 'default';
+                    const warpLabelTheme = route.warp
+                        ? (WARP_LABEL_THEME[route.warp] ?? 'normal')
+                        : 'normal';
+                    return (
+                        <div key={i}>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: 6,
+                                    marginBottom: 4,
+                                }}
+                            >
+                                <Text variant="body-2">{route.from || '—'}</Text>
+                                <span style={{color: 'var(--g-color-text-hint)', display: 'flex'}}>
+                                    <Icon data={ArrowRight} size={12} />
+                                </span>
+                                <Text variant="body-2">{route.to || '—'}</Text>
+                                {route.warp && (
+                                    <Label theme={warpLabelTheme} size="xs">
+                                        {capitalize(route.warp)}
+                                    </Label>
+                                )}
+                            </div>
+                            <Progress
+                                value={warpProgress}
+                                theme={warpProgressTheme}
+                                size="xs"
+                                text={`${warpProgress}% drive capacity`}
+                            />
+                        </div>
+                    );
+                })}
+            </div>
+        ) : (
+            <Text variant="body-1" color="hint">
+                No routes logged
+            </Text>
+        )}
+    </div>
+);
+
 const StarshipPreview = ({content}: {content: Content}) => {
     const shipName = content.shipName as string | undefined;
     const registrationNo = content.registrationNo as string | undefined;
@@ -216,30 +359,13 @@ const StarshipPreview = ({content}: {content: Content}) => {
             </div>
 
             {/* Status badges */}
-            <div style={{display: 'flex', gap: 6, flexWrap: 'wrap'}}>
-                {faction && (
-                    <Label theme={factionTheme} size="s">
-                        {FACTION_LABEL[faction] ?? faction}
-                    </Label>
-                )}
-                {shipClass && (
-                    <Label theme="normal" size="s" icon={<Icon data={Globe} size={12} />}>
-                        {capitalize(shipClass)}
-                    </Label>
-                )}
-                <Label
-                    theme={armed ? 'danger' : 'normal'}
-                    size="s"
-                    icon={armed ? <Icon data={TriangleExclamationFill} size={12} /> : undefined}
-                >
-                    {armed ? 'Armed' : 'Unarmed'}
-                </Label>
-                {armed && weaponSystem && (
-                    <Label theme="warning" size="s">
-                        {WEAPON_LABEL[weaponSystem] ?? weaponSystem}
-                    </Label>
-                )}
-            </div>
+            <StatusBadges
+                faction={faction}
+                factionTheme={factionTheme}
+                shipClass={shipClass}
+                armed={armed}
+                weaponSystem={weaponSystem}
+            />
 
             {/* Hull color */}
             {hullColor && (
@@ -329,120 +455,10 @@ const StarshipPreview = ({content}: {content: Content}) => {
             )}
 
             {/* Crew */}
-            <div>
-                <div style={{display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10}}>
-                    <span style={{color: 'var(--g-color-text-hint)', display: 'flex'}}>
-                        <Icon data={Grip} size={14} />
-                    </span>
-                    <Text variant="caption-2" color="hint">
-                        CREW MANIFEST
-                    </Text>
-                </div>
-                {crew.length > 0 ? (
-                    <div style={{display: 'flex', flexDirection: 'column', gap: 8}}>
-                        {crew.map((member, i) => (
-                            <div
-                                key={i}
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: 8,
-                                    flexWrap: 'wrap',
-                                }}
-                            >
-                                <UserLabel
-                                    text={member.name || '—'}
-                                    type={member.species === 'droid' ? 'empty' : 'person'}
-                                    size="s"
-                                />
-                                {member.role && (
-                                    <Label theme="normal" size="s" icon={ROLE_ICON[member.role]}>
-                                        {capitalize(member.role)}
-                                    </Label>
-                                )}
-                                {member.species && (
-                                    <Label
-                                        theme="unknown"
-                                        size="s"
-                                        icon={SPECIES_ICON[member.species]}
-                                    >
-                                        {capitalize(member.species)}
-                                    </Label>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                ) : (
-                    <Text variant="body-1" color="hint">
-                        No crew assigned
-                    </Text>
-                )}
-            </div>
+            <CrewManifest crew={crew} />
 
             {/* Flight routes */}
-            <div>
-                <div style={{display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10}}>
-                    <span style={{color: 'var(--g-color-text-hint)', display: 'flex'}}>
-                        <Icon data={CircleInfoFill} size={14} />
-                    </span>
-                    <Text variant="caption-2" color="hint">
-                        FLIGHT PLAN
-                    </Text>
-                </div>
-                {routes.length > 0 ? (
-                    <div style={{display: 'flex', flexDirection: 'column', gap: 12}}>
-                        {routes.map((route, i) => {
-                            const warpProgress = route.warp
-                                ? (WARP_PROGRESS[route.warp] ?? 50)
-                                : 50;
-                            const warpProgressTheme = route.warp
-                                ? (WARP_PROGRESS_THEME[route.warp] ?? 'default')
-                                : 'default';
-                            const warpLabelTheme = route.warp
-                                ? (WARP_LABEL_THEME[route.warp] ?? 'normal')
-                                : 'normal';
-                            return (
-                                <div key={i}>
-                                    <div
-                                        style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: 6,
-                                            marginBottom: 4,
-                                        }}
-                                    >
-                                        <Text variant="body-2">{route.from || '—'}</Text>
-                                        <span
-                                            style={{
-                                                color: 'var(--g-color-text-hint)',
-                                                display: 'flex',
-                                            }}
-                                        >
-                                            <Icon data={ArrowRight} size={12} />
-                                        </span>
-                                        <Text variant="body-2">{route.to || '—'}</Text>
-                                        {route.warp && (
-                                            <Label theme={warpLabelTheme} size="xs">
-                                                {capitalize(route.warp)}
-                                            </Label>
-                                        )}
-                                    </div>
-                                    <Progress
-                                        value={warpProgress}
-                                        theme={warpProgressTheme}
-                                        size="xs"
-                                        text={`${warpProgress}% drive capacity`}
-                                    />
-                                </div>
-                            );
-                        })}
-                    </div>
-                ) : (
-                    <Text variant="body-1" color="hint">
-                        No routes logged
-                    </Text>
-                )}
-            </div>
+            <FlightPlan routes={routes} />
         </Card>
     );
 };

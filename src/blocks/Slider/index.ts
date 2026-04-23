@@ -4,6 +4,7 @@ import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/gen
 
 import SliderBlock from './Slider';
 import {SliderBlock as SliderBlockSchema} from './schema';
+
 import icon from './icon.svg';
 
 const SliderBlockConfig = {

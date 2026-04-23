@@ -17,7 +17,7 @@ type BaseProps = {
 const Base = ({when, content, children, name, onUpdate, defaultValue}: BaseProps) => {
     const verifiedConditions = React.useMemo(() => {
         if (!when) {
-            return;
+            return true;
         }
 
         let result = null;

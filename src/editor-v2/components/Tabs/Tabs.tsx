@@ -1,5 +1,6 @@
-import {Button} from '@gravity-ui/uikit';
 import * as React from 'react';
+
+import {Button} from '@gravity-ui/uikit';
 
 import {editorCn} from '../../utils/cn';
 

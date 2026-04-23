@@ -1,10 +1,10 @@
-import {useContext} from 'react';
+import * as React from 'react';
 
-import {PageContent} from '../../models';
 import {InnerContext} from '../../context/innerContext';
+import {PageContent} from '../../models';
 
 export function useContent<T extends object = object>() {
-    const {content, setContent} = useContext(InnerContext);
+    const {content, setContent} = React.useContext(InnerContext);
     return {
         content: content as T & PageContent,
         setContent: setContent as React.Dispatch<React.SetStateAction<T>>,

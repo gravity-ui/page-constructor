@@ -1,18 +1,18 @@
-import _ from 'lodash';
 import * as React from 'react';
 
-import {ConfigInput, DynamicFormValue} from './types';
-import {formGeneratorCn} from './utils/cn';
+import _ from 'lodash';
 
+import AnyOfDynamicField from './components/Fields/AnyOf/AnyOf';
 import ArrayDynamicField from './components/Fields/Array/Array';
 import BooleanDynamicField from './components/Fields/Boolean/Boolean';
 import NumberDynamicField from './components/Fields/Number/Number';
 import ObjectDynamicField from './components/Fields/Object/Object';
-import AnyOfDynamicField from './components/Fields/AnyOf/AnyOf';
 import OneOfDynamicField from './components/Fields/OneOf/OneOf';
 import SelectDynamicField from './components/Fields/Select/Select';
 import TextDynamicField from './components/Fields/Text/Text';
 import TextAreaDynamicField from './components/Fields/TextArea/TextArea';
+import {ConfigInput, DynamicFormValue} from './types';
+import {formGeneratorCn} from './utils/cn';
 import {getContent, getFullPath} from './utils/common';
 
 import './FormGenerator.scss';

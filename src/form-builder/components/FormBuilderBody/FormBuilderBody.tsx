@@ -1,9 +1,11 @@
 import * as React from 'react';
+
 import {Button, DropdownMenu} from '@gravity-ui/uikit';
-import {formBuilderCn} from '../../utils/cn';
-import {FieldCard} from '../FieldCard/FieldCard';
+
 import {useFormContext} from '../../hooks/FormContext';
 import {InputTypeMenuItem} from '../../types';
+import {formBuilderCn} from '../../utils/cn';
+import {FieldCard} from '../FieldCard/FieldCard';
 
 import './FormBuilderBody.scss';
 

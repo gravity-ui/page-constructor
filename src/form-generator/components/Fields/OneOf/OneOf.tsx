@@ -1,9 +1,10 @@
-import {SegmentedRadioGroup, Select} from '@gravity-ui/uikit';
 import * as React from 'react';
 
+import {SegmentedRadioGroup, Select} from '@gravity-ui/uikit';
+
+import DynamicForm from '../../../FormGenerator';
 import {DynamicFormValue, OneOfInput} from '../../../types';
 import {formGeneratorCn} from '../../../utils/cn';
-import DynamicForm from '../../../FormGenerator';
 import FieldBase from '../../FieldBase/FieldBase';
 
 import './OneOf.scss';

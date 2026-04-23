@@ -1,6 +1,7 @@
 import {Fields} from '../../form-generator-v2/types';
 
 import MediaBlock from './Media';
+
 import icon from './icon.svg';
 
 const MediaBlockConfig = {

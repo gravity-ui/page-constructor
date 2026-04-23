@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import {Text} from '@gravity-ui/uikit';
 
-import {formGeneratorCn} from '../../utils/cn';
 import {ClassNameProps} from '../../../models/common';
+import {formGeneratorCn} from '../../utils/cn';
 
 import './BaseInput.scss';
 

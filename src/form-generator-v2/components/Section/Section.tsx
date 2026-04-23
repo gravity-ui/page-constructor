@@ -165,10 +165,10 @@ const Section = ({
             const src = itemTitle || title;
             return src ? src.replaceAll(`{{${index}}}`, String(i)) : undefined;
         };
-        const addButtonLabel =
-            itemTitle || title
-                ? (itemTitle || title)!.replaceAll(`{{${index}}}`, String(rowKeys.length))
-                : 'Add';
+        const labelTemplate = itemTitle || title;
+        const addButtonLabel = labelTemplate
+            ? labelTemplate.replaceAll(`{{${index}}}`, String(rowKeys.length))
+            : 'Add';
 
         const renderItem = (rowKey: string, rowIndex: number) => {
             const cardTitle = resolvedItemTitle(rowIndex);

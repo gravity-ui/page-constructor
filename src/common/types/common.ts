@@ -1,5 +1,5 @@
-import type React from 'react';
-import {PropsWithChildren} from 'react';
+import * as React from 'react';
+
 import {BlockConfig} from '../../form-generator-v2/types';
 
 export interface ItemConfig {
@@ -7,7 +7,7 @@ export interface ItemConfig {
     schema: BlockConfig;
 }
 
-export interface PageConstructorWrapperProps extends PropsWithChildren {}
+export interface PageConstructorWrapperProps extends React.PropsWithChildren {}
 
 export type PageConstructorWrapper<WrapperProps> = React.ComponentType<
     WrapperProps & PageConstructorWrapperProps

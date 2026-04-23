@@ -26,11 +26,7 @@ export interface GravityBlocksGlobalConfig {
 
 export interface GravityPageContent extends PageContent, GravityBlocksGlobalConfig {}
 
-/**
- * Convenience factory that creates all Gravity extensions at once.
- * Returns an array of extensions: [General, Background, Navigation]
- * Order matters: General wraps Background, which wraps Navigation.
- */
+/** @returns Array of PageConstructorExtension instances for gravity-blocks. */
 export const gravityBlocksExtension = ({
     wrapperProps = {},
     globalDefaults = {},

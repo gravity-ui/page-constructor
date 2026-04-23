@@ -1,8 +1,8 @@
 import {useSearchParams} from 'react-router';
 
 import EditorPage from './pages/editor/editor';
-import PCPage from './pages/pc/pc';
 import ExperimentalPage from './pages/experemental/experemental';
+import PCPage from './pages/pc/pc';
 
 export default function Router() {
     const [searchParams] = useSearchParams();

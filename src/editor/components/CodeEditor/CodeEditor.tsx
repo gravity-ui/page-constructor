@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {ChevronsCollapseUpRight, ChevronsExpandUpRight} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';

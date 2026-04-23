@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import {
     ChevronDown,
     ChevronRight,
@@ -8,7 +10,6 @@ import {
     Magnifier,
 } from '@gravity-ui/icons';
 import {DropdownMenu, Icon, TextInput} from '@gravity-ui/uikit';
-import * as React from 'react';
 
 import {ItemConfig} from '../../../common/types';
 import {ClassNameProps} from '../../../models';
