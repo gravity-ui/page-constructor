@@ -1,10 +1,10 @@
 import {CircleInfoFill, TriangleExclamationFill} from '@gravity-ui/icons';
 import {Icon, Text as TextUIKIT} from '@gravity-ui/uikit';
 
+import {ClassNameProps} from '../../../models/common';
 import {Content, Text as TextField, When} from '../../types';
 import {formGeneratorCn} from '../../utils/cn';
 import Base from '../Base/Base';
-import {ClassNameProps} from '../../../models/common';
 
 import './Text.scss';
 

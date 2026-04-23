@@ -1,12 +1,14 @@
 import * as React from 'react';
+
 import {Button, DropdownMenu, Text} from '@gravity-ui/uikit';
+
 import {ArrayObjectInput, ConfigInput} from '../../../form-generator';
-import {ConfigRow} from '../ConfigRow/ConfigRow';
-import {AddPropertyButton} from '../AddPropertyButton/AddPropertyButton';
-import {SectionHeader} from '../SectionHeader/SectionHeader';
 import {useFormContext} from '../../hooks/FormContext';
 import {FormArrayField, InputTypeMenuItem} from '../../types';
 import {formBuilderCn} from '../../utils/cn';
+import {AddPropertyButton} from '../AddPropertyButton/AddPropertyButton';
+import {ConfigRow} from '../ConfigRow/ConfigRow';
+import {SectionHeader} from '../SectionHeader/SectionHeader';
 
 import './ArrayFieldRenderer.scss';
 

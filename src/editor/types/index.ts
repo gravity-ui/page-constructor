@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import {PageConstructorProps, PageConstructorProviderProps} from '../../containers/PageConstructor';
+import {SchemaCustomConfig} from '../../gravity-blocks/schema';
 import {BlockWrapperDataProps, PageContent} from '../../models';
 import {Theme} from '../../models/common';
-import {SchemaCustomConfig} from '../../gravity-blocks/schema';
 import {EditBlockActions} from '../components/EditBlock/EditBlock';
 
 export type EditorBlockId = number | string;

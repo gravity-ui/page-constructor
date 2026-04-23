@@ -27,7 +27,7 @@ const getSegmentsFromTemplate = (templateName: string): NamePathSegment[] => {
     let match: RegExpExecArray | null;
 
     while ((match = re.exec(templateName)) !== null) {
-        const prop = match[1]!;
+        const prop = match[1] ?? '';
         const placeholder = match[2];
         const fixedIndex = match[3];
 
@@ -58,7 +58,8 @@ export const getArrayPathForNameWithIndexName = (
     }
 
     for (let i = 0; i < placeholderIdx; i++) {
-        if (segments[i]!.type !== 'fixed') {
+        const seg = segments[i];
+        if (!seg || seg.type !== 'fixed') {
             return undefined;
         }
     }
@@ -77,8 +78,8 @@ export const getArrayPathForNameWithIndexName = (
 
 const getResolvedBrackets = (resolvedName: string): Array<{prop: string; index: number}> =>
     [...resolvedName.matchAll(/(\w+)\[(\d+)\]/g)].map((m) => ({
-        prop: m[1]!,
-        index: parseInt(m[2]!, 10),
+        prop: m[1] ?? '',
+        index: parseInt(m[2] ?? '0', 10),
     }));
 
 export const findNameWithIndexName = (fields: Fields, indexName: string) => {
@@ -209,18 +210,11 @@ export const sectionHasContentData = (fields: Fields, content: Content) => {
         if (field.type === 'section') {
             if (field.index !== undefined) {
                 const nameWithIndexName = findNameWithIndexName(field.fields, field.index);
-                if (nameWithIndexName) {
-                    const arrayPath = getArrayPathForNameWithIndexName(
-                        nameWithIndexName,
-                        field.index,
-                    );
-                    if (arrayPath) {
-                        const arr = getValueByPath(content, arrayPath);
-                        if (Array.isArray(arr) && arr.length > 0) {
-                            return true;
-                        }
-                    }
-                }
+                const arrayPath = nameWithIndexName
+                    ? getArrayPathForNameWithIndexName(nameWithIndexName, field.index)
+                    : undefined;
+                const arr = arrayPath ? getValueByPath(content, arrayPath) : undefined;
+                if (Array.isArray(arr) && arr.length > 0) return true;
             } else if (sectionHasContentData(field.fields, content)) {
                 return true;
             }

@@ -1,7 +1,6 @@
 import type {UniqueIdentifier} from '@dnd-kit/abstract';
 
 import type {ConstructorBlock} from '../../../../models';
-
 import type {FlattenedTreeItem, TreeItemData} from '../types';
 
 export function flattenTree(

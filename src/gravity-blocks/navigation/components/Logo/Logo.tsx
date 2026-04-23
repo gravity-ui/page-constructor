@@ -3,10 +3,10 @@ import * as React from 'react';
 import {Image} from '../../../../components';
 import {getMediaImage} from '../../../../components/Media/Image/utils';
 import RouterLink from '../../../../components/RouterLink/RouterLink';
-import {LocationContext} from '../../../context/locationContext';
-import {useTheme} from '../../../context/theme';
 import {ThemedNavigationLogoData} from '../../../../models';
 import {block, getLinkProps, getThemedValue} from '../../../../utils';
+import {LocationContext} from '../../../context/locationContext';
+import {useTheme} from '../../../context/theme';
 
 import {i18n} from './i18n';
 

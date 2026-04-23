@@ -1,6 +1,7 @@
+import * as React from 'react';
+
 import {SquareBars} from '@gravity-ui/icons';
 import {Card, Icon} from '@gravity-ui/uikit';
-import * as React from 'react';
 
 import {editorCn} from '../../utils/cn';
 

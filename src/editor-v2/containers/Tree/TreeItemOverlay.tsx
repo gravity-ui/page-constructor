@@ -1,9 +1,9 @@
 import {Card} from '@gravity-ui/uikit';
 
+import {HTML} from '../../../components';
 import type {ConstructorBlock} from '../../../models';
 import {getItemTitle} from '../../utils';
 import {editorCn} from '../../utils/cn';
-import {HTML} from '../../../components';
 
 import {getBlockTypeLabel} from './utils/blocksBridge';
 

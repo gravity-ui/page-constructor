@@ -1,6 +1,7 @@
+import * as React from 'react';
+
 import {Grip, LayoutSideContentLeft, LayoutSideContentRight} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
-import * as React from 'react';
 import {ImperativePanelHandle, Panel, PanelGroup, PanelResizeHandle} from 'react-resizable-panels';
 
 import {editorCn} from '../../utils/cn';

@@ -1,6 +1,8 @@
 import * as React from 'react';
-import {useFormFields} from './useFormFields';
+
 import {FormContextType, FormField} from '../types';
+
+import {useFormFields} from './useFormFields';
 
 export const FormContext = React.createContext<FormContextType>({} as FormContextType);
 

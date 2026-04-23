@@ -1,11 +1,5 @@
-import React from 'react';
+import * as React from 'react';
 
-import {PageContent} from '../../../src/models';
-import type {PageConstructorWrapperProps} from '../../../src/common/types';
-import type {PageConstructorExtension} from '../../../src/containers/PageConstructor/PageConstructor';
-import type {BlockWrapperDataProps} from '../../../src/models';
-import {Fields} from '../../../src/form-generator-v2/types';
-import {ThemeProvider} from '@gravity-ui/uikit';
 import {
     Bell,
     Flag,
@@ -19,10 +13,17 @@ import {
     PlanetEarth,
     Star,
 } from '@gravity-ui/icons';
-import type {IconData} from '@gravity-ui/uikit';
 import {AsideHeader} from '@gravity-ui/navigation';
 import type {MenuItem, SubheaderMenuItem} from '@gravity-ui/navigation';
+import type {IconData} from '@gravity-ui/uikit';
+import {ThemeProvider} from '@gravity-ui/uikit';
+
 import {useContent} from '../../../src';
+import type {PageConstructorWrapperProps} from '../../../src/common/types';
+import type {PageConstructorExtension} from '../../../src/containers/PageConstructor/PageConstructor';
+import {Fields} from '../../../src/form-generator-v2/types';
+import type {BlockWrapperDataProps} from '../../../src/models';
+import {PageContent} from '../../../src/models';
 
 const ICON_MAP: Record<string, IconData> = {
     House,
@@ -162,7 +163,7 @@ export const ExperementalBlockWrapper: React.FC<
     return <div style={padding}>{children}</div>;
 };
 
-export const ExperementalBlocksExtension = ({
+export const experementalBlocksExtension = ({
     wrapperProps = {},
     globalDefaults = {},
 }: {

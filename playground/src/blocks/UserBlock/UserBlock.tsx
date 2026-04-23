@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {User} from '@gravity-ui/uikit';
 
 export interface UserBlockProps {

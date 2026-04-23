@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {Accordion} from '@gravity-ui/uikit';
 
 export interface AccordionBlockItem {

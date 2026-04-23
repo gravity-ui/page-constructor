@@ -5,6 +5,7 @@ import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/gen
 
 import CardLayout from './CardLayout';
 import {CardLayoutProps} from './schema';
+
 import icon from './icon.svg';
 
 const CardLayoutBlockConfig: BlockData = {

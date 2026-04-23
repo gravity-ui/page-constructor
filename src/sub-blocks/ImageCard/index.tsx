@@ -5,6 +5,7 @@ import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/gen
 
 import ImageCard from './ImageCard';
 import {ImageCard as ImageCardSchema} from './schema';
+
 import icon from './icon.svg';
 
 const ImageCardConfig: BlockData = {

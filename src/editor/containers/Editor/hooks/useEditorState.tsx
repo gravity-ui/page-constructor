@@ -24,15 +24,8 @@ export const useEditorState = ({
     theme: editorTheme,
     ...rest
 }: EditorProps) => {
-    const {
-        content,
-        activeBlockIndex,
-        errorBoundaryState,
-        onContentUpdate,
-        onAdd,
-        onSelect,
-        injectEditBlockProps,
-    } = useMainState(rest);
+    const {content, activeBlockIndex, errorBoundaryState, onContentUpdate, onAdd, onSelect} =
+        useMainState(rest);
 
     const {
         viewMode,
@@ -115,8 +108,6 @@ export const useEditorState = ({
             viewMode,
         };
     }, [
-        injectEditBlockProps,
-        errorBoundaryState,
         viewMode,
         transformedContent,
         rest.custom,

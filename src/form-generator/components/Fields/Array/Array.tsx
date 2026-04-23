@@ -1,13 +1,15 @@
-import {Plus} from '@gravity-ui/icons';
-import {Button, Icon} from '@gravity-ui/uikit';
 import * as React from 'react';
 
-import {ArrayObjectInput, ArrayTextInput, DynamicFormValue} from '../../../types';
+import {Plus} from '@gravity-ui/icons';
+import {Button, Icon} from '@gravity-ui/uikit';
+
 import {removeFromArray, swapArrayItems} from '../../../../editor-v2/utils';
-import {formGeneratorCn} from '../../../utils/cn';
 import DynamicForm from '../../../FormGenerator';
+import {ArrayObjectInput, ArrayTextInput, DynamicFormValue} from '../../../types';
+import {formGeneratorCn} from '../../../utils/cn';
 import FieldBase from '../../FieldBase/FieldBase';
 import Text from '../Text/Text';
+
 import ItemButton from './ItemButton/ItemButton';
 
 import './Array.scss';

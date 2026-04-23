@@ -1,6 +1,7 @@
 import * as React from 'react';
-import block from 'bem-cn-lite';
+
 import {Button, Menu, Popup, ThemeProvider} from '@gravity-ui/uikit';
+import block from 'bem-cn-lite';
 
 import {EditorProvider, EditorView, usePCEditorSettings} from '../../../../src/editor-v2';
 
@@ -50,7 +51,7 @@ const NavigateToButton = () => {
 
 export default function EditorPage() {
     const initialUrl =
-        typeof window !== 'undefined' ? window.location.origin + '/?page=gravity-blocks&id=1' : '';
+        typeof window === 'undefined' ? '' : window.location.origin + '/?page=gravity-blocks&id=1';
 
     return (
         <ThemeProvider theme={'light'}>

@@ -1,11 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 
 import {ThemeProvider} from '@gravity-ui/uikit';
 
-import BrandFooter from '../../components/BrandFooter/BrandFooter';
-import {AnimateContext} from '../../gravity-blocks/context/animateContext';
-import type {PageConstructorExtension} from '../../containers/PageConstructor/PageConstructor';
 import type {PageConstructorWrapperProps} from '../../common/types';
+import BrandFooter from '../../components/BrandFooter/BrandFooter';
+import type {PageConstructorExtension} from '../../containers/PageConstructor/PageConstructor';
+import {AnimateContext} from '../../gravity-blocks/context/animateContext';
 import {useContent} from '../../gravity-blocks/hooks';
 import {block} from '../../utils';
 

@@ -1,11 +1,13 @@
 import * as React from 'react';
+
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter} from 'react-router';
-import '@gravity-ui/uikit/styles/fonts.css';
-import '@gravity-ui/uikit/styles/styles.css';
-import './styles/globals.scss';
 
 import Router from './router';
+
+import './styles/globals.scss';
+import '@gravity-ui/uikit/styles/fonts.css';
+import '@gravity-ui/uikit/styles/styles.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(

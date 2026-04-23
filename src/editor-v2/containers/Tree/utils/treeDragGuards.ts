@@ -1,7 +1,8 @@
 import type {UniqueIdentifier} from '@dnd-kit/abstract';
 
-import {blockHasChildrenProp} from './blocksBridge';
 import type {FlattenedTreeItem} from '../types';
+
+import {blockHasChildrenProp} from './blocksBridge';
 import {getProjection} from './common';
 
 function parentRowSupportsChildren(flat: FlattenedTreeItem[], parentId: string | null): boolean {

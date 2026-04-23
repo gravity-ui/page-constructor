@@ -1,5 +1,7 @@
 import * as React from 'react';
+
 import {Button, DropdownMenu} from '@gravity-ui/uikit';
+
 import {ConfigInput} from '../../../form-generator';
 import {formBuilderCn} from '../../utils/cn';
 

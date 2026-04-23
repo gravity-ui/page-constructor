@@ -1,10 +1,10 @@
 import {JSONSchemaType} from 'ajv';
 
-import MediaCard from './MediaCard';
-import {MediaCardBlock as MediaCardSchema} from './schema';
-
 import {BlockData} from '../../constructor-items';
 import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
+
+import MediaCard from './MediaCard';
+import {MediaCardBlock as MediaCardSchema} from './schema';
 
 const MediaCardConfig: BlockData = {
     type: 'media-card',

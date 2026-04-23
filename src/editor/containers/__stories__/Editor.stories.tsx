@@ -6,8 +6,8 @@ import {scriptsSrc, ymapApiKeyForStorybook} from '../../../../.storybook/maps';
 import {LocaleContext} from '../../../gravity-blocks/context/localeContext';
 import {MapType} from '../../../gravity-blocks/context/mapsContext/mapsContext';
 import {MapProvider} from '../../../gravity-blocks/context/mapsContext/mapsProvider';
-import {PageContent} from '../../../models';
 import {contentTransformer} from '../../../gravity-blocks/text-transform';
+import {PageContent} from '../../../models';
 import {EditorProps} from '../../types';
 import {Editor} from '../Editor/Editor';
 

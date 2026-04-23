@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {Tab, TabList, TabPanel, TabProvider} from '@gravity-ui/uikit';
 
 export interface TabsAtomItem {

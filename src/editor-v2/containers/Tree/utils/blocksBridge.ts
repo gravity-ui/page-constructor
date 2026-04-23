@@ -2,7 +2,6 @@
 import _ from 'lodash';
 
 import type {ConstructorBlock} from '../../../../models';
-
 import type {FlattenedTreeItem, TreeItemData} from '../types';
 
 export function blockHasChildrenProp(block: ConstructorBlock): boolean {

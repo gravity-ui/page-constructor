@@ -1,5 +1,5 @@
-import {ConfigInput, DynamicFormValue} from '../../../types';
 import DynamicForm from '../../../FormGenerator';
+import {ConfigInput, DynamicFormValue} from '../../../types';
 import FieldBase, {FieldBaseParams} from '../../FieldBase/FieldBase';
 
 interface ObjectDynamicFieldProps extends FieldBaseParams {

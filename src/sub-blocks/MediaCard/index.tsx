@@ -5,6 +5,7 @@ import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/gen
 
 import MediaCard from './MediaCard';
 import {MediaCardBlock as MediaCardSchema} from './schema';
+
 import icon from './icon.svg';
 
 const MediaCardConfig: BlockData = {

@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import OutsideClick from '../../../../components/OutsideClick/OutsideClick';
-import {Col, Grid, Row} from '../../../grid';
 import {ClassNameProps, HeaderData, ThemedNavigationLogoData} from '../../../../models';
 import {block} from '../../../../utils';
+import {Col, Grid, Row} from '../../../grid';
 import {useActiveNavItem, useShowBorder} from '../../hooks';
 import DesktopNavigation from '../DesktopNavigation/DesktopNavigation';
 import MobileNavigation from '../MobileNavigation/MobileNavigation';

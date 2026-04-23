@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {ArrowToggle, Button, Icon} from '@gravity-ui/uikit';
+
 import {ArrowRotateLeft} from '@gravity-ui/icons';
+import {ArrowToggle, Button, Icon} from '@gravity-ui/uikit';
 import _ from 'lodash';
 
 import {formGeneratorCn} from '../../utils/cn';

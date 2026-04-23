@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import {AnalyticsContext} from '../context/analyticsContext';
 import {BlockIdContext} from '../../context/blockIdContext';
 import {AnalyticsEvent, AnalyticsEventsProp, PredefinedEventTypes} from '../../models';
+import {AnalyticsContext} from '../context/analyticsContext';
 
 export const useAnalytics = (name = '', target?: string) => {
     const {sendEvents, autoEvents} = React.useContext(AnalyticsContext);

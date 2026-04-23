@@ -3,8 +3,8 @@ import * as React from 'react';
 import {Portal} from '@gravity-ui/uikit';
 
 import Foldable from '../../../../components/Foldable/Foldable';
-import {useMount} from '../../../hooks';
 import {block} from '../../../../utils';
+import {useMount} from '../../../hooks';
 import {ItemColumnName, MobileNavigationProps, NavigationLayout} from '../../models';
 import {NavigationList} from '../NavigationList/NavigationList';
 

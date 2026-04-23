@@ -1,6 +1,7 @@
+import * as React from 'react';
+
 import {ArrowRotateRight} from '@gravity-ui/icons';
 import {Button, Icon, TextInput} from '@gravity-ui/uikit';
-import * as React from 'react';
 
 import {IframeContext} from '../../context/iframeContext';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';

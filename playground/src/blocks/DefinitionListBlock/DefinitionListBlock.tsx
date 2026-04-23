@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {DefinitionList} from '@gravity-ui/uikit';
 
 export interface DefinitionListItem {

@@ -19,6 +19,7 @@ import {
     ShouldRenderBlock,
 } from '../../models';
 import {block as cnBlock, getCustomItems} from '../../utils';
+
 import {ConstructorBlocks} from './components';
 import {ConstructorRow} from './components/ConstructorRow';
 
@@ -67,7 +68,7 @@ export const PageConstructor = (props: PageConstructorProps) => {
         extensions: extensionsProp,
     } = props;
 
-    const extensions = extensionsProp ?? [];
+    const extensions = React.useMemo(() => extensionsProp ?? [], [extensionsProp]);
 
     const {blocks: availableGlobalBlocks} = React.useContext(BlocksContext);
 
@@ -96,12 +97,16 @@ export const PageConstructor = (props: PageConstructorProps) => {
 
     const blockWrappers = React.useMemo(
         () =>
-            extensions
-                .filter((ext) => ext.settings.blockWrapper)
-                .map((ext) => ({
-                    wrapper: ext.settings.blockWrapper!,
-                    props: ext.settings.blockWrapperProps ?? {},
-                })),
+            extensions.flatMap((ext) =>
+                ext.settings.blockWrapper
+                    ? [
+                          {
+                              wrapper: ext.settings.blockWrapper,
+                              props: ext.settings.blockWrapperProps ?? {},
+                          },
+                      ]
+                    : [],
+            ),
         [extensions],
     );
 

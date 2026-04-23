@@ -1,30 +1,31 @@
 /* eslint-disable no-negated-condition */
-import {TrashBin} from '@gravity-ui/icons';
-import {Button, Icon} from '@gravity-ui/uikit';
+import * as React from 'react';
+
 import type {DragDropEvents} from '@dnd-kit/abstract';
 import type {DragDropManager, Draggable, Droppable} from '@dnd-kit/dom';
 import {isKeyboardEvent} from '@dnd-kit/dom/utilities';
-import {DragDropProvider, DragOverlay} from '@dnd-kit/react';
 import {move} from '@dnd-kit/helpers';
+import {DragDropProvider, DragOverlay} from '@dnd-kit/react';
+import {TrashBin} from '@gravity-ui/icons';
+import {Button, Icon} from '@gravity-ui/uikit';
 import _ from 'lodash';
-import * as React from 'react';
 
 import type {ClassNameProps} from '../../../models';
 import {useMainEditorStore} from '../../hooks';
-import {editorCn} from '../../utils/cn';
 import {generateChildrenPathFromArray, getItemTitle} from '../../utils';
+import {editorCn} from '../../utils/cn';
 
+import {TreeItem} from './TreeItem';
+import {TreeItemOverlay} from './TreeItemOverlay';
+import type {FlattenedTreeItem} from './types';
 import {
     blocksToTreeItems,
     getBlockTypeLabel,
     idToBlockPath,
     treeItemsToBlocks,
 } from './utils/blocksBridge';
-import {sanitizeProjectionForChildrenCapability} from './utils/treeDragGuards';
-import {TreeItem} from './TreeItem';
-import {TreeItemOverlay} from './TreeItemOverlay';
-import type {FlattenedTreeItem} from './types';
 import {buildTree, flattenTree, getDescendants, getDragDepth} from './utils/common';
+import {sanitizeProjectionForChildrenCapability} from './utils/treeDragGuards';
 
 import './Tree.scss';
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {InnerContext} from '../../../../context/innerContext';
 import {usePCEditorChildrenItemWrap} from '../../../../hooks/usePCEditorChildrenItemWrap';
-import {ConstructorBlock as ConstructorBlockType} from '../../../../models';
+import {ConstructorBlock as ConstructorBlockType, ConstructorItem} from '../../../../models';
 
 import './ConstructorBlock.scss';
 
@@ -21,7 +21,7 @@ export const ConstructorBlock = ({
 
     const wrappedContent = blockWrappers.reduce<React.ReactNode>(
         (content, {wrapper: Wrapper, props}) => (
-            <Wrapper type={data.type} props={props} content={data as any} index={index}>
+            <Wrapper type={data.type} props={props} content={data as ConstructorItem} index={index}>
                 {content}
             </Wrapper>
         ),

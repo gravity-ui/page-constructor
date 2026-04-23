@@ -111,6 +111,16 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
         [manipulateOverlayMode],
     );
 
+    const handleKeyDown = React.useCallback(
+        (e: React.KeyboardEvent, path: number[]) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.stopPropagation();
+                handleClick(path);
+            }
+        },
+        [handleClick],
+    );
+
     const handleMouseUp = React.useCallback(
         (path: number[]) => {
             if (!manipulateOverlayMode) return;
@@ -170,6 +180,8 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
                 return (
                     <div
                         key={key}
+                        role={dropZone ? 'presentation' : 'button'}
+                        tabIndex={dropZone ? -1 : 0}
                         className={b('hit')}
                         style={{
                             top: rect.top,
@@ -186,6 +198,7 @@ const Overlay = ({className, canvasElement}: OverlayProps) => {
                                       handleClick(path);
                                   }
                         }
+                        onKeyDown={dropZone ? undefined : (e) => handleKeyDown(e, path)}
                         onMouseEnter={() => handleMouseEnter(path)}
                         onMouseLeave={() => handleMouseLeave(path)}
                         onMouseMove={(e) => handleMouseMove(e)}

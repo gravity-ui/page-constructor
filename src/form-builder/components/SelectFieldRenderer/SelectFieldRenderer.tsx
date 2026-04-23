@@ -1,8 +1,10 @@
 import * as React from 'react';
+
 import {Button, DropdownMenu, Text, TextInput} from '@gravity-ui/uikit';
-import {formBuilderCn} from '../../utils/cn';
-import {FormField} from '../../types';
+
 import {useFormContext} from '../../hooks/FormContext';
+import {FormField} from '../../types';
+import {formBuilderCn} from '../../utils/cn';
 
 import './SelectFieldRenderer.scss';
 

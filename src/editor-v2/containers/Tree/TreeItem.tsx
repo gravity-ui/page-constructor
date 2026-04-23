@@ -1,13 +1,13 @@
-import {Copy, TrashBin} from '@gravity-ui/icons';
-import {Button, Card, Icon} from '@gravity-ui/uikit';
 import * as React from 'react';
 
 import {useSortable} from '@dnd-kit/react/sortable';
+import {Copy, TrashBin} from '@gravity-ui/icons';
+import {Button, Card, Icon} from '@gravity-ui/uikit';
 
+import {HTML} from '../../../components';
 import {editorCn} from '../../utils/cn';
 
 import type {FlattenedTreeItem} from './types';
-import {HTML} from '../../../components';
 
 import './TreeItem.scss';
 

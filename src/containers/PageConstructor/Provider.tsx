@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import {PCEditorStoreProvider} from '../../context/editorStoreContext';
-import {BlocksContext} from '../../context/blocksContext';
 import {BlockData} from '../../constructor-items';
+import {BlocksContext} from '../../context/blocksContext';
+import {PCEditorStoreProvider} from '../../context/editorStoreContext';
 
 export interface PageConstructorProviderProps {
     blocks?: Array<BlockData>;

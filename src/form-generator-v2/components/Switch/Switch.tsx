@@ -1,10 +1,10 @@
 import {Switch as SwitchUIKIT} from '@gravity-ui/uikit';
 
+import {ClassNameProps} from '../../../models/common';
 import {CommonProps, SwitchField} from '../../types';
+import {getValueByPath} from '../../utils/fields';
 import Base from '../Base/Base';
 import BaseInput from '../BaseInput/BaseInput';
-import {ClassNameProps} from '../../../models/common';
-import {getValueByPath} from '../../utils/fields';
 
 type SwitchProps = ClassNameProps & SwitchField & CommonProps;
 

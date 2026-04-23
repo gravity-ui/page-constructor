@@ -3,14 +3,14 @@ import * as React from 'react';
 import isEmpty from 'lodash/isEmpty';
 
 import {AnimateBlock, BackgroundImage, Title} from '../../components';
+import ChildrenItemWrap from '../../components/editor/ChildrenItemWrap/ChildrenItemWrap';
+import ChildrensWrap from '../../components/editor/ChildrensWrap/ChildrensWrap';
 import {useTheme} from '../../gravity-blocks/context/theme';
 import {Col, Grid, GridColumnSizesType, GridJustifyContent, Row} from '../../gravity-blocks/grid';
 import {CardLayoutBlockProps as CardLayoutBlockParams, ClassNameProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
 import './CardLayout.scss';
-import ChildrensWrap from '../../components/editor/ChildrensWrap/ChildrensWrap';
-import ChildrenItemWrap from '../../components/editor/ChildrenItemWrap/ChildrenItemWrap';
 
 const DEFAULT_SIZES: GridColumnSizesType = {
     all: 12,

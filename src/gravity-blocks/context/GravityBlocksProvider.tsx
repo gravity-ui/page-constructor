@@ -1,10 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 
 import {ThemeProvider} from '@gravity-ui/uikit';
 
 import {DEFAULT_THEME} from '../../components/constants';
-import {AnimateContext} from './animateContext';
+import {Theme} from '../../models';
+
 import {AnalyticsContext, AnalyticsContextProps} from './analyticsContext';
+import {AnimateContext} from './animateContext';
 import {
     DEFAULT_FORMS_CONTEXT_VALUE,
     FormsContext,
@@ -20,7 +22,6 @@ import {ProjectSettingsContext, ProjectSettingsContextProps} from './projectSett
 import {SSRContext, SSRContextProps} from './ssrContext';
 import {ThemeContext} from './theme';
 import {WindowWidthProvider} from './windowWidthContext';
-import {Theme} from '../../models';
 
 export interface GravityBlocksProviderProps {
     isMobile?: boolean;

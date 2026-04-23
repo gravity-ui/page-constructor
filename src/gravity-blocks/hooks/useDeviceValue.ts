@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import {BREAKPOINTS} from '../../constants';
-import {useWindowWidth} from '../context/windowWidthContext';
 import {Device} from '../../models';
 import {DeviceSupporting, isDeviceValue} from '../../utils';
+import {useWindowWidth} from '../context/windowWidthContext';
 
 const getDeviceBreakpoints = (inclusive?: boolean): [tablet: number, mobile: number] => {
     const shift = inclusive ? 0 : -1;
