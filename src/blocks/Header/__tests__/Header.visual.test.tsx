@@ -51,7 +51,11 @@ test.describe('Header', () => {
         await expectScreenshot({skipTheme: 'dark'});
     });
 
-    test('render stories <FullWithBackground>', async ({mount, expectScreenshot, defaultDelay}) => {
+    test('render stories <FullWidthBackground>', async ({
+        mount,
+        expectScreenshot,
+        defaultDelay,
+    }) => {
         await mount(<FullWidthBackground />);
         await defaultDelay();
         await expectScreenshot({skipTheme: 'dark'});
