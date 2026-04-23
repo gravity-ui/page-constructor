@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     name: Deploy
-    if: |
+    if: >
       github.event.workflow_run.event == 'pull_request' &&
       github.event.workflow_run.conclusion == 'success'
     using: composite
