@@ -6,8 +6,8 @@ import {
     Centered,
     DarkTheme,
     Default,
+    FullWidthBackground,
     FullWidthMediaBackground,
-    FullWithBackground,
     Image,
     MediaViewFit,
     Size,
@@ -52,7 +52,7 @@ test.describe('Header', () => {
     });
 
     test('render stories <FullWithBackground>', async ({mount, expectScreenshot, defaultDelay}) => {
-        await mount(<FullWithBackground />);
+        await mount(<FullWidthBackground />);
         await defaultDelay();
         await expectScreenshot({skipTheme: 'dark'});
     });
