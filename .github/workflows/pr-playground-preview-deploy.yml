@@ -20,3 +20,10 @@ jobs:
           github-token: ${{ secrets.GRAVITY_UI_BOT_GITHUB_TOKEN }}
           s3-key-id: ${{ secrets.STORYBOOK_S3_KEY_ID }}
           s3-secret-key: ${{ secrets.STORYBOOK_S3_SECRET_KEY }}
+
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ inputs.github-token }}
+          header: playground-preview
+          number: ${{ steps.pr.outputs.id }}
+          message: '[Playground Preview](https://preview.gravity-ui.com/${{ inputs.project }}/${{ steps.pr.outputs.id }}/) is ready.'
