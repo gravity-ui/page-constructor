@@ -14,6 +14,17 @@ $largeBorderRadius: 32px;
     border-radius: $largeBorderRadius;
     position: relative;
 
+    &__additional-content {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: $indentS;
+
+        &_centered {
+            justify-content: center;
+        }
+    }
+
     &__title {
         margin: 0 0 $indentSM $textPadding;
 
@@ -106,7 +117,6 @@ $largeBorderRadius: 32px;
         }
     }
 
-    $labelsBlock: '.#{$ns}content-labels';
     @media (min-width: map-get($gridBreakpoints, 'lg')) {
         &_form-type_yandex {
             #{$root}__row {
@@ -162,10 +172,10 @@ $largeBorderRadius: 32px;
                 #{$root}__content-wrapper {
                     text-align: center;
                     padding-bottom: $indentM;
+                }
 
-                    #{$labelsBlock} {
-                        justify-content: center;
-                    }
+                #{$root}__additional-content {
+                    justify-content: center;
                 }
             }
         }

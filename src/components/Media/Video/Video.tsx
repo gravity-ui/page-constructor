@@ -14,6 +14,8 @@ export interface VideoAdditionProps {
     customBarControlsClassName?: string;
     videoClassName?: string;
     playVideo?: boolean;
+    disablePlayerAutoSizing?: boolean;
+    onIntrinsicSizeChange?: (size: {width: number; height: number}) => void;
 }
 
 interface InnerVideoProps {
@@ -36,6 +38,8 @@ const Video = (props: VideoAllProps) => {
         customBarControlsClassName,
         videoClassName,
         playVideo,
+        disablePlayerAutoSizing,
+        onIntrinsicSizeChange,
         setHasVideoFallback,
         hasVideoFallback,
         qa,
@@ -55,6 +59,23 @@ const Video = (props: VideoAllProps) => {
             }
         }
     }, [playVideo, video, setHasVideoFallback]);
+
+    // to receive size even if the video has been loaded before hydration
+    // applies only to the 'default' video type ('player' does not render on server)
+    React.useEffect(() => {
+        const videoElement = ref.current;
+        if (video.type === MediaVideoType.Player || !videoElement) {
+            return;
+        }
+
+        if (videoElement.readyState >= 1) {
+            onIntrinsicSizeChange?.({
+                width: videoElement.videoWidth,
+                height: videoElement.videoHeight,
+            });
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [video.type]);
 
     const reactPlayerBlock = React.useMemo(() => {
         const {
@@ -90,31 +111,52 @@ const Video = (props: VideoAllProps) => {
                 ratio={ratio === 'auto' ? undefined : ratio}
                 autoRatio={ratio === 'auto'}
                 contain={contain}
+                disableAutoSizing={disablePlayerAutoSizing}
+                onIntrinsicSizeChange={onIntrinsicSizeChange}
             />
         );
     }, [
         video,
-        height,
         videoClassName,
         previewImg,
         playVideo,
         commonPlayButton,
         customBarControlsClassName,
         analyticsEvents,
+        height,
         ratio,
+        disablePlayerAutoSizing,
+        onIntrinsicSizeChange,
     ]);
 
     const defaultVideoBlock = React.useMemo(() => {
-        return video.src?.length && !hasVideoFallback ? (
+        const onLoadedMetadata: React.ReactEventHandler<HTMLVideoElement> | undefined =
+            onIntrinsicSizeChange &&
+            ((e) => {
+                const videoElement = e.currentTarget;
+
+                onIntrinsicSizeChange({
+                    width: videoElement.videoWidth,
+                    height: videoElement.videoHeight,
+                });
+            });
+
+        return video.src.length && !hasVideoFallback ? (
             <div
                 className={b('wrap', videoClassName)}
                 style={{height}}
                 data-qa={qaAttributes.default}
             >
-                <DefaultVideo ref={ref} video={video} qa={qaAttributes.source} />
+                <DefaultVideo
+                    ref={ref}
+                    video={video}
+                    qa={qaAttributes.source}
+                    onLoadedMetadata={onLoadedMetadata}
+                />
             </div>
         ) : null;
     }, [
+        onIntrinsicSizeChange,
         video,
         hasVideoFallback,
         videoClassName,

@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import {BREAKPOINTS} from '../../constants';
 import {ProjectSettingsContext} from '../../gravity-blocks/context/projectSettingsContext';
+import {useImageSize} from '../../gravity-blocks/hooks';
 import {Device, ImageDeviceProps, ImageObjectProps, QAProps} from '../../models';
 import {getQaAttrubutes} from '../../utils';
 import {isCompressible} from '../../utils/imageCompress';
@@ -11,7 +12,8 @@ export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDevi
     style?: React.CSSProperties;
     className?: string;
     onClick?: React.MouseEventHandler;
-    onLoad?: React.ReactEventHandler<HTMLDivElement>;
+    onLoad?: React.ReactEventHandler<HTMLImageElement>;
+    onIntrinsicSizeChange?: (size: {width: number; height: number}) => void;
     containerClassName?: string;
 }
 
@@ -76,12 +78,16 @@ const Image = (props: ImageProps) => {
         className,
         onClick,
         onLoad,
+        onIntrinsicSizeChange,
         containerClassName,
         qa,
         fetchPriority,
         loading,
         hide,
     } = props;
+
+    const {imageRef, onLoad: onLoadOverride} = useImageSize({onIntrinsicSizeChange, onLoad});
+
     const [imgLoadingError, setImgLoadingError] = React.useState(false);
 
     const src = imageSrc || desktop;
@@ -158,7 +164,8 @@ const Image = (props: ImageProps) => {
                 loading={loading}
                 onClick={onClick}
                 onError={() => setImgLoadingError(true)}
-                onLoad={onLoad}
+                onLoad={onLoadOverride}
+                ref={imageRef}
             />
         </picture>
     );

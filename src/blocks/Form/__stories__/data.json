@@ -66,5 +66,20 @@
         "customFormSection": "cloud"
       }
     }
+  },
+  "withAdditionalContent": {
+    "labels": [
+      {
+        "text": "Label 1"
+      },
+      {
+        "text": "Label 2",
+        "icon": "/story-assets/icon_3_light.svg"
+      },
+      {
+        "text": "Label 3",
+        "gravityIcon": {"name": "Gear"}
+      }
+    ]
   }
 }

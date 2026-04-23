@@ -19,11 +19,22 @@ The Page Constructor library is a mature and stable project that provides a comp
 
 The library includes a comprehensive set of blocks for various use cases:
 
-- **Layout Blocks**: Header (with enhanced features), ContentLayout, CardLayout
+- **Layout Blocks**: Header (with enhanced features), Hero, ContentLayout, CardLayout
 - **Content Blocks**: Media, Banner, Info, Table, Tabs
 - **Interactive Blocks**: Slider, Questions, FoldableList, Form
 - **Feature Blocks**: PromoFeatures, ExtendedFeatures, Icons
 - **Integration Blocks**: Map, Share, Companies
+
+#### HeroBlock
+
+The HeroBlock provides a hero section layout with:
+
+- **Content Area**: Title, text, buttons, links via the Content sub-block (fixed `size: 'xl'`)
+- **Themed Properties**: `background`, `media`, and `buttons` all support `ThemeSupporting<T>` for light/dark variants
+- **Responsive Media**: Custom `useContainerAspectRatio` hook tracks the media container's aspect ratio via `ResizeObserver` to switch between horizontal/vertical media orientation on desktop
+- **Background**: Full-width or contained background via `Media` component with `isBackground` flag
+- **Overtitle**: Supports both plain string (rendered as YFM) and JSX elements
+- **Vertical Offset**: Configurable spacing (`'s' | 'm' | 'l' | 'xl'`, default `'m'`)
 
 #### HeaderBlock Enhanced Features
 
@@ -85,6 +96,11 @@ Enhanced text sizing capabilities:
 Enhanced analytics capabilities across components:
 
 - **Title Component Analytics**: Added `analyticsEvents` support to Title component for tracking user interactions
+- **FilterBlock Analytics**: Each tag and the "all" button now support per-tab analytics events:
+  - `FilterTag.analyticsEvent?: AnalyticsEventsProp` — fires when a tag tab is selected
+  - `allTag` object form (`{label, analyticsEvent}`) fires analytics on "all" tab selection
+  - `handleSelectTab` callback in `FilterBlock` triggers `useAnalytics` with the relevant event
+  - `ButtonTabsItemProps.analyticsEvent` carries events through the tab component layer
 - **useAnalytics Hook**: Consistent analytics handling through dedicated hook
 - **Event Sequencing**: Proper event flow with analytics triggered before existing onClick handlers
 - **Type Safety**: `AnalyticsEventsBase` interface ensures structured analytics events

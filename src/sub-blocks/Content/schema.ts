@@ -36,19 +36,6 @@ export const ContentItem = {
     },
 };
 
-export const ContentLabel = {
-    additionalProperties: false,
-    required: ['text'],
-    properties: {
-        text: {
-            type: 'string',
-            contentType: 'text',
-        },
-        icon: withTheme(ImageProps),
-        gravityIcon: withTheme(GravityIconProps),
-    },
-};
-
 export const ContentBase = {
     title: {
         oneOf: [
@@ -83,7 +70,6 @@ export const ContentBase = {
         enum: contentThemes,
     },
     list: filteredArray(ContentItem),
-    labels: filteredArray(ContentLabel),
     controlPosition: {
         type: 'string',
         enum: ['default', 'bottom'],

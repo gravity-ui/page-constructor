@@ -17,8 +17,8 @@ import yfmWrapperData from '../components/YFMWrapper/__stories__/data.json';
 export default {title: 'Lab/Tokenization/Components/Text'} as Meta;
 
 const defaultTitleArgs = {
-    ...titleData.default.content,
-    subtitle: yfmTransform(titleData.default.content.subtitle),
+    title: titleData.default.title as TitleItemProps,
+    subtitle: yfmTransform(titleData.default.subtitle),
 };
 
 const transformContentList = (item: unknown) =>
@@ -42,10 +42,7 @@ export const Default: StoryFn = () => (
         </section>
         <section>
             <strong>Title — with link</strong>
-            <Title
-                {...defaultTitleArgs}
-                title={titleData.titleLink.content.title as TitleItemProps}
-            />
+            <Title {...defaultTitleArgs} title={titleData.titleLink.title as TitleItemProps} />
         </section>
         <section>
             <strong>YFMWrapper</strong>

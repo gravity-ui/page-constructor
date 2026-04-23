@@ -1,7 +1,6 @@
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {Buttons, ContentList, Links, Title, YFMWrapper} from '../../components';
-import ContentLabels from '../../components/ContentLabels/ContentLabels';
 import {Col} from '../../gravity-blocks/grid';
 import {
     ClassNameProps,
@@ -25,6 +24,9 @@ function getTextSize(size: ContentSize): TextSize {
         case 'm':
             return 'sm';
         case 'l':
+            return 'm';
+        case 'xl':
+            return 'l';
         default:
             return 'm';
     }
@@ -47,18 +49,10 @@ const Content = (props: ContentProps) => {
         theme,
         className,
         list,
-        labels,
         qa,
         controlPosition,
     } = props;
-    const qaAttributes = getQaAttrubutes(qa, [
-        'links',
-        'link',
-        'buttons',
-        'button',
-        'list',
-        'labels',
-    ]);
+    const qaAttributes = getQaAttrubutes(qa, ['links', 'link', 'buttons', 'button', 'list']);
 
     const titleProps =
         !title || typeof title === 'string'
@@ -94,16 +88,6 @@ const Content = (props: ContentProps) => {
                     />
                 </div>
             )}
-            {labels?.length ? (
-                <div className={b('labels')}>
-                    <ContentLabels
-                        labels={labels}
-                        theme={theme}
-                        size={size}
-                        qa={qaAttributes.labels}
-                    />
-                </div>
-            ) : null}
             {list?.length ? (
                 <div className={b('list')}>
                     <ContentList list={list} size={size} qa={qaAttributes.list} theme={theme} />
@@ -123,7 +107,7 @@ const Content = (props: ContentProps) => {
             )}
             {links && (
                 <Links
-                    className={b('links', {size})}
+                    className={b('links')}
                     size={size}
                     links={links}
                     titleId={titleId}
@@ -133,7 +117,7 @@ const Content = (props: ContentProps) => {
             )}
             {buttons && (
                 <Buttons
-                    className={b('buttons', {size})}
+                    className={b('buttons')}
                     size={size}
                     buttons={buttons}
                     titleId={titleId}

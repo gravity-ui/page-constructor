@@ -1,8 +1,11 @@
 import omit from 'lodash/omit';
 
-import {Media} from '../../blocks/Media/schema';
 import metaInfo from '../../components/MetaInfo/schema';
-import {BaseProps, CardLayoutProps} from '../../gravity-blocks/schema/validators/common';
+import {
+    BaseProps,
+    CardLayoutProps,
+    MediaProps,
+} from '../../gravity-blocks/schema/validators/common';
 import {AnalyticsEventSchema} from '../../gravity-blocks/schema/validators/event';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 
@@ -13,8 +16,8 @@ export const LayoutItem = {
     properties: {
         ...BaseProps,
         ...CardLayoutProps,
-        media: Media,
-        content: omit(ContentBase, ['colSize', 'size', 'centered']),
+        media: MediaProps,
+        content: omit(ContentBase, ['colSize', 'centered']),
         contentMargin: {
             type: 'string',
             enum: ['m', 'l'],

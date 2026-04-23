@@ -115,6 +115,48 @@ Key HeaderBlock patterns:
 - **Layout Customization**: Multiple className props for fine-grained styling control
 - **Accessibility**: Proper ARIA labeling with titleId for button descriptions
 
+### HeroBlock Architecture
+
+HeroBlock follows a content-plus-media layout pattern with responsive aspect ratio handling:
+
+```
+┌─────────────────────────────────────┐
+│            HeroBlock                │
+├─────────────────────────────────────┤
+│  • useContainerAspectRatio() hook   │
+│  • useWindowWidth() for responsive  │
+│  • Theme support via getThemedValue │
+│  • ThemeSupporting buttons/media/bg │
+├─────────────────────────────────────┤
+│        Background (optional)        │
+│  • Media with isBackground flag     │
+│  • fullWidth mode support           │
+├─────────────────────────────────────┤
+│  Grid                               │
+│  ├─ Breadcrumbs (optional)          │
+│  ├─ Content Area                    │
+│  │  • Overtitle (string→YFM / JSX) │
+│  │  • Content sub-block (size=xl)   │
+│  │    ├─ Title                      │
+│  │    ├─ Text (YFM)                 │
+│  │    ├─ List, AdditionalInfo       │
+│  │    ├─ Links                      │
+│  │    └─ Buttons (themed, xl)       │
+│  └─ Media Area (optional)           │
+│     • Responsive aspect ratio logic │
+│     • Round corners (default true)  │
+│     • Vertical mode when portrait   │
+└─────────────────────────────────────┘
+```
+
+Key HeroBlock patterns:
+
+- **Responsive Media Orientation**: `useContainerAspectRatio` hook uses `ResizeObserver` (throttled at 100ms) to track the media container's aspect ratio; combined with `onIntrinsicSizeChange` callback on `Media`, determines whether media renders vertically on desktop
+- **Theme Resolution**: `buttons`, `media`, and `background` props all accept `ThemeSupporting<T>` and are resolved via `getThemedValue()` against the active theme
+- **Content Delegation**: Passes spread `contentProps` to the `Content` sub-block with fixed `size: 'xl'` and `colSizes: {all: 12}`
+- **Button Enhancement**: Theme-resolved buttons default to `size: 'xl'`; supports both `ButtonProps` and `React.ReactNode`
+- **Overtitle Flexibility**: String overtitles are wrapped in `YFMWrapper`; JSX elements render directly
+
 ### Card Component Architecture
 
 Card components follow a consistent architectural pattern:

@@ -22,6 +22,7 @@ export interface ImageAdditionProps {
     fullscreen?: boolean;
     fullscreenClassName?: string;
     onLoad?: () => void;
+    onIntrinsicSizeChange?: (size: {width: number; height: number}) => void;
 }
 
 interface InnerImageProps {
@@ -45,6 +46,7 @@ const Image = (props: ImageAllProps) => {
         disableImageSliderForArrayInput,
         qa,
         onLoad,
+        onIntrinsicSizeChange,
     } = props;
     const image =
         Array.isArray(props.image) && disableImageSliderForArrayInput
@@ -104,6 +106,8 @@ const Image = (props: ImageAllProps) => {
                 imageStyle={{height}}
                 qa={qaAttributes.fullscreenImage}
                 sliderData={sliderData}
+                onLoad={onLoad}
+                onIntrinsicSizeChange={onIntrinsicSizeChange}
             />
         );
     };
@@ -131,6 +135,7 @@ const Image = (props: ImageAllProps) => {
                 style={{height}}
                 qa={qaAttributes.imageView}
                 onLoad={onLoad}
+                onIntrinsicSizeChange={onIntrinsicSizeChange}
             />
         );
     };

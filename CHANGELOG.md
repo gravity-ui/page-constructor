@@ -1,5 +1,55 @@
 # Changelog
 
+## [8.5.0](https://github.com/gravity-ui/page-constructor/compare/v8.4.2...v8.5.0) (2026-04-22)
+
+
+### Features
+
+* add analytics events to FilterBlock ([#1420](https://github.com/gravity-ui/page-constructor/issues/1420)) ([8e89c2b](https://github.com/gravity-ui/page-constructor/commit/8e89c2b75509ecc6c788146d3735d3f5510a3fd0))
+
+## [8.4.2](https://github.com/gravity-ui/page-constructor/compare/v8.4.1...v8.4.2) (2026-04-16)
+
+
+### Bug Fixes
+
+* **Hero:** schema exports ([#1417](https://github.com/gravity-ui/page-constructor/issues/1417)) ([31b294b](https://github.com/gravity-ui/page-constructor/commit/31b294b5acf6c28426105c2a582f10fc82cd6a5b))
+
+## [8.4.1](https://github.com/gravity-ui/page-constructor/compare/v8.4.0...v8.4.1) (2026-04-15)
+
+
+### Bug Fixes
+
+* **Hero:** content width with no media ([#1415](https://github.com/gravity-ui/page-constructor/issues/1415)) ([09c26d5](https://github.com/gravity-ui/page-constructor/commit/09c26d56702b16bbe8bfb7aaf4c21c00594f2f91))
+
+## [8.4.0](https://github.com/gravity-ui/page-constructor/compare/v8.3.0...v8.4.0) (2026-04-15)
+
+
+### Features
+
+* **Hero:** add block ([#1411](https://github.com/gravity-ui/page-constructor/issues/1411)) ([69f2c60](https://github.com/gravity-ui/page-constructor/commit/69f2c60b6517c8afc9d2042c2db6f8cb8cc4a3d0))
+
+
+### Bug Fixes
+
+* **HubspotForm:** improve storybook story controls ([#1413](https://github.com/gravity-ui/page-constructor/issues/1413)) ([a7c605f](https://github.com/gravity-ui/page-constructor/commit/a7c605f938c9dc7f520b997a8f9e08bedbd1f1be))
+* **Title:** improve storybook story controls ([#1412](https://github.com/gravity-ui/page-constructor/issues/1412)) ([1270903](https://github.com/gravity-ui/page-constructor/commit/1270903102502a936d2d318547a3132250eac701))
+
+## [8.3.0](https://github.com/gravity-ui/page-constructor/compare/v8.2.2...v8.3.0) (2026-04-09)
+
+
+### Features
+
+* add additionalContentNode props for Form ([#1410](https://github.com/gravity-ui/page-constructor/issues/1410)) ([7b06be7](https://github.com/gravity-ui/page-constructor/commit/7b06be77422417fb06a34e43786c64cad6e587b8))
+* **content:** remove ContentLabels and content labels API ([#1404](https://github.com/gravity-ui/page-constructor/issues/1404)) ([787862c](https://github.com/gravity-ui/page-constructor/commit/787862ce8b4c7c3cc543902e37b61f166cbac6ec))
+* **Content:** size xl ([#1405](https://github.com/gravity-ui/page-constructor/issues/1405)) ([66435ac](https://github.com/gravity-ui/page-constructor/commit/66435acdc1a85adbebc83308bd87f703a692d902))
+
+## [8.2.2](https://github.com/gravity-ui/page-constructor/compare/v8.2.1...v8.2.2) (2026-03-26)
+
+
+### Bug Fixes
+
+* **Header:** overtitle theme ([#1399](https://github.com/gravity-ui/page-constructor/issues/1399)) ([4b6f39b](https://github.com/gravity-ui/page-constructor/commit/4b6f39b5021eba74fe108861fc2ff3b289fed9e5))
+
 ## [8.2.1](https://github.com/gravity-ui/page-constructor/compare/v8.2.0...v8.2.1) (2026-03-24)
 
 

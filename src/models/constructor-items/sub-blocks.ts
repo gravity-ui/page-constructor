@@ -68,7 +68,7 @@ export interface PositionedGravityIcon {
 export interface IconWrapperProps {
     icon?: PositionedIcon;
     gravityIcon?: PositionedGravityIcon;
-    size?: 's' | 'm' | 'l';
+    size?: 's' | 'm' | 'l' | 'xl';
 }
 
 export enum ImageCardDirection {
@@ -147,7 +147,7 @@ export interface BackgroundCardProps
     extends CardBaseProps,
         AnalyticsEventsBase,
         CardLayoutProps,
-        Omit<ContentBlockProps, 'centered' | 'controlPosition' | 'labels'> {
+        Omit<ContentBlockProps, 'centered' | 'controlPosition'> {
     url?: string;
     urlTitle?: string;
     background?: ThemeSupporting<ImageObjectProps>;
@@ -159,7 +159,7 @@ export interface BasicCardProps
     extends CardBaseProps,
         AnalyticsEventsBase,
         CardLayoutProps,
-        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'theme' | 'controlPosition' | 'labels'> {
+        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'theme' | 'controlPosition'> {
     url: string;
     urlTitle?: string;
     icon?: ThemeSupporting<ImageProps>;
@@ -186,7 +186,7 @@ export interface BannerCardProps {
 
 export interface MediaCardProps extends MediaProps, AnalyticsEventsBase, CardBaseProps {}
 
-export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, 'theme' | 'labels'> {
+export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, 'theme'> {
     title: string;
     price: string;
     pricePeriod?: string;
@@ -199,7 +199,7 @@ export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, '
 }
 
 export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, AnalyticsEventsBase {
-    content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'labels'>;
+    content: Omit<ContentBlockProps, 'colSizes' | 'centered'>;
     contentMargin?: LayoutItemContentMargin;
     media?: ThemeSupporting<MediaProps>;
     metaInfo?: string[];
@@ -211,7 +211,7 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
 export interface ImageCardProps
     extends CardBaseProps,
         CardLayoutProps,
-        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'controlPosition' | 'labels'> {
+        Omit<ContentBlockProps, 'colSizes' | 'centered' | 'controlPosition'> {
     image: ThemeSupporting<ImageProps>;
     enableImageBorderRadius?: boolean;
     margins?: ImageCardMargins;

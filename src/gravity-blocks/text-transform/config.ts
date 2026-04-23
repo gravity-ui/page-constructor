@@ -402,6 +402,23 @@ export const config: BlocksConfig = {
             renderInline: true,
         },
     ],
+    [BlockType.HeroBlock]: [
+        {
+            fields: ['text', 'additionalInfo', 'list'],
+            transformer: yfmTransformer,
+        },
+        {
+            fields: ['title'],
+            transformer: yfmTransformer,
+            parser: parseTitle,
+            renderInline: true,
+        },
+        {
+            fields: ['list'],
+            transformer: yfmTransformer,
+            parser: createItemsParser(['title', 'text']),
+        },
+    ],
     [BlockType.ContentLayoutBlock]: [
         {
             fields: ['textContent'],

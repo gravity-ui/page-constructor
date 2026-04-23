@@ -9,6 +9,7 @@ $block: '.#{$ns}icon-wrapper';
     $iconSizePositionLeftSizeS: 22px;
     $iconSizePositionLeftSizeM: 28px;
     $iconSizePositionLeftSizeL: 32px;
+    $iconSizePositionLeftSizeXL: 44px;
 
     display: flex;
     flex-direction: column;
@@ -52,6 +53,14 @@ $block: '.#{$ns}icon-wrapper';
                     &_l {
                         height: $iconSizePositionLeftSizeL;
                         width: $iconSizePositionLeftSizeL;
+
+                        margin-bottom: $indent4XS;
+                        margin-top: $indent4XS;
+                    }
+
+                    &_xl {
+                        height: $iconSizePositionLeftSizeXL;
+                        width: $iconSizePositionLeftSizeXL;
 
                         margin-bottom: $indent4XS;
                         margin-top: $indent4XS;

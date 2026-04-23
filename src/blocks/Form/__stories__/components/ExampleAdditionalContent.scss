@@ -1,5 +1,5 @@
-@import '../../../styles/variables.scss';
-@import '../../../styles/mixins.scss';
+@import '../../../../../styles/variables.scss';
+@import '../../../../../styles/mixins.scss';
 
 $block: '.#{$ns}content-labels';
 
@@ -7,6 +7,7 @@ $block: '.#{$ns}content-labels';
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    justify-content: inherit;
 
     &__label {
         display: flex;

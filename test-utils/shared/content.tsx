@@ -1,7 +1,7 @@
 import {render, screen} from '@testing-library/react';
 import pick from 'lodash/pick';
 
-import {getColClass} from '../../src';
+import {ButtonProps, getColClass} from '../../src';
 import {QAProps} from '../../src/models/common';
 import Content, {ContentProps} from '../../src/sub-blocks/Content/Content';
 import {getQaAttrubutes} from '../../src/utils/blocks';
@@ -67,13 +67,13 @@ export const testContentWithLinks = ({props, options}: ContentTestFunction) => {
 };
 
 export const testContentWithButtons = ({props, options}: ContentTestFunction) => {
-    if (!options?.qaId || !props?.buttons?.[0]?.url) {
+    if (!options?.qaId || !(props?.buttons?.[0] as ButtonProps)?.url) {
         throw new Error(ERROR_INPUT_DATA_MESSAGE);
     }
 
     render(<Content {...pick(props, 'buttons', 'qa')} />);
     const link = screen.getByTestId(options.qaId);
-    expect(link).toHaveAttribute('href', props.buttons[0].url);
+    expect(link).toHaveAttribute('href', (props.buttons?.[0] as ButtonProps)?.url);
 };
 
 export const testContentWithColSize = ({props, options}: ContentTestFunction) => {
@@ -129,18 +129,4 @@ export const testContentWithList = ({props, options}: ContentTestFunction) => {
     expect(image).toHaveAttribute('src', props.list?.[0]?.icon);
     expect(title).toHaveTextContent(props.list?.[0]?.title);
     expect(text).toHaveTextContent(props.list?.[0]?.text);
-};
-
-export const testContentWithLabels = ({props, options}: ContentTestFunction) => {
-    if (!options?.qaId || !props.labels?.[0]?.icon || !props.labels?.[0]?.text) {
-        throw new Error(ERROR_INPUT_DATA_MESSAGE);
-    }
-
-    const labelsQa = getQaAttrubutes(options.qaId, ['text']);
-
-    render(<Content {...pick(props, 'labels', 'qa')} />);
-    const image = screen.getByRole('img');
-    const text = screen.getByTestId(labelsQa.text);
-    expect(image).toHaveAttribute('src', props.labels?.[0]?.icon);
-    expect(text).toHaveTextContent(props.labels?.[0]?.text);
 };

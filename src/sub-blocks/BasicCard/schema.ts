@@ -9,7 +9,7 @@ import {
 } from '../../gravity-blocks/schema/validators/common';
 import {ContentBase} from '../Content/schema';
 
-const BasicCardContentProps = omit(ContentBase, ['size', 'theme', 'controlPosition']);
+const BasicCardContentProps = omit(ContentBase, ['theme', 'controlPosition']);
 
 export const BasicCard = {
     'basic-card': {

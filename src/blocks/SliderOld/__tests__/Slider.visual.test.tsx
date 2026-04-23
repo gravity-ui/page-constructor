@@ -47,7 +47,8 @@ test.describe('Slider Old', () => {
         await expectScreenshot({skipTheme: 'dark'});
     });
 
-    test('render stories <SlidesToShow>', async ({mount, expectScreenshot, defaultDelay}) => {
+    test('render stories <SlidesToShow>', async ({page, mount, expectScreenshot, defaultDelay}) => {
+        await page.setViewportSize({width: 1280, height: 2000});
         await mount(<SlidesToShow />);
         await defaultDelay();
         await expectScreenshot({skipTheme: 'dark'});

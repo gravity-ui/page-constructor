@@ -4,9 +4,11 @@ import {
     BlockHeaderProps,
     containerSizesObject,
 } from '../../gravity-blocks/schema/validators/common';
+import {AnalyticsEventSchema} from '../../gravity-blocks/schema/validators/event';
 import {filteredArray} from '../../gravity-blocks/schema/validators/utils';
 
 export const FilterTagProps = {
+    type: 'object',
     additionalProperties: false,
     required: ['id', 'label'],
     properties: {
@@ -16,6 +18,7 @@ export const FilterTagProps = {
         label: {
             type: 'string',
         },
+        analyticsEvent: AnalyticsEventSchema,
     },
 };
 
@@ -49,6 +52,9 @@ export const FilterProps = {
                 {
                     type: 'string',
                     optionName: 'cutom',
+                },
+                {
+                    ...FilterTagProps,
                 },
             ],
         },

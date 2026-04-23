@@ -12,7 +12,7 @@
 
 `theme?: 'default' | 'dark' | 'light'` — Component's theme: default, dark, or monochrome light ('default' by default).
 
-`size?: 's' | 'l'` — Component's size that defines font sizes ('l' by default)
+`size?: 's' | 'm' | 'l' | 'xl'` — Component's size that defines font sizes ('l' by default)
 
 `сolSizes?: Object` — Width of buttons tabs, the value ranges from 1 to 12 columns. If 12 columns, buttons takes up the entire width of the row.
 
@@ -23,5 +23,3 @@
 - `xl: number` — On a screen wider than 1185px.
 
 `list?: Array` - An Array of items with icon - [ContentList](?path=/docs/components-contentlist--docs)
-
-`labels?: Array` - An Array of labels with icons `{text: string; icon?: ImageProps; gravityIcon?: GravityIconProps}`

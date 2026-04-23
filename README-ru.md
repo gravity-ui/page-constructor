@@ -141,7 +141,7 @@ interface PageConstructorProviderProps {
   location?: Location; //API of the browser or router history, the page URL.
   analytics?: AnalyticsContextProps; // function to handle analytics event
 
-  ssrConfig?: SSR; //A flag indicating that the code is run on the server size.
+  ssrConfig?: SSR; //A flag indicating that the code is run on the server side.
   theme?: 'light' | 'dark'; //Theme to render the page with.
   mapsContext?: MapsContextType; //Params for map: apikey, type, scriptSrc, nonce
 }
