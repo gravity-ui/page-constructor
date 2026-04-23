@@ -15,9 +15,9 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-    {label: 'Gravity Blocks — page 1', url: '/?page=gravity-blocks&id=1'},
-    {label: 'Gravity Blocks — page 2', url: '/?page=gravity-blocks&id=2'},
-    {label: 'Experimental page', url: '/?page=experemental'},
+    {label: 'Gravity Blocks — page 1', url: '?page=gravity-blocks&id=1'},
+    {label: 'Gravity Blocks — page 2', url: '?page=gravity-blocks&id=2'},
+    {label: 'Experimental page', url: '?page=experemental'},
 ];
 
 const NavigateToButton = () => {
@@ -50,8 +50,7 @@ const NavigateToButton = () => {
 };
 
 export default function EditorPage() {
-    const initialUrl =
-        typeof window === 'undefined' ? '' : window.location.origin + '/?page=gravity-blocks&id=1';
+    const initialUrl = import.meta.env.BASE_URL + '?page=gravity-blocks&id=1';
 
     return (
         <ThemeProvider theme={'light'}>
