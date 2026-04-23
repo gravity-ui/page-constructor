@@ -36,7 +36,11 @@ const LabelBlockConfig: BlockData = {
                         type: 'segmentedRadioGroup',
                         name: 'size',
                         title: 'Size',
-                        options: [{value: 'xs', content: 'XS'}, {value: 's', content: 'S'}, {value: 'm', content: 'M'}],
+                        options: [
+                            {value: 'xs', content: 'XS'},
+                            {value: 's', content: 'S'},
+                            {value: 'm', content: 'M'},
+                        ],
                         defaultValue: 'm',
                     },
                 ],

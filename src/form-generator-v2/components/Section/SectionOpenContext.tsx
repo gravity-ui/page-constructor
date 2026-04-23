@@ -5,4 +5,7 @@ export interface SectionContextValue {
     nestingLevel: number;
 }
 
-export const SectionOpenContext = React.createContext<SectionContextValue>({isOpen: false, nestingLevel: 0});
+export const SectionOpenContext = React.createContext<SectionContextValue>({
+    isOpen: false,
+    nestingLevel: 0,
+});

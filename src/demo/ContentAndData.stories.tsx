@@ -1,10 +1,10 @@
 import {Meta, StoryFn} from '@storybook/react';
 
 import {blockTransform} from '../../.storybook/utils';
-import {PageConstructorProvider, PageConstructor} from '../containers/PageConstructor';
-import {CustomConfig, NavigationData, PageContent} from '../models';
+import {PageConstructor, PageConstructorProvider} from '../containers/PageConstructor';
+import {gravityBlocksExtension} from '../gravity-blocks/extensions';
 import {CustomComponent} from '../gravity-blocks/navigation/__stories__/CustomComponent/CustomComponent';
-import {GravityBlocksProvider, GravityBlocksExtension} from '../blocks/settings';
+import {CustomConfig, NavigationData, PageContent} from '../models';
 
 import contentLayoutData from '../blocks/ContentLayout/__stories__/data.json';
 import foldableListData from '../blocks/FoldableList/__stories__/data.json';
@@ -23,56 +23,54 @@ const Template: StoryFn<{navigation: NavigationData; custom?: CustomConfig}> = (
     custom = {},
 }) => (
     <PageConstructorProvider>
-        <GravityBlocksProvider>
-            <PageConstructor
-                extensions={GravityBlocksExtension({
-                    globalDefaults: {
-                        navigation,
-                    },
-                })}
-                custom={custom}
-                content={
-                    {
-                        blocks: [
-                            // content-layout-block: default text only
-                            blockTransform(contentLayoutData.default),
-                            // content-layout-block: centered
-                            blockTransform(contentLayoutData.textAlignCenter),
-                            // content-layout-block: with background color
-                            blockTransform(contentLayoutData.withBackgroundColor),
-                            // content-layout-block: with background image + color
-                            blockTransform(contentLayoutData.withImageAndBackgroundColor),
-                            // content-layout-block: dark monochrome theme
-                            blockTransform(contentLayoutData.theme[0]),
-                            // content-layout-block: light monochrome theme
-                            blockTransform(contentLayoutData.theme[1]),
-                            // content-layout-block variants with list/links/buttons
-                            ...contentLayoutData.contentVariables.map(blockTransform),
+        <PageConstructor
+            extensions={gravityBlocksExtension({
+                globalDefaults: {
+                    navigation,
+                },
+            })}
+            custom={custom}
+            content={
+                {
+                    blocks: [
+                        // content-layout-block: default text only
+                        blockTransform(contentLayoutData.default),
+                        // content-layout-block: centered
+                        blockTransform(contentLayoutData.textAlignCenter),
+                        // content-layout-block: with background color
+                        blockTransform(contentLayoutData.withBackgroundColor),
+                        // content-layout-block: with background image + color
+                        blockTransform(contentLayoutData.withImageAndBackgroundColor),
+                        // content-layout-block: dark monochrome theme
+                        blockTransform(contentLayoutData.theme[0]),
+                        // content-layout-block: light monochrome theme
+                        blockTransform(contentLayoutData.theme[1]),
+                        // content-layout-block variants with list/links/buttons
+                        ...contentLayoutData.contentVariables.map(blockTransform),
 
-                            // tabs-block: default (all tab types: image, video, youtube)
-                            blockTransform(tabsData.default.content),
+                        // tabs-block: default (all tab types: image, video, youtube)
+                        blockTransform(tabsData.default.content),
 
-                            // questions-block: default with links
-                            blockTransform(questionsData.default.content),
-                            // questions-block: with bullet list items
-                            blockTransform(questionsData.textWithListBullet.content),
+                        // questions-block: default with links
+                        blockTransform(questionsData.default.content),
+                        // questions-block: with bullet list items
+                        blockTransform(questionsData.textWithListBullet.content),
 
-                            // foldable-list-block: default
-                            blockTransform(foldableListData.default),
-                            // foldable-list-block: with bullet list items
-                            blockTransform(foldableListData.textWithListBullet),
-                            // foldable-list-block: with dash list items
-                            blockTransform(foldableListData.textWithListDash),
+                        // foldable-list-block: default
+                        blockTransform(foldableListData.default),
+                        // foldable-list-block: with bullet list items
+                        blockTransform(foldableListData.textWithListBullet),
+                        // foldable-list-block: with dash list items
+                        blockTransform(foldableListData.textWithListDash),
 
-                            // table-block: numeric values (0/1)
-                            blockTransform(tableData.default.content),
-                            // table-block: tick markers
-                            blockTransform(tableData.tick.content),
-                        ],
-                    } as PageContent
-                }
-            />
-        </GravityBlocksProvider>
+                        // table-block: numeric values (0/1)
+                        blockTransform(tableData.default.content),
+                        // table-block: tick markers
+                        blockTransform(tableData.tick.content),
+                    ],
+                } as PageContent
+            }
+        />
     </PageConstructorProvider>
 );
 

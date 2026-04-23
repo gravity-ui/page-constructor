@@ -19,7 +19,11 @@ const AccordionBlockConfig: BlockData = {
                         type: 'segmentedRadioGroup',
                         name: 'size',
                         title: 'Size',
-                        options: [{value: 'm', content: 'M'}, {value: 'l', content: 'L'}, {value: 'xl', content: 'XL'}],
+                        options: [
+                            {value: 'm', content: 'M'},
+                            {value: 'l', content: 'L'},
+                            {value: 'xl', content: 'XL'},
+                        ],
                         defaultValue: 'm',
                     },
                 ],
@@ -41,7 +45,10 @@ const AccordionBlockConfig: BlockData = {
             size: 'm',
             items: [
                 {summary: 'What is this?', content: 'This is the first accordion item content.'},
-                {summary: 'How does it work?', content: 'It uses the Accordion component from Gravity UI.'},
+                {
+                    summary: 'How does it work?',
+                    content: 'It uses the Accordion component from Gravity UI.',
+                },
                 {summary: 'Can I add more?', content: 'Yes! Add as many items as you need.'},
             ],
         },

@@ -48,7 +48,10 @@ const ButtonBlockConfig: BlockData = {
                         name: 'target',
                         title: 'Link target',
                         hasClear: true,
-                        options: [{value: '_blank', content: 'New tab'}, {value: '_self', content: 'Same tab'}],
+                        options: [
+                            {value: '_blank', content: 'New tab'},
+                            {value: '_self', content: 'Same tab'},
+                        ],
                     },
                 ],
             },

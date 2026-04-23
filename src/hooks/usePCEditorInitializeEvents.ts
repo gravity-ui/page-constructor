@@ -51,13 +51,12 @@ export const usePCEditorInitializeEvents = ({
         sendEventPostMessage('ON_SUPPORTED_BLOCKS', {
             blocks: blocks.map((block) => ({
                 type: block.type,
-                schema:
-                    blockInputs?.length
-                        ? {
-                              ...block.schema,
-                              inputs: [...blockInputs, ...(block.schema?.inputs || [])],
-                          }
-                        : block.schema,
+                schema: blockInputs?.length
+                    ? {
+                          ...block.schema,
+                          inputs: [...blockInputs, ...(block.schema?.inputs || [])],
+                      }
+                    : block.schema,
             })),
             subBlocks: [],
             global: global || [],

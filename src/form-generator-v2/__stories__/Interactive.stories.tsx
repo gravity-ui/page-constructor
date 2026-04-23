@@ -139,7 +139,10 @@ export const InteractiveEditor: StoryFn = () => {
                                     padding: '2px 10px',
                                     borderRadius: 4,
                                     border: '1px solid var(--g-color-line-generic, #ccc)',
-                                    background: format === f ? 'var(--g-color-base-brand, #027bf3)' : 'transparent',
+                                    background:
+                                        format === f
+                                            ? 'var(--g-color-base-brand, #027bf3)'
+                                            : 'transparent',
                                     color: format === f ? '#fff' : 'inherit',
                                     cursor: 'pointer',
                                     fontSize: 12,

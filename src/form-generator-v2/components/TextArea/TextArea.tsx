@@ -11,7 +11,13 @@ const TextArea = ({when, title, content, name, onUpdate, defaultValue}: TextArea
     const value = getValueByPath(content, name) ?? defaultValue ?? '';
 
     return (
-        <Base when={when} content={content} name={name} onUpdate={onUpdate} defaultValue={defaultValue}>
+        <Base
+            when={when}
+            content={content}
+            name={name}
+            onUpdate={onUpdate}
+            defaultValue={defaultValue}
+        >
             <BaseInput title={title}>
                 <TextAreaUIKIT
                     value={value}

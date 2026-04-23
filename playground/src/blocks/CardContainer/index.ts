@@ -34,14 +34,21 @@ const CardContainerConfig: BlockData = {
                         type: 'segmentedRadioGroup',
                         name: 'view',
                         title: 'View',
-                        options: [{value: 'outlined', content: 'Outlined'}, {value: 'filled', content: 'Filled'}, {value: 'raised', content: 'Raised'}],
+                        options: [
+                            {value: 'outlined', content: 'Outlined'},
+                            {value: 'filled', content: 'Filled'},
+                            {value: 'raised', content: 'Raised'},
+                        ],
                         defaultValue: 'outlined',
                     },
                     {
                         type: 'segmentedRadioGroup',
                         name: 'size',
                         title: 'Size',
-                        options: [{value: 'm', content: 'M'}, {value: 'l', content: 'L'}],
+                        options: [
+                            {value: 'm', content: 'M'},
+                            {value: 'l', content: 'L'},
+                        ],
                         defaultValue: 'l',
                     },
                 ],

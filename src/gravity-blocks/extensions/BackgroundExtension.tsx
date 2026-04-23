@@ -1,11 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 
+import type {PageConstructorWrapperProps} from '../../common/types';
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import type {PageConstructorExtension} from '../../containers/PageConstructor/PageConstructor';
-import type {PageConstructorWrapperProps} from '../../common/types';
 import {MediaProps} from '../../models';
-import {useContent} from '../hooks';
 import {block} from '../../utils';
+import {useContent} from '../hooks';
 
 const b = block('page-constructor');
 
@@ -31,7 +31,7 @@ export const BackgroundExtensionContentWrapper: React.FC<
     );
 };
 
-export const BackgroundExtension = ({
+export const backgroundExtension = ({
     wrapperProps = {},
     globalDefaults = {},
 }: {

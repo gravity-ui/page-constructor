@@ -1,10 +1,7 @@
-export {
-    BlockBaseExtension,
-    BlockBaseExtensionBlockWrapper,
-} from './BlockBaseExtension';
+export {blockBaseExtension, BlockBaseExtensionBlockWrapper} from './BlockBaseExtension';
 
 export {
-    GeneralExtension,
+    generalExtension,
     GeneralExtensionContentWrapper,
     type GeneralExtensionGlobalConfig,
     type GeneralExtensionWrapperProps,
@@ -12,7 +9,7 @@ export {
 } from './GeneralExtension';
 
 export {
-    BackgroundExtension,
+    backgroundExtension,
     BackgroundExtensionContentWrapper,
     type BackgroundExtensionGlobalConfig,
     type BackgroundExtensionWrapperProps,
@@ -20,9 +17,16 @@ export {
 } from './BackgroundExtension';
 
 export {
-    NavigationExtension,
+    navigationExtension,
     NavigationExtensionContentWrapper,
     type NavigationExtensionGlobalConfig,
     type NavigationExtensionWrapperProps,
     type NavigationPageContent,
 } from './NavigationExtension';
+
+export {
+    gravityBlocksExtension,
+    type GravityBlocksGlobalConfig,
+    type GravityBlocksWrapperProps,
+    type GravityPageContent,
+} from './GravityBlocksExtension';

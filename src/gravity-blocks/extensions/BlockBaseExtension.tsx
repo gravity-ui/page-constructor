@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import BlockBase from '../../components/BlockBase/BlockBase';
-import type {BlockBaseProps, BlockWrapperDataProps} from '../../models';
 import type {PageConstructorExtension} from '../../containers/PageConstructor/PageConstructor';
+import type {BlockBaseProps, BlockWrapperDataProps} from '../../models';
 
 export const BlockBaseExtensionBlockWrapper: React.FC<
     BlockWrapperDataProps<BlockBaseProps> & React.PropsWithChildren
@@ -18,7 +18,7 @@ export const BlockBaseExtensionBlockWrapper: React.FC<
     </BlockBase>
 );
 
-export const BlockBaseExtension = (): PageConstructorExtension<{}, {}, BlockBaseProps> => ({
+export const blockBaseExtension = (): PageConstructorExtension<{}, {}, BlockBaseProps> => ({
     name: 'Block Base',
     id: '@gravity-ui/page-constructor/block-base',
     settings: {

@@ -1,4 +1,8 @@
 import {BlockData} from '../constructor-items';
+import LayoutItemConfig from '../sub-blocks/LayoutItem';
+import LayoutItemConfigDeprecated from '../sub-blocks/LayoutItem/index_deprecated';
+import MediaCardConfig from '../sub-blocks/MediaCard';
+import MediaCardConfigDeprecated from '../sub-blocks/MediaCard/index_deprecated';
 
 import BannerBlockConfig from './Banner';
 import BannerBlockConfigDeprecated from './Banner/index_deprecated';
@@ -44,10 +48,6 @@ import SliderBlockConfigDeprecated from './Slider/index_deprecated';
 import TableBlockConfigDeprecated from './Table/index_deprecated';
 import TabsBlockConfig from './Tabs';
 import TabsBlockConfigDeprecated from './Tabs/index_deprecated';
-import MediaCardConfig from '../sub-blocks/MediaCard';
-import MediaCardConfigDeprecated from '../sub-blocks/MediaCard/index_deprecated';
-import LayoutItemConfig from '../sub-blocks/LayoutItem';
-import LayoutItemConfigDeprecated from '../sub-blocks/LayoutItem/index_deprecated';
 
 export {default as BannerBlock} from './Banner/Banner';
 export {default as CompaniesBlock} from './Companies/Companies';
@@ -118,15 +118,4 @@ export const blocks: Array<BlockData> = [
     MediaCardConfigDeprecated,
     LayoutItemConfig,
     LayoutItemConfigDeprecated,
-
-    // [SubBlockType.Divider]: DividerConfig,
-    // [SubBlockType.MediaCard]: MediaCardConfig,
-    // [SubBlockType.BannerCard]: BannerCardConfig,
-    // [SubBlockType.LayoutItem]: LayoutItemConfig,
-    // [SubBlockType.BackgroundCard]: BackgroundCardConfig,
-    // [SubBlockType.BasicCard]: BasicCardConfig,
-    // [SubBlockType.Content]: ContentConfig,
-    // [SubBlockType.Quote]: QuoteConfig,
-    // [SubBlockType.PriceCard]: PriceCardConfig,
-    // [SubBlockType.ImageCard]: ImageCardConfig,
 ];

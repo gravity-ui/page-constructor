@@ -19,7 +19,11 @@ const ColumnsContainerConfig: BlockData = {
                         type: 'segmentedRadioGroup',
                         name: 'columns',
                         title: 'Columns',
-                        options: [{value: '2', content: '2'}, {value: '3', content: '3'}, {value: '4', content: '4'}],
+                        options: [
+                            {value: '2', content: '2'},
+                            {value: '3', content: '3'},
+                            {value: '4', content: '4'},
+                        ],
                         defaultValue: '2',
                     },
                     {

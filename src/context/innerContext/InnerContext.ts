@@ -1,13 +1,8 @@
 import * as React from 'react';
 
-import {NavItemMap} from '../../containers/PageConstructor/PageConstructor';
-import {
-    BlockWrapperDataProps,
-    LoadableConfig,
-    PageContent,
-    ShouldRenderBlock,
-} from '../../models';
 import {BlockData} from '../../constructor-items';
+import {NavItemMap} from '../../containers/PageConstructor/PageConstructor';
+import {BlockWrapperDataProps, LoadableConfig, PageContent, ShouldRenderBlock} from '../../models';
 
 export interface BlockWrapperEntry {
     wrapper: React.ComponentType<BlockWrapperDataProps & React.PropsWithChildren>;

@@ -7,12 +7,27 @@ import BaseInput from '../BaseInput/BaseInput';
 
 type SelectProps = CommonProps & SelectField;
 
-const Select = ({title, name, options, when, content, onUpdate, hasClear, defaultValue}: SelectProps) => {
+const Select = ({
+    title,
+    name,
+    options,
+    when,
+    content,
+    onUpdate,
+    hasClear,
+    defaultValue,
+}: SelectProps) => {
     const selected = getValueByPath(content, name) ?? defaultValue;
     const value = selected ? [selected] : [];
 
     return (
-        <Base when={when} content={content} name={name} onUpdate={onUpdate} defaultValue={defaultValue}>
+        <Base
+            when={when}
+            content={content}
+            name={name}
+            onUpdate={onUpdate}
+            defaultValue={defaultValue}
+        >
             <BaseInput title={title}>
                 <SelectUIKIT
                     name={name}

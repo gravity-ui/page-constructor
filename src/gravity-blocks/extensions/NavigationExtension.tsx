@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 
-import Layout from '../navigation/containers/Layout/Layout';
-import type {PageConstructorExtension} from '../../containers/PageConstructor/PageConstructor';
 import type {PageConstructorWrapperProps} from '../../common/types';
+import type {PageConstructorExtension} from '../../containers/PageConstructor/PageConstructor';
 import {NavigationData} from '../../models';
 import {useContent} from '../hooks';
+import Layout from '../navigation/containers/Layout/Layout';
 
 export interface NavigationExtensionWrapperProps {
     renderMenu?: () => React.ReactNode;
@@ -30,7 +30,7 @@ export const NavigationExtensionContentWrapper: React.FC<
     );
 };
 
-export const NavigationExtension = ({
+export const navigationExtension = ({
     wrapperProps = {},
     globalDefaults = {},
 }: {

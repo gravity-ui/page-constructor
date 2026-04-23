@@ -21,7 +21,11 @@ const SectionContainerConfig: BlockData = {
                         type: 'segmentedRadioGroup',
                         name: 'background',
                         title: 'Background',
-                        options: [{value: 'none', content: 'None'}, {value: 'subtle', content: 'Subtle'}, {value: 'brand', content: 'Brand'}],
+                        options: [
+                            {value: 'none', content: 'None'},
+                            {value: 'subtle', content: 'Subtle'},
+                            {value: 'brand', content: 'Brand'},
+                        ],
                         defaultValue: 'none',
                     },
                     {type: 'switch', name: 'withDivider', title: 'Show divider'},

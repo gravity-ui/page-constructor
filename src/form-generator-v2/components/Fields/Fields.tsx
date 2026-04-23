@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import {Content, Fields as FieldsType, OnUpdate} from '../../types';
-import {componentMap} from '../constants';
-import {formGeneratorCn} from '../../utils/cn';
 import {ClassNameProps} from '../../../models/common';
+import {Content, Fields as FieldsType, OnUpdate} from '../../types';
+import {formGeneratorCn} from '../../utils/cn';
+import {componentMap} from '../constants';
 
 import './Fields.scss';
 
@@ -17,7 +17,9 @@ type FieldsProps = ClassNameProps & {
 const Fields = ({fields, content, onUpdate, className}: FieldsProps) => (
     <div className={b(null, className)}>
         {fields.map((field, index) => {
-            const Component = componentMap[field.type] as React.ComponentType<Record<string, unknown>>;
+            const Component = componentMap[field.type] as React.ComponentType<
+                Record<string, unknown>
+            >;
 
             if (!Component) {
                 // eslint-disable-next-line

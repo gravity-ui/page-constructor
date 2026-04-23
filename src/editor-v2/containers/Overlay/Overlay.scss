@@ -4,7 +4,6 @@
 $block: '.#{$ns}overlay';
 
 #{$block} {
-    height: 100%;
     $border-width: 3px;
     $border-select: 5px var(--g-color-base-brand) solid;
     $border: $border-width var(--g-color-base-brand) solid;

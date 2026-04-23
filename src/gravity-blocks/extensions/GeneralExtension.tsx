@@ -1,12 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 
+import type {PageConstructorWrapperProps} from '../../common/types';
 import BrandFooter from '../../components/BrandFooter/BrandFooter';
 import type {PageConstructorExtension} from '../../containers/PageConstructor/PageConstructor';
-import type {PageConstructorWrapperProps} from '../../common/types';
-import {useContent} from '../hooks';
 import {block} from '../../utils';
-import {MicrodataContextProps} from '../context/microdataContext';
 import {GravityBlocksProvider, GravityBlocksProviderProps} from '../context/GravityBlocksProvider';
+import {MicrodataContextProps} from '../context/microdataContext';
+import {useContent} from '../hooks';
 
 const b = block('page-constructor');
 
@@ -37,7 +37,7 @@ export const GeneralExtensionContentWrapper: React.FC<
     );
 };
 
-export const GeneralExtension = ({
+export const generalExtension = ({
     wrapperProps = {},
     globalDefaults = {},
 }: {

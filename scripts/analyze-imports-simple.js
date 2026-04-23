@@ -22,8 +22,14 @@ function findFiles(dir, files = []) {
         const stat = fs.statSync(fullPath);
 
         if (stat.isDirectory()) {
-            if (item === 'node_modules' || item === 'build' || item === 'dist' ||
-                item === '__stories__' || item === '__tests__' || item === 'demo') {
+            if (
+                item === 'node_modules' ||
+                item === 'build' ||
+                item === 'dist' ||
+                item === '__stories__' ||
+                item === '__tests__' ||
+                item === 'demo'
+            ) {
                 continue;
             }
             findFiles(fullPath, files);
@@ -37,13 +43,17 @@ function findFiles(dir, files = []) {
 }
 
 function resolveImport(sourcePath, importPath) {
-    if (importPath.endsWith('.scss') || importPath.endsWith('.css') ||
-        importPath.endsWith('.sass') || importPath.endsWith('.less')) {
+    if (
+        importPath.endsWith('.scss') ||
+        importPath.endsWith('.css') ||
+        importPath.endsWith('.sass') ||
+        importPath.endsWith('.less')
+    ) {
         return null;
     }
 
     if (!importPath.startsWith('.') && !importPath.startsWith('src/')) {
-        return { type: 'external', path: importPath };
+        return {type: 'external', path: importPath};
     }
 
     let resolved;
@@ -58,11 +68,11 @@ function resolveImport(sourcePath, importPath) {
     for (const ext of extensions) {
         const fullPath = resolved + ext;
         if (fs.existsSync(fullPath)) {
-            return { type: 'internal', path: path.relative(PROJECT_ROOT, fullPath) };
+            return {type: 'internal', path: path.relative(PROJECT_ROOT, fullPath)};
         }
     }
 
-    return { type: 'internal', path: path.relative(PROJECT_ROOT, resolved) };
+    return {type: 'internal', path: path.relative(PROJECT_ROOT, resolved)};
 }
 
 function parseImports(filePath) {
@@ -80,7 +90,7 @@ function parseImports(filePath) {
         }
     }
 
-    return Array.from(imports).map(i => JSON.parse(i));
+    return Array.from(imports).map((i) => JSON.parse(i));
 }
 
 function analyze() {
@@ -111,14 +121,18 @@ function analyze() {
                 externalDeps.add(imp.path);
             } else {
                 const targetPath = path.join(PROJECT_ROOT, imp.path);
-                const exists = fs.existsSync(targetPath) ||
+                const exists =
+                    fs.existsSync(targetPath) ||
                     fs.existsSync(targetPath + '.ts') ||
                     fs.existsSync(targetPath + '.tsx');
 
                 if (exists) {
                     const targetRel = path.relative(PROJECT_ROOT, targetPath);
-                    if (nodes.has(targetRel) || files.some(f => path.relative(PROJECT_ROOT, f) === targetRel)) {
-                        edges.push({ source: relativePath, target: imp.path });
+                    if (
+                        nodes.has(targetRel) ||
+                        files.some((f) => path.relative(PROJECT_ROOT, f) === targetRel)
+                    ) {
+                        edges.push({source: relativePath, target: imp.path});
                         nodes.get(relativePath).imports.push(imp.path);
                     }
                 }
@@ -127,11 +141,11 @@ function analyze() {
     }
 
     console.log(`📊 ${nodes.size} nodes, ${edges.length} edges`);
-    return { nodes: Array.from(nodes.values()), edges, externalDeps: Array.from(externalDeps) };
+    return {nodes: Array.from(nodes.values()), edges, externalDeps: Array.from(externalDeps)};
 }
 
 function generateHTML(data) {
-    const categories = [...new Set(data.nodes.map(n => n.category))];
+    const categories = [...new Set(data.nodes.map((n) => n.category))];
     const categoryColors = {
         blocks: '#FF6B6B',
         subBlocks: '#4ECDC4',

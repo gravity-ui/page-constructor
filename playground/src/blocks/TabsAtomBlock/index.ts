@@ -19,7 +19,11 @@ const TabsAtomBlockConfig: BlockData = {
                         type: 'segmentedRadioGroup',
                         name: 'size',
                         title: 'Size',
-                        options: [{value: 'm', content: 'M'}, {value: 'l', content: 'L'}, {value: 'xl', content: 'XL'}],
+                        options: [
+                            {value: 'm', content: 'M'},
+                            {value: 'l', content: 'L'},
+                            {value: 'xl', content: 'XL'},
+                        ],
                         defaultValue: 'm',
                     },
                 ],

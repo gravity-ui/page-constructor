@@ -21,7 +21,13 @@ const SegmentedRadioGroup = ({
     const value = selected ?? defaultValue ?? null;
 
     return (
-        <Base when={when} content={content} name={name} onUpdate={onUpdate} defaultValue={defaultValue}>
+        <Base
+            when={when}
+            content={content}
+            name={name}
+            onUpdate={onUpdate}
+            defaultValue={defaultValue}
+        >
             <BaseInput title={title}>
                 <SegmentedRadioGroupUIKIT
                     name={name}

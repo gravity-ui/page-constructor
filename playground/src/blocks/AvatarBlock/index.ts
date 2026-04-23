@@ -36,14 +36,20 @@ const AvatarBlockConfig: BlockData = {
                         type: 'segmentedRadioGroup',
                         name: 'theme',
                         title: 'Theme',
-                        options: [{value: 'normal', content: 'Normal'}, {value: 'brand', content: 'Brand'}],
+                        options: [
+                            {value: 'normal', content: 'Normal'},
+                            {value: 'brand', content: 'Brand'},
+                        ],
                         defaultValue: 'normal',
                     },
                     {
                         type: 'segmentedRadioGroup',
                         name: 'view',
                         title: 'View',
-                        options: [{value: 'filled', content: 'Filled'}, {value: 'outlined', content: 'Outlined'}],
+                        options: [
+                            {value: 'filled', content: 'Filled'},
+                            {value: 'outlined', content: 'Outlined'},
+                        ],
                         defaultValue: 'filled',
                     },
                 ],

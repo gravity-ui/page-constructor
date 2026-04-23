@@ -2,6 +2,7 @@ import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {CustomConfig, NavigationData} from '../../../models';
+import {gravityBlocksExtension} from '../../extensions';
 
 import {CustomButton} from './CustomButton/CustomButton';
 import {CustomComponent} from './CustomComponent/CustomComponent';
@@ -16,7 +17,17 @@ export default {
 const DefaultTemplate: StoryFn<{
     navigation: NavigationData;
     custom?: CustomConfig;
-}> = ({navigation, custom = {}}) => <PageConstructor navigation={navigation} custom={custom} />;
+}> = ({navigation, custom = {}}) => (
+    <PageConstructor
+        content={{blocks: []}}
+        custom={custom}
+        extensions={gravityBlocksExtension({
+            globalDefaults: {
+                navigation,
+            },
+        })}
+    />
+);
 export const DefaultNavigation = DefaultTemplate.bind({});
 export const NavigationWithBorder = DefaultTemplate.bind({});
 export const NavigationWithCustomItems = DefaultTemplate.bind({});

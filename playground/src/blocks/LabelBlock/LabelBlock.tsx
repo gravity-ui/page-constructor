@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {Label} from '@gravity-ui/uikit';
 
 export interface LabelBlockProps {
@@ -7,11 +8,7 @@ export interface LabelBlockProps {
     size?: 'xs' | 's' | 'm';
 }
 
-const LabelBlock: React.FC<LabelBlockProps> = ({
-    value = 'Label',
-    theme = 'normal',
-    size = 'm',
-}) => {
+const LabelBlock: React.FC<LabelBlockProps> = ({value = 'Label', theme = 'normal', size = 'm'}) => {
     return (
         <div style={{padding: '16px 24px'}}>
             <Label theme={theme} size={size}>

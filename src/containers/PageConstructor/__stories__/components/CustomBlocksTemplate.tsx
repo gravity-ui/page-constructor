@@ -1,7 +1,11 @@
 import {StoryFn} from '@storybook/react';
 
 import {CustomConfig} from '../../../../models';
-import {PageConstructor, PageConstructorExtension, PageConstructorProps} from '../../PageConstructor';
+import {
+    PageConstructor,
+    PageConstructorExtension,
+    PageConstructorProps,
+} from '../../PageConstructor';
 
 import {CustomBlock} from './CustomBlock';
 import {CustomCard} from './CustomCard';

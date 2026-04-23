@@ -25,7 +25,11 @@ const Template: StoryFn<{blockConfig: Fields}> = ({blockConfig}) => {
     const [content, setContent] = useResultPanel<Content>({});
     return (
         <div style={{maxWidth: 600}}>
-            <FormGenerator blockConfig={blockConfig} contentConfig={content} onUpdate={setContent} />
+            <FormGenerator
+                blockConfig={blockConfig}
+                contentConfig={content}
+                onUpdate={setContent}
+            />
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import ChildrenItemWrap from '../../../../src/components/editor/ChildrenItemWrap/ChildrenItemWrap';
 import ChildrensWrap from '../../../../src/components/editor/ChildrensWrap/ChildrensWrap';
 
@@ -16,13 +17,9 @@ export interface ColumnsContainerProps extends React.PropsWithChildren {
     gap?: ColumnsGap;
 }
 
-const ColumnsContainer: React.FC<ColumnsContainerProps> = ({
-    columns = 2,
-    gap = 'm',
-    children,
-}) => {
+const ColumnsContainer: React.FC<ColumnsContainerProps> = ({columns = 2, gap = 'm', children}) => {
     const isSpaceBetween = gap === 'space-between';
-    const gapPx = isSpaceBetween ? 0 : GAP_SIZE[gap] ?? GAP_SIZE.m;
+    const gapPx = isSpaceBetween ? 0 : (GAP_SIZE[gap] ?? GAP_SIZE.m);
 
     return (
         <div style={{padding: '16px 24px', width: '100%', boxSizing: 'border-box'}}>

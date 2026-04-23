@@ -6,10 +6,10 @@
 
 const fs = require('fs');
 const path = require('path');
+
 const glob = require('glob');
 
 const PROJECT_ROOT = path.resolve(__dirname, '..');
-const SRC_DIR = path.join(PROJECT_ROOT, 'src');
 
 // Паттерны для поиска импортов
 const IMPORT_PATTERNS = [
@@ -36,14 +36,30 @@ const EXCLUDE_PATTERNS = [
 
 function resolveImportPath(sourcePath, importPath) {
     // Игнорируем все asset-файлы (стили, картинки, шрифты)
-    const assetExts = ['.scss', '.css', '.sass', '.less', '.svg', '.png', '.jpg', '.jpeg', '.gif', '.webp', '.woff', '.woff2', '.ttf', '.eot', '.json'];
-    if (assetExts.some(ext => importPath.endsWith(ext))) {
+    const assetExts = [
+        '.scss',
+        '.css',
+        '.sass',
+        '.less',
+        '.svg',
+        '.png',
+        '.jpg',
+        '.jpeg',
+        '.gif',
+        '.webp',
+        '.woff',
+        '.woff2',
+        '.ttf',
+        '.eot',
+        '.json',
+    ];
+    if (assetExts.some((ext) => importPath.endsWith(ext))) {
         return null;
     }
 
     // Внешние зависимости (@gravity-ui, react, etc.)
     if (!importPath.startsWith('.') && !importPath.startsWith('src/')) {
-        return { type: 'external', path: importPath };
+        return {type: 'external', path: importPath};
     }
 
     // Относительные пути
@@ -57,7 +73,7 @@ function resolveImportPath(sourcePath, importPath) {
     for (const ext of extensions) {
         const fullPath = resolved + ext;
         if (fs.existsSync(fullPath)) {
-            return { type: 'internal', path: path.relative(PROJECT_ROOT, fullPath) };
+            return {type: 'internal', path: path.relative(PROJECT_ROOT, fullPath)};
         }
     }
 
@@ -65,7 +81,7 @@ function resolveImportPath(sourcePath, importPath) {
     for (const ext of indexExtensions) {
         const fullPath = resolved + ext;
         if (fs.existsSync(fullPath)) {
-            return { type: 'internal', path: path.relative(PROJECT_ROOT, fullPath) };
+            return {type: 'internal', path: path.relative(PROJECT_ROOT, fullPath)};
         }
     }
 
@@ -88,7 +104,7 @@ function parseImports(filePath) {
         }
     }
 
-    return Array.from(imports).map(i => JSON.parse(i));
+    return Array.from(imports).map((i) => JSON.parse(i));
 }
 
 function analyzeProject() {
@@ -102,7 +118,7 @@ function analyzeProject() {
     const edges = [];
     const externalDeps = new Set();
 
-    files.forEach(file => {
+    files.forEach((file) => {
         const relativePath = path.relative(PROJECT_ROOT, file);
         const imports = parseImports(file);
 
@@ -118,13 +134,16 @@ function analyzeProject() {
             imports: [],
         });
 
-        imports.forEach(imp => {
+        imports.forEach((imp) => {
             if (imp.type === 'external') {
                 externalDeps.add(imp.path);
             } else {
                 // Проверяем, что target файл существует (исключаем SCSS и несуществующие файлы)
                 const targetPath = path.join(PROJECT_ROOT, imp.path);
-                const targetExists = fs.existsSync(targetPath) || fs.existsSync(targetPath + '.ts') || fs.existsSync(targetPath + '.tsx');
+                const targetExists =
+                    fs.existsSync(targetPath) ||
+                    fs.existsSync(targetPath + '.ts') ||
+                    fs.existsSync(targetPath + '.tsx');
 
                 if (targetExists) {
                     edges.push({
@@ -160,7 +179,7 @@ function findCycles(nodes, edges) {
     const recursionStack = new Set();
 
     const adj = new Map();
-    edges.forEach(e => {
+    edges.forEach((e) => {
         if (!adj.has(e.source)) adj.set(e.source, []);
         adj.get(e.source).push(e.target);
     });
@@ -199,7 +218,7 @@ function findCycles(nodes, edges) {
 }
 
 function generateHTML(data) {
-    const categories = [...new Set(data.nodes.map(n => n.category))];
+    const categories = [...new Set(data.nodes.map((n) => n.category))];
     const categoryColors = {
         blocks: '#FF6B6B',
         subBlocks: '#4ECDC4',
@@ -893,7 +912,7 @@ if (require.main === module) {
    Internal imports: ${data.stats.totalImports}
    External deps: ${data.stats.externalDeps}
    Circular deps: ${data.stats.cycles}
-   Categories: ${new Set(data.nodes.map(n => n.category)).size}
+   Categories: ${new Set(data.nodes.map((n) => n.category)).size}
 `);
 
     if (data.cycles.length > 0) {
@@ -913,4 +932,4 @@ if (require.main === module) {
 `);
 }
 
-module.exports = { analyzeProject, generateHTML };
+module.exports = {analyzeProject, generateHTML};

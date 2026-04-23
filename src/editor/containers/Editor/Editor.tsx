@@ -1,5 +1,5 @@
 import {PageConstructor, PageConstructorProvider} from '../../../containers/PageConstructor';
-import {GravityBlocksProvider} from '../../../blocks/settings';
+import {GravityBlocksProvider} from '../../../gravity-blocks/extensions/GravityBlocksExtension';
 import {block} from '../../../utils';
 import AddBlock from '../../components/AddBlock/AddBlock';
 import {CodeEditor} from '../../components/CodeEditor/CodeEditor';

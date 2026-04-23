@@ -3,7 +3,9 @@ import * as React from 'react';
 import {BlockRegistry} from './blockRegistryContext';
 
 export function useBlockRegistryProvider(): BlockRegistry {
-    const entriesRef = React.useRef(new Map<string, {path: number[]; element: HTMLElement; dropZone?: boolean}>());
+    const entriesRef = React.useRef(
+        new Map<string, {path: number[]; element: HTMLElement; dropZone?: boolean}>(),
+    );
     const listenersRef = React.useRef(new Set<() => void>());
 
     return React.useMemo<BlockRegistry>(() => {

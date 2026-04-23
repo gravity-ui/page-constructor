@@ -1,9 +1,9 @@
 {
-  "logo": { "text": "My App" },
+  "logo": {"text": "My App"},
   "menuItems": [
-    { "id": "home", "title": "Home", "icon": "House", "link": "/" },
-    { "id": "settings", "title": "Settings", "icon": "Gear", "link": "/settings" },
-    { "id": "profile", "title": "Profile", "icon": "Person", "link": "/profile" }
+    {"id": "home", "title": "Home", "icon": "House", "link": "/"},
+    {"id": "settings", "title": "Settings", "icon": "Gear", "link": "/settings"},
+    {"id": "profile", "title": "Profile", "icon": "Person", "link": "/profile"}
   ],
   "blocks": [
     {
@@ -18,7 +18,8 @@
       "title": "Deployment complete",
       "message": "All services are running normally. No action required.",
       "theme": "success",
-      "view": "outlined", "corners": "square"
+      "view": "outlined",
+      "corners": "square"
     },
     {
       "type": "custom/container-columns",
@@ -52,10 +53,10 @@
       "columns": 4,
       "gap": "m",
       "children": [
-        { "type": "custom/atom-label", "value": "Production", "theme": "success", "size": "m" },
-        { "type": "custom/atom-label", "value": "Staging", "theme": "warning", "size": "m" },
-        { "type": "custom/atom-label", "value": "Dev", "theme": "info", "size": "m" },
-        { "type": "custom/atom-label", "value": "Deprecated", "theme": "danger", "size": "m" }
+        {"type": "custom/atom-label", "value": "Production", "theme": "success", "size": "m"},
+        {"type": "custom/atom-label", "value": "Staging", "theme": "warning", "size": "m"},
+        {"type": "custom/atom-label", "value": "Dev", "theme": "info", "size": "m"},
+        {"type": "custom/atom-label", "value": "Deprecated", "theme": "danger", "size": "m"}
       ]
     },
     {
@@ -68,27 +69,45 @@
     {
       "type": "custom/atom-breadcrumbs",
       "items": [
-        { "text": "Home", "href": "/" },
-        { "text": "Products", "href": "/products" },
-        { "text": "Page Constructor" }
+        {"text": "Home", "href": "/"},
+        {"text": "Products", "href": "/products"},
+        {"text": "Page Constructor"}
       ]
     },
     {
       "type": "custom/atom-tabs",
       "size": "m",
       "items": [
-        { "title": "Overview", "content": "The page-constructor library allows you to build rich pages from composable blocks. Each block is a self-contained UI unit with its own schema and default values." },
-        { "title": "Installation", "content": "Install via npm: npm install @gravity-ui/page-constructor. Then import PageConstructor and PageConstructorProvider from the package." },
-        { "title": "Usage", "content": "Wrap your page with PageConstructorProvider, passing your custom blocks. Then render PageConstructor with a content object that describes your page structure." }
+        {
+          "title": "Overview",
+          "content": "The page-constructor library allows you to build rich pages from composable blocks. Each block is a self-contained UI unit with its own schema and default values."
+        },
+        {
+          "title": "Installation",
+          "content": "Install via npm: npm install @gravity-ui/page-constructor. Then import PageConstructor and PageConstructorProvider from the package."
+        },
+        {
+          "title": "Usage",
+          "content": "Wrap your page with PageConstructorProvider, passing your custom blocks. Then render PageConstructor with a content object that describes your page structure."
+        }
       ]
     },
     {
       "type": "custom/atom-accordion",
       "size": "m",
       "items": [
-        { "summary": "What is Page Constructor?", "content": "Page Constructor is a library for building content pages from a JSON configuration. It provides a visual editor and a set of pre-built blocks." },
-        { "summary": "Can I create custom blocks?", "content": "Yes! Pass your custom block configs to PageConstructorProvider via the blocks prop. Each block needs a type, component, and schema." },
-        { "summary": "What form fields are available?", "content": "You can use textInput, textArea, select, segmentedRadioGroup, switch, colorInput, and section (with nesting and repeating group support)." }
+        {
+          "summary": "What is Page Constructor?",
+          "content": "Page Constructor is a library for building content pages from a JSON configuration. It provides a visual editor and a set of pre-built blocks."
+        },
+        {
+          "summary": "Can I create custom blocks?",
+          "content": "Yes! Pass your custom block configs to PageConstructorProvider via the blocks prop. Each block needs a type, component, and schema."
+        },
+        {
+          "summary": "What form fields are available?",
+          "content": "You can use textInput, textArea, select, segmentedRadioGroup, switch, colorInput, and section (with nesting and repeating group support)."
+        }
       ]
     },
     {
@@ -96,9 +115,27 @@
       "columns": 3,
       "gap": "l",
       "children": [
-        { "type": "custom/atom-avatar", "text": "AJ", "size": "xl", "theme": "brand", "view": "filled" },
-        { "type": "custom/atom-avatar", "text": "MK", "size": "xl", "theme": "normal", "view": "outlined" },
-        { "type": "custom/atom-avatar", "text": "RP", "size": "xl", "theme": "brand", "view": "outlined" }
+        {
+          "type": "custom/atom-avatar",
+          "text": "AJ",
+          "size": "xl",
+          "theme": "brand",
+          "view": "filled"
+        },
+        {
+          "type": "custom/atom-avatar",
+          "text": "MK",
+          "size": "xl",
+          "theme": "normal",
+          "view": "outlined"
+        },
+        {
+          "type": "custom/atom-avatar",
+          "text": "RP",
+          "size": "xl",
+          "theme": "brand",
+          "view": "outlined"
+        }
       ]
     },
     {
@@ -106,8 +143,18 @@
       "columns": 2,
       "gap": "m",
       "children": [
-        { "type": "custom/atom-user", "name": "Alice Johnson", "description": "Frontend Developer", "size": "m" },
-        { "type": "custom/atom-user", "name": "Bob Smith", "description": "Backend Engineer", "size": "m" }
+        {
+          "type": "custom/atom-user",
+          "name": "Alice Johnson",
+          "description": "Frontend Developer",
+          "size": "m"
+        },
+        {
+          "type": "custom/atom-user",
+          "name": "Bob Smith",
+          "description": "Backend Engineer",
+          "size": "m"
+        }
       ]
     },
     {
@@ -130,7 +177,8 @@
           "title": "Tip",
           "message": "You can nest any block inside a card container.",
           "theme": "info",
-          "view": "outlined", "corners": "square"
+          "view": "outlined",
+          "corners": "square"
         }
       ]
     },
@@ -140,10 +188,10 @@
       "direction": "horizontal",
       "responsive": false,
       "items": [
-        { "name": "CPU", "value": "Intel Core i9-13900K", "copyText": "Intel Core i9-13900K" },
-        { "name": "RAM", "value": "64GB DDR5-5600", "note": "Maximum supported memory" },
-        { "name": "Storage", "value": "2TB NVMe SSD" },
-        { "name": "GPU", "value": "NVIDIA RTX 4090 24GB", "copyText": "NVIDIA RTX 4090 24GB" }
+        {"name": "CPU", "value": "Intel Core i9-13900K", "copyText": "Intel Core i9-13900K"},
+        {"name": "RAM", "value": "64GB DDR5-5600", "note": "Maximum supported memory"},
+        {"name": "Storage", "value": "2TB NVMe SSD"},
+        {"name": "GPU", "value": "NVIDIA RTX 4090 24GB", "copyText": "NVIDIA RTX 4090 24GB"}
       ]
     }
   ]
