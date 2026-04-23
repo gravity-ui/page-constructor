@@ -113,7 +113,7 @@
     "build:widget": "webpack --config widget.webpack.js",
     "build:schema": "webpack --config schema.webpack.js",
     "build": "run-p build:client build:server build:widget build:schema",
-    "build:playground": "echo wip",
+    "build:playground": "cd playground && tsc && vite build -c vite.config.mts",
     "prepublishOnly": "npm run lint && npm run build",
     "prepare": "husky install",
     "test": "jest",
