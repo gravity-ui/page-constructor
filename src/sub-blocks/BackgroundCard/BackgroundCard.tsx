@@ -29,13 +29,14 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         controlPosition = 'content',
         list,
         size = 's',
+        forceBorder,
     } = props;
 
     const titleId = useUniqId();
 
     const theme = useTheme();
     const hasBackgroundColor = backgroundColor || cardTheme !== 'default';
-    const borderType = hasBackgroundColor ? 'none' : border;
+    const borderType = hasBackgroundColor && !forceBorder ? 'none' : border;
     const areControlsInFooter = !paddingBottom && controlPosition === 'footer';
 
     return (
