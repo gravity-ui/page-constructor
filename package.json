@@ -1,6 +1,6 @@
 {
   "name": "@gravity-ui/page-constructor",
-  "version": "8.5.0",
+  "version": "8.5.0-alpha.0",
   "description": "Gravity UI Page Constructor",
   "license": "MIT",
   "type": "commonjs",
@@ -113,7 +113,7 @@
     "build:widget": "webpack --config widget.webpack.js",
     "build:schema": "webpack --config schema.webpack.js",
     "build": "run-p build:client build:server build:widget build:schema",
-    "build:playground": "cd playground && tsc && vite build -c vite.config.mts",
+    "build:playground": "echo wip",
     "prepublishOnly": "npm run lint && npm run build",
     "prepare": "husky install",
     "test": "jest",
@@ -125,8 +125,7 @@
     "playwright:docker": "./scripts/playwright-docker.sh 'npm run playwright'",
     "playwright:docker:update": "./scripts/playwright-docker.sh 'npm run playwright:update'",
     "playwright:docker:clear-cache": "./scripts/playwright-docker.sh clear-cache",
-    "playwright:install": "playwright install --with-deps",
-    "build:playground": "echo wip"
+    "playwright:install": "playwright install --with-deps"
   },
   "dependencies": {
     "@bem-react/classname": "^1.6.0",
