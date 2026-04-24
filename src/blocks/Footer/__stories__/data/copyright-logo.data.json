@@ -5,11 +5,11 @@
       "copyright": {
         "logo": {
           "image": {
-            "light": {"src": "/story-assets/logo-ytsuarus_light.svg"},
-            "dark": {"src": "/story-assets/logo-ytsuarus_dark.svg"}
+            "light": {"src": "story-assets/icon_1_light.svg"},
+            "dark": {"src": "story-assets/icon_1_dark.svg"}
           },
           "href": "/",
-          "alt": "YTsaurus"
+          "alt": "Example company"
         },
         "links": [
           {"text": "With logo", "url": "#with-logo"},
