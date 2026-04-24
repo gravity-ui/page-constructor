@@ -64,7 +64,7 @@ export const usePCEditorInitializeEvents = ({
     });
 
     const onResize = React.useCallback(() => {
-        const height = document.documentElement.getBoundingClientRect().height;
+        const height = document.body.scrollHeight;
         sendEventPostMessage('ON_RESIZE', {height});
     }, []);
 
@@ -119,7 +119,7 @@ export const usePCEditorInitializeEvents = ({
     }, [onResize]);
 
     React.useEffect(() => {
-        const height = document.documentElement.getBoundingClientRect().height;
+        const height = document.body.scrollHeight;
         sendEventPostMessage('ON_INIT', {height});
     }, []);
 };
