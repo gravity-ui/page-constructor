@@ -36,7 +36,7 @@ const NavigateToButton = () => {
                         <Menu.Item
                             key={item.url}
                             onClick={() => {
-                                changeUrl(window.location.origin + item.url);
+                                changeUrl(import.meta.env.BASE_URL + item.url);
                                 setOpen(false);
                             }}
                         >
