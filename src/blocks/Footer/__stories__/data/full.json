@@ -3,11 +3,11 @@
   "navigation": {
     "logo": {
       "image": {
-        "light": {"src": "/story-assets/logo-ytsuarus_light.svg"},
-        "dark": {"src": "/story-assets/logo-ytsuarus_dark.svg"}
+        "light": {"src": "story-assets/icon_1_light.svg"},
+        "dark": {"src": "story-assets/icon_1_dark.svg"}
       },
       "href": "/",
-      "alt": "YTsaurus"
+      "alt": "Example company"
     },
     "columns": [
       {
@@ -65,56 +65,56 @@
     "links": [
       {
         "icon": {
-          "light": {"src": "/story-assets/icons-github_light.svg"},
-          "dark": {"src": "/story-assets/icons-github_dark.svg"}
+          "light": {"src": "story-assets/icons-github_light.svg"},
+          "dark": {"src": "story-assets/icons-github_dark.svg"}
         },
         "url": "https://example.com",
         "urlTitle": "GitHub"
       },
       {
         "icon": {
-          "light": {"src": "/story-assets/icons-medium_light.svg"},
-          "dark": {"src": "/story-assets/icons-medium_dark.svg"}
+          "light": {"src": "story-assets/icons-medium_light.svg"},
+          "dark": {"src": "story-assets/icons-medium_dark.svg"}
         },
         "url": "https://example.com",
         "urlTitle": "Medium"
       },
       {
         "icon": {
-          "light": {"src": "/story-assets/icons-discord_light.svg"},
-          "dark": {"src": "/story-assets/icons-discord_dark.svg"}
+          "light": {"src": "story-assets/icons-discord_light.svg"},
+          "dark": {"src": "story-assets/icons-discord_dark.svg"}
         },
         "url": "https://example.com",
         "urlTitle": "Discord"
       },
       {
         "icon": {
-          "light": {"src": "/story-assets/icons-x_light.svg"},
-          "dark": {"src": "/story-assets/icons-x_dark.svg"}
+          "light": {"src": "story-assets/icons-x_light.svg"},
+          "dark": {"src": "story-assets/icons-x_dark.svg"}
         },
         "url": "https://example.com",
         "urlTitle": "X"
       },
       {
         "icon": {
-          "light": {"src": "/story-assets/icons-linkedin_light.svg"},
-          "dark": {"src": "/story-assets/icons-linkedin_dark.svg"}
+          "light": {"src": "story-assets/icons-linkedin_light.svg"},
+          "dark": {"src": "story-assets/icons-linkedin_dark.svg"}
         },
         "url": "https://example.com",
         "urlTitle": "Linkedin"
       },
       {
         "icon": {
-          "light": {"src": "/story-assets/icons-youtube_light.svg"},
-          "dark": {"src": "/story-assets/icons-youtube_dark.svg"}
+          "light": {"src": "story-assets/icons-youtube_light.svg"},
+          "dark": {"src": "story-assets/icons-youtube_dark.svg"}
         },
         "url": "https://example.com",
         "urlTitle": "YouTube"
       },
       {
         "icon": {
-          "light": {"src": "/story-assets/icons-telegram_light.svg"},
-          "dark": {"src": "/story-assets/icons-telegram_dark.svg"}
+          "light": {"src": "story-assets/icons-telegram_light.svg"},
+          "dark": {"src": "story-assets/icons-telegram_dark.svg"}
         },
         "url": "https://example.com",
         "urlTitle": "Telegram"
@@ -122,7 +122,7 @@
     ]
   },
   "disclaimer": {
-    "text": "YTsaurus is a software distributed under the Apache License, Version 2.0. Feel free to contact the **YTsaurus** team at [info@ytsaurus.tech](mailto:info@ytsaurus.tech). Apache®, Apache Spark™ and their logos are either registered trademarks or trademarks of the Apache Software Foundation. [Trademarks](https://trademarks.apache.org). ClickHouse® is a trademark of ClickHouse, Inc. [clickhouse.com](https://clickhouse.com).",
+    "text": "Example company is a software distributed under the Apache License, Version 2.0. Feel free to contact the **Example company** team at [info@example.tech](mailto:info@example.tech). Apache®, Apache Spark™ and their logos are either registered trademarks or trademarks of the Apache Software Foundation. [Trademarks](https://trademarks.apache.org). ClickHouse® is a trademark of ClickHouse, Inc. [clickhouse.com](https://clickhouse.com).",
     "align": "left"
   },
   "copyright": {
