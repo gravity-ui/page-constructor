@@ -4,9 +4,8 @@ import {BlockData} from '../../constructor-items';
 import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import ImageCard from './ImageCard';
+import icon from './icon';
 import {ImageCard as ImageCardSchema} from './schema';
-
-import icon from './icon.svg';
 
 const ImageCardConfig: BlockData = {
     type: '@gravity-ui/page-constructor/image-card',

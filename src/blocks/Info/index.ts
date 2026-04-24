@@ -3,9 +3,8 @@ import {JSONSchemaType} from 'ajv';
 import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import InfoBlock from './Info';
+import icon from './icon';
 import {InfoBlock as InfoBlockSchema} from './schema';
-
-import icon from './icon.svg';
 
 const InfoBlockConfig = {
     type: '@gravity-ui/page-constructor/info-block',

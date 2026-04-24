@@ -4,9 +4,8 @@ import {BlockData} from '../../constructor-items';
 import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import BannerBlock from './Banner';
+import icon from './icon';
 import {BannerCardProps} from './schema';
-
-import icon from './icon.svg';
 
 const BannerBlockConfig: BlockData = {
     type: '@gravity-ui/page-constructor/banner-block',

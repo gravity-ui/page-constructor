@@ -8,7 +8,7 @@ export function requestActionPostMessage<K extends keyof ActionMessageTypes>(
     destinationElement: Window,
 ) {
     const message = {action, data} as PostMessageAPIMessage<K>;
-    destinationElement.postMessage(message);
+    destinationElement.postMessage(message, '*');
 }
 
 export function listenPostMessageEvents<K extends keyof EventMessageTypes>(

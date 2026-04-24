@@ -4,9 +4,8 @@ import {BlockData} from '../../constructor-items';
 import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import MediaCard from './MediaCard';
+import icon from './icon';
 import {MediaCardBlock as MediaCardSchema} from './schema';
-
-import icon from './icon.svg';
 
 const MediaCardConfig: BlockData = {
     type: '@gravity-ui/page-constructor/media-card',

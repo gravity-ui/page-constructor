@@ -14,10 +14,15 @@ const BigOverlay = ({className}: {className?: string}) => {
     const [mousePosition, setMousePosition] = React.useState<{x: number; y: number} | undefined>(
         undefined,
     );
+    const overlayRef = React.useRef<HTMLDivElement>(null);
 
     React.useEffect(() => {
         const onMouseMove = (event: MouseEvent) => {
-            setMousePosition({x: event.clientX, y: event.clientY});
+            const rect = overlayRef.current?.getBoundingClientRect();
+            setMousePosition({
+                x: event.clientX - (rect?.left ?? 0),
+                y: event.clientY - (rect?.top ?? 0),
+            });
         };
 
         const onMouseUp = () => {
@@ -36,7 +41,7 @@ const BigOverlay = ({className}: {className?: string}) => {
     }, []);
 
     return (
-        <div className={b(null, className)}>
+        <div ref={overlayRef} className={b(null, className)}>
             {mousePosition && manipulateOverlayMode ? (
                 <div
                     className={b('border')}

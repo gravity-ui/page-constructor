@@ -25,7 +25,7 @@ interface SidebarTabComponent {
     component: React.ElementType;
 }
 
-interface ComponentsConfig {
+interface EditorSlots {
     middleTop?: React.ElementType;
     leftTop?: React.ElementType[];
     rightTop?: React.ElementType[];
@@ -41,17 +41,17 @@ export interface EditorProviderProps {
 
 export interface EditorViewProps {
     onUpdate?: (pageContent: PageContent) => void;
-    initialContent?: PageContent;
-    componentsConfig?: ComponentsConfig;
+    content?: PageContent;
+    slots?: EditorSlots;
 }
 
 type EditorProps = Omit<EditorProviderProps, 'children'> & EditorViewProps;
 
-const EditorViewInternal = ({componentsConfig = {}, initialContent}: EditorViewProps) => {
+const EditorViewInternal = ({slots = {}, content}: EditorViewProps) => {
     const store = useMainEditorStore();
     const {manipulateOverlayMode, disableMode, undo, redo} = store;
 
-    useMainEditorInitialize(initialContent);
+    useMainEditorInitialize(content);
 
     usePostMessageAPIListener(
         'ON_EDITOR_UNDO',
@@ -108,22 +108,22 @@ const EditorViewInternal = ({componentsConfig = {}, initialContent}: EditorViewP
         },
         [disableMode, manipulateOverlayMode],
     );
-    const {left, right} = useEditorTabs(componentsConfig);
+    const {left, right} = useEditorTabs(slots);
 
     return (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions
         <div className={b()} onMouseUp={onMouseUp}>
             <div className={b('body')}>
                 <Panels
-                    left={<Sidebar tabs={left} top={componentsConfig.leftTop} />}
+                    left={<Sidebar tabs={left} top={slots.leftTop} />}
                     right={
                         <Sidebar
                             tabs={right}
-                            top={[...(componentsConfig.rightTop || []), Source, ViewSwitches]}
+                            top={[...(slots.rightTop || []), Source, ViewSwitches]}
                             defaultTab="block-config"
                         />
                     }
-                    middle={<MiddleScreen CustomTop={componentsConfig.middleTop} />}
+                    middle={<MiddleScreen CustomTop={slots.middleTop} />}
                 />
             </div>
             <BigOverlay className={b('overlay')} />

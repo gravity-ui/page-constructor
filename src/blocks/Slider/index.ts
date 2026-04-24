@@ -3,9 +3,8 @@ import {JSONSchemaType} from 'ajv';
 import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import SliderBlock from './Slider';
+import icon from './icon';
 import {SliderBlock as SliderBlockSchema} from './schema';
-
-import icon from './icon.svg';
 
 const SliderBlockConfig = {
     type: '@gravity-ui/page-constructor/slider-block',
