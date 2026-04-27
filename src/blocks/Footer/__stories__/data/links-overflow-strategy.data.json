@@ -1,0 +1,58 @@
+{
+  "variants": [
+    {
+      "type": "footer-block",
+      "copyright": {
+        "logo": {
+          "image": {
+            "light": {"src": "story-assets/icon_1_light.svg"},
+            "dark": {"src": "story-assets/icon_1_dark.svg"}
+          },
+          "href": "/",
+          "alt": "Example company"
+        },
+        "links": [
+          {"text": "linksOverflowStrategy: dropdown", "url": "#strategy"},
+          {"text": "Privacy Policy with long text", "url": "#privacy"},
+          {"text": "Terms of Service with long text", "url": "#terms"},
+          {"text": "Cookie Policy with long text", "url": "#cookies"},
+          {"text": "Legal Notice with long text", "url": "#legal"}
+        ],
+        "linksOverflowStrategy": "dropdown",
+        "languageSwitcher": [
+          {"text": "Русский", "href": "/ru"},
+          {"text": "English", "href": "/en"}
+        ],
+        "copyrightText": "© 2026 Yandex Cloud",
+        "mobileHorizontalAlignment": "center"
+      }
+    },
+    {
+      "type": "footer-block",
+      "copyright": {
+        "logo": {
+          "image": {
+            "light": {"src": "story-assets/icon_1_light.svg"},
+            "dark": {"src": "story-assets/icon_1_dark.svg"}
+          },
+          "href": "/",
+          "alt": "Example company"
+        },
+        "links": [
+          {"text": "linksOverflowStrategy: line-wrap", "url": "#strategy"},
+          {"text": "Privacy Policy with long text", "url": "#privacy"},
+          {"text": "Terms of Service with long text", "url": "#terms"},
+          {"text": "Cookie Policy with long text", "url": "#cookies"},
+          {"text": "Legal Notice with long text", "url": "#legal"}
+        ],
+        "linksOverflowStrategy": "line-wrap",
+        "languageSwitcher": [
+          {"text": "Русский", "href": "/ru"},
+          {"text": "English", "href": "/en"}
+        ],
+        "copyrightText": "© 2026 Yandex Cloud",
+        "mobileHorizontalAlignment": "center"
+      }
+    }
+  ]
+}

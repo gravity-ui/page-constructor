@@ -1,0 +1,19 @@
+@import '../../../../../styles/mixins.scss';
+@import '../../../../../styles/variables.scss';
+
+.pc-lang-switcher {
+    &__switcher-button {
+        --g-button-font-size: var(--g-text-body-2-font-size);
+        --g-button-height: 36px;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        & {
+            width: 100%;
+        }
+
+        &__switcher-button {
+            margin-left: -12px;
+        }
+    }
+}

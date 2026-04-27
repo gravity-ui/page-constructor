@@ -1,0 +1,55 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}footer-block';
+
+#{$block} {
+    color: var(--g-color-text-primary);
+
+    &__floor {
+        width: 100%;
+        max-width: $newContentWidth;
+        margin: 0 auto;
+        padding: $indentSM 0;
+        border-top: 1px solid var(--g-color-line-generic-solid);
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+    }
+
+    &__logo-image {
+        display: block;
+    }
+
+    &__floor_attribution {
+        border: none;
+        padding: 0;
+    }
+
+    &__attribution-block {
+        margin-top: 0;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__logo-image {
+            max-height: 28px;
+
+            picture,
+            img {
+                max-height: 28px;
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        & .pc-Grid .container-fluid {
+            padding: 0 $indentSM;
+        }
+
+        &__floor_attribution {
+            height: 64px;
+        }
+    }
+}

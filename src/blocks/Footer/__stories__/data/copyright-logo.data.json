@@ -1,0 +1,46 @@
+{
+  "variants": [
+    {
+      "type": "footer-block",
+      "copyright": {
+        "logo": {
+          "image": {
+            "light": {"src": "story-assets/icon_1_light.svg"},
+            "dark": {"src": "story-assets/icon_1_dark.svg"}
+          },
+          "href": "/",
+          "alt": "Example company"
+        },
+        "links": [
+          {"text": "With logo", "url": "#with-logo"},
+          {"text": "Privacy Policy", "url": "#privacy"},
+          {"text": "Terms of Service", "url": "#terms"}
+        ],
+        "linksOverflowStrategy": "line-wrap",
+        "languageSwitcher": [
+          {"text": "Русский", "href": "/ru"},
+          {"text": "English", "href": "/en"}
+        ],
+        "copyrightText": "© 2026 Yandex Cloud",
+        "mobileHorizontalAlignment": "center"
+      }
+    },
+    {
+      "type": "footer-block",
+      "copyright": {
+        "links": [
+          {"text": "Without logo", "url": "#without-logo"},
+          {"text": "Privacy Policy", "url": "#privacy"},
+          {"text": "Terms of Service", "url": "#terms"}
+        ],
+        "linksOverflowStrategy": "line-wrap",
+        "languageSwitcher": [
+          {"text": "Русский", "href": "/ru"},
+          {"text": "English", "href": "/en"}
+        ],
+        "copyrightText": "© 2026 Yandex Cloud",
+        "mobileHorizontalAlignment": "center"
+      }
+    }
+  ]
+}

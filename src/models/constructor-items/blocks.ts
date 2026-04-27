@@ -69,6 +69,7 @@ export enum BlockType {
     MapBlock = 'map-block',
     FilterBlock = 'filter-block',
     FormBlock = 'form-block',
+    FooterBlock = 'footer-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -527,6 +528,83 @@ export interface FormBlockProps {
     additionalContentNode?: React.ReactNode;
 }
 
+export interface FooterLinkColumn {
+    title: string;
+    links: LinkProps[];
+}
+
+export interface FooterLogoProps {
+    image: ThemeSupporting<ImageProps>;
+    href?: string;
+    alt?: string;
+}
+
+export interface FooterSection {
+    columns: FooterLinkColumn[];
+}
+
+export interface FooterContactItem {
+    icon: ThemeSupporting<ImageProps>;
+    url: string;
+    urlTitle?: string;
+}
+
+export interface FooterContacts {
+    title?: string;
+    iconsSize?: 'm' | 'l';
+    links?: FooterContactItem[];
+    linksPosition?: 'left' | 'center';
+    titlePosition?: 'top' | 'near';
+}
+
+export interface FooterDisclaimerFloor {
+    text: string;
+    align: 'left' | 'center' | 'right';
+}
+
+export interface FooterCopyright {
+    mobileHorizontalAlignment?: 'left' | 'center';
+    links?: Required<Pick<LinkProps, 'text' | 'url'>>[];
+    linksOverflowStrategy?: 'dropdown' | 'line-wrap';
+    languageSwitcher?: {
+        items: {
+            text: string;
+            href: string;
+        }[];
+        buttonText?: string;
+    };
+    logo?: FooterLogoProps;
+    copyrightText?: string;
+}
+
+export interface FooterAttributionFloor {
+    text: string;
+}
+
+export interface FooterSecondFloor {
+    copyright?: string;
+    links?: LinkProps[];
+    contacts?: FooterContactItem[];
+}
+
+export interface FooterBlockProps {
+    /** Floor 1: first row — logo (if present) + these columns */
+    navigation?: {
+        logo?: FooterLogoProps;
+        colSizes?: GridColumnSizesType;
+        columns: FooterLinkColumn[];
+    };
+    /** Floor 2: social row (title + social icons) */
+    contacts?: FooterContacts;
+    /** Floor 3: legal disclaimer (YFM) */
+    disclaimer?: FooterDisclaimerFloor;
+    /** Floor 4: privacy/terms links, language, copyright */
+    copyright?: FooterCopyright;
+    /** Floor 5: attribution ("Created with ...") */
+    attribution?: boolean;
+    backgroundColor?: ThemeSupporting<string>;
+}
+
 //block models
 export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
@@ -612,6 +690,10 @@ export type FormBlockModel = {
     type: BlockType.FormBlock;
 } & FormBlockProps;
 
+export type FooterBlockModel = {
+    type: BlockType.FooterBlock;
+} & FooterBlockProps;
+
 export type SliderBlockModel = {
     type: BlockType.SliderBlock;
 } & SliderProps;
@@ -638,6 +720,7 @@ type BlockModels =
     | ContentLayoutBlockModel
     | ShareBLockModel
     | FilterBlockModel
-    | FormBlockModel;
+    | FormBlockModel
+    | FooterBlockModel;
 
 export type Block = BlockModels & BlockBaseProps;

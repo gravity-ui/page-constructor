@@ -1,0 +1,317 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as FooterStories from './Footer.stories.tsx';
+
+<Meta of={FooterStories} />
+<StoryTemplate>
+## Overview
+
+Footer is composed of up to **five floors**.  
+The same JSON can enable only the floors you need.
+
+### Floor map
+
+| Floor | Purpose | Controlled by |
+| --- | --- | --- |
+| 1 | Navigation (logo + link columns) | `navigation` |
+| 2 | Contacts/social icons | `contacts` |
+| 3 | Legal disclaimer | `disclaimer` |
+| 4 | Legal links + language + copyright | `copyright` |
+| 5 | Attribution strip | `attribution` |
+
+## Parameters
+
+`type: 'footer-block'`
+
+## Root props (TypeScript)
+
+```ts
+type FooterBlockProps = {
+  backgroundColor?: Theme<string>;
+  navigation?: FooterNavigation;
+  contacts?: FooterContacts;
+  disclaimer?: FooterDisclaimer;
+  copyright?: FooterCopyright;
+  attribution?: boolean;
+};
+```
+
+`backgroundColor?: Theme<string>` - shared footer background.
+
+---
+
+## Floor 1: Navigation
+
+### Controls
+
+`navigation?: FooterNavigation`
+
+### Full config object type
+
+```ts
+type FooterNavigation = {
+  logo?: FooterLogo;
+  colSizes?: ContainerSizes;
+  columns: FooterLinkColumn[];
+};
+```
+
+### Nested types
+
+```ts
+type FooterLogo = {
+  image: Theme<ImageProps>;
+  href?: string;
+  alt?: string;
+  title?: string;
+};
+```
+
+```ts
+type FooterLinkColumn = {
+  title: string;
+  links: LinkProps[];
+};
+```
+
+### Values
+
+`navigation.colSizes` supports: `all`, `sm`, `md`, `lg`.
+
+See story: **ColumnsColSizes**
+
+### JSON example
+
+```json
+{
+  "type": "footer-block",
+  "navigation": {
+    "logo": {
+      "image": {
+        "light": {"src": "/story-assets/logo-ytsuarus_light.svg"},
+        "dark": {"src": "/story-assets/logo-ytsuarus_dark.svg"}
+      },
+      "href": "/",
+      "alt": "Brand"
+    },
+    "columns": [
+      {
+        "title": "Product",
+        "links": [
+          {"text": "Overview", "url": "#overview"}
+        ]
+      }
+    ],
+    "colSizes": {"sm": 12, "md": 6, "lg": 3}
+  }
+}
+```
+
+### JSON schema note
+
+For JSON payloads validated by schema, use `image`, `href`, `alt` on `logo`.  
+`title` is present in TS props but is not part of schema fields.
+
+---
+
+## Floor 2: Contacts
+
+### Controls
+
+`contacts?: FooterContacts`
+
+### Full config object type
+
+```ts
+type FooterContacts = {
+  title?: string;
+  links?: FooterContactItem[];
+  iconsSize?: 'm' | 'l';
+  linksPosition?: 'left' | 'center';
+  titlePosition?: 'top' | 'near';
+};
+```
+
+### Nested types
+
+```ts
+type FooterContactItem = {
+  icon: Theme<ImageProps>;
+  url: string;
+  urlTitle?: string;
+};
+```
+
+### Values
+
+`iconsSize`: `'m' | 'l'` (default `'l'`)  
+`linksPosition`: `'left' | 'center'` (default `'left'`)  
+`titlePosition`: `'top' | 'near'` (default `'top'`)  
+`urlTitle`: optional label under icon
+
+If `links` is missing or empty, floor 2 is not rendered.
+
+See stories:
+- **ContactsPositions** for `linksPosition` + `titlePosition`
+- **ContactsIconsSize** for `iconsSize`
+- **ContactsUrlTitles** for `urlTitle` visibility
+
+### JSON example
+
+```json
+{
+  "type": "footer-block",
+  "contacts": {
+    "title": "Join us",
+    "iconsSize": "l",
+    "linksPosition": "center",
+    "titlePosition": "near",
+    "links": [
+      {
+        "icon": {
+          "light": {"src": "/story-assets/icons-github_light.svg"},
+          "dark": {"src": "/story-assets/icons-github_dark.svg"}
+        },
+        "url": "https://example.com",
+        "urlTitle": "GitHub"
+      }
+    ]
+  }
+}
+```
+
+---
+
+## Floor 3: Disclaimer
+
+### Controls
+
+`disclaimer?: FooterDisclaimer`
+
+### Full config object type
+
+```ts
+type FooterDisclaimer = {
+  text: string;
+  align: 'left' | 'center' | 'right';
+};
+```
+
+### Values
+
+`align`: `'left' | 'center' | 'right'` (render fallback is `'left'`)
+
+### JSON example
+
+```json
+{
+  "type": "footer-block",
+  "disclaimer": {
+    "text": "Legal disclaimer text",
+    "align": "left"
+  }
+}
+```
+
+---
+
+## Floor 4: Copyright
+
+### Controls
+
+`copyright?: FooterCopyright`
+
+### Full config object type
+
+```ts
+type FooterCopyright = {
+  links?: Array<{text: string; url: string}>;
+  linksOverflowStrategy?: 'dropdown' | 'line-wrap';
+  languageSwitcher?: FooterLanguageSwitcher;
+  copyrightText?: string;
+  logo?: FooterLogo;
+  mobileHorizontalAlignment?: 'left' | 'center';
+};
+```
+
+### Nested types
+
+```ts
+type FooterLanguageSwitcher = {
+  items: FooterLanguageSwitcherItem[];
+  buttonText?: string;
+};
+```
+
+```ts
+type FooterLanguageSwitcherItem = {
+  text: string;
+  href: string;
+};
+```
+
+### Values
+
+`linksOverflowStrategy`: `'dropdown' | 'line-wrap'`  
+`mobileHorizontalAlignment`: `'left' | 'center'` (default `'left'`)  
+`logo`: optional
+
+See stories:
+- **LinksOverflowStrategy**
+- **CopyrightLogo**
+
+### JSON example
+
+```json
+{
+  "type": "footer-block",
+  "copyright": {
+    "links": [
+      {"text": "Privacy Policy", "url": "#privacy"},
+      {"text": "Terms", "url": "#terms"}
+    ],
+    "linksOverflowStrategy": "dropdown",
+    "languageSwitcher": {
+      "items": [
+        {"text": "English", "href": "/en"}
+      ],
+      "buttonText": "Language"
+    },
+    "copyrightText": "© 2026 Company",
+    "mobileHorizontalAlignment": "center"
+  }
+}
+```
+
+---
+
+## Floor 5: Attribution
+
+### Controls
+
+`attribution?: boolean` - enables/disables floor 5.
+
+### Full config object type
+
+```ts
+type FooterAttribution = boolean;
+```
+
+### JSON example
+
+```json
+{
+  "type": "footer-block",
+  "attribution": true
+}
+```
+
+### Minimal JSON example
+
+```json
+{
+  "type": "footer-block"
+}
+```
+</StoryTemplate>

@@ -5,6 +5,7 @@ import {
     BlockType,
     ContentBlockProps,
     ExtendedFeaturesItem,
+    FooterDisclaimerFloor,
     PriceDetailedProps,
     PriceDetailsListProps,
     PriceDetailsSettingsProps,
@@ -151,6 +152,13 @@ function parseContentLayoutTitle(transformer: Transformer, content: ContentBlock
     }
 
     return content;
+}
+
+function parseFooterDisclaimer(transformer: Transformer, disclaimer: FooterDisclaimerFloor) {
+    return {
+        ...disclaimer,
+        text: transformer(disclaimer.text),
+    };
 }
 
 export const blockHeaderTransformer = [
@@ -417,6 +425,13 @@ export const config: BlocksConfig = {
             fields: ['list'],
             transformer: yfmTransformer,
             parser: createItemsParser(['title', 'text']),
+        },
+    ],
+    [BlockType.FooterBlock]: [
+        {
+            fields: ['disclaimer'],
+            transformer: yfmTransformer,
+            parser: parseFooterDisclaimer,
         },
     ],
     [BlockType.ContentLayoutBlock]: [

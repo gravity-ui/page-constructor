@@ -1,0 +1,150 @@
+@import '../../../../../styles/mixins.scss';
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$ns}footer-block';
+
+#{$block} {
+    &__links-floor-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $indentM $indentL;
+
+        #{$block}__logo {
+            align-self: end;
+            height: 36px;
+        }
+    }
+
+    &__links-floor-left {
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        gap: $indentXS;
+        min-width: 0;
+        visibility: hidden;
+
+        &_measured {
+            visibility: visible;
+        }
+
+        &_centered {
+            justify-content: center;
+        }
+    }
+
+    &__links-floor-right {
+        display: flex;
+        align-items: center;
+        align-self: end;
+        gap: $indentXS;
+        flex-shrink: 0;
+        height: 36px;
+    }
+
+    &__links-floor-list {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        gap: $indentXXS 0;
+        overflow: visible;
+
+        &_wrap {
+            flex-wrap: wrap;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--g-color-text-primary);
+
+            &:hover {
+                color: var(--g-color-text-secondary);
+                background-color: transparent;
+            }
+        }
+    }
+
+    &__links-floor-item {
+        @include text-size(body-1);
+        margin: 0;
+        white-space: nowrap;
+        padding-right: 16px;
+        list-style: none;
+
+        &:hover {
+            color: var(--g-color-text-secondary);
+            background-color: transparent;
+        }
+    }
+
+    &__links-floor-copyright {
+        @include text-size(body-2);
+        color: var(--g-color-text-secondary);
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__links-floor-inner {
+            flex-wrap: wrap;
+            gap: $indentXS;
+        }
+
+        &__links-floor-left,
+        &__links-floor-right {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__links-floor-list {
+            flex-direction: column;
+        }
+
+        &__links-floor-inner {
+            flex-flow: column wrap;
+            align-items: center;
+        }
+
+        &__links-floor-inner_mobileHorizontalAlignment_left {
+            #{$block}__links-floor-left {
+                justify-content: flex-start;
+            }
+
+            #{$block}__links-floor-item {
+                padding: 0;
+            }
+
+            #{$block}__links-floor-list {
+                align-items: flex-start;
+            }
+
+            #{$block}__logo {
+                align-self: flex-start;
+            }
+
+            #{$block}__links-floor-copyright {
+                width: 100%;
+            }
+
+            #{$block}__links-floor-right {
+                align-items: flex-start;
+            }
+        }
+
+        &__links-floor-inner_mobileHorizontalAlignment_center &__logo {
+            align-self: center;
+        }
+
+        &__links-floor-right {
+            flex-direction: column;
+            height: auto;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__floor_copyright.col {
+            padding: $indentSM 0;
+        }
+    }
+}
