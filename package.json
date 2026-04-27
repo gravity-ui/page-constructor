@@ -1,6 +1,6 @@
 {
   "name": "@gravity-ui/page-constructor",
-  "version": "8.5.0",
+  "version": "8.5.0-alpha.2",
   "description": "Gravity UI Page Constructor",
   "license": "MIT",
   "type": "commonjs",
@@ -24,14 +24,33 @@
       "require": "./build/cjs/editor/index.js",
       "import": "./build/esm/editor/index.js"
     },
+    "./editor-v2": {
+      "types": "./build/esm/editor-v2/index.d.ts",
+      "require": "./build/cjs/editor-v2/index.js",
+      "import": "./build/esm/editor-v2/index.js"
+    },
+    "./form-generator": {
+      "types": "./build/esm/form-generator/index.d.ts",
+      "require": "./build/cjs/form-generator/index.js",
+      "import": "./build/esm/form-generator/index.js"
+    },
+    "./form-builder": {
+      "types": "./build/esm/form-builder/index.d.ts",
+      "require": "./build/cjs/form-builder/index.js",
+      "import": "./build/esm/form-builder/index.js"
+    },
+    "./gravity-blocks": {
+      "types": "./build/esm/gravity-blocks/index.d.ts",
+      "require": "./build/cjs/gravity-blocks/index.js",
+      "import": "./build/esm/gravity-blocks/index.js"
+    },
     "./server": {
       "types": "./server/index.d.ts",
       "require": "./server/index.js",
       "import": "./server/index.js"
     },
     "./styles/*": "./styles/*",
-    "./widget/*": "./widget/*",
-    "./schema/*": "./schema/*"
+    "./widget/*": "./widget/*"
   },
   "main": "./build/cjs/index.js",
   "module": "./build/esm/index.js",
@@ -44,6 +63,18 @@
       "editor": [
         "./build/esm/editor/index.d.ts"
       ],
+      "editor-v2": [
+        "./build/esm/editor-v2/index.d.ts"
+      ],
+      "form-generator": [
+        "./build/esm/form-generator/index.d.ts"
+      ],
+      "form-builder": [
+        "./build/esm/form-builder/index.d.ts"
+      ],
+      "gravity-blocks": [
+        "./build/esm/gravity-blocks/index.d.ts"
+      ],
       "server": [
         "./server/index.d.ts"
       ]
@@ -53,8 +84,7 @@
     "build",
     "styles",
     "server",
-    "widget",
-    "schema"
+    "widget"
   ],
   "sideEffects": [
     "*.css",
@@ -73,6 +103,7 @@
     "lint": "run-p lint:js lint:styles lint:prettier typecheck",
     "typecheck": "tsc --noEmit",
     "dev": "npm run storybook:start",
+    "dev:playground": "cd playground && vite -c vite.config.mts",
     "storybook:start": "storybook dev -p 7009",
     "storybook:build": "storybook build -c .storybook -o storybook-static",
     "start": "node dist",
@@ -82,6 +113,7 @@
     "build:widget": "webpack --config widget.webpack.js",
     "build:schema": "webpack --config schema.webpack.js",
     "build": "run-p build:client build:server build:widget build:schema",
+    "build:playground": "cd playground && tsc && vite build -c vite.config.mts",
     "prepublishOnly": "npm run lint && npm run build",
     "prepare": "husky install",
     "test": "jest",
@@ -93,25 +125,30 @@
     "playwright:docker": "./scripts/playwright-docker.sh 'npm run playwright'",
     "playwright:docker:update": "./scripts/playwright-docker.sh 'npm run playwright:update'",
     "playwright:docker:clear-cache": "./scripts/playwright-docker.sh clear-cache",
-    "playwright:install": "playwright install --with-deps",
-    "build:playground": "echo wip"
+    "playwright:install": "playwright install --with-deps"
   },
   "dependencies": {
     "@bem-react/classname": "^1.6.0",
+    "@dnd-kit/helpers": "^0.3.2",
+    "@dnd-kit/react": "^0.3.2",
     "@gravity-ui/components": "^4.0.1",
     "@gravity-ui/dynamic-forms": "^5.0.0",
     "@gravity-ui/i18n": "^1.7.0",
+    "@gravity-ui/navigation": "^3.11.1",
     "@react-spring/web": "^9.7.3",
     "ajv": "^8.12.0",
     "ajv-keywords": "^5.1.0",
+    "deep-object-diff": "^1.1.9",
     "final-form": "^4.20.9",
     "github-buttons": "2.23.0",
+    "immutable": "^4.3.7",
     "js-yaml-source-map": "^0.2.2",
     "lodash": "^4.17.21",
     "monaco-editor": "^0.52.2",
     "react-final-form": "^6.5.9",
     "react-monaco-editor": "^0.53.0",
     "react-player": "^2.9.0",
+    "react-resizable-panels": "^2.1.3",
     "react-slick": "^0.29.0",
     "react-transition-group": "^4.4.2",
     "react-waypoint": "^10.1.0",
@@ -120,7 +157,8 @@
     "swiper": "^10.2.0",
     "typograf": "^7.4.1",
     "utility-types": "^3.10.0",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "zustand": "^4.5.2"
   },
   "peerDependencies": {
     "@diplodoc/transform": "^4.28.2",
@@ -141,7 +179,7 @@
     "@gravity-ui/prettier-config": "^1.1.0",
     "@gravity-ui/stylelint-config": "^4.0.1",
     "@gravity-ui/tsconfig": "^1.0.0",
-    "@gravity-ui/uikit": "^7.13.1",
+    "@gravity-ui/uikit": "^7.29.0",
     "@playwright/experimental-ct-react": "^1.45.3",
     "@playwright/test": "^1.45.3",
     "@storybook/addon-actions": "^8.6.11",
@@ -170,12 +208,15 @@
     "@types/uuid": "^9.0.0",
     "@types/webpack-env": "^1.18.1",
     "@types/youtube-player": "^5.5.11",
+    "@vitejs/plugin-react": "^4.5.0",
     "autoprefixer": "^10.4.14",
     "babel-jest": "^30.2.0",
     "babel-loader": "^8.3.0",
+    "bem-cn-lite": "^4.1.0",
     "css-loader": "^5.2.7",
     "es5-ext": "0.10.53",
     "esbuild": "^0.25.11",
+    "esbuild-sass-plugin": "^3.7.0",
     "eslint": "^8.57.1",
     "eslint-plugin-no-not-accumulator-reassign": "^0.1.0",
     "eslint-plugin-react": "^7.37.4",
@@ -206,6 +247,7 @@
     "react": "^18.3.1",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.3.1",
+    "react-router": "^7.6.1",
     "resolve-url-loader": "^3.1.5",
     "rimraf": "^6.0.1",
     "sass": "^1.63.6",
@@ -218,8 +260,9 @@
     "ts-jest": "^29.2.5",
     "tslib": "^2.4.0",
     "typescript": "^5.7.3",
+    "vite": "^6.3.5",
     "vite-plugin-commonjs": "^0.10.1",
-    "vite-plugin-svgr": "^4.2.0",
+    "vite-plugin-svgr": "^4.3.0",
     "webpack": "^5.98.0",
     "webpack-cli": "^6.0.1",
     "webpack-shell-plugin-next": "^2.3.1"

@@ -1,0 +1,71 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+$block: '.#{$ns}mobile-navigation';
+
+#{$block} {
+    position: fixed;
+    z-index: 100;
+    top: var(--header-height);
+    left: 0;
+
+    width: 100%;
+
+    border-bottom-right-radius: $borderRadius;
+    border-bottom-left-radius: $borderRadius;
+    background-color: var(--g-color-base-background);
+    box-shadow: 0 3px 10px var(--g-color-sfx-shadow);
+    max-height: calc(100vh - 2 * var(--header-height));
+    overflow-y: scroll;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @include text-size(body-2);
+    @include mobile-tablet-only();
+
+    &__wrapper {
+        padding: $indentM $indentL;
+    }
+
+    &__button {
+        margin-top: $indentSM;
+    }
+
+    &__rows {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+
+        padding-bottom: $indentSM;
+        @include reset-list-style();
+        margin-bottom: $indentSM;
+    }
+
+    &__rows:last-child {
+        margin-bottom: 0;
+    }
+
+    &__dropdown-item {
+        &:not(:last-child) {
+            margin-bottom: $indentXS;
+        }
+    }
+
+    &__popup {
+        @include mobile-tablet-only();
+        @include navigation-popup();
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+        &__wrapper {
+            padding-left: $indentSM;
+            padding-right: $indentSM;
+        }
+    }
+}

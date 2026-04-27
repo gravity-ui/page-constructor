@@ -1,4 +1,4 @@
-import {Col, GridColumnSizesType, GridJustifyContent} from '../../grid';
+import {Col, GridColumnSizesType, GridJustifyContent} from '../../gravity-blocks/grid';
 import {ClassNameProps, TitleItemProps, TitleProps as TitleParams} from '../../models';
 import {block} from '../../utils';
 import YFMWrapper from '../YFMWrapper/YFMWrapper';

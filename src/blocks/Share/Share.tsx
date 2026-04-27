@@ -3,13 +3,13 @@ import * as React from 'react';
 import {Button, Icon} from '@gravity-ui/uikit';
 
 import {YFMWrapper} from '../../components';
-import {LocationContext} from '../../context/locationContext';
-import {useAnalytics} from '../../hooks';
-import {Facebook} from '../../icons/Facebook';
-import {Linkedin} from '../../icons/Linkedin';
-import {Telegram} from '../../icons/Telegram';
-import {Twitter} from '../../icons/Twitter';
-import {Vk} from '../../icons/Vk';
+import {LocationContext} from '../../gravity-blocks/context/locationContext';
+import {useAnalytics} from '../../gravity-blocks/hooks';
+import {Facebook} from '../../gravity-blocks/icons/Facebook';
+import {Linkedin} from '../../gravity-blocks/icons/Linkedin';
+import {Telegram} from '../../gravity-blocks/icons/Telegram';
+import {Twitter} from '../../gravity-blocks/icons/Twitter';
+import {Vk} from '../../gravity-blocks/icons/Vk';
 import {DefaultEventNames, ShareBlockProps} from '../../models';
 import {block, getAbsolutePath, getShareLink} from '../../utils';
 
@@ -52,29 +52,32 @@ const Share = ({items, title}: ShareBlockProps) => {
                 <h5 className={b('title')}>{i18n('constructor-share')}</h5>
             )}
             <div className={b('items')}>
-                {items.map((type) => {
-                    const url = getAbsolutePath(hostname, pathname);
-                    const socialUrl = getShareLink(url, type);
-                    const icon = icons[type];
-                    const urlTitle = i18n(`${type}-title`);
-                    const buttonLabel = i18n(`${type}-label`);
+                {items &&
+                    items.map((type) => {
+                        const url = getAbsolutePath(hostname, pathname);
+                        const socialUrl = getShareLink(url, type);
+                        const icon = icons[type];
+                        const urlTitle = i18n(`${type}-title`);
+                        const buttonLabel = i18n(`${type}-label`);
 
-                    return (
-                        <Button
-                            key={type}
-                            view="flat"
-                            size="l"
-                            target="_blank"
-                            href={socialUrl}
-                            className={b('item', {type: type.toLowerCase()})}
-                            onClick={handleButtonClick}
-                            title={urlTitle}
-                            aria-label={buttonLabel}
-                        >
-                            {icon && <Icon data={icon} size={24} className={b('icon', {type})} />}
-                        </Button>
-                    );
-                })}
+                        return (
+                            <Button
+                                key={type}
+                                view="flat"
+                                size="l"
+                                target="_blank"
+                                href={socialUrl}
+                                className={b('item', {type: type.toLowerCase()})}
+                                onClick={handleButtonClick}
+                                title={urlTitle}
+                                aria-label={buttonLabel}
+                            >
+                                {icon && (
+                                    <Icon data={icon} size={24} className={b('icon', {type})} />
+                                )}
+                            </Button>
+                        );
+                    })}
             </div>
         </div>
     );

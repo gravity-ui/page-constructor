@@ -6,7 +6,7 @@ import {
     CardBase,
     CardLayoutProps,
     GravityIconProps,
-} from '../../schema/validators/common';
+} from '../../gravity-blocks/schema/validators/common';
 import {ContentBase} from '../Content/schema';
 
 const BasicCardContentProps = omit(ContentBase, ['theme', 'controlPosition']);

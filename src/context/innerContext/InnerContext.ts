@@ -1,29 +1,28 @@
 import * as React from 'react';
 
-import {ItemMap, NavItemMap} from '../../containers/PageConstructor/PageConstructor';
-import {CustomConfig, LoadableConfig, ShouldRenderBlock} from '../../models';
+import {BlockData} from '../../constructor-items';
+import {NavItemMap} from '../../containers/PageConstructor/PageConstructor';
+import {BlockWrapperDataProps, LoadableConfig, PageContent, ShouldRenderBlock} from '../../models';
+
+export interface BlockWrapperEntry {
+    wrapper: React.ComponentType<BlockWrapperDataProps & React.PropsWithChildren>;
+    props?: object;
+}
 
 export interface InnerContextType {
-    blockTypes: string[];
-    subBlockTypes: string[];
-    headerBlockTypes: string[];
-    navigationBlockTypes: string[];
-    itemMap: ItemMap;
     navItemMap: NavItemMap;
     loadables?: LoadableConfig;
     shouldRenderBlock?: ShouldRenderBlock;
-    customization?: Pick<CustomConfig, 'decorators'>;
-    microdata?: {
-        contentUpdatedDate?: string;
-    };
+    blockWrappers?: BlockWrapperEntry[];
+    blocks: Array<BlockData>;
+    content: PageContent;
+    setContent: React.Dispatch<React.SetStateAction<PageContent>>;
 }
 
 export const InnerContext = React.createContext<InnerContextType>({
-    blockTypes: [],
-    subBlockTypes: [],
-    headerBlockTypes: [],
-    navigationBlockTypes: [],
-    itemMap: {} as ItemMap,
     navItemMap: {} as NavItemMap,
-    microdata: {},
+    blocks: [],
+    content: {blocks: []},
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    setContent: () => {},
 });

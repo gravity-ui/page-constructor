@@ -4,7 +4,7 @@ import chunk from 'lodash/chunk';
 
 import {CardBase} from '../../../components';
 import {BREAKPOINTS} from '../../../constants';
-import {Col, Grid, GridColumnSize, Row} from '../../../grid';
+import {Col, Grid, GridColumnSize, Row} from '../../../gravity-blocks/grid';
 import {
     AnalyticsEventsBase,
     CardBorder,

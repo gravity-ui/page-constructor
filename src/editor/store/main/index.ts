@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {DEFAULT_THEME} from '../../../components/constants';
-import {Block, BlockDecorationProps, HeaderBlockTypes, PageContent} from '../../../models';
+import {Block, BlockWrapperDataProps, HeaderBlockTypes, PageContent} from '../../../models';
 import {getCustomTypes, getHeaderBlock} from '../../../utils';
 import {EditBlockActions, EditBlockControls} from '../../components/EditBlock/EditBlock';
 import {EditBlockProps, EditorProps, ViewModeItem} from '../../types';
@@ -58,7 +58,7 @@ export function useMainState({content: intialContent, custom}: Omit<EditorProps,
             index: relativeIndex = 0,
             children,
             ...rest
-        }: BlockDecorationProps) => {
+        }: BlockWrapperDataProps & React.PropsWithChildren) => {
             const orderedBlocksStartIndex = contentHasHeader ? 1 : 0;
             const isHeader = checkIsHeader(type);
             const index = isHeader ? 0 : relativeIndex + orderedBlocksStartIndex;

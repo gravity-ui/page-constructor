@@ -7,6 +7,8 @@ export * from './cn';
 export * from './url';
 export * from './theme';
 export * from './icons';
+export * from './navigation';
+export * from './svg';
 
 export type {HubspotEventData, HubspotEventHandlers, HubspotEventName} from './hubspot';
 export {isHubspotEventData} from './hubspot';

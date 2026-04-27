@@ -1,4 +1,8 @@
-import {BaseProps, BlockBaseProps, JustifyProps} from '../../schema/validators/common';
+import {
+    BaseProps,
+    BlockBaseProps,
+    JustifyProps,
+} from '../../gravity-blocks/schema/validators/common';
 
 export const TableBlock = {
     'table-block': {
@@ -11,6 +15,7 @@ export const TableBlock = {
                 contentType: 'text',
             },
             table: {
+                type: 'object',
                 additionalProperties: false,
                 required: ['content'],
                 properties: {

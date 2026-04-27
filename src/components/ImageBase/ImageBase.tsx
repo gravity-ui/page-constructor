@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {ImageContext} from '../../context/imageContext/imageContext';
+import {ImageContext} from '../../gravity-blocks/context/imageContext';
 import {ImageObjectProps} from '../../models';
 
 export interface ImageBaseProps extends Partial<ImageObjectProps> {

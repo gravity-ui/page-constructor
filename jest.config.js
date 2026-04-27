@@ -20,7 +20,7 @@ module.exports = {
         ],
     },
     transformIgnorePatterns: [
-        'node_modules/(?!(@gravity-ui|react-github-btn|tinygesture|swiper)/)',
+        'node_modules/(?!(@gravity-ui|@uiw|@dnd-kit|@preact|colors-named|colors-named-hex|react-github-btn|tinygesture|swiper)/)',
     ],
     coverageDirectory: './coverage',
     collectCoverageFrom: [
@@ -37,6 +37,8 @@ module.exports = {
         // Mock CSS imports
         '^swiper/css.*': 'jest-transform-css',
         '\\.(css|less|scss|sass)$': 'jest-transform-css',
+        // Mock SVG imports
+        '\\.svg$': '<rootDir>/test-utils/svg-mock.js',
     },
     testMatch: ['**/*.test.[jt]s?(x)'],
     testPathIgnorePatterns: [

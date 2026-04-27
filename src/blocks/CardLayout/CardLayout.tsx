@@ -3,8 +3,10 @@ import * as React from 'react';
 import isEmpty from 'lodash/isEmpty';
 
 import {AnimateBlock, BackgroundImage, Title} from '../../components';
-import {useTheme} from '../../context/theme';
-import {Col, GridColumnSizesType, GridJustifyContent, Row} from '../../grid';
+import ChildrenItemWrap from '../../components/editor/ChildrenItemWrap/ChildrenItemWrap';
+import ChildrensWrap from '../../components/editor/ChildrensWrap/ChildrensWrap';
+import {useTheme} from '../../gravity-blocks/context/theme';
+import {Col, Grid, GridColumnSizesType, GridJustifyContent, Row} from '../../gravity-blocks/grid';
 import {CardLayoutBlockProps as CardLayoutBlockParams, ClassNameProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
@@ -38,30 +40,34 @@ const CardLayout = ({
     const {border, ...backgroundImageProps} = getThemedValue(background || {}, theme);
     return (
         <AnimateBlock className={b(null, className)} animate={animated}>
-            {(title || description) && (
-                <Title
-                    title={title}
-                    subtitle={description}
-                    className={b('title', {centered}, titleClassName)}
-                    colJustifyContent={
-                        centered ? GridJustifyContent.Center : GridJustifyContent.Start
-                    }
-                />
-            )}
-            <div
-                className={b('content', {
-                    'with-background': !isEmpty(background),
-                })}
-            >
-                <BackgroundImage className={b('image', {border})} {...backgroundImageProps} />
-                <Row>
-                    {React.Children.map(children, (child, index) => (
-                        <Col key={index} sizes={colSizes} className={b('item')}>
-                            {child}
-                        </Col>
-                    ))}
-                </Row>
-            </div>
+            <Grid>
+                {(title || description) && (
+                    <Title
+                        title={title}
+                        subtitle={description}
+                        className={b('title', {centered}, titleClassName)}
+                        colJustifyContent={
+                            centered ? GridJustifyContent.Center : GridJustifyContent.Start
+                        }
+                    />
+                )}
+                <div
+                    className={b('content', {
+                        'with-background': !isEmpty(background),
+                    })}
+                >
+                    <BackgroundImage className={b('image', {border})} {...backgroundImageProps} />
+                    <ChildrensWrap>
+                        <Row>
+                            {React.Children.map(children, (child, index) => (
+                                <Col key={index} sizes={colSizes} className={b('item')}>
+                                    <ChildrenItemWrap index={index}>{child}</ChildrenItemWrap>
+                                </Col>
+                            ))}
+                        </Row>
+                    </ChildrensWrap>
+                </div>
+            </Grid>
         </AnimateBlock>
     );
 };

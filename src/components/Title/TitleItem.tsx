@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import {ToggleArrow, YFMWrapper} from '../';
-import {LocationContext} from '../../context/locationContext';
-import {MobileContext} from '../../context/mobileContext';
-import {useAnalytics} from '../../hooks';
+import {LocationContext} from '../../gravity-blocks/context/locationContext';
+import {MobileContext} from '../../gravity-blocks/context/mobileContext';
+import {useAnalytics} from '../../gravity-blocks/hooks';
 import {AnalyticsEventsBase, QAProps, TextSize, TitleItemProps} from '../../models';
 import {block, getHeaderTag, getLinkProps} from '../../utils';
 import Anchor from '../Anchor/Anchor';

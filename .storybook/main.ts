@@ -31,6 +31,7 @@ const config = {
             },
         },
         './addons/yaml-addon/preset',
+        './addons/result-addon/preset',
         './addons/theme-addon/register.tsx',
         '@storybook/addon-mdx-gfm',
         '@storybook/addon-webpack5-compiler-babel',

@@ -1,0 +1,12 @@
+.pc-fg-generator {
+    position: relative;
+    padding: 0 12px;
+
+    & > .pc-fg-fields > .pc-fg-base-input:first-child {
+        padding-top: 8px;
+    }
+
+    & > .pc-fg-fields > .pc-fg-text:first-child {
+        padding-top: 8px;
+    }
+}

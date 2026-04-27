@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import {BlockIdContext} from '../../../../context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
-import {BlockDecoration} from '../../../../customization/BlockDecoration';
-import {BlockType, ConstructorBlock} from '../../../../models';
+import {usePCEditorBlockRegister} from '../../../../hooks/usePCEditorBlockRegister';
+import {ConstructorBlock} from '../../../../models';
 
 export interface ConstructorItemProps {
     data: ConstructorBlock;
-    blockKey: string;
+    blockKey: number;
 }
 
 export const ConstructorItem = ({
@@ -15,25 +15,28 @@ export const ConstructorItem = ({
     blockKey,
     children,
 }: React.PropsWithChildren<ConstructorItemProps>) => {
-    const {itemMap} = React.useContext(InnerContext);
+    const {blocks} = React.useContext(InnerContext);
+    const parentId = React.useContext(BlockIdContext);
     const {type, ...rest} = data;
 
-    const Component = itemMap[type] as React.ComponentType<
-        React.ComponentProps<(typeof itemMap)[typeof type]>
+    const path = React.useMemo(() => [...parentId, blockKey], [parentId, blockKey]);
+    const blockRef = usePCEditorBlockRegister(path);
+
+    const blockData = blocks.find(({type: blockType}) => blockType === type);
+
+    if (!blockData) {
+        return null;
+    }
+
+    const Component = blockData.component as React.ComponentType<
+        React.ComponentProps<(typeof blockData)['component']>
     >;
 
     return (
-        <BlockIdContext.Provider value={blockKey}>
-            <Component {...rest}>{children}</Component>
+        <BlockIdContext.Provider value={path} key={blockKey}>
+            <div ref={blockRef}>
+                <Component {...rest}>{children}</Component>
+            </div>
         </BlockIdContext.Provider>
     );
 };
-
-export const ConstructorHeader = ({
-    data,
-    blockKey,
-}: Pick<ConstructorItemProps, 'data' | 'blockKey'>) => (
-    <BlockDecoration type={data.type as BlockType}>
-        <ConstructorItem data={data} key={data.type} blockKey={blockKey} />
-    </BlockDecoration>
-);

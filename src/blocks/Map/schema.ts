@@ -1,4 +1,4 @@
-import {MapProps} from '../../schema/validators/common';
+import {MapProps} from '../../gravity-blocks/schema/validators/common';
 import {MediaBlockBaseProps} from '../Media/schema';
 
 export const Map = {

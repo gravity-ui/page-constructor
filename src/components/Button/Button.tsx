@@ -8,9 +8,9 @@ import {
     ButtonProps as UIKitButtonProps,
 } from '@gravity-ui/uikit';
 
-import {LocaleContext} from '../../context/localeContext/localeContext';
-import {useAnalytics} from '../../hooks';
-import {Github} from '../../icons';
+import {LocaleContext} from '../../gravity-blocks/context/localeContext';
+import {useAnalytics} from '../../gravity-blocks/hooks';
+import {Github} from '../../gravity-blocks/icons';
 import {ButtonProps as ButtonParams, DefaultEventNames, QAProps} from '../../models';
 import {block, setUrlTld} from '../../utils';
 import {getGravityIcon} from '../../utils/icons';

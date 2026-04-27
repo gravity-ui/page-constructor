@@ -1,0 +1,11 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
+$block: '.#{$ns}childrens-wrap';
+
+#{$block} {
+    // TODO: Custom drop zone styles
+    &_drop-zone {
+        padding: 20px;
+    }
+}

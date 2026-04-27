@@ -1,21 +1,21 @@
 import * as React from 'react';
 
-import {Animatable, BlockDecorationProps, ConstructorItem, ThemedMediaProps} from './';
+import {Animatable, ConstructorItem} from './';
 
 export interface PageData {
     content: PageContent;
 }
 
-export interface Menu {
-    title: string;
-}
-
 export type ConstructorBlock = ConstructorItem | CustomBlock;
 
+/**
+ * Core PageContent type - minimal fields that the engine needs.
+ * Plugins can extend this with their own fields using the index signature.
+ */
 export interface PageContent extends Animatable {
     blocks: ConstructorBlock[];
-    menu?: Menu;
-    background?: ThemedMediaProps;
+    // Allow plugin-specific fields to pass through
+    [key: string]: unknown;
 }
 
 export interface InitConstrucorState {
@@ -59,7 +59,4 @@ export interface CustomConfig {
     headers?: CustomItems;
     navigation?: CustomItems;
     loadable?: LoadableConfig;
-    decorators?: {
-        block?: ((props: BlockDecorationProps) => React.ReactElement)[];
-    };
 }

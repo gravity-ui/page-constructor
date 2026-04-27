@@ -1,15 +1,16 @@
 import * as React from 'react';
 
-import {BlockDecorationProps} from '../../../../models';
-import {generateDefaultSchema} from '../../../../schema';
-import EditBlock from '../../../components/EditBlock/EditBlock';
-import {ErrorBoundary} from '../../../components/ErrorBoundary/ErrorBoundary';
-import {NotFoundBlock} from '../../../components/NotFoundBlock/NotFoundBlock';
+// import {PageConstructorExtension} from '../../../../containers/PageConstructor/PageConstructor';
+// import {BlockWrapperDataProps} from '../../../../models';
+import {generateDefaultSchema} from '../../../../gravity-blocks/schema';
+// import EditBlock from '../../../components/EditBlock/EditBlock';
+// import {ErrorBoundary} from '../../../components/ErrorBoundary/ErrorBoundary';
+// import {NotFoundBlock} from '../../../components/NotFoundBlock/NotFoundBlock';
 import {useCodeValidator} from '../../../hooks/useCodeValidator';
 import {useMainState} from '../../../store/main';
 import {useSettingsState} from '../../../store/settings';
 import {EditModeItem, EditorProps, ViewModeItem} from '../../../types';
-import {addCustomDecorator, checkIsMobile, getBlockId} from '../../../utils';
+import {checkIsMobile} from '../../../utils';
 
 import {useCode} from './useCode';
 
@@ -23,15 +24,8 @@ export const useEditorState = ({
     theme: editorTheme,
     ...rest
 }: EditorProps) => {
-    const {
-        content,
-        activeBlockIndex,
-        errorBoundaryState,
-        onContentUpdate,
-        onAdd,
-        onSelect,
-        injectEditBlockProps,
-    } = useMainState(rest);
+    const {content, activeBlockIndex, errorBoundaryState, onContentUpdate, onAdd, onSelect} =
+        useMainState(rest);
 
     const {
         viewMode,
@@ -58,37 +52,66 @@ export const useEditorState = ({
     const codeValidator = useCodeValidator(schema);
 
     const outgoingProps = React.useMemo(() => {
-        const custom =
-            isCodeEditMode || isViewEditMode
-                ? rest.custom
-                : addCustomDecorator(
-                      [
-                          (props: BlockDecorationProps) => <NotFoundBlock {...props} />,
-                          (props: BlockDecorationProps) => (
-                              <EditBlock {...injectEditBlockProps(props)} />
-                          ),
-                          // need errorBoundaryState flag to reset error on content update
-                          (props: BlockDecorationProps) => (
-                              <ErrorBoundary
-                                  {...props}
-                                  key={`${getBlockId(props)}-${errorBoundaryState}`}
-                              />
-                          ),
-                      ],
-                      rest.custom,
-                  );
+        const userExtensions = rest.extensions ?? [];
+
+        if (isCodeEditMode || isViewEditMode) {
+            return {
+                content: transformedContent,
+                custom: rest.custom,
+                extensions: userExtensions,
+                viewMode,
+            };
+        }
+
+        // const editorExtensions: PageConstructorExtension[] = [
+        //     {
+        //         name: 'Editor Not Found Block',
+        //         id: '@gravity-ui/page-constructor/editor-not-found',
+        //         settings: {
+        //             blockWrapper: ({
+        //                 children,
+        //                 type,
+        //             }: BlockWrapperDataProps & React.PropsWithChildren) => (
+        //                 <NotFoundBlock type={type} content={{}}>
+        //                     {children}
+        //                 </NotFoundBlock>
+        //             ),
+        //         },
+        //     },
+        //     {
+        //         name: 'Editor Edit Block',
+        //         id: '@gravity-ui/page-constructor/editor-edit-block',
+        //         settings: {
+        //             blockWrapper: (props: BlockWrapperDataProps & React.PropsWithChildren) => (
+        //                 <EditBlock {...injectEditBlockProps(props)} />
+        //             ),
+        //         },
+        //     },
+        //     {
+        //         name: 'Editor Error Boundary',
+        //         id: '@gravity-ui/page-constructor/editor-error-boundary',
+        //         settings: {
+        //             blockWrapper: (props: BlockWrapperDataProps & React.PropsWithChildren) => (
+        //                 <ErrorBoundary
+        //                     {...props}
+        //                     key={`${getBlockId(props)}-${errorBoundaryState}`}
+        //                 />
+        //             ),
+        //         },
+        //     },
+        // ];
 
         return {
             content: transformedContent,
-            custom,
+            custom: rest.custom,
+            extensions: userExtensions,
             viewMode,
         };
     }, [
-        injectEditBlockProps,
-        errorBoundaryState,
         viewMode,
         transformedContent,
         rest.custom,
+        rest.extensions,
         isCodeEditMode,
         isViewEditMode,
     ]);

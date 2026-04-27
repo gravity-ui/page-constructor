@@ -1,7 +1,9 @@
+import * as React from 'react';
+
 import {PageConstructorProps, PageConstructorProviderProps} from '../../containers/PageConstructor';
-import {BlockDecorationProps, PageContent} from '../../models';
+import {SchemaCustomConfig} from '../../gravity-blocks/schema';
+import {BlockWrapperDataProps, PageContent} from '../../models';
 import {Theme} from '../../models/common';
-import {SchemaCustomConfig} from '../../schema';
 import {EditBlockActions} from '../components/EditBlock/EditBlock';
 
 export type EditorBlockId = number | string;
@@ -38,7 +40,10 @@ export interface EditBlockEditorProps {
     actions: EditBlockActions;
 }
 
-export interface EditBlockProps extends EditBlockEditorProps, BlockDecorationProps {
+export interface EditBlockProps
+    extends EditBlockEditorProps,
+        BlockWrapperDataProps,
+        React.PropsWithChildren {
     isHeader?: boolean;
 }
 

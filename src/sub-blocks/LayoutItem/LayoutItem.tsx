@@ -3,7 +3,7 @@ import * as React from 'react';
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {FullscreenMedia, IconWrapper, Media, MetaInfo} from '../../components';
-import {useTheme} from '../../context/theme';
+import {useTheme} from '../../gravity-blocks/context/theme';
 import {ContentBlockProps, LayoutItemProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 import {mergeVideoMicrodata} from '../../utils/microdata';
@@ -16,7 +16,7 @@ import './LayoutItem.scss';
 const b = block('layout-item');
 
 const LayoutItem = ({
-    content: {links, ...content},
+    content: {links = [], ...content} = {},
     contentMargin = 'm',
     metaInfo,
     media,

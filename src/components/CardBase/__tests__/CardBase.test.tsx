@@ -6,7 +6,10 @@ import userEvent from '@testing-library/user-event';
 import {TARGETS} from '../../../../test-utils/constants';
 import {testCustomClassName} from '../../../../test-utils/shared/common';
 import {PageConstructorProvider} from '../../../containers/PageConstructor';
-import {AnalyticsContextProps} from '../../../context/analyticsContext';
+import {
+    AnalyticsContext,
+    AnalyticsContextProps,
+} from '../../../gravity-blocks/context/analyticsContext';
 import {CardBorder} from '../../../models';
 import {getQaAttrubutes} from '../../../utils';
 import CardBase, {CardBasePropsType} from '../CardBase';
@@ -180,11 +183,18 @@ describe('CardBase', () => {
         const user = userEvent.setup();
 
         render(
-            <PageConstructorProvider analytics={analyticsContext}>
-                <CardBase url={url} target={'_blank'} qa={qaId} analyticsEvents={[{name: 'click'}]}>
-                    <CardBase.Content>Content</CardBase.Content>
-                </CardBase>
-            </PageConstructorProvider>,
+            <AnalyticsContext.Provider value={analyticsContext}>
+                <PageConstructorProvider>
+                    <CardBase
+                        url={url}
+                        target={'_blank'}
+                        qa={qaId}
+                        analyticsEvents={[{name: 'click'}]}
+                    >
+                        <CardBase.Content>Content</CardBase.Content>
+                    </CardBase>
+                </PageConstructorProvider>
+            </AnalyticsContext.Provider>,
         );
         const cardBase = screen.getByTestId(qaId);
 

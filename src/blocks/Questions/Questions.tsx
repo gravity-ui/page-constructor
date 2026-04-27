@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {Col, Row} from '../../grid';
+import {Col, Grid, Row} from '../../gravity-blocks/grid';
 import {QuestionsProps} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block} from '../../utils';
@@ -60,50 +60,52 @@ const QuestionsBlock = (props: QuestionsProps) => {
     return (
         <div className={b()}>
             {faqMicrodataScript}
-            <Row>
-                <Col sizes={{all: 12, md: 4}}>
-                    <div className={b('title')}>
-                        <Content
-                            title={title}
-                            text={text}
-                            additionalInfo={additionalInfo}
-                            links={links}
-                            list={list}
-                            buttons={buttons}
-                            colSizes={{all: 12, md: 12}}
-                        />
-                    </div>
-                </Col>
-                <Col sizes={{all: 12, md: 8}} role={'list'}>
-                    {items.map(
-                        (
-                            {
-                                title: itemTitle,
-                                text: itemText,
-                                link,
-                                listStyle = 'dash',
-                                onClick: itemOnClick,
-                            },
-                            index,
-                        ) => {
-                            const isOpened = opened.includes(index);
-                            const onClick = () => toggleItem(index, itemOnClick);
+            <Grid>
+                <Row>
+                    <Col sizes={{all: 12, md: 4}}>
+                        <div className={b('title')}>
+                            <Content
+                                title={title}
+                                text={text}
+                                additionalInfo={additionalInfo}
+                                links={links}
+                                list={list}
+                                buttons={buttons}
+                                colSizes={{all: 12, md: 12}}
+                            />
+                        </div>
+                    </Col>
+                    <Col sizes={{all: 12, md: 8}} role={'list'}>
+                        {items.map(
+                            (
+                                {
+                                    title: itemTitle,
+                                    text: itemText,
+                                    link,
+                                    listStyle = 'dash',
+                                    onClick: itemOnClick,
+                                },
+                                index,
+                            ) => {
+                                const isOpened = opened.includes(index);
+                                const onClick = () => toggleItem(index, itemOnClick);
 
-                            return (
-                                <QuestionBlockItem
-                                    key={itemTitle}
-                                    title={itemTitle}
-                                    text={itemText}
-                                    link={link}
-                                    listStyle={listStyle}
-                                    isOpened={isOpened}
-                                    onClick={onClick}
-                                />
-                            );
-                        },
-                    )}
-                </Col>
-            </Row>
+                                return (
+                                    <QuestionBlockItem
+                                        key={itemTitle}
+                                        title={itemTitle}
+                                        text={itemText}
+                                        link={link}
+                                        listStyle={listStyle}
+                                        isOpened={isOpened}
+                                        onClick={onClick}
+                                    />
+                                );
+                            },
+                        )}
+                    </Col>
+                </Row>
+            </Grid>
         </div>
     );
 };

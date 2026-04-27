@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import {BREAKPOINTS} from '../../constants';
-import {ProjectSettingsContext} from '../../context/projectSettingsContext';
-import {useImageSize} from '../../hooks';
+import {ProjectSettingsContext} from '../../gravity-blocks/context/projectSettingsContext';
+import {useImageSize} from '../../gravity-blocks/hooks';
 import {Device, ImageDeviceProps, ImageObjectProps, QAProps} from '../../models';
 import {getQaAttrubutes} from '../../utils';
 import {isCompressible} from '../../utils/imageCompress';

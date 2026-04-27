@@ -12,7 +12,7 @@ import {
     testContentWithTheme,
     testContentWithTitle,
 } from '../../../../test-utils/shared/content';
-import {GridColumnSizesType} from '../../../grid/types';
+import {GridColumnSizesType} from '../../../gravity-blocks/grid/types';
 import {ContentSize, ContentTheme} from '../../../models/constructor-items/common';
 import {getQaAttrubutes} from '../../../utils/blocks';
 import Content, {ContentProps} from '../Content';

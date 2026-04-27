@@ -3,7 +3,7 @@ import * as React from 'react';
 import {ChevronsExpandUpRight, Xmark} from '@gravity-ui/icons';
 import {Button, Icon, Modal} from '@gravity-ui/uikit';
 
-import {MobileContext} from '../../context/mobileContext';
+import {MobileContext} from '../../gravity-blocks/context/mobileContext';
 import {block} from '../../utils';
 import {MediaAllProps} from '../Media/Media';
 

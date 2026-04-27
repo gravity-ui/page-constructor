@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {Label, LabelProps} from '@gravity-ui/uikit';
 
-import {LocationContext} from '../../context/locationContext';
+import {LocationContext} from '../../gravity-blocks/context/locationContext';
 import {FileLinkProps, TextSize} from '../../models';
 import {block, getLinkProps} from '../../utils';
 

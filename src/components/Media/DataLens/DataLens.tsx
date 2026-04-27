@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {LocaleContext} from '../../../context/localeContext';
+import {LocaleContext} from '../../../gravity-blocks/context/localeContext';
 import {MediaComponentDataLensProps} from '../../../models';
 import {block} from '../../../utils';
 

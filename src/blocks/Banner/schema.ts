@@ -5,7 +5,7 @@ import {
     ThemeProps,
     mediaView,
     withTheme,
-} from '../../schema/validators/common';
+} from '../../gravity-blocks/schema/validators/common';
 
 export const BannerCardProps = {
     additionalProperties: false,
