@@ -31,10 +31,7 @@ jobs:
           AWS_EC2_METADATA_DISABLED: true
           AWS_REQUEST_CHECKSUM_CALCULATION: when_required
           AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
-        run:
-          aws s3 rm s3://storybook-static/page-constructor-playground/pulls/${{ steps.pr.outputs.id }}/ \
-          --endpoint-url=https://storage.yandexcloud.net \
-          --recursive || true
+        run: aws s3 rm s3://storybook-static/page-constructor-playground/pulls/${{ steps.pr.outputs.id }}/ --endpoint-url=https://storage.yandexcloud.net --recursive || true
       - name: Upload to S3
         uses: gravity-ui/upload-to-s3-action@v1
         with:
