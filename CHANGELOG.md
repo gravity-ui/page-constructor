@@ -1,5 +1,17 @@
 # Changelog
 
+## [8.6.0](https://github.com/gravity-ui/page-constructor/compare/v8.5.0...v8.6.0) (2026-04-27)
+
+
+### Features
+
+* **yfm:** update dark theme ([#1436](https://github.com/gravity-ui/page-constructor/issues/1436)) ([a2972ef](https://github.com/gravity-ui/page-constructor/commit/a2972efc04d0fd36794f175b0c53ee26a97f4d16))
+
+
+### Bug Fixes
+
+* **SliderOld:** improve storybook story controls ([#1419](https://github.com/gravity-ui/page-constructor/issues/1419)) ([3be6e24](https://github.com/gravity-ui/page-constructor/commit/3be6e247167e0f3be33279e6ca7b7794f1be7fa5))
+
 ## [8.5.0](https://github.com/gravity-ui/page-constructor/compare/v8.4.2...v8.5.0) (2026-04-22)
 
 
