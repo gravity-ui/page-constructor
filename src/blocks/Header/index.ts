@@ -2,8 +2,7 @@ import {BlockData} from '../../constructor-items';
 import {Fields} from '../../form-generator-v2/types';
 
 import HeaderBlock from './Header';
-
-import icon from './icon.svg';
+import icon from './icon';
 
 const HeaderBlockConfig: BlockData = {
     type: '@gravity-ui/page-constructor/header-block',

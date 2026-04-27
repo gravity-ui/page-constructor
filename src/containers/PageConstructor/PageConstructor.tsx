@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import '@diplodoc/transform/dist/js/yfm';
-
 import type {PageConstructorWrapper} from '../../common/types';
 import RootCn from '../../components/RootCn';
 import {BlockData, blockMap, navItemMap, subBlockMap} from '../../constructor-items';

@@ -4,9 +4,8 @@ import {BlockData} from '../../constructor-items';
 import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import ExtendedFeaturesBlock from './ExtendedFeatures';
+import icon from './icon';
 import {ExtendedFeaturesBlock as ExtendedFeaturesBlockSchema} from './schema';
-
-import icon from './icon.svg';
 
 const ExtendedFeaturesBlockConfig: BlockData = {
     type: '@gravity-ui/page-constructor/extended-features-block',

@@ -4,9 +4,8 @@ import {BlockData} from '../../constructor-items';
 import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import QuestionsBlock from './Questions';
+import icon from './icon';
 import {QuestionsBlock as QuestionsBlockSchema} from './schema';
-
-import icon from './icon.svg';
 
 const QuestionsBlockConfig: BlockData = {
     type: '@gravity-ui/page-constructor/questions-block',

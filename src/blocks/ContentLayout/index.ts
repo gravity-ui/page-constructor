@@ -1,8 +1,7 @@
 import {Fields} from '../../form-generator-v2/types';
 
 import ContentLayoutBlock from './ContentLayout';
-
-import icon from './icon.svg';
+import icon from './icon';
 
 const ContentLayoutBlockConfig = {
     type: '@gravity-ui/page-constructor/content-layout-block',

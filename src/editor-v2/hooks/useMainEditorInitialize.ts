@@ -6,7 +6,7 @@ import {PageContent} from '../../models';
 import {useMainEditorStore} from './useMainEditorStore';
 import {usePostMessageEvents} from './usePostMessageEvents';
 
-const useMainEditorInitialize = (initialContent?: PageContent) => {
+const useMainEditorInitialize = (content?: PageContent) => {
     const {requestPostMessage} = usePostMessageEvents();
     const {initialize, setConfig, setContent} = useMainEditorStore();
 
@@ -16,7 +16,7 @@ const useMainEditorInitialize = (initialContent?: PageContent) => {
             initialize();
             requestPostMessage('GET_SUPPORTED_BLOCKS', {});
 
-            if (!initialContent) {
+            if (!content) {
                 requestPostMessage('GET_INITIAL_CONTENT', {});
             }
         },
@@ -24,11 +24,11 @@ const useMainEditorInitialize = (initialContent?: PageContent) => {
     );
 
     React.useEffect(() => {
-        if (initialContent) {
-            setContent(initialContent, true);
+        if (content) {
+            setContent(content, true);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [initialContent]);
+    }, [content]);
 
     usePostMessageAPIListener('ON_INITIAL_CONTENT', (data) => {
         setContent(data, true);

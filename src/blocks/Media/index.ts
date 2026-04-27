@@ -1,8 +1,7 @@
 import {Fields} from '../../form-generator-v2/types';
 
 import MediaBlock from './Media';
-
-import icon from './icon.svg';
+import icon from './icon';
 
 const MediaBlockConfig = {
     type: '@gravity-ui/page-constructor/media-block',

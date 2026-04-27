@@ -3,9 +3,8 @@ import {JSONSchemaType} from 'ajv';
 import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import MediaBlock from './Media';
+import svgIcon from './icon';
 import {MediaBlock as MediaBlockSchema} from './schema';
-
-import svgIcon from './icon.svg';
 
 const MediaBlockConfig = {
     type: 'media-block',
