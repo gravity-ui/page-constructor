@@ -1,12 +1,16 @@
 import {Select as SelectUIKIT} from '@gravity-ui/uikit';
 
 import {CommonProps, SelectField} from '../../types';
+import {formGeneratorCn} from '../../utils/cn';
 import {getValueByPath} from '../../utils/fields';
 import Base from '../Base/Base';
 import BaseInput from '../BaseInput/BaseInput';
 
+import './Select.scss';
+
 type SelectProps = CommonProps & SelectField;
 
+const b = formGeneratorCn('select');
 const Select = ({
     title,
     name,
@@ -39,6 +43,7 @@ const Select = ({
                     onUpdate={(v) => onUpdate(name, v[0])}
                     value={value}
                     hasClear={hasClear}
+                    className={b()}
                 />
             </BaseInput>
         </Base>
