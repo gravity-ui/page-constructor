@@ -9,20 +9,16 @@
     }
 
     &:last-child {
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
 
     &__title {
         padding: 5px 0;
         min-width: 64px;
         max-width: 128px;
-        width: 100%;
-        line-break: anywhere;
         display: inline-block;
-
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        white-space: break-spaces;
+        width: 20%;
 
         &::first-letter {
             text-transform: uppercase;

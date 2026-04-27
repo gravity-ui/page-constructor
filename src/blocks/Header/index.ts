@@ -182,6 +182,11 @@ const HeaderBlockConfig: BlockData = {
                                     },
                                 ],
                             },
+                            {
+                                type: 'text',
+                                text: 'Only events for the counters listed in the input field will be sent.',
+                                level: 'info',
+                            },
                         ],
                     },
                 ],
