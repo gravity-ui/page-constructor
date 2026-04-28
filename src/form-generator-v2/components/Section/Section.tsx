@@ -237,7 +237,10 @@ const Section = ({
                         <div className={b('children-inner')}>
                             {rowKeys.map((rowKey, rowIndex) => renderItem(rowKey, rowIndex))}
                             {withAddButton && !isEmpty && (
-                                <Button onClick={handleAdd}>Add {addButtonLabel}</Button>
+                                <Button onClick={handleAdd}>
+                                    <Icon data={Plus} width={16} height={16} />
+                                    {addButtonLabel}
+                                </Button>
                             )}
                         </div>
                     </div>

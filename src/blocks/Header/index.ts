@@ -200,6 +200,7 @@ const HeaderBlockConfig: BlockData = {
                         title: 'Color HEX',
                         type: 'textInput',
                         name: 'background.color',
+                        placeholder: '#000000',
                     },
                     {
                         title: 'Type',
@@ -225,6 +226,7 @@ const HeaderBlockConfig: BlockData = {
                         title: 'Desktop',
                         type: 'textInput',
                         name: 'background.light.image.desktop',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -237,6 +239,7 @@ const HeaderBlockConfig: BlockData = {
                         title: 'Tablet',
                         type: 'textInput',
                         name: 'background.light.image.tablet',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -249,6 +252,7 @@ const HeaderBlockConfig: BlockData = {
                         title: 'Mobile',
                         type: 'textInput',
                         name: 'background.light.image.mobile',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -261,6 +265,7 @@ const HeaderBlockConfig: BlockData = {
                         title: 'URL',
                         type: 'textInput',
                         name: 'background.light.video.src',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -284,6 +289,7 @@ const HeaderBlockConfig: BlockData = {
                         title: 'Desktop',
                         type: 'textInput',
                         name: 'background.dark.image.desktop',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -296,6 +302,7 @@ const HeaderBlockConfig: BlockData = {
                         title: 'Tablet',
                         type: 'textInput',
                         name: 'background.dark.image.tablet',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -308,6 +315,7 @@ const HeaderBlockConfig: BlockData = {
                         title: 'Mobile',
                         type: 'textInput',
                         name: 'background.dark.image.mobile',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -320,6 +328,7 @@ const HeaderBlockConfig: BlockData = {
                         title: 'URL',
                         type: 'textInput',
                         name: 'background.dark.video.src',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
