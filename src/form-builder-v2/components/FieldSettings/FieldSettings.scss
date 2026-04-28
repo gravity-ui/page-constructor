@@ -1,0 +1,38 @@
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns-form-builder-v2}field-settings';
+
+#{$block} {
+    &__row {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__row-label {
+        font-size: 13px;
+        color: var(--g-color-text-secondary);
+    }
+
+    &__options {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 8px;
+        border: 1px solid var(--g-color-line-generic);
+        border-radius: 6px;
+    }
+
+    &__option-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+        gap: 6px;
+        align-items: center;
+    }
+
+    &__add-option {
+        align-self: flex-start;
+        margin-top: 4px;
+    }
+}

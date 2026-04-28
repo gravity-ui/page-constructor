@@ -1,0 +1,21 @@
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns-form-builder-v2}canvas';
+
+#{$block} {
+    padding: 20px;
+    min-height: 400px;
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    &__empty {
+        padding: 40px 20px;
+        text-align: center;
+        border: 1px dashed var(--g-color-line-generic);
+        border-radius: 8px;
+    }
+}

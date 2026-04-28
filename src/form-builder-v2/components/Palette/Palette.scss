@@ -1,0 +1,60 @@
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns-form-builder-v2}palette';
+
+#{$block} {
+    padding: 12px;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin-bottom: 10px;
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    &__tile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        aspect-ratio: 1;
+        padding: 8px;
+        border: 1px solid var(--g-color-line-generic);
+        border-radius: 6px;
+        background: transparent;
+        color: var(--g-color-text-primary);
+        cursor: grab;
+        transition:
+            background-color 0.15s ease,
+            border-color 0.15s ease,
+            opacity 0.15s ease;
+
+        &:hover {
+            background-color: var(--g-color-base-simple-hover);
+            border-color: var(--g-color-line-generic-hover);
+        }
+
+        &:active {
+            cursor: grabbing;
+            background-color: var(--g-color-base-simple-hover-solid);
+        }
+
+        &_dragging {
+            opacity: 0.5;
+        }
+    }
+
+    &__tile-label {
+        font-size: 11px;
+        line-height: 1.2;
+        text-align: center;
+        color: var(--g-color-text-secondary);
+    }
+}

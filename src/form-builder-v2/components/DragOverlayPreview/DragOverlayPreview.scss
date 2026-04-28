@@ -1,0 +1,18 @@
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns-form-builder-v2}drag-overlay';
+
+#{$block} {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    color: var(--g-color-text-primary);
+    cursor: grabbing;
+
+    &__text {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+}

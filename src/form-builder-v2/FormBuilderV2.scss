@@ -1,0 +1,123 @@
+@import './styles/variables.scss';
+
+$block: '.#{$ns-form-builder-v2}main';
+$palette-block: '.#{$ns-form-builder-v2}palette';
+
+#{$block} {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+
+    &__toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        gap: 12px;
+    }
+
+    &__toolbar-option {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    &__schema-popup {
+        width: min(560px, 90vw);
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__schema-popup-header {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    &__schema-popup-json {
+        margin: 0;
+        padding: 12px;
+        background: var(--g-color-base-generic);
+        border-radius: 6px;
+        font-size: 12px;
+        line-height: 1.4;
+        max-height: min(480px, 60vh);
+        overflow: auto;
+        white-space: pre;
+    }
+
+    &__schema-popup-actions {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end;
+    }
+
+    &__visual {
+        display: grid;
+        grid-template-columns:
+            var(--fb2-palette-w, 220px)
+            8px
+            minmax(0, 1fr)
+            8px
+            var(--fb2-inspector-w, 320px);
+        padding: 16px 0;
+        align-items: stretch;
+    }
+
+    &__palette,
+    &__canvas,
+    &__inspector {
+        min-width: 0;
+    }
+
+    &__palette,
+    &__inspector {
+        position: sticky;
+        top: 16px;
+        align-self: start;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+    }
+
+    &_compact {
+        #{$block}__visual {
+            grid-template-columns:
+                56px
+                minmax(0, 1fr)
+                8px
+                var(--fb2-inspector-w, 320px);
+        }
+
+        #{$palette-block} {
+            padding: 6px;
+        }
+
+        #{$palette-block}__header {
+            display: none;
+        }
+
+        #{$palette-block}__items {
+            grid-template-columns: 1fr;
+        }
+
+        #{$palette-block}__tile {
+            padding: 4px;
+            gap: 0;
+        }
+
+        #{$palette-block}__tile-label {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    }
+}

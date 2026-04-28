@@ -1,0 +1,157 @@
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns-form-builder-v2}canvas-card';
+
+#{$block} {
+    position: relative;
+    padding: 12px 14px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        opacity 0.15s ease;
+
+    &:hover {
+        background-color: var(--g-color-base-simple-hover);
+    }
+
+    &:hover > #{$block}__controls {
+        opacity: 1;
+    }
+
+    &_selected {
+        border-color: var(--g-color-line-brand);
+        background-color: var(--g-color-base-selection);
+
+        #{$block}__controls {
+            opacity: 1;
+        }
+    }
+
+    &_dragging {
+        opacity: 0.4;
+    }
+
+    &_drop-target {
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -5px;
+            height: 3px;
+            background: var(--g-color-line-brand);
+            border-radius: 2px;
+            opacity: 0.45;
+            pointer-events: none;
+        }
+    }
+
+    &_hidden > *:not(#{$block}__hidden-badge):not(#{$block}__controls) {
+        opacity: 0.45;
+        pointer-events: none;
+    }
+
+    &__hidden-badge {
+        margin-bottom: 6px;
+    }
+
+    &__controls {
+        position: absolute;
+        top: 6px;
+        right: 8px;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        opacity: 0;
+        transition: opacity 0.15s ease;
+    }
+
+    &__control {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: var(--g-color-text-secondary);
+        cursor: grab;
+        border-radius: 4px;
+
+        &:hover {
+            background-color: var(--g-color-base-simple-hover-solid);
+            color: var(--g-color-text-primary);
+        }
+
+        &:active {
+            cursor: grabbing;
+        }
+    }
+
+    &__labeled {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__labeled-title {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+    }
+
+    &__section-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--g-color-line-generic);
+    }
+
+    &__children {
+        margin-top: 10px;
+        padding-left: 14px;
+        border-left: 2px solid var(--g-color-line-generic);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 0 6px 6px 0;
+        transition:
+            border-color 0.12s ease,
+            background-color 0.12s ease;
+
+        &_drop-target {
+            border-left-color: var(--g-color-line-brand);
+            background-color: var(--g-color-base-selection);
+        }
+    }
+
+    &__static-text {
+        padding: 8px 10px;
+        border-radius: 4px;
+    }
+
+    &__color-swatch {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__color-swatch-chip {
+        width: 24px;
+        height: 24px;
+        border: 1px solid var(--g-color-line-generic);
+        border-radius: 4px;
+    }
+
+    &__color-swatch-value {
+        font-size: 13px;
+        color: var(--g-color-text-secondary);
+    }
+}

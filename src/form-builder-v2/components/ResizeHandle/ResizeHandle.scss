@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns-form-builder-v2}resize-handle';
+
+#{$block} {
+    width: 8px;
+    align-self: stretch;
+    cursor: col-resize;
+    position: relative;
+    user-select: none;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 2px;
+        height: 40%;
+        background: var(--g-color-line-generic);
+        opacity: 0;
+        border-radius: 2px;
+        transition:
+            opacity 0.12s ease,
+            background-color 0.12s ease,
+            height 0.12s ease;
+    }
+
+    &:hover::after {
+        opacity: 1;
+        height: 60%;
+    }
+
+    &_dragging::after {
+        opacity: 1;
+        height: 100%;
+        background: var(--g-color-line-brand);
+    }
+}
