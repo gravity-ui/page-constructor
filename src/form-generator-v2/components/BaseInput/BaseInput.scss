@@ -1,6 +1,6 @@
 .pc-fg-base-input {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
 
     margin-bottom: 8px;
 
@@ -18,7 +18,9 @@
         max-width: 128px;
         display: inline-block;
         white-space: break-spaces;
+        word-break: break-word;
         width: 20%;
+        align-items: flex-start;
 
         &::first-letter {
             text-transform: uppercase;
