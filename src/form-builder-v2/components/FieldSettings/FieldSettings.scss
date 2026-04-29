@@ -6,12 +6,14 @@ $block: '.#{$ns-form-builder-v2}field-settings';
     &__row {
         display: grid;
         grid-template-columns: 100px 1fr;
-        align-items: center;
-        gap: 8px;
+        align-items: start;
+        gap: var(--g-spacing-2);
     }
 
     &__row-label {
-        font-size: 13px;
+        padding-top: 6px;
+        font-size: var(--g-text-body-1-font-size);
+        line-height: 1.4;
         color: var(--g-color-text-secondary);
     }
 
@@ -19,9 +21,9 @@ $block: '.#{$ns-form-builder-v2}field-settings';
         display: flex;
         flex-direction: column;
         gap: 6px;
-        padding: 8px;
+        padding: var(--g-spacing-2);
         border: 1px solid var(--g-color-line-generic);
-        border-radius: 6px;
+        border-radius: var(--g-border-radius-m);
     }
 
     &__option-row {
@@ -33,6 +35,6 @@ $block: '.#{$ns-form-builder-v2}field-settings';
 
     &__add-option {
         align-self: flex-start;
-        margin-top: 4px;
+        margin-top: var(--g-spacing-1);
     }
 }

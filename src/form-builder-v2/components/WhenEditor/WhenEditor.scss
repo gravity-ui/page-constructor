@@ -6,9 +6,9 @@ $block: '.#{$ns-form-builder-v2}when-editor';
     display: flex;
     flex-direction: column;
     gap: 6px;
-    padding: 8px;
+    padding: var(--g-spacing-2);
     border: 1px solid var(--g-color-line-generic);
-    border-radius: 6px;
+    border-radius: var(--g-border-radius-m);
 
     &__condition {
         display: grid;
@@ -24,8 +24,8 @@ $block: '.#{$ns-form-builder-v2}when-editor';
 
     &__actions {
         display: flex;
-        gap: 8px;
+        gap: var(--g-spacing-2);
         align-items: center;
-        margin-top: 4px;
+        margin-top: var(--g-spacing-1);
     }
 }

@@ -5,23 +5,23 @@ $block: '.#{$ns-form-builder-v2}content-tab';
 #{$block} {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 16px;
-    margin-top: 16px;
+    gap: var(--g-spacing-4);
+    margin-top: var(--g-spacing-4);
 
     &__column {
-        padding: 16px;
+        padding: var(--g-spacing-4);
     }
 
     &__title {
         display: block;
-        margin-bottom: 12px;
+        margin-bottom: var(--g-spacing-3);
     }
 
     &__json {
         margin: 0;
-        padding: 12px;
+        padding: var(--g-spacing-3);
         background: var(--g-color-base-generic);
-        border-radius: 6px;
+        border-radius: var(--g-border-radius-m);
         font-size: 12px;
         overflow: auto;
         max-height: 70vh;

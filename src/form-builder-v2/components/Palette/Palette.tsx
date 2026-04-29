@@ -11,12 +11,13 @@ import {
     TextAlignLeft,
     ToggleOn,
 } from '@gravity-ui/icons';
-import {Card, Icon, Text} from '@gravity-ui/uikit';
+import {Button, Card, Icon, Text} from '@gravity-ui/uikit';
 import type {IconData} from '@gravity-ui/uikit';
 
 import {useFormContext} from '../../hooks/FormContext';
 import {BuilderFieldType, FormField} from '../../types';
 import {formBuilderV2Cn} from '../../utils/cn';
+import {asReactRef} from '../../utils/dndRef';
 
 import './Palette.scss';
 
@@ -68,7 +69,7 @@ const PaletteTile: React.FC<PaletteTileProps> = ({type, label, icon, onClick}) =
     });
 
     const setRefs = React.useCallback(
-        (element: HTMLButtonElement | null) => {
+        (element: Element | null) => {
             (ref as (el: Element | null) => void)(element);
             (handleRef as (el: Element | null) => void)(element);
         },
@@ -76,16 +77,17 @@ const PaletteTile: React.FC<PaletteTileProps> = ({type, label, icon, onClick}) =
     );
 
     return (
-        <button
-            ref={setRefs}
-            type="button"
+        <Button
+            ref={asReactRef<HTMLButtonElement>(setRefs)}
+            view="flat"
+            size="m"
             className={b('tile', {dragging: isDragging})}
             onClick={onClick}
             title={label}
         >
             <Icon data={icon} size={18} />
             <span className={b('tile-label')}>{label}</span>
-        </button>
+        </Button>
     );
 };
 

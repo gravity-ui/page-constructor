@@ -47,10 +47,16 @@ interface DragOverlayPreviewProps {
     field?: FormField;
 }
 
+const getFieldTitle = (f: FormField | undefined): string => {
+    if (!f) return '';
+    if ('title' in f) return f.title ?? '';
+    if ('text' in f) return f.text ?? '';
+    return '';
+};
+
 export const DragOverlayPreview: React.FC<DragOverlayPreviewProps> = ({type, field}) => {
     const name = field && 'name' in field ? field.name : '';
-    const title =
-        field && 'title' in field ? field.title : field && 'text' in field ? field.text : '';
+    const title = getFieldTitle(field);
 
     return (
         <Card className={b()} view="raised">

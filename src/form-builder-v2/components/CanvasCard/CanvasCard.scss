@@ -4,9 +4,9 @@ $block: '.#{$ns-form-builder-v2}canvas-card';
 
 #{$block} {
     position: relative;
-    padding: 12px 14px;
+    padding: var(--g-spacing-3) var(--g-spacing-3);
     border: 1px solid transparent;
-    border-radius: 8px;
+    border-radius: var(--g-border-radius-l);
     cursor: pointer;
     transition:
         background-color 0.15s ease,
@@ -51,22 +51,17 @@ $block: '.#{$ns-form-builder-v2}canvas-card';
         }
     }
 
-    &_hidden > *:not(#{$block}__hidden-badge):not(#{$block}__controls) {
-        opacity: 0.45;
-        pointer-events: none;
-    }
-
-    &__hidden-badge {
-        margin-bottom: 6px;
+    &__visibility-badge {
+        margin-bottom: var(--g-spacing-1);
     }
 
     &__controls {
         position: absolute;
-        top: 6px;
-        right: 8px;
+        top: var(--g-spacing-1);
+        right: var(--g-spacing-2);
         display: flex;
         align-items: center;
-        gap: 2px;
+        gap: var(--g-spacing-half);
         opacity: 0;
         transition: opacity 0.15s ease;
     }
@@ -75,8 +70,8 @@ $block: '.#{$ns-form-builder-v2}canvas-card';
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 20px;
-        height: 20px;
+        width: var(--g-spacing-5);
+        height: var(--g-spacing-5);
         padding: 0;
         border: none;
         background: transparent;
@@ -97,31 +92,31 @@ $block: '.#{$ns-form-builder-v2}canvas-card';
     &__labeled {
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: var(--g-spacing-1);
     }
 
     &__labeled-title {
         display: flex;
         align-items: baseline;
-        gap: 8px;
+        gap: var(--g-spacing-2);
     }
 
     &__section-header {
         display: flex;
         align-items: center;
-        gap: 10px;
-        padding-bottom: 6px;
+        gap: var(--g-spacing-2);
+        padding-bottom: var(--g-spacing-1);
         border-bottom: 1px solid var(--g-color-line-generic);
     }
 
     &__children {
-        margin-top: 10px;
-        padding-left: 14px;
+        margin-top: var(--g-spacing-2);
+        padding-left: var(--g-spacing-3);
         border-left: 2px solid var(--g-color-line-generic);
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        border-radius: 0 6px 6px 0;
+        gap: var(--g-spacing-2);
+        border-radius: 0 var(--g-border-radius-m) var(--g-border-radius-m) 0;
         transition:
             border-color 0.12s ease,
             background-color 0.12s ease;
@@ -140,7 +135,7 @@ $block: '.#{$ns-form-builder-v2}canvas-card';
     &__color-swatch {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: var(--g-spacing-2);
     }
 
     &__color-swatch-chip {
@@ -151,7 +146,7 @@ $block: '.#{$ns-form-builder-v2}canvas-card';
     }
 
     &__color-swatch-value {
-        font-size: 13px;
+        font-size: var(--g-text-body-1-font-size);
         color: var(--g-color-text-secondary);
     }
 }

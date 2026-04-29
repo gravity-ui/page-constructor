@@ -3,12 +3,12 @@
 $block: '.#{$ns-form-builder-v2}palette';
 
 #{$block} {
-    padding: 12px;
+    padding: var(--g-spacing-3);
 
     &__header {
         display: flex;
         flex-direction: column;
-        gap: 2px;
+        gap: var(--g-spacing-half);
         margin-bottom: 10px;
     }
 
@@ -25,9 +25,11 @@ $block: '.#{$ns-form-builder-v2}palette';
         justify-content: center;
         gap: 6px;
         aspect-ratio: 1;
-        padding: 8px;
+        width: 100%;
+        height: auto;
+        padding: var(--g-spacing-2);
         border: 1px solid var(--g-color-line-generic);
-        border-radius: 6px;
+        border-radius: var(--g-border-radius-m);
         background: transparent;
         color: var(--g-color-text-primary);
         cursor: grab;
@@ -35,6 +37,15 @@ $block: '.#{$ns-form-builder-v2}palette';
             background-color 0.15s ease,
             border-color 0.15s ease,
             opacity 0.15s ease;
+
+        .g-button__text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
+        }
 
         &:hover {
             background-color: var(--g-color-base-simple-hover);
@@ -52,7 +63,7 @@ $block: '.#{$ns-form-builder-v2}palette';
     }
 
     &__tile-label {
-        font-size: 11px;
+        font-size: var(--g-text-caption-2-font-size);
         line-height: 1.2;
         text-align: center;
         color: var(--g-color-text-secondary);

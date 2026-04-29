@@ -6,8 +6,8 @@ import type {DragDropEvents} from '@dnd-kit/abstract';
 import type {DragDropManager, Draggable, Droppable} from '@dnd-kit/dom';
 import {move} from '@dnd-kit/helpers';
 import {DragDropProvider, DragOverlay} from '@dnd-kit/react';
-import {Copy, Eye, Pencil} from '@gravity-ui/icons';
-import {Button, Card, Icon, Popup, SegmentedRadioGroup, Text} from '@gravity-ui/uikit';
+import {Code, Eye, Pencil} from '@gravity-ui/icons';
+import {Button, Icon, SegmentedRadioGroup} from '@gravity-ui/uikit';
 
 import type {Content} from '../form-generator-v2/types';
 
@@ -20,6 +20,7 @@ import {Inspector} from './components/Inspector/Inspector';
 import {PALETTE_DRAGGABLE_PREFIX, Palette} from './components/Palette/Palette';
 import type {PaletteDragData} from './components/Palette/Palette';
 import {ResizeHandle} from './components/ResizeHandle/ResizeHandle';
+import {SchemaPopup} from './components/SchemaPopup/SchemaPopup';
 import {FormProvider, useFormContext} from './hooks/FormContext';
 import {applyGroupsMap, buildGroupsMap} from './hooks/useFormFields';
 import {FormField} from './types';
@@ -78,8 +79,7 @@ const FormBuilderShell: React.FC<FormBuilderShellProps> = ({className, density})
     const [paletteWidth, setPaletteWidth] = React.useState(PALETTE_DEFAULT);
     const [inspectorWidth, setInspectorWidth] = React.useState(INSPECTOR_DEFAULT);
     const [schemaPopupOpen, setSchemaPopupOpen] = React.useState(false);
-    const [copied, setCopied] = React.useState(false);
-    const copyButtonRef = React.useRef<HTMLButtonElement | null>(null);
+    const schemaButtonRef = React.useRef<HTMLButtonElement | null>(null);
 
     const isCompact = density === 'compact';
 
@@ -93,18 +93,6 @@ const FormBuilderShell: React.FC<FormBuilderShellProps> = ({className, density})
     } = useFormContext();
 
     const schema = React.useMemo(() => stripIds(formFields), [formFields]);
-    const schemaJson = React.useMemo(() => JSON.stringify(schema, null, 2), [schema]);
-
-    const handleCopy = React.useCallback(async () => {
-        try {
-            await navigator.clipboard.writeText(schemaJson);
-            setCopied(true);
-            setTimeout(() => {
-                setCopied(false);
-                setSchemaPopupOpen(false);
-            }, 900);
-        } catch {}
-    }, [schemaJson]);
 
     const handleDragEnd = React.useCallback(
         (event: DragEndEvent) => {
@@ -201,42 +189,21 @@ const FormBuilderShell: React.FC<FormBuilderShellProps> = ({className, density})
                         ]}
                     />
                     <Button
-                        ref={copyButtonRef}
+                        ref={schemaButtonRef}
                         view="outlined"
                         size="m"
                         onClick={() => setSchemaPopupOpen((prev) => !prev)}
                     >
-                        <Icon data={Copy} size={14} />
-                        Copy schema
+                        <Icon data={Code} size={14} />
+                        Schema
                     </Button>
-                    <Popup
-                        anchorElement={copyButtonRef.current}
+                    <SchemaPopup
+                        schema={schema}
+                        onApply={setAllFields}
                         open={schemaPopupOpen}
-                        onOpenChange={(open) => setSchemaPopupOpen(open)}
-                        placement="bottom-end"
-                    >
-                        <Card className={b('schema-popup')} view="outlined">
-                            <div className={b('schema-popup-header')}>
-                                <Text variant="subheader-2">Form schema</Text>
-                                <Text variant="caption-1" color="hint">
-                                    Paste this into your block&rsquo;s <code>inputs</code> property.
-                                </Text>
-                            </div>
-                            <pre className={b('schema-popup-json')}>{schemaJson}</pre>
-                            <div className={b('schema-popup-actions')}>
-                                <Button view="action" size="m" onClick={handleCopy}>
-                                    {copied ? '✓ Copied' : 'Copy to clipboard'}
-                                </Button>
-                                <Button
-                                    view="flat"
-                                    size="m"
-                                    onClick={() => setSchemaPopupOpen(false)}
-                                >
-                                    Close
-                                </Button>
-                            </div>
-                        </Card>
-                    </Popup>
+                        onOpenChange={setSchemaPopupOpen}
+                        anchorElement={schemaButtonRef.current}
+                    />
                 </div>
 
                 {mode === 'edit' ? (
