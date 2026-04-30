@@ -1,43 +1,32 @@
-import * as React from 'react';
-
 import {useDroppable} from '@dnd-kit/react';
 import {Text} from '@gravity-ui/uikit';
 
 import {FormField} from '../../../types';
 import {formBuilderV2Cn} from '../../../utils/cn';
-import {asReactRef} from '../../../utils/dndRef';
+import type {SectionDropData} from '../../../utils/dragData';
 import {CanvasList} from '../../Canvas/Canvas';
 
 const b = formBuilderV2Cn('canvas-card');
 
 export const SECTION_DROP_PREFIX = 'section-drop:';
 
-export interface SectionDropData {
-    kind: 'section-drop';
-    sectionId: string;
-}
+export type {SectionDropData};
 
 interface SectionChildrenDropZoneProps {
     sectionId: string;
     fields: FormField[];
 }
 
-export const SectionChildrenDropZone: React.FC<SectionChildrenDropZoneProps> = ({
-    sectionId,
-    fields,
-}) => {
+export const SectionChildrenDropZone = ({sectionId, fields}: SectionChildrenDropZoneProps) => {
     const {ref, isDropTarget} = useDroppable({
         id: `${SECTION_DROP_PREFIX}${sectionId}`,
-        data: {kind: 'section-drop', sectionId} as SectionDropData,
+        data: {kind: 'section-drop', sectionId},
     });
 
     const className = b('children');
 
     return (
-        <div
-            ref={asReactRef<HTMLDivElement>(ref)}
-            className={`${className}${isDropTarget ? ` ${className}_drop-target` : ''}`}
-        >
+        <div ref={ref} className={`${className}${isDropTarget ? ` ${className}_drop-target` : ''}`}>
             <CanvasList fields={fields} parentGroup={`section:${sectionId}`} />
             {fields.length === 0 && (
                 <Text variant="body-2" color="hint">

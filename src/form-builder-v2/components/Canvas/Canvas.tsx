@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {Card, Text} from '@gravity-ui/uikit';
 
 import {useFormContext} from '../../hooks/FormContext';
@@ -16,7 +14,7 @@ interface CanvasListProps {
     parentGroup: string;
 }
 
-const CanvasList: React.FC<CanvasListProps> = ({fields, parentGroup}) => (
+const CanvasList = ({fields, parentGroup}: CanvasListProps) => (
     <div className={b('list')}>
         {fields.map((field, index) => (
             <CanvasCard key={field.id} field={field} index={index} group={parentGroup} />
@@ -24,19 +22,11 @@ const CanvasList: React.FC<CanvasListProps> = ({fields, parentGroup}) => (
     </div>
 );
 
-export const Canvas: React.FC = () => {
+export const Canvas = () => {
     const {formFields, selectField} = useFormContext();
 
     return (
-        <Card
-            className={b()}
-            view="outlined"
-            onClick={(event) => {
-                if (event.target === event.currentTarget) {
-                    selectField(null);
-                }
-            }}
-        >
+        <Card className={b()} view="outlined" onClick={() => selectField(null)}>
             {formFields.length === 0 ? (
                 <div className={b('empty')}>
                     <Text variant="body-2" color="hint">

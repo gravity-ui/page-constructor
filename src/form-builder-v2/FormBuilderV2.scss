@@ -5,6 +5,7 @@ $palette-block: '.#{$ns-form-builder-v2}palette';
 
 #{$block} {
     width: 100%;
+    min-width: 640px;
     display: flex;
     flex-direction: column;
     min-height: 0;
@@ -59,9 +60,9 @@ $palette-block: '.#{$ns-form-builder-v2}palette';
         display: grid;
         grid-template-columns:
             var(--fb2-palette-w, 220px)
-            8px
-            minmax(0, 1fr)
-            8px
+            var(--g-spacing-2)
+            minmax(240px, 1fr)
+            var(--g-spacing-2)
             var(--fb2-inspector-w, 320px);
         padding: var(--g-spacing-4) 0;
         align-items: stretch;
@@ -86,8 +87,8 @@ $palette-block: '.#{$ns-form-builder-v2}palette';
         #{$block}__visual {
             grid-template-columns:
                 56px
-                minmax(0, 1fr)
-                8px
+                minmax(240px, 1fr)
+                var(--g-spacing-2)
                 var(--fb2-inspector-w, 320px);
         }
 

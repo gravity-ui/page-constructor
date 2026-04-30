@@ -1,58 +1,40 @@
 import * as React from 'react';
 
+import {PointerActivationConstraints, PointerSensor} from '@dnd-kit/dom';
 import {useDraggable} from '@dnd-kit/react';
-import {
-    ChevronsExpandVertical,
-    CircleInfo,
-    Cubes3,
-    Droplet,
-    FontCursor,
-    ListCheck,
-    TextAlignLeft,
-    ToggleOn,
-} from '@gravity-ui/icons';
 import {Button, Card, Icon, Text} from '@gravity-ui/uikit';
 import type {IconData} from '@gravity-ui/uikit';
 
 import {useFormContext} from '../../hooks/FormContext';
 import {BuilderFieldType, FormField} from '../../types';
 import {formBuilderV2Cn} from '../../utils/cn';
-import {asReactRef} from '../../utils/dndRef';
+import type {PaletteDragData} from '../../utils/dragData';
+import {FIELD_TYPES, PALETTE_LABELS, TYPE_ICONS} from '../../utils/fieldMeta';
 
 import './Palette.scss';
 
-const b = formBuilderV2Cn('palette');
+export type {PaletteDragData};
 
-const ITEMS: {type: BuilderFieldType; label: string; icon: IconData}[] = [
-    {type: 'textInput', label: 'Text', icon: FontCursor},
-    {type: 'textArea', label: 'Text area', icon: TextAlignLeft},
-    {type: 'select', label: 'Select', icon: ChevronsExpandVertical},
-    {type: 'segmentedRadioGroup', label: 'Radio', icon: ListCheck},
-    {type: 'switch', label: 'Switch', icon: ToggleOn},
-    {type: 'colorInput', label: 'Color', icon: Droplet},
-    {type: 'text', label: 'Hint', icon: CircleInfo},
-    {type: 'section', label: 'Section', icon: Cubes3},
-];
+const b = formBuilderV2Cn('palette');
 
 export const PALETTE_DRAGGABLE_PREFIX = 'palette:';
 
-export interface PaletteDragData {
-    kind: 'palette';
-    type: BuilderFieldType;
-}
-
-const findContainerId = (fields: FormField[], selectedId: string | null): string | null => {
+const findContainerId = (
+    fields: FormField[],
+    selectedId: string | null,
+    parentSectionId: string | null = null,
+): string | null | undefined => {
     if (!selectedId) return null;
     for (const field of fields) {
-        if (field.id === selectedId && field.type === 'section') {
-            return field.id;
+        if (field.id === selectedId) {
+            return field.type === 'section' ? field.id : parentSectionId;
         }
         if (field.type === 'section') {
-            const nested = findContainerId(field.fields, selectedId);
-            if (nested) return nested;
+            const nested = findContainerId(field.fields, selectedId, field.id);
+            if (nested !== undefined) return nested;
         }
     }
-    return null;
+    return undefined;
 };
 
 interface PaletteTileProps {
@@ -62,23 +44,32 @@ interface PaletteTileProps {
     onClick: () => void;
 }
 
-const PaletteTile: React.FC<PaletteTileProps> = ({type, label, icon, onClick}) => {
+const DRAG_DISTANCE = 4;
+
+const paletteSensors = [
+    PointerSensor.configure({
+        activationConstraints: [new PointerActivationConstraints.Distance({value: DRAG_DISTANCE})],
+    }),
+];
+
+const PaletteTile = ({type, label, icon, onClick}: PaletteTileProps) => {
     const {ref, handleRef, isDragging} = useDraggable({
         id: `${PALETTE_DRAGGABLE_PREFIX}${type}`,
-        data: {kind: 'palette', type} as PaletteDragData,
+        data: {kind: 'palette', type},
+        sensors: paletteSensors,
     });
 
     const setRefs = React.useCallback(
-        (element: Element | null) => {
-            (ref as (el: Element | null) => void)(element);
-            (handleRef as (el: Element | null) => void)(element);
+        (element: HTMLButtonElement | null) => {
+            ref(element);
+            handleRef(element);
         },
         [ref, handleRef],
     );
 
     return (
         <Button
-            ref={asReactRef<HTMLButtonElement>(setRefs)}
+            ref={setRefs}
             view="flat"
             size="m"
             className={b('tile', {dragging: isDragging})}
@@ -91,7 +82,7 @@ const PaletteTile: React.FC<PaletteTileProps> = ({type, label, icon, onClick}) =
     );
 };
 
-export const Palette: React.FC = () => {
+export const Palette = () => {
     const {addField, addFieldToSection, formFields, selectedFieldId} = useFormContext();
 
     const containerId = React.useMemo(
@@ -116,13 +107,13 @@ export const Palette: React.FC = () => {
                 </Text>
             </div>
             <div className={b('items')}>
-                {ITEMS.map((item) => (
+                {FIELD_TYPES.map((type) => (
                     <PaletteTile
-                        key={item.type}
-                        type={item.type}
-                        label={item.label}
-                        icon={item.icon}
-                        onClick={() => handleAdd(item.type)}
+                        key={type}
+                        type={type}
+                        label={PALETTE_LABELS[type]}
+                        icon={TYPE_ICONS[type]}
+                        onClick={() => handleAdd(type)}
                     />
                 ))}
             </div>

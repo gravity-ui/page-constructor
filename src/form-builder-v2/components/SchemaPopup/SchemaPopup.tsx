@@ -21,14 +21,15 @@ interface SchemaPopupProps {
     anchorElement: HTMLElement | null;
 }
 
-export const SchemaPopup: React.FC<SchemaPopupProps> = ({
+export const SchemaPopup = ({
     schema,
     onApply,
     open,
     onOpenChange,
     anchorElement,
-}) => {
+}: SchemaPopupProps) => {
     const textareaRef = React.useRef<HTMLTextAreaElement>(null);
+    const copyTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
     const [draft, setDraft] = React.useState<string>(() => stringify(schema));
     const [error, setError] = React.useState<string | null>(null);
     const [copied, setCopied] = React.useState(false);
@@ -40,6 +41,13 @@ export const SchemaPopup: React.FC<SchemaPopupProps> = ({
             setError(null);
         }
     }, [schema, isFocused]);
+
+    React.useEffect(
+        () => () => {
+            if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+        },
+        [],
+    );
 
     const applyDraft = (value: string) => {
         setDraft(value);
@@ -86,7 +94,8 @@ export const SchemaPopup: React.FC<SchemaPopupProps> = ({
         try {
             await navigator.clipboard.writeText(draft);
             setCopied(true);
-            setTimeout(() => setCopied(false), 1500);
+            if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+            copyTimeoutRef.current = setTimeout(() => setCopied(false), 1500);
         } catch {}
     }, [draft]);
 

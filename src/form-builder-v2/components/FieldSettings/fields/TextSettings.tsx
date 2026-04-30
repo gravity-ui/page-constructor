@@ -7,6 +7,8 @@ import type {BuilderLeafField, FieldUpdate} from '../../../types';
 
 import {Row} from './Row';
 
+type TextLevel = 'info' | 'danger';
+
 const TEXT_COLOR_OPTIONS = [
     {value: '', content: 'Default'},
     {value: 'primary', content: 'Primary'},
@@ -26,28 +28,39 @@ const TEXT_LEVEL_OPTIONS = [
     {value: 'danger', content: 'Danger banner'},
 ];
 
+const TEXT_COLORS: readonly TextColor[] = [
+    'primary',
+    'secondary',
+    'hint',
+    'info',
+    'positive',
+    'warning',
+    'danger',
+    'utility',
+    'misc',
+];
+
+const isTextColor = (value: string): value is TextColor =>
+    (TEXT_COLORS as readonly string[]).includes(value);
+
+const isTextLevel = (value: string): value is TextLevel => value === 'info' || value === 'danger';
+
 interface TextSettingsProps {
     field: BuilderLeafField & {type: 'text'};
     updateField: (id: string, updates: FieldUpdate) => void;
     whenEditorSection: React.ReactNode;
 }
 
-export const TextSettings: React.FC<TextSettingsProps> = ({
-    field,
-    updateField,
-    whenEditorSection,
-}) => {
-    const handleLevelUpdate = (next: string[]) => {
-        const value = next[0];
+export const TextSettings = ({field, updateField, whenEditorSection}: TextSettingsProps) => {
+    const handleLevelUpdate = ([value]: string[]) => {
         updateField(field.id, {
-            level: (value || undefined) as 'info' | 'danger' | undefined,
+            level: isTextLevel(value) ? value : undefined,
         });
     };
 
-    const handleColorUpdate = (next: string[]) => {
-        const value = next[0];
+    const handleColorUpdate = ([value]: string[]) => {
         updateField(field.id, {
-            color: (value || undefined) as TextColor | undefined,
+            color: isTextColor(value) ? value : undefined,
         });
     };
 

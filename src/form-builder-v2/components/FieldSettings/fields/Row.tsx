@@ -9,7 +9,7 @@ interface RowProps {
     children: React.ReactNode;
 }
 
-export const Row: React.FC<RowProps> = ({label, children}) => (
+export const Row = ({label, children}: RowProps) => (
     <div className={b('row')}>
         <span className={b('row-label')}>{label}</span>
         <div>{children}</div>

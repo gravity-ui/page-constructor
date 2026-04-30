@@ -27,7 +27,7 @@ interface WhenEditorProps {
     onChange: (next: When | undefined) => void;
 }
 
-export const WhenEditor: React.FC<WhenEditorProps> = ({when, availableFields, onChange}) => {
+export const WhenEditor = ({when, availableFields, onChange}: WhenEditorProps) => {
     const {conditions, combinators} = parse(when);
 
     const fieldOptions = React.useMemo(

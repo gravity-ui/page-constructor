@@ -13,18 +13,17 @@ import type {Content} from '../form-generator-v2/types';
 
 import {CanvasContentProvider} from './CanvasContentContext';
 import {Canvas} from './components/Canvas/Canvas';
-import type {SectionDropData} from './components/CanvasCard/CanvasCard';
 import {ContentTab} from './components/ContentTab/ContentTab';
 import {DragOverlayPreview} from './components/DragOverlayPreview/DragOverlayPreview';
 import {Inspector} from './components/Inspector/Inspector';
 import {PALETTE_DRAGGABLE_PREFIX, Palette} from './components/Palette/Palette';
-import type {PaletteDragData} from './components/Palette/Palette';
 import {ResizeHandle} from './components/ResizeHandle/ResizeHandle';
 import {SchemaPopup} from './components/SchemaPopup/SchemaPopup';
 import {FormProvider, useFormContext} from './hooks/FormContext';
-import {applyGroupsMap, buildGroupsMap} from './hooks/useFormFields';
 import {FormField} from './types';
 import {formBuilderV2Cn} from './utils/cn';
+import {isDropAfter, isPaletteData, isSectionDropData} from './utils/dragData';
+import {applyGroupsMap, buildGroupsMap} from './utils/fieldGroups';
 import {findFieldById} from './utils/fieldTree';
 import {stripIds} from './utils/stripIds';
 
@@ -54,25 +53,12 @@ interface FormBuilderV2Props {
     density?: FormBuilderDensity;
 }
 
-export const FormBuilderV2: React.FC<FormBuilderV2Props> = ({
-    className,
-    formFields,
-    onChange,
-    density = 'full',
-}) => {
-    return (
-        <FormProvider formFields={formFields} onChange={onChange}>
-            <FormBuilderShell className={className} density={density} />
-        </FormProvider>
-    );
-};
-
 interface FormBuilderShellProps {
     className?: string;
     density: FormBuilderDensity;
 }
 
-const FormBuilderShell: React.FC<FormBuilderShellProps> = ({className, density}) => {
+const FormBuilderShell = ({className, density}: FormBuilderShellProps) => {
     const [mode, setMode] = React.useState<Mode>('edit');
     const [canvasContent, setCanvasContent] = React.useState<Content>({});
     const [templateContent, setTemplateContent] = React.useState<Content>({});
@@ -89,6 +75,7 @@ const FormBuilderShell: React.FC<FormBuilderShellProps> = ({className, density})
         addField,
         addFieldToSection,
         insertFieldBefore,
+        insertFieldAfter,
         moveFieldToSection,
     } = useFormContext();
 
@@ -100,10 +87,9 @@ const FormBuilderShell: React.FC<FormBuilderShellProps> = ({className, density})
             const {source, target} = event.operation;
             if (!source) return;
 
-            const paletteData = source.data as PaletteDragData | undefined;
+            const paletteData = isPaletteData(source.data) ? source.data : null;
             const isPaletteDrag =
-                paletteData?.kind === 'palette' ||
-                String(source.id).startsWith(PALETTE_DRAGGABLE_PREFIX);
+                paletteData !== null || String(source.id).startsWith(PALETTE_DRAGGABLE_PREFIX);
 
             if (isPaletteDrag) {
                 const type = paletteData?.type;
@@ -113,9 +99,8 @@ const FormBuilderShell: React.FC<FormBuilderShellProps> = ({className, density})
                     return;
                 }
 
-                const sectionDropData = target.data as SectionDropData | undefined;
-                if (sectionDropData?.kind === 'section-drop') {
-                    addFieldToSection(sectionDropData.sectionId, type);
+                if (isSectionDropData(target.data)) {
+                    addFieldToSection(target.data.sectionId, type);
                     return;
                 }
 
@@ -124,13 +109,20 @@ const FormBuilderShell: React.FC<FormBuilderShellProps> = ({className, density})
                     return;
                 }
 
-                insertFieldBefore(String(target.id), type);
+                const dropAfter = isDropAfter(
+                    event.operation.position?.current?.y,
+                    target.shape?.center?.y,
+                );
+                if (dropAfter) {
+                    insertFieldAfter(String(target.id), type);
+                } else {
+                    insertFieldBefore(String(target.id), type);
+                }
                 return;
             }
 
-            const sectionDropTarget = target?.data as SectionDropData | undefined;
-            if (sectionDropTarget?.kind === 'section-drop') {
-                moveFieldToSection(String(source.id), sectionDropTarget.sectionId);
+            if (target && isSectionDropData(target.data)) {
+                moveFieldToSection(String(source.id), target.data.sectionId);
                 return;
             }
 
@@ -144,6 +136,7 @@ const FormBuilderShell: React.FC<FormBuilderShellProps> = ({className, density})
             addFieldToSection,
             formFields,
             insertFieldBefore,
+            insertFieldAfter,
             moveFieldToSection,
             setAllFields,
         ],
@@ -163,10 +156,10 @@ const FormBuilderShell: React.FC<FormBuilderShellProps> = ({className, density})
                 setTemplateContent={setTemplateContent}
             >
                 <div className={b('toolbar')}>
-                    <SegmentedRadioGroup
+                    <SegmentedRadioGroup<Mode>
                         size="m"
                         value={mode}
-                        onUpdate={(next) => setMode(next as Mode)}
+                        onUpdate={setMode}
                         options={[
                             {
                                 value: 'edit',
@@ -238,17 +231,9 @@ const FormBuilderShell: React.FC<FormBuilderShellProps> = ({className, density})
                         <DragOverlay dropAnimation={null}>
                             {(source) => {
                                 if (!source) return null;
-                                const data = source.data as
-                                    | PaletteDragData
-                                    | {group?: string}
-                                    | undefined;
-
-                                if (data && (data as PaletteDragData).kind === 'palette') {
-                                    return (
-                                        <DragOverlayPreview type={(data as PaletteDragData).type} />
-                                    );
+                                if (isPaletteData(source.data)) {
+                                    return <DragOverlayPreview type={source.data.type} />;
                                 }
-
                                 const field = findFieldById(formFields, String(source.id));
                                 if (!field) return null;
                                 return <DragOverlayPreview type={field.type} field={field} />;
@@ -260,5 +245,18 @@ const FormBuilderShell: React.FC<FormBuilderShellProps> = ({className, density})
                 )}
             </CanvasContentProvider>
         </div>
+    );
+};
+
+export const FormBuilderV2 = ({
+    className,
+    formFields,
+    onChange,
+    density = 'full',
+}: FormBuilderV2Props) => {
+    return (
+        <FormProvider formFields={formFields} onChange={onChange}>
+            <FormBuilderShell className={className} density={density} />
+        </FormProvider>
     );
 };

@@ -17,12 +17,12 @@ interface OptionsSettingsProps {
     whenEditorSection: React.ReactNode;
 }
 
-export const OptionsSettings: React.FC<OptionsSettingsProps> = ({
+export const OptionsSettings = ({
     field,
     updateField,
     commonRows,
     whenEditorSection,
-}) => {
+}: OptionsSettingsProps) => {
     const options = field.options ?? [];
 
     const updateOption = (index: number, key: 'value' | 'content', value: string) => {

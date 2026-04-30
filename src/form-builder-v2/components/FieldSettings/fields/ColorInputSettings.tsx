@@ -13,12 +13,12 @@ interface ColorInputSettingsProps {
     whenEditorSection: React.ReactNode;
 }
 
-export const ColorInputSettings: React.FC<ColorInputSettingsProps> = ({
+export const ColorInputSettings = ({
     field,
     updateField,
     commonRows,
     whenEditorSection,
-}) => (
+}: ColorInputSettingsProps) => (
     <React.Fragment>
         {commonRows}
         <Row label="Default">

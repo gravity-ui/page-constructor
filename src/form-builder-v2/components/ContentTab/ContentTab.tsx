@@ -12,7 +12,7 @@ import './ContentTab.scss';
 
 const b = formBuilderV2Cn('content-tab');
 
-export const ContentTab: React.FC = () => {
+export const ContentTab = () => {
     const {formFields} = useFormContext();
     const {content, setContent} = useCanvasContent();
 

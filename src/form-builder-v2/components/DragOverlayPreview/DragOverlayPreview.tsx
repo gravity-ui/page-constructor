@@ -1,46 +1,12 @@
-import * as React from 'react';
-
-import {
-    ChevronsExpandVertical,
-    CircleInfo,
-    Cubes3,
-    Droplet,
-    FontCursor,
-    ListCheck,
-    TextAlignLeft,
-    ToggleOn,
-} from '@gravity-ui/icons';
 import {Card, Icon, Label, Text} from '@gravity-ui/uikit';
-import type {IconData} from '@gravity-ui/uikit';
 
 import type {BuilderFieldType, FormField} from '../../types';
 import {formBuilderV2Cn} from '../../utils/cn';
+import {TYPE_ICONS, TYPE_LABELS} from '../../utils/fieldMeta';
 
 import './DragOverlayPreview.scss';
 
 const b = formBuilderV2Cn('drag-overlay');
-
-const TYPE_LABELS: Record<BuilderFieldType, string> = {
-    textInput: 'Text input',
-    textArea: 'Text area',
-    select: 'Select',
-    segmentedRadioGroup: 'Segmented radio',
-    switch: 'Switch',
-    colorInput: 'Color input',
-    text: 'Static text',
-    section: 'Section',
-};
-
-const TYPE_ICONS: Record<BuilderFieldType, IconData> = {
-    textInput: FontCursor,
-    textArea: TextAlignLeft,
-    select: ChevronsExpandVertical,
-    segmentedRadioGroup: ListCheck,
-    switch: ToggleOn,
-    colorInput: Droplet,
-    text: CircleInfo,
-    section: Cubes3,
-};
 
 interface DragOverlayPreviewProps {
     type: BuilderFieldType;
@@ -54,7 +20,7 @@ const getFieldTitle = (f: FormField | undefined): string => {
     return '';
 };
 
-export const DragOverlayPreview: React.FC<DragOverlayPreviewProps> = ({type, field}) => {
+export const DragOverlayPreview = ({type, field}: DragOverlayPreviewProps) => {
     const name = field && 'name' in field ? field.name : '';
     const title = getFieldTitle(field);
 

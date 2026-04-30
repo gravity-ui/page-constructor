@@ -14,13 +14,7 @@ interface ResizeHandleProps {
     onChange: (next: number) => void;
 }
 
-export const ResizeHandle: React.FC<ResizeHandleProps> = ({
-    value,
-    min,
-    max,
-    direction,
-    onChange,
-}) => {
+export const ResizeHandle = ({value, min, max, direction, onChange}: ResizeHandleProps) => {
     const [dragging, setDragging] = React.useState(false);
     const onChangeRef = React.useRef(onChange);
     onChangeRef.current = onChange;

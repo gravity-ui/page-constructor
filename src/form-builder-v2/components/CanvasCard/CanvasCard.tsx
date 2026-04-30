@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import {SortableKeyboardPlugin} from '@dnd-kit/dom/sortable';
+import {CollisionPriority} from '@dnd-kit/abstract';
+import {SortableKeyboardPlugin, isSortable} from '@dnd-kit/dom/sortable';
 import {useSortable} from '@dnd-kit/react/sortable';
 import {Copy, Grip, TrashBin} from '@gravity-ui/icons';
 import {Button, Icon, Label} from '@gravity-ui/uikit';
@@ -8,18 +9,14 @@ import {Button, Icon, Label} from '@gravity-ui/uikit';
 import {useFormContext} from '../../hooks/FormContext';
 import {FormField} from '../../types';
 import {formBuilderV2Cn} from '../../utils/cn';
-import {asReactRef} from '../../utils/dndRef';
+import type {CardDragData} from '../../utils/dragData';
+import {isDropAfter, isPaletteData} from '../../utils/dragData';
 
 import {FieldPreview} from './components/FieldPreview';
-import {
-    SECTION_DROP_PREFIX,
-    SectionChildrenDropZone,
-    SectionDropData,
-} from './components/SectionChildrenDropZone';
+import {SectionChildrenDropZone, SectionDropData} from './components/SectionChildrenDropZone';
 
 import './CanvasCard.scss';
 
-export {SECTION_DROP_PREFIX};
 export type {SectionDropData};
 
 const b = formBuilderV2Cn('canvas-card');
@@ -30,20 +27,41 @@ interface CanvasCardProps {
     group: string;
 }
 
-export const CanvasCard: React.FC<CanvasCardProps> = ({field, index, group}) => {
+export const CanvasCard = ({field, index, group}: CanvasCardProps) => {
     const {selectedFieldId, selectField, removeField, duplicateField} = useFormContext();
 
     const isSelected = selectedFieldId === field.id;
     const hasWhen = 'when' in field && Array.isArray(field.when) && field.when.length > 0;
 
-    const {ref, handleRef, isDragSource, isDropTarget} = useSortable({
+    const cardData: CardDragData = React.useMemo(() => ({kind: 'card', group}), [group]);
+
+    const {ref, handleRef, isDragSource, isDropTarget, sortable} = useSortable({
         id: field.id,
         index,
         group,
-        data: {group},
+        data: cardData,
         transition: null,
         plugins: [SortableKeyboardPlugin],
+        collisionPriority: field.type === 'section' ? CollisionPriority.Low : undefined,
+        alignment: {
+            x: 'start',
+            y: 'center',
+        },
     });
+
+    const dragOp = sortable.manager?.dragOperation;
+    const source = dragOp?.source;
+    const isPaletteSource = isPaletteData(source?.data);
+    const sourceIndex = source && isSortable(source) ? source.index : undefined;
+    const pointerY = dragOp?.position?.current?.y;
+    const targetCenterY = sortable.droppable?.shape?.center?.y;
+
+    const dropAfter =
+        isDropTarget &&
+        !isDragSource &&
+        (isPaletteSource
+            ? isDropAfter(pointerY, targetCenterY)
+            : sourceIndex !== undefined && sourceIndex < index);
 
     const handleClick = (event: React.MouseEvent) => {
         event.stopPropagation();
@@ -60,11 +78,12 @@ export const CanvasCard: React.FC<CanvasCardProps> = ({field, index, group}) => 
 
     return (
         <div
-            ref={asReactRef<HTMLDivElement>(ref)}
+            ref={ref}
             className={b({
                 selected: isSelected,
                 dragging: isDragSource,
-                'drop-target': isDropTarget && !isDragSource,
+                'drop-target': isDropTarget && !isDragSource && !dropAfter,
+                'drop-target-after': dropAfter,
             })}
             onClick={handleClick}
             onKeyDown={handleKeyDown}
@@ -83,7 +102,7 @@ export const CanvasCard: React.FC<CanvasCardProps> = ({field, index, group}) => 
 
             <div className={b('controls')}>
                 <Button
-                    ref={asReactRef<HTMLButtonElement>(handleRef)}
+                    ref={handleRef}
                     view="flat"
                     size="xs"
                     className={b('control')}

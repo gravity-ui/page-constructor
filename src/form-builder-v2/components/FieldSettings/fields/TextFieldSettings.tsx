@@ -13,12 +13,12 @@ interface TextFieldSettingsProps {
     whenEditorSection: React.ReactNode;
 }
 
-export const TextFieldSettings: React.FC<TextFieldSettingsProps> = ({
+export const TextFieldSettings = ({
     field,
     updateField,
     commonRows,
     whenEditorSection,
-}) => (
+}: TextFieldSettingsProps) => (
     <React.Fragment>
         {commonRows}
         <Row label="Default">

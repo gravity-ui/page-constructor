@@ -32,7 +32,7 @@ interface FieldPreviewProps {
     field: FormField;
 }
 
-export const FieldPreview: React.FC<FieldPreviewProps> = ({field}) => {
+export const FieldPreview = ({field}: FieldPreviewProps) => {
     const {content, setContent, templateContent, setTemplateContent} = useCanvasContent();
 
     const onUpdateForContent = React.useMemo<OnUpdate>(
@@ -68,13 +68,7 @@ export const FieldPreview: React.FC<FieldPreviewProps> = ({field}) => {
         return null;
     }
 
-    const {
-        when: _when,
-        id: _id,
-        ...fieldProps
-    } = field as FormField & {
-        when?: unknown;
-    };
+    const {when: _when, id: _id, ...fieldProps} = field;
 
     const useTemplate = isTemplateField(field);
     const widgetContent = useTemplate ? templateContent : content;

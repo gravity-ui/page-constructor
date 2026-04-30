@@ -12,7 +12,7 @@ interface FormProviderProps {
     onChange?: (fields: FormField[]) => void;
 }
 
-export const FormProvider: React.FC<FormProviderProps> = ({children, formFields, onChange}) => {
+export const FormProvider = ({children, formFields, onChange}: FormProviderProps) => {
     const value = useFormFields({initialFields: formFields, onChange});
     return <FormContext.Provider value={value}>{children}</FormContext.Provider>;
 };

@@ -4,26 +4,15 @@ import {Card, Text} from '@gravity-ui/uikit';
 
 import {FieldSettings} from '../../components/FieldSettings/FieldSettings';
 import {useFormContext} from '../../hooks/FormContext';
-import {FormField} from '../../types';
 import {formBuilderV2Cn} from '../../utils/cn';
+import {TYPE_LABELS} from '../../utils/fieldMeta';
 import {findFieldById} from '../../utils/fieldTree';
 
 import './Inspector.scss';
 
 const b = formBuilderV2Cn('inspector');
 
-const TYPE_LABELS: Record<FormField['type'], string> = {
-    textInput: 'Text input',
-    textArea: 'Text area',
-    select: 'Select',
-    segmentedRadioGroup: 'Segmented radio',
-    switch: 'Switch',
-    colorInput: 'Color input',
-    text: 'Static text',
-    section: 'Section',
-};
-
-export const Inspector: React.FC = () => {
+export const Inspector = () => {
     const {formFields, selectedFieldId} = useFormContext();
 
     const selected = React.useMemo(

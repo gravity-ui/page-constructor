@@ -3,7 +3,7 @@
 $block: '.#{$ns-form-builder-v2}resize-handle';
 
 #{$block} {
-    width: 8px;
+    width: var(--g-spacing-2);
     align-self: stretch;
     cursor: col-resize;
     position: relative;

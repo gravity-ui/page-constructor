@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-import {Checkbox, Select, Switch, TextInput} from '@gravity-ui/uikit';
+import {Checkbox, Select, Switch, Text, TextInput} from '@gravity-ui/uikit';
 
+import type {BuilderSectionField, FieldUpdate} from '../../../types';
 import {
     prefixNameForArrayMode,
     stripArrayModePrefix,
     transformChildNames,
-} from '../../../hooks/useFormFields';
-import type {BuilderSectionField, FieldUpdate} from '../../../types';
+} from '../../../utils/fieldNames';
 
 import {Row} from './Row';
 
@@ -17,11 +17,7 @@ interface SectionSettingsProps {
     whenEditorSection: React.ReactNode;
 }
 
-export const SectionSettings: React.FC<SectionSettingsProps> = ({
-    field,
-    updateField,
-    whenEditorSection,
-}) => {
+export const SectionSettings = ({field, updateField, whenEditorSection}: SectionSettingsProps) => {
     const isArray = Boolean(field.index);
 
     const handleArrayModeToggle = (value: boolean) => {
@@ -69,11 +65,11 @@ export const SectionSettings: React.FC<SectionSettingsProps> = ({
             {isArray && (
                 <React.Fragment>
                     <Row label="Hint">
-                        <span style={{fontSize: 12, color: 'var(--g-color-text-hint)'}}>
+                        <Text variant="caption-2" color="hint">
                             Child field names must include <code>{'{{index}}'}</code> so each row
                             gets its own value. New fields get an <code>{'items[{{index}}].'}</code>{' '}
                             prefix automatically.
-                        </span>
+                        </Text>
                     </Row>
                     <Row label="Index name">
                         <TextInput

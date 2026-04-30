@@ -19,13 +19,13 @@ interface CanvasContentProviderProps {
     children: React.ReactNode;
 }
 
-export const CanvasContentProvider: React.FC<CanvasContentProviderProps> = ({
+export const CanvasContentProvider = ({
     content,
     setContent,
     templateContent,
     setTemplateContent,
     children,
-}) => {
+}: CanvasContentProviderProps) => {
     const value = React.useMemo<CanvasContentContextType>(
         () => ({content, setContent, templateContent, setTemplateContent}),
         [content, setContent, templateContent, setTemplateContent],

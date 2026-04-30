@@ -32,6 +32,7 @@ export interface FormFieldsActions {
     addField: (type: BuilderFieldType) => void;
     addFieldToSection: (sectionId: string, type: BuilderFieldType) => void;
     insertFieldBefore: (targetId: string, type: BuilderFieldType) => void;
+    insertFieldAfter: (targetId: string, type: BuilderFieldType) => void;
     moveFieldToSection: (fieldId: string, sectionId: string) => void;
     removeField: (fieldId: string) => void;
     duplicateField: (fieldId: string) => void;
@@ -46,16 +47,4 @@ export interface FormFieldsActions {
 export interface FormContextType extends FormFieldsActions {
     formFields: FormField[];
     selectedFieldId: string | null;
-}
-
-export interface FormBuilderV2Props {
-    className?: string;
-    formFields: FormField[];
-    onChange?: (fields: FormField[]) => void;
-}
-
-export interface InputTypeMenuItem {
-    type: BuilderFieldType;
-    text: string;
-    action: () => void;
 }

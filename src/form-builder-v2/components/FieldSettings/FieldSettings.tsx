@@ -4,8 +4,8 @@ import {TextInput} from '@gravity-ui/uikit';
 
 import type {When} from '../../../form-generator-v2/types';
 import {useFormContext} from '../../hooks/FormContext';
-import {collectNames} from '../../hooks/useFormFields';
 import {FormField} from '../../types';
+import {collectNames} from '../../utils/fieldNames';
 import {WhenEditor} from '../WhenEditor/WhenEditor';
 
 import {ColorInputSettings} from './fields/ColorInputSettings';
@@ -22,7 +22,7 @@ interface FieldSettingsProps {
     field: FormField;
 }
 
-export const FieldSettings: React.FC<FieldSettingsProps> = ({field}) => {
+export const FieldSettings = ({field}: FieldSettingsProps) => {
     const {updateField, formFields} = useFormContext();
 
     const availableFields = React.useMemo(() => {

@@ -13,12 +13,12 @@ interface SwitchSettingsProps {
     whenEditorSection: React.ReactNode;
 }
 
-export const SwitchSettings: React.FC<SwitchSettingsProps> = ({
+export const SwitchSettings = ({
     field,
     updateField,
     commonRows,
     whenEditorSection,
-}) => (
+}: SwitchSettingsProps) => (
     <React.Fragment>
         {commonRows}
         <Row label="Default">
