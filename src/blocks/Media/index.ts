@@ -130,6 +130,7 @@ const MediaBlockConfig = {
                         type: 'textInput',
                         title: 'URL icon',
                         name: 'list[{{index1}}].icon',
+                        placeholder: 'https://',
                     },
                 ],
             },
@@ -250,6 +251,7 @@ const MediaBlockConfig = {
                         type: 'textInput',
                         title: 'URL',
                         name: 'links[{{index1}}].url',
+                        placeholder: 'https://',
                     },
                     {
                         type: 'textInput',
@@ -345,6 +347,7 @@ const MediaBlockConfig = {
                         title: 'Desktop',
                         type: 'textInput',
                         name: 'media.light.image.desktop',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -357,6 +360,7 @@ const MediaBlockConfig = {
                         title: 'Tablet',
                         type: 'textInput',
                         name: 'media.light.image.tablet',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -369,6 +373,7 @@ const MediaBlockConfig = {
                         title: 'Mobile',
                         type: 'textInput',
                         name: 'media.light.image.mobile',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -381,6 +386,7 @@ const MediaBlockConfig = {
                         title: 'URL',
                         type: 'textInput',
                         name: 'media.light.video.src',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -404,6 +410,7 @@ const MediaBlockConfig = {
                         title: 'Desktop',
                         type: 'textInput',
                         name: 'media.dark.image.desktop',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -416,6 +423,7 @@ const MediaBlockConfig = {
                         title: 'Tablet',
                         type: 'textInput',
                         name: 'media.dark.image.tablet',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -428,6 +436,7 @@ const MediaBlockConfig = {
                         title: 'Mobile',
                         type: 'textInput',
                         name: 'media.dark.image.mobile',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -440,6 +449,7 @@ const MediaBlockConfig = {
                         title: 'URL',
                         type: 'textInput',
                         name: 'media.dark.video.src',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',

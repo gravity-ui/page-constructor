@@ -327,8 +327,9 @@ const ContentLayoutBlockConfig = {
                 fields: [
                     {
                         title: 'Color HEX',
-                        type: 'colorInput',
+                        type: 'textInput',
                         name: 'background.style.background',
+                        placeholder: '#000000',
                     },
                     {
                         title: 'Type',
@@ -354,6 +355,7 @@ const ContentLayoutBlockConfig = {
                         title: 'Desktop',
                         type: 'textInput',
                         name: 'background.light.image.desktop',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -366,6 +368,7 @@ const ContentLayoutBlockConfig = {
                         title: 'Tablet',
                         type: 'textInput',
                         name: 'background.light.image.tablet',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -378,6 +381,7 @@ const ContentLayoutBlockConfig = {
                         title: 'Mobile',
                         type: 'textInput',
                         name: 'background.light.image.mobile',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -390,6 +394,7 @@ const ContentLayoutBlockConfig = {
                         title: 'URL',
                         type: 'textInput',
                         name: 'background.light.video.src',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -413,6 +418,7 @@ const ContentLayoutBlockConfig = {
                         title: 'Desktop',
                         type: 'textInput',
                         name: 'background.dark.image.desktop',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -425,6 +431,7 @@ const ContentLayoutBlockConfig = {
                         title: 'Tablet',
                         type: 'textInput',
                         name: 'background.dark.image.tablet',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -437,6 +444,7 @@ const ContentLayoutBlockConfig = {
                         title: 'Mobile',
                         type: 'textInput',
                         name: 'background.dark.image.mobile',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
@@ -449,6 +457,7 @@ const ContentLayoutBlockConfig = {
                         title: 'URL',
                         type: 'textInput',
                         name: 'background.dark.video.src',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
