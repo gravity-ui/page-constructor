@@ -54,16 +54,6 @@ const Section = ({
     const [confirmDialogOpen, setConfirmDialogOpen] = React.useState(false);
     const hasData = sectionHasContentData(fields, content);
     const showArrowTogler = hasData || isOpened;
-    const prevHasDataRef = React.useRef<boolean | null>(null);
-
-    React.useEffect(() => {
-        if (isGroupMode) return;
-        const hadData = prevHasDataRef.current;
-        if (hadData === true && !hasData) {
-            setOpened(false);
-        }
-        prevHasDataRef.current = hasData;
-    }, [hasData, isGroupMode]);
 
     const handleConfirmClear = () => {
         if (onUpdate) {
@@ -137,11 +127,10 @@ const Section = ({
         }
 
         const names = findAllNames(replaceIndex(itemIndex));
-        const resolvedName =
-            names.find((name) => {
-                const splice = getSpliceTarget(nameWithIndexName, name, index);
-                return splice !== undefined && splice.itemIndex === itemIndex;
-            }) ?? names[0];
+        const resolvedName = names.find((name) => {
+            const splice = getSpliceTarget(nameWithIndexName, name, index);
+            return splice !== undefined && splice.itemIndex === itemIndex;
+        });
 
         if (!resolvedName) {
             return;
