@@ -39,11 +39,24 @@ export const ResizeHandle = ({value, min, max, direction, onChange}: ResizeHandl
 
             let rafId: number | null = null;
             let pendingValue = startValue;
-            let cleanedUp = false;
+            const controller = new AbortController();
+            const {signal} = controller;
 
             const flush = () => {
                 rafId = null;
                 onChangeRef.current(pendingValue);
+            };
+
+            const cleanup = () => {
+                if (signal.aborted) return;
+                controller.abort();
+                if (rafId !== null) {
+                    cancelAnimationFrame(rafId);
+                    rafId = null;
+                }
+                document.body.style.cursor = '';
+                document.body.style.userSelect = '';
+                cleanupRef.current = null;
             };
 
             const handleMove = (moveEvent: MouseEvent) => {
@@ -53,20 +66,6 @@ export const ResizeHandle = ({value, min, max, direction, onChange}: ResizeHandl
                 if (rafId === null) {
                     rafId = requestAnimationFrame(flush);
                 }
-            };
-
-            const cleanup = () => {
-                if (cleanedUp) return;
-                cleanedUp = true;
-                if (rafId !== null) {
-                    cancelAnimationFrame(rafId);
-                    rafId = null;
-                }
-                document.removeEventListener('mousemove', handleMove);
-                document.removeEventListener('mouseup', handleUp);
-                document.body.style.cursor = '';
-                document.body.style.userSelect = '';
-                cleanupRef.current = null;
             };
 
             const handleUp = () => {
@@ -84,8 +83,8 @@ export const ResizeHandle = ({value, min, max, direction, onChange}: ResizeHandl
             document.body.style.cursor = 'col-resize';
             document.body.style.userSelect = 'none';
 
-            document.addEventListener('mousemove', handleMove);
-            document.addEventListener('mouseup', handleUp);
+            document.addEventListener('mousemove', handleMove, {signal});
+            document.addEventListener('mouseup', handleUp, {signal});
 
             cleanupRef.current = cleanup;
         },

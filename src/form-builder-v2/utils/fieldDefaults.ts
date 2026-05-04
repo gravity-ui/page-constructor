@@ -42,5 +42,7 @@ export const createDefaultField = (type: BuilderFieldType, name: string, id: str
                 fields: [],
                 id,
             };
+        default:
+            return undefined as never;
     }
 };
