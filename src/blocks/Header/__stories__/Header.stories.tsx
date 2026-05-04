@@ -39,7 +39,7 @@ export const Centered = VariantsTemplate.bind([]);
 export const Image = VariantsTemplate.bind([]);
 export const VerticalOffset = VariantsTemplate.bind([]);
 export const Background = VariantsTemplate.bind([]);
-export const FullWithBackground = VariantsTemplate.bind([]);
+export const FullWidthBackground = VariantsTemplate.bind([]);
 export const FullWidthMediaBackground = VariantsTemplate.bind({});
 export const DarkTheme = DefaultTemplate.bind({});
 export const Breadcrumbs = VariantsTemplate.bind([]);
@@ -100,7 +100,7 @@ Background.parameters = {
     },
 };
 
-FullWithBackground.args = [data.media.image.background, data.media.video.background].map(
+FullWidthBackground.args = [data.media.image.background, data.media.video.background].map(
     (background) => ({
         ...data.default,
         background: {
@@ -109,9 +109,9 @@ FullWithBackground.args = [data.media.image.background, data.media.video.backgro
         },
     }),
 ) as HeaderBlockModel[];
-FullWithBackground.parameters = {
+FullWidthBackground.parameters = {
     controls: {
-        include: Object.keys(FullWithBackground.args),
+        include: Object.keys(FullWidthBackground.args),
     },
 };
 
