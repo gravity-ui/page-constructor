@@ -1,0 +1,31 @@
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns-form-builder-v2}when-editor';
+
+#{$block} {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: var(--g-spacing-2);
+    border: 1px solid var(--g-color-line-generic);
+    border-radius: var(--g-border-radius-m);
+
+    &__condition {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 80px minmax(0, 1fr) auto;
+        gap: 6px;
+        align-items: center;
+    }
+
+    &__combinator {
+        display: flex;
+        align-items: center;
+    }
+
+    &__actions {
+        display: flex;
+        gap: var(--g-spacing-2);
+        align-items: center;
+        margin-top: var(--g-spacing-1);
+    }
+}

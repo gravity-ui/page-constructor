@@ -39,6 +39,11 @@
       "require": "./build/cjs/form-builder/index.js",
       "import": "./build/esm/form-builder/index.js"
     },
+    "./form-builder-v2": {
+      "types": "./build/esm/form-builder-v2/index.d.ts",
+      "require": "./build/cjs/form-builder-v2/index.js",
+      "import": "./build/esm/form-builder-v2/index.js"
+    },
     "./gravity-blocks": {
       "types": "./build/esm/gravity-blocks/index.d.ts",
       "require": "./build/cjs/gravity-blocks/index.js",
@@ -71,6 +76,9 @@
       ],
       "form-builder": [
         "./build/esm/form-builder/index.d.ts"
+      ],
+      "form-builder-v2": [
+        "./build/esm/form-builder-v2/index.d.ts"
       ],
       "gravity-blocks": [
         "./build/esm/gravity-blocks/index.d.ts"

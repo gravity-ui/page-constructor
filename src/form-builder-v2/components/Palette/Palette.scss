@@ -1,0 +1,71 @@
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns-form-builder-v2}palette';
+
+#{$block} {
+    padding: var(--g-spacing-3);
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: var(--g-spacing-half);
+        margin-bottom: 10px;
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    &__tile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        aspect-ratio: 1;
+        width: 100%;
+        height: auto;
+        padding: var(--g-spacing-2);
+        border: 1px solid var(--g-color-line-generic);
+        border-radius: var(--g-border-radius-m);
+        background: transparent;
+        color: var(--g-color-text-primary);
+        cursor: grab;
+        transition:
+            background-color 0.15s ease,
+            border-color 0.15s ease,
+            opacity 0.15s ease;
+
+        .g-button__text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
+        }
+
+        &:hover {
+            background-color: var(--g-color-base-simple-hover);
+            border-color: var(--g-color-line-generic-hover);
+        }
+
+        &:active {
+            cursor: grabbing;
+            background-color: var(--g-color-base-simple-hover-solid);
+        }
+
+        &_dragging {
+            opacity: 0.5;
+        }
+    }
+
+    &__tile-label {
+        font-size: var(--g-text-caption-2-font-size);
+        line-height: 1.2;
+        text-align: center;
+        color: var(--g-color-text-secondary);
+    }
+}
