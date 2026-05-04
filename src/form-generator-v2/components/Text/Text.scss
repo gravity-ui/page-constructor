@@ -4,9 +4,12 @@
     min-height: 28px;
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
 
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+
+    &_as-title {
+        margin-top: 20px;
+    }
 
     &:last-child {
         margin-bottom: 0;
