@@ -18,9 +18,9 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-    {label: 'Gravity Blocks — page 1', url: '/?page=gravity-blocks&id=1'},
-    {label: 'Gravity Blocks — page 2', url: '/?page=gravity-blocks&id=2'},
-    {label: 'Experimental page', url: '/?page=experemental'},
+    {label: 'Gravity Blocks — page 1', url: import.meta.env.BASE_URL + '?page=gravity-blocks&id=1'},
+    {label: 'Gravity Blocks — page 2', url: import.meta.env.BASE_URL + '?page=gravity-blocks&id=2'},
+    {label: 'Experimental page', url: import.meta.env.BASE_URL + '?page=experemental'},
 ];
 
 const NavigateToButton = () => {
@@ -39,7 +39,7 @@ const NavigateToButton = () => {
                         <Menu.Item
                             key={item.url}
                             onClick={() => {
-                                changeUrl(window.location.origin + item.url);
+                                changeUrl(item.url);
                                 setOpen(false);
                             }}
                         >
@@ -53,8 +53,7 @@ const NavigateToButton = () => {
 };
 
 export default function EditorPage() {
-    const initialUrl =
-        typeof window === 'undefined' ? '' : window.location.origin + '/?page=gravity-blocks&id=1';
+    const initialUrl = import.meta.env.BASE_URL + '?page=gravity-blocks&id=1';
 
     const [content, setContent] = React.useState<PageContent>(contentExample1);
 
