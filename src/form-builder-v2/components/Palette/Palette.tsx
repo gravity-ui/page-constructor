@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {PointerActivationConstraints, PointerSensor} from '@dnd-kit/dom';
 import {useDraggable} from '@dnd-kit/react';
-import {Button, Card, Icon, Text} from '@gravity-ui/uikit';
+import {Button, Card, Icon, Text, Tooltip} from '@gravity-ui/uikit';
 import type {IconData} from '@gravity-ui/uikit';
 
 import {useFormContext} from '../../hooks/FormContext';
@@ -68,17 +68,18 @@ const PaletteTile = ({type, label, icon, onClick}: PaletteTileProps) => {
     );
 
     return (
-        <Button
-            ref={setRefs}
-            view="flat"
-            size="m"
-            className={b('tile', {dragging: isDragging})}
-            onClick={onClick}
-            title={label}
-        >
-            <Icon data={icon} size={18} />
-            <span className={b('tile-label')}>{label}</span>
-        </Button>
+        <Tooltip content={label} placement="right" openDelay={500}>
+            <Button
+                ref={setRefs}
+                view="flat"
+                size="m"
+                className={b('tile', {dragging: isDragging})}
+                onClick={onClick}
+            >
+                <Icon data={icon} size={18} />
+                <span className={b('tile-label')}>{label}</span>
+            </Button>
+        </Tooltip>
     );
 };
 

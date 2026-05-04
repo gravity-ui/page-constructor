@@ -41,7 +41,7 @@ export type FormBuilderDensity = 'full' | 'compact';
 const PALETTE_MIN = 160;
 const PALETTE_MAX = 400;
 const PALETTE_DEFAULT = 220;
-const INSPECTOR_MIN = 240;
+const INSPECTOR_MIN = 270;
 const INSPECTOR_MAX = 560;
 const INSPECTOR_DEFAULT = 320;
 
