@@ -333,13 +333,39 @@ const MediaBlockConfig = {
                         type: 'segmentedRadioGroup',
                     },
                     {
-                        type: 'text',
-                        text: 'Light theme',
+                        title: 'Ratio',
+                        type: 'select',
+                        name: 'background.ratio',
+                        options: [{value: 'auto'}, {value: 16 / 9, content: '16:9'}],
                         when: [
                             {
                                 field: '_mediaType',
                                 operator: '!==',
                                 value: undefined,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Border',
+                        type: 'select',
+                        name: 'border',
+                        options: [{value: 'none'}, {value: 'shadow'}, {value: 'line'}],
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'image',
+                            },
+                        ],
+                    },
+                    {
+                        type: 'text',
+                        text: 'Light theme',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'image',
                             },
                         ],
                     },
@@ -383,26 +409,13 @@ const MediaBlockConfig = {
                         ],
                     },
                     {
-                        title: 'URL',
-                        type: 'textInput',
-                        name: 'media.light.video.src',
-                        placeholder: 'https://',
-                        when: [
-                            {
-                                field: '_mediaType',
-                                operator: '===',
-                                value: 'video',
-                            },
-                        ],
-                    },
-                    {
                         type: 'text',
                         text: 'Dark theme',
                         when: [
                             {
                                 field: '_mediaType',
-                                operator: '!==',
-                                value: undefined,
+                                operator: '===',
+                                value: 'image',
                             },
                         ],
                     },
@@ -446,10 +459,59 @@ const MediaBlockConfig = {
                         ],
                     },
                     {
-                        title: 'URL',
+                        title: 'Type',
+                        type: 'select',
+                        options: [{value: 'default'}, {value: 'player'}],
+                        name: 'media.video.type',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'video',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Video URL',
                         type: 'textInput',
-                        name: 'media.dark.video.src',
+                        name: 'media.video.src',
                         placeholder: 'https://',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'video',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Muted',
+                        type: 'switch',
+                        name: 'media.video.muted',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'video',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Autoplay',
+                        type: 'switch',
+                        name: 'media.video.autoplay',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'video',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Loop',
+                        type: 'switch',
+                        name: 'media.video.loop',
                         when: [
                             {
                                 field: '_mediaType',

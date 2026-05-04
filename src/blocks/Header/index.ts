@@ -217,8 +217,8 @@ const HeaderBlockConfig: BlockData = {
                         when: [
                             {
                                 field: '_mediaType',
-                                operator: '!==',
-                                value: undefined,
+                                operator: '===',
+                                value: 'image',
                             },
                         ],
                     },
@@ -262,26 +262,13 @@ const HeaderBlockConfig: BlockData = {
                         ],
                     },
                     {
-                        title: 'URL',
-                        type: 'textInput',
-                        name: 'background.light.video.src',
-                        placeholder: 'https://',
-                        when: [
-                            {
-                                field: '_mediaType',
-                                operator: '===',
-                                value: 'video',
-                            },
-                        ],
-                    },
-                    {
                         type: 'text',
                         text: 'Dark theme',
                         when: [
                             {
                                 field: '_mediaType',
-                                operator: '!==',
-                                value: undefined,
+                                operator: '===',
+                                value: 'image',
                             },
                         ],
                     },
@@ -325,10 +312,59 @@ const HeaderBlockConfig: BlockData = {
                         ],
                     },
                     {
-                        title: 'URL',
+                        title: 'Type',
+                        type: 'select',
+                        options: [{value: 'default'}, {value: 'player'}],
+                        name: 'background.video.type',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'video',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Video URL',
                         type: 'textInput',
-                        name: 'background.dark.video.src',
+                        name: 'background.video.src',
                         placeholder: 'https://',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'video',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Muted',
+                        type: 'switch',
+                        name: 'background.video.muted',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'video',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Autoplay',
+                        type: 'switch',
+                        name: 'background.video.autoplay',
+                        when: [
+                            {
+                                field: '_mediaType',
+                                operator: '===',
+                                value: 'video',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Loop',
+                        type: 'switch',
+                        name: 'background.video.loop',
                         when: [
                             {
                                 field: '_mediaType',

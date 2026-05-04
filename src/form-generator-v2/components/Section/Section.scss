@@ -42,7 +42,7 @@
     }
 
     &_nested {
-        margin-top: 8px;
+        margin-top: 16px;
         margin-bottom: 8px;
 
         &:first-child {
@@ -135,6 +135,7 @@
         &_opened {
             grid-template-rows: 1fr;
             padding-bottom: 16px;
+            padding-top: 16px;
 
             & & {
                 padding-bottom: 0;
@@ -150,6 +151,7 @@
 
     &__card {
         padding: 12px;
+        padding-bottom: 16px;
 
         &:not(&:nth-last-child(1)) {
             margin-bottom: 12px;
