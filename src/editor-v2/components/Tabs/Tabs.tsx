@@ -42,14 +42,6 @@ const Tabs = ({className, items, defaultTab}: TabsProps) => {
         [],
     );
 
-    const TabComponent = React.useMemo(() => {
-        return activeTab?.component;
-    }, [activeTab]);
-
-    const isPaddingEnabled = React.useMemo(() => {
-        return activeTab?.withPadding || false;
-    }, [activeTab]);
-
     return (
         <div className={b(null, className)}>
             {items.length > 1 && (
@@ -62,7 +54,7 @@ const Tabs = ({className, items, defaultTab}: TabsProps) => {
                                 view="flat"
                                 size="s"
                                 className={b('item', {active: isActive})}
-                                key={item.title}
+                                key={item.id}
                                 extraProps={{
                                     role: 'tab',
                                 }}
@@ -75,9 +67,17 @@ const Tabs = ({className, items, defaultTab}: TabsProps) => {
                 </div>
             )}
             <div className={b('body')}>
-                {TabComponent && (
-                    <TabComponent className={b('item', {padding: isPaddingEnabled})} />
-                )}
+                {items.map((item) => {
+                    const isActive = item.id === activeTab.id;
+                    const TabComponent = item.component;
+                    return (
+                        <div key={item.id} className={b('panel')} hidden={!isActive}>
+                            <TabComponent
+                                className={b('item', {padding: item.withPadding || false})}
+                            />
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );
