@@ -6,7 +6,8 @@ import {Image} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
 import {GridColumnSizesType} from '../../grid';
-import {ImageCardDirection, ImageCardProps} from '../../models';
+import {useAnalytics} from '../../hooks';
+import {DefaultEventNames, ImageCardDirection, ImageCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 import Content from '../Content/Content';
 
@@ -35,8 +36,10 @@ const ImageCard = (props: ImageCardProps) => {
         theme: cardTheme = 'default',
         size = 's',
         controlPosition = 'content',
+        analyticsEvents,
     } = props;
 
+    const handleAnalytics = useAnalytics(DefaultEventNames.CardBase, url);
     const globalTheme = useTheme();
     const areControlsInFooter = controlPosition === 'footer';
     const hasContent = Boolean(text || title || buttons || links || list);
@@ -73,12 +76,17 @@ const ImageCard = (props: ImageCardProps) => {
         </React.Fragment>
     );
 
+    const onClick = () => {
+        handleAnalytics(analyticsEvents);
+    };
+
     return url ? (
         <Link
             href={url}
             target={target}
             rel={target === '_blank' ? 'noopener noreferrer' : undefined}
             className={b({border, 'with-content': hasContent, direction})}
+            onClick={onClick}
             title={urlTitle}
             style={{backgroundColor}}
             extraProps={{
