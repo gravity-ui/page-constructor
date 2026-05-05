@@ -51,6 +51,7 @@ export const blockBaseExtension = (): PageConstructorExtension<{}, {}, BlockBase
                             {value: 'l'},
                             {value: 'xl'},
                         ],
+                        defaultValue: 'l',
                     },
                     {
                         type: 'select',
@@ -65,6 +66,7 @@ export const blockBaseExtension = (): PageConstructorExtension<{}, {}, BlockBase
                             {value: 'l'},
                             {value: 'xl'},
                         ],
+                        defaultValue: 'l',
                     },
                     {
                         type: 'select',

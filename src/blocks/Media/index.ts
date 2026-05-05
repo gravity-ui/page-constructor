@@ -34,32 +34,6 @@ const MediaBlockConfig = {
                         ],
                     },
                     {
-                        type: 'select',
-                        title: 'Top indent',
-                        name: 'indent.top',
-                        options: [
-                            {value: '0'},
-                            {value: 'xs'},
-                            {value: 's'},
-                            {value: 'm'},
-                            {value: 'l'},
-                            {value: 'xl'},
-                        ],
-                    },
-                    {
-                        type: 'select',
-                        title: 'Bottom indent',
-                        name: 'indent.bottom',
-                        options: [
-                            {value: '0'},
-                            {value: 'xs'},
-                            {value: 's'},
-                            {value: 'm'},
-                            {value: 'l'},
-                            {value: 'xl'},
-                        ],
-                    },
-                    {
                         type: 'switch',
                         title: 'Large media',
                         name: 'largeMedia',

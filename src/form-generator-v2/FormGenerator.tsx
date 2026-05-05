@@ -52,7 +52,7 @@ const FormGenerator = ({
                 if (Array.isArray(arr) && removeAt >= 0 && removeAt < arr.length) {
                     arr.splice(removeAt, 1);
                 }
-            } else if (options?.unset) {
+            } else if (options?.unset || value === undefined) {
                 unset(newContentConfig, key);
             } else {
                 set(newContentConfig, key, value);
