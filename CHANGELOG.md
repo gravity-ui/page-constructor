@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.7.1](https://github.com/gravity-ui/page-constructor/compare/v8.7.0...v8.7.1) (2026-05-05)
+
+
+### Bug Fixes
+
+* **ImageCard:** add analytics events docs info ([#1443](https://github.com/gravity-ui/page-constructor/issues/1443)) ([1019ec2](https://github.com/gravity-ui/page-constructor/commit/1019ec2bc544090439b38e1bf5ca3eda3ed1f73c))
+
 ## [8.7.0](https://github.com/gravity-ui/page-constructor/compare/v8.6.0...v8.7.0) (2026-05-05)
 
 
