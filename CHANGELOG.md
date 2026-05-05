@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.7.0](https://github.com/gravity-ui/page-constructor/compare/v8.6.0...v8.7.0) (2026-05-05)
+
+
+### Features
+
+* **ImageCard:** add analytics events to image card ([#1441](https://github.com/gravity-ui/page-constructor/issues/1441)) ([29cfaaf](https://github.com/gravity-ui/page-constructor/commit/29cfaaf60af18fa5b6658be812f4967867a2c8d0))
+
 ## [8.6.0](https://github.com/gravity-ui/page-constructor/compare/v8.5.0...v8.6.0) (2026-04-27)
 
 
