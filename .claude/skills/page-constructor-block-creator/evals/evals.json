@@ -1,0 +1,26 @@
+{
+  "skill_name": "page-constructor-block-creator",
+  "evals": [
+    {
+      "id": 1,
+      "name": "promo-block",
+      "prompt": "Create a new Promo block for page-constructor — it's a hero-style promo section with a title, subtitle, background image, and a single CTA button. It must support light/dark theme. Make whatever is needed for the block to appear in Storybook under Blocks/Promo with two stories (Default and DarkTheme), including mock data with meaningful copy. Wire the block up everywhere required by the project's checklist so typecheck passes.",
+      "expected_output": "Full set of block files under src/blocks/Promo/ + registrations in blockMap, BlockType, exports, schema. Storybook stories in __stories__/ with two themes and a data.json shaped like a YAML config.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "feature-card-sub-block",
+      "prompt": "Add a FeatureCard sub-block — it's a card with a top icon, a title, and a description. Used inside CardLayoutBlock as one of its cards. Stylistically similar to BasicCard but with a required icon and a fixed size. Provide Storybook stories with several variants (Default, with link). Register the sub-block everywhere required so it works inside card-layout-block.",
+      "expected_output": "Files under src/sub-blocks/FeatureCard/ + registrations in subBlockMap, SubBlockType, exports, cardSchemas. Stories under Components/Cards/FeatureCard.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "tag-component",
+      "prompt": "Create a Tag component — a simple UI primitive that renders a single colored label with text, an optional left icon, and an optional color. It's a reusable utility with no registration in any maps. Provide a Storybook story showing different colors and states (with icon / without / different sizes).",
+      "expected_output": "Files under src/components/Tag/ (Tag.tsx, Tag.scss, __stories__). No registration in blockMap/subBlockMap. Story under Components/Tag.",
+      "files": []
+    }
+  ]
+}

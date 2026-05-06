@@ -23,3 +23,6 @@ node_modules
 playwright-report*
 /blob-report/
 .cache*
+
+# Skill eval artifacts (workspaces are local-only test outputs)
+.claude/skills/*-workspace/
