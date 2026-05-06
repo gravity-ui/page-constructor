@@ -24,5 +24,13 @@ playwright-report*
 /blob-report/
 .cache*
 
+# Agent host integration is local-only — skills are canonically stored in
+# .agents/skills/. Each developer/agent creates its own symlink (or copy) into
+# the host's expected path. See AGENTS.md > "Agent skills".
+.claude/skills
+.cursor/skills
+.codex/skills
+
 # Skill eval artifacts (workspaces are local-only test outputs)
+.agents/skills/*-workspace/
 .claude/skills/*-workspace/

@@ -301,8 +301,19 @@ Standalone embeddable widget bundle (webpack). Source: `src/widget/`.
 
 ## Agent skills
 
-Project-specific agent guides live in `.claude/skills/`. Each skill is a directory with a `SKILL.md` (entry + when to use) and an optional `references/` folder of plain-markdown deep-dives.
+Project-specific agent guides live in **`.agents/skills/`** — this is the canonical, host-agnostic location. Each skill is a directory with a `SKILL.md` (entry + when to use) and an optional `references/` folder of plain-markdown deep-dives. The bodies and references are plain markdown with no host-specific runtime requirements.
 
-Claude Code auto-discovers these skills and triggers them by their description. Other agents (Cursor, Codex, etc.) can read the contents directly — the bodies and references are plain markdown with no Claude-specific runtime requirements.
+Before scaffolding new entities or running project workflows, browse `.agents/skills/` to see if a relevant guide exists.
 
-Before scaffolding new entities or running project workflows, browse `.claude/skills/` to see if a relevant guide exists.
+### Wiring skills into your agent host
+
+Hosts that auto-discover skills (Claude Code, Cursor, Codex, etc.) usually expect them under a host-specific path (e.g. `.claude/skills/`). Those paths are **gitignored** — each developer wires up their own host locally. The simplest wiring is a symlink from the host path to `.agents/skills/`.
+
+Example for Claude Code (run from the repo root):
+
+```sh
+mkdir -p .claude
+ln -s ../.agents/skills .claude/skills
+```
+
+Other hosts follow the same pattern — just point the host's expected path at `.agents/skills/`. If your host doesn't support symlinks, copy the directory instead and refresh on updates.
