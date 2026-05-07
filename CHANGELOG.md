@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.7.2](https://github.com/gravity-ui/page-constructor/compare/v8.7.1...v8.7.2) (2026-05-07)
+
+
+### Bug Fixes
+
+* hero block stories & slider schemas ([#1438](https://github.com/gravity-ui/page-constructor/issues/1438)) ([9be0b55](https://github.com/gravity-ui/page-constructor/commit/9be0b55b0fda5d09977323308885ed6cbb75d86c))
+
 ## [8.7.1](https://github.com/gravity-ui/page-constructor/compare/v8.7.0...v8.7.1) (2026-05-05)
 
 
