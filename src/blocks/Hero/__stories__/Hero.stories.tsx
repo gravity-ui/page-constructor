@@ -149,10 +149,12 @@ VerticalOffset.parameters = {
     },
 };
 
-Theme.args = [data.themeVariants.light, data.themeVariants.dark].map((variant) => ({
-    ...data.default,
-    ...variant,
-})) as VariantsTemplateModel;
+Theme.args = [data.themeVariants.default, data.themeVariants.light, data.themeVariants.dark].map(
+    (variant) => ({
+        ...data.default,
+        ...variant,
+    }),
+) as VariantsTemplateModel;
 Theme.parameters = {
     controls: {
         include: Object.keys(Theme.args),
