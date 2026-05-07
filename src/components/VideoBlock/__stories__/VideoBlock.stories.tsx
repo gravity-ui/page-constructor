@@ -17,4 +17,4 @@ const DefaultTemplate: StoryFn<VideoBlockProps> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = data.default.content;
+Default.args = data.default;
