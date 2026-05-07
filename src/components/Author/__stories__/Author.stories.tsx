@@ -1,6 +1,6 @@
 import {Meta, StoryFn} from '@storybook/react';
 
-import {AuthorProps, AuthorType} from '../../../models';
+import {AuthorProps} from '../../../models';
 import Author from '../Author';
 
 import data from './data.json';
@@ -12,21 +12,25 @@ export default {
 
 const DefaultTemplate: StoryFn<AuthorProps> = (args) => <Author {...args} />;
 
-const TypesTemplate: StoryFn<AuthorProps> = (args) => (
-    <div>
-        <div style={{paddingBottom: '32px'}}>
-            <h3>Type Column</h3>
-            <Author {...args} />
-        </div>
-        <div>
-            <h3>Type Line</h3>
-            <Author {...args} type={AuthorType.Line} />
-        </div>
+const TypesTemplate: StoryFn<Record<number, AuthorProps>> = (args) => (
+    <div style={{display: 'flex', gap: '40px'}}>
+        {Object.values(args).map((item, index) => (
+            <div key={index}>
+                <h3 style={{marginBottom: '16px'}}>Type: {item.type}</h3>
+                <Author {...item} />
+            </div>
+        ))}
     </div>
 );
 
 export const Default = DefaultTemplate.bind({});
 export const Types = TypesTemplate.bind({});
 
-Default.args = data.default.content as AuthorProps;
-Types.args = data.default.content as AuthorProps;
+Default.args = data.default as AuthorProps;
+
+Types.args = data.types as AuthorProps[];
+Types.parameters = {
+    controls: {
+        include: Object.keys(data.types),
+    },
+};

@@ -6,7 +6,7 @@ import ContentList from '../components/ContentList/ContentList';
 import MetaInfo from '../components/MetaInfo/MetaInfo';
 import Title from '../components/Title/Title';
 import YFMWrapper from '../components/YFMWrapper/YFMWrapper';
-import {AuthorType, ContentListProps, CustomBlock, TitleItemProps} from '../models';
+import {AuthorProps, AuthorType, ContentListProps, CustomBlock, TitleItemProps} from '../models';
 
 import authorData from '../components/Author/__stories__/data.json';
 import contentListData from '../components/ContentList/__stories__/data.json';
@@ -53,11 +53,11 @@ export const Default: StoryFn = () => (
         </section>
         <section>
             <strong>Author — column</strong>
-            <Author {...authorData.default.content} />
+            <Author {...(authorData.default as AuthorProps)} />
         </section>
         <section>
             <strong>Author — line</strong>
-            <Author {...authorData.default.content} type={AuthorType.Line} />
+            <Author {...(authorData.default as AuthorProps)} type={AuthorType.Line} />
         </section>
         <section>
             <strong>ContentList — default</strong>
