@@ -7,7 +7,15 @@ import BaseInput from '../BaseInput/BaseInput';
 
 type TextAreaProps = CommonProps & TextField;
 
-const TextArea = ({when, title, content, name, onUpdate, defaultValue}: TextAreaProps) => {
+const TextArea = ({
+    when,
+    title,
+    content,
+    name,
+    onUpdate,
+    defaultValue,
+    placeholder,
+}: TextAreaProps) => {
     const value = getValueByPath(content, name) ?? defaultValue ?? '';
 
     return (
@@ -24,6 +32,7 @@ const TextArea = ({when, title, content, name, onUpdate, defaultValue}: TextArea
                     name={name}
                     onUpdate={(v) => onUpdate(name, v)}
                     minRows={3}
+                    placeholder={placeholder}
                 />
             </BaseInput>
         </Base>
