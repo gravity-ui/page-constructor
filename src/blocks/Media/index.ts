@@ -12,7 +12,7 @@ const MediaBlockConfig = {
         inputs: [
             {
                 type: 'section',
-                title: 'Main settings',
+                title: 'Layout settings',
                 opened: true,
                 fields: [
                     {
@@ -54,16 +54,19 @@ const MediaBlockConfig = {
                         type: 'textInput',
                         title: 'Title',
                         name: 'title',
+                        placeholder: 'Text',
                     },
                     {
                         type: 'textArea',
                         title: 'Description',
                         name: 'description',
+                        placeholder: 'Text',
                     },
                     {
                         type: 'textArea',
                         title: 'Additional info',
                         name: 'additionalInfo',
+                        placeholder: 'Text',
                     },
                     {
                         type: 'select',
@@ -94,11 +97,13 @@ const MediaBlockConfig = {
                         type: 'textInput',
                         title: 'Title',
                         name: 'list[{{index1}}].title',
+                        placeholder: 'Text',
                     },
                     {
                         type: 'textArea',
                         title: 'Description',
                         name: 'list[{{index1}}].text',
+                        placeholder: 'Text',
                     },
                     {
                         type: 'textInput',
@@ -125,16 +130,19 @@ const MediaBlockConfig = {
                                 title: 'Text',
                                 type: 'textInput',
                                 name: 'buttons[{{index}}].text',
+                                placeholder: 'Text',
                             },
                             {
                                 title: 'URL',
                                 type: 'textInput',
                                 name: 'buttons[{{index}}].url',
+                                placeholder: 'https://',
                             },
                             {
                                 title: 'URL title',
                                 type: 'textInput',
                                 name: 'buttons[{{index}}].urlTitle',
+                                placeholder: 'https://',
                             },
                             {
                                 title: 'Style',
@@ -169,35 +177,25 @@ const MediaBlockConfig = {
                     {
                         type: 'section',
                         title: 'Analytics tracking',
-                        withAddButton: true,
-                        index: 'index2',
-                        itemTitle: 'Analytics event {{index2}}',
-                        itemView: 'card',
+                        itemView: 'clear',
                         fields: [
                             {
                                 title: 'Name',
                                 type: 'textInput',
-                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].name',
+                                name: 'buttons[{{index}}].analyticsEvents[0].name',
+                                placeholder: 'Text',
                             },
                             {
                                 title: 'Target',
                                 type: 'textInput',
-                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].target',
+                                name: 'buttons[{{index}}].analyticsEvents[0].target',
+                                placeholder: 'Text',
                             },
                             {
-                                title: 'Counters',
-                                withAddButton: true,
-                                type: 'section',
-                                index: 'indexgoal',
-                                itemTitle: 'Counter {{indexgoal}}',
-                                itemView: 'card',
-                                fields: [
-                                    {
-                                        title: 'Counter',
-                                        type: 'textInput',
-                                        name: 'buttons[{{index}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
-                                    },
-                                ],
+                                title: 'Counter',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].analyticsEvents[0].counters[0].includes',
+                                placeholder: 'Text',
                             },
                             {
                                 type: 'text',
@@ -220,6 +218,7 @@ const MediaBlockConfig = {
                         type: 'textInput',
                         title: 'Text',
                         name: 'links[{{index1}}].text',
+                        placeholder: 'Text',
                     },
                     {
                         type: 'textInput',
@@ -231,6 +230,7 @@ const MediaBlockConfig = {
                         type: 'textInput',
                         title: 'URL title',
                         name: 'links[{{index1}}].urlTitle',
+                        placeholder: 'https://',
                     },
                     {
                         type: 'select',
@@ -258,35 +258,25 @@ const MediaBlockConfig = {
                     {
                         type: 'section',
                         title: 'Analytics tracking',
-                        withAddButton: true,
-                        index: 'index2',
-                        itemTitle: 'Analytics event {{index2}}',
-                        itemView: 'card',
+                        itemView: 'clear',
                         fields: [
                             {
                                 title: 'Name',
                                 type: 'textInput',
-                                name: 'links[{{index1}}].analyticsEvents[{{index2}}].name',
+                                name: 'links[{{index1}}].analyticsEvents[0].name',
+                                placeholder: 'Text',
                             },
                             {
                                 title: 'Target',
                                 type: 'textInput',
-                                name: 'links[{{index1}}].analyticsEvents[{{index2}}].target',
+                                name: 'links[{{index1}}].analyticsEvents[0].target',
+                                placeholder: 'Text',
                             },
                             {
-                                title: 'Counters',
-                                withAddButton: true,
-                                type: 'section',
-                                index: 'indexgoal',
-                                itemTitle: 'Counter {{indexgoal}}',
-                                itemView: 'card',
-                                fields: [
-                                    {
-                                        title: 'Counter',
-                                        type: 'textInput',
-                                        name: 'links[{{index1}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
-                                    },
-                                ],
+                                title: 'Counter',
+                                type: 'textInput',
+                                name: 'links[{{index1}}].analyticsEvents[0].counters[0].includes',
+                                placeholder: 'Text',
                             },
                         ],
                     },
@@ -448,7 +438,7 @@ const MediaBlockConfig = {
                     {
                         title: 'Video URL',
                         type: 'textInput',
-                        name: 'media.video.src',
+                        name: 'media.video.src[0]',
                         placeholder: 'https://',
                         when: [
                             {

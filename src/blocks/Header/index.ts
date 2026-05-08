@@ -13,7 +13,7 @@ const HeaderBlockConfig: BlockData = {
         inputs: [
             {
                 type: 'section',
-                title: 'Main settings',
+                title: 'Layout settings',
                 opened: true,
                 fields: [
                     {
@@ -27,6 +27,7 @@ const HeaderBlockConfig: BlockData = {
                             {content: 'L', value: 'l'},
                             {content: 'XL', value: 'xl'},
                         ],
+                        defaultValue: 'm',
                     },
                 ],
             },
@@ -42,11 +43,13 @@ const HeaderBlockConfig: BlockData = {
                         title: 'Text',
                         name: 'breadcrumbs.items[{{index}}].text',
                         type: 'textInput',
+                        placeholder: 'Text',
                     },
                     {
                         title: 'URL',
                         name: 'breadcrumbs.items[{{index}}].url',
                         type: 'textInput',
+                        placeholder: 'https://',
                     },
                 ],
             },
@@ -59,16 +62,19 @@ const HeaderBlockConfig: BlockData = {
                         title: 'Overtitle',
                         name: 'overtitle',
                         type: 'textInput',
+                        placeholder: 'Text',
                     },
                     {
                         title: 'Title',
                         name: 'title',
                         type: 'textInput',
+                        placeholder: 'Text',
                     },
                     {
                         title: 'Description',
                         name: 'description',
                         type: 'textArea',
+                        placeholder: 'Text',
                     },
                     {
                         title: 'Width',
@@ -108,16 +114,19 @@ const HeaderBlockConfig: BlockData = {
                                 title: 'Text',
                                 type: 'textInput',
                                 name: 'buttons[{{index}}].text',
+                                placeholder: 'Text',
                             },
                             {
                                 title: 'URL',
                                 type: 'textInput',
                                 name: 'buttons[{{index}}].url',
+                                placeholder: 'https://',
                             },
                             {
                                 title: 'URL title',
                                 type: 'textInput',
                                 name: 'buttons[{{index}}].urlTitle',
+                                placeholder: 'https://',
                             },
                             {
                                 title: 'Style',
@@ -152,35 +161,25 @@ const HeaderBlockConfig: BlockData = {
                     {
                         type: 'section',
                         title: 'Analytics tracking',
-                        withAddButton: true,
-                        index: 'index2',
-                        itemTitle: 'Analytics event {{index2}}',
-                        itemView: 'card',
+                        itemView: 'clear',
                         fields: [
                             {
                                 title: 'Name',
                                 type: 'textInput',
-                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].name',
+                                name: 'buttons[{{index}}].analyticsEvents[0].name',
+                                placeholder: 'Text',
                             },
                             {
                                 title: 'Target',
                                 type: 'textInput',
-                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].target',
+                                name: 'buttons[{{index}}].analyticsEvents[0].target',
+                                placeholder: 'Text',
                             },
                             {
-                                title: 'Counters',
-                                withAddButton: true,
-                                type: 'section',
-                                index: 'indexgoal',
-                                itemTitle: 'Counter {{indexgoal}}',
-                                itemView: 'card',
-                                fields: [
-                                    {
-                                        title: 'Counter',
-                                        type: 'textInput',
-                                        name: 'buttons[{{index}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
-                                    },
-                                ],
+                                title: 'Counter',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].analyticsEvents[0].counters[0].includes',
+                                placeholder: 'Text',
                             },
                             {
                                 type: 'text',
@@ -327,7 +326,7 @@ const HeaderBlockConfig: BlockData = {
                     {
                         title: 'Video URL',
                         type: 'textInput',
-                        name: 'background.video.src',
+                        name: 'background.video.src[0]',
                         placeholder: 'https://',
                         when: [
                             {
