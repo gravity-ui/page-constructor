@@ -15,15 +15,6 @@ const DefaultTemplate: StoryFn<MediaAllProps> = (args) => (
     </div>
 );
 
-const IframeTemplate: StoryFn<MediaAllProps> = (args) => (
-    <div style={{maxWidth: '500px'}}>
-        <h1>Iframe with margins (default)</h1>
-        <Media {...args} />
-        <h1>Iframe without margins</h1>
-        <Media {...args} margins={false} />
-    </div>
-);
-
 const VideoTemplate: StoryFn<MediaAllProps> = (args) => {
     const videoProps = args.video;
 
@@ -46,6 +37,29 @@ const VideoTemplate: StoryFn<MediaAllProps> = (args) => {
     );
 };
 
+const IFRAME_VARIANTS: Record<string, MediaAllProps> = {
+    default: {
+        ...data.iframe.content,
+        margins: true,
+    },
+    noMargins: {
+        ...data.iframe.content,
+        margins: false,
+    },
+};
+
+const IframeTemplate: StoryFn<Record<string, MediaAllProps>> = (args) => (
+    <div style={{maxWidth: '500px'}}>
+        <h1>Iframe examples</h1>
+
+        {Object.entries(args).map(([key, item]) => (
+            <div key={key} style={{marginBottom: '24px'}}>
+                <h3>{key}</h3>
+                <Media {...item} />
+            </div>
+        ))}
+    </div>
+);
 export const Image = DefaultTemplate.bind({});
 export const ImageSlider = DefaultTemplate.bind({});
 export const Video = VideoTemplate.bind({});
@@ -53,6 +67,14 @@ export const Youtube = DefaultTemplate.bind({});
 export const DataLens = DefaultTemplate.bind({});
 export const DataLensDarkTheme = DefaultTemplate.bind({});
 export const Iframe = IframeTemplate.bind({});
+
+Iframe.args = IFRAME_VARIANTS;
+
+Iframe.parameters = {
+    controls: {
+        include: Object.keys(IFRAME_VARIANTS),
+    },
+};
 
 Image.args = data.image.content as MediaAllProps;
 
@@ -65,5 +87,3 @@ Youtube.args = data.youtube.content as MediaAllProps;
 DataLens.args = data.dataLens.content as MediaAllProps;
 
 DataLensDarkTheme.args = data.dataLensDarkTheme.content as MediaAllProps;
-
-Iframe.args = data.iframe.content as MediaAllProps;
