@@ -16,24 +16,22 @@ export default {
 const DefaultTemplate: StoryFn<FileLinkProps> = (args) => <FileLink {...args} />;
 
 const TypesTemplate: StoryFn<FileLinkProps> = (args) => (
-    <Row style={{padding: '10px'}}>
+    <Row style={{padding: '10px', alignItems: 'center'}}>
         <Col>{args.theme}</Col>
+
         <Col>
-            <FileLink {...args} type="horizontal" />
-        </Col>
-        <Col>
-            <FileLink {...args} type="vertical" />
+            <FileLink {...args} />
         </Col>
     </Row>
 );
 
 const TypesThemesTemplate: StoryFn<Record<string, FileLinkProps>> = (args) => (
     <React.Fragment>
-        <Row style={{padding: '10px'}}>
-            <Col />
-            <Col>horizontal</Col>
-            <Col>vertical</Col>
+        <Row style={{padding: '10px', fontWeight: 600}}>
+            <Col>theme</Col>
+            <Col>component</Col>
         </Row>
+
         {Object.entries(args).map(([key, item]) => (
             <TypesTemplate key={key} {...item} />
         ))}
@@ -62,15 +60,20 @@ const TYPES_THEMES: Record<string, FileLinkProps> = {
     default: {
         ...data.typesThemes.content,
         theme: 'default',
-    } as FileLinkProps,
+        type: 'horizontal',
+    },
+
     light: {
         ...data.typesThemes.content,
         theme: 'light',
-    } as FileLinkProps,
+        type: 'horizontal',
+    },
+
     dark: {
         ...data.typesThemes.content,
         theme: 'dark',
-    } as FileLinkProps,
+        type: 'horizontal',
+    },
 };
 
 TypesThemes.args = TYPES_THEMES;
