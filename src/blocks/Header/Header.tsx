@@ -38,7 +38,7 @@ interface BackgroundProps {
 const Background = ({background, isMobile}: BackgroundProps) => {
     const {url, image, fullWidthMedia, video, color} = background;
     const imageObject = url ? getMediaImage(url) : image;
-    const renderMedia = !isMobile || (typeof image === 'object' && 'mobile' in image);
+    const renderMedia = Boolean(imageObject);
 
     return (
         <div
