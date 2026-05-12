@@ -5,13 +5,6 @@
 
 ### Features
 
-* **AnimateBlock:** update storybook controls ([#1450](https://github.com/gravity-ui/page-constructor/issues/1450)) ([a99320e](https://github.com/gravity-ui/page-constructor/commit/a99320e05efb7554751570318962873de3171f8f))
-* **AuthorBlock:** update storybook controls ([#1448](https://github.com/gravity-ui/page-constructor/issues/1448)) ([e5d9eb9](https://github.com/gravity-ui/page-constructor/commit/e5d9eb9e2b6de140443bc4cd1d3b20d4cb108990))
-* **VideoBlock:** update storybook controls ([#1447](https://github.com/gravity-ui/page-constructor/issues/1447)) ([da62739](https://github.com/gravity-ui/page-constructor/commit/da62739e76fb9579ce3eb16608a4a34158cc2a32))
-
-
-### Bug Fixes
-
 * **Hero:** mobile paddings ([#1452](https://github.com/gravity-ui/page-constructor/issues/1452)) ([40340f7](https://github.com/gravity-ui/page-constructor/commit/40340f797f9f276d5ce57d17de25ef5e84f9c341))
 
 ## [8.7.2](https://github.com/gravity-ui/page-constructor/compare/v8.7.1...v8.7.2) (2026-05-07)
