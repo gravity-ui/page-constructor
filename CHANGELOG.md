@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.8.0](https://github.com/gravity-ui/page-constructor/compare/v8.7.2...v8.8.0) (2026-05-12)
+
+
+### Features
+
+* **Hero:** mobile paddings ([#1452](https://github.com/gravity-ui/page-constructor/issues/1452)) ([40340f7](https://github.com/gravity-ui/page-constructor/commit/40340f797f9f276d5ce57d17de25ef5e84f9c341))
+
 ## [8.7.2](https://github.com/gravity-ui/page-constructor/compare/v8.7.1...v8.7.2) (2026-05-07)
 
 
