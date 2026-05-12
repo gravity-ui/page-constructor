@@ -1,13 +1,22 @@
 import * as React from 'react';
 
+import {POST_MESSAGE_SOURCE} from './constants';
 import {ActionMessageTypes, EventMessageTypes, PostMessageAPIMessage} from './types';
+
+export function isValidPostMessage(data: unknown): data is Record<string, unknown> {
+    return (
+        typeof data === 'object' &&
+        data !== null &&
+        (data as Record<string, unknown>).source === POST_MESSAGE_SOURCE
+    );
+}
 
 export function requestActionPostMessage<K extends keyof ActionMessageTypes>(
     action: K,
     data: ActionMessageTypes[K],
     destinationElement: Window,
 ) {
-    const message = {action, data} as PostMessageAPIMessage<K>;
+    const message = {action, data, source: POST_MESSAGE_SOURCE} as PostMessageAPIMessage<K>;
     destinationElement.postMessage(message, '*');
 }
 
@@ -16,9 +25,12 @@ export function listenPostMessageEvents<K extends keyof EventMessageTypes>(
     callback: (data: EventMessageTypes[K]) => void,
 ) {
     const onMessage = (e: MessageEvent) => {
-        const message = e.data as PostMessageAPIMessage<K>;
+        if (!isValidPostMessage(e.data)) {
+            return undefined;
+        }
 
-        if ('action' in message && message.action === action) {
+        const message = e.data as PostMessageAPIMessage<K>;
+        if (message.action === action) {
             return callback(message.data);
         }
 
@@ -26,10 +38,7 @@ export function listenPostMessageEvents<K extends keyof EventMessageTypes>(
     };
 
     window.addEventListener('message', onMessage);
-
-    return () => {
-        window.removeEventListener('message', onMessage);
-    };
+    return () => window.removeEventListener('message', onMessage);
 }
 
 export function usePostMessageAPIListener<K extends keyof EventMessageTypes>(
