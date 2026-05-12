@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import {StoreApi} from 'zustand';
 
+import {isValidPostMessage} from '../../common/postMessage';
 import {EditorState, createPCEditorStore} from '../../common/store';
 import {StoreSyncMessage} from '../../common/types';
 import {sendEventPostMessage} from '../../hooks/usePostMessageAPI';
@@ -21,15 +22,16 @@ export const PCEditorStoreProvider = ({children}: PCEditorStoreProviderProps) =>
 
     React.useEffect(() => {
         const onMessage = (e: MessageEvent) => {
+            if (!isValidPostMessage(e.data)) {
+                return;
+            }
+
             const message = e.data as StoreSyncMessage;
             syncStore(message);
         };
 
         window.addEventListener('message', onMessage);
-
-        return () => {
-            window.removeEventListener('message', onMessage);
-        };
+        return () => window.removeEventListener('message', onMessage);
     }, [syncStore]);
 
     // When Page Constructor runs inside the editor preview iframe, keyboard focus stays in the iframe

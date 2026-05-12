@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import {StoreApi} from 'zustand';
 
+import {POST_MESSAGE_SOURCE} from '../../../common/constants';
 import {EditorState} from '../../../common/store';
 import {StoreSyncMessage} from '../../../common/types';
 import {removeFn} from '../../../common/utils';
@@ -20,6 +21,7 @@ export const MainEditorStoreProvider = ({children}: MainEditorProviderProps) => 
         (data: EditorState) => {
             const message: StoreSyncMessage = {
                 state: data,
+                source: POST_MESSAGE_SOURCE,
             };
 
             if (iframeElement && iframeElement.contentWindow) {
