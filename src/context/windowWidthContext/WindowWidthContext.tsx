@@ -3,14 +3,19 @@ import * as React from 'react';
 import throttle from 'lodash/throttle';
 
 import {BREAKPOINTS} from '../../constants';
+import {MobileContext} from '../mobileContext';
 
-const DEFAULT_WIDTH = BREAKPOINTS.xl;
+const DEFAULT_DESKTOP_WIDTH = BREAKPOINTS.xl;
+const DEFAULT_MOBILE_WIDTH = BREAKPOINTS.sm;
 const UPDATE_FREQUENCY_MS = 100;
 
-export const WindowWidthContext = React.createContext<number>(DEFAULT_WIDTH);
+export const WindowWidthContext = React.createContext<number>(DEFAULT_DESKTOP_WIDTH);
 
 export const WindowWidthProvider = ({children}: React.PropsWithChildren) => {
-    const [windowWidth, setWindowWidth] = React.useState(DEFAULT_WIDTH);
+    const isMobile = React.useContext(MobileContext);
+    const [windowWidth, setWindowWidth] = React.useState(
+        isMobile ? DEFAULT_MOBILE_WIDTH : DEFAULT_DESKTOP_WIDTH,
+    );
 
     React.useEffect(() => {
         const handleResize = throttle(
