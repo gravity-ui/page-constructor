@@ -52,7 +52,7 @@ const FormGenerator = ({
                 if (Array.isArray(arr) && removeAt >= 0 && removeAt < arr.length) {
                     arr.splice(removeAt, 1);
                 }
-            } else if (options?.unset) {
+            } else if (options?.unset || value === undefined) {
                 unset(newContentConfig, key);
             } else {
                 set(newContentConfig, key, value);
@@ -61,7 +61,13 @@ const FormGenerator = ({
             contentRef.current = newContentConfig;
 
             if (onUpdateByKey) {
-                onUpdateByKey(key, value);
+                // `removeArrayItemAt`: callers like BlockConfigForm use lodash `set(path, value)` on
+                // store — passing `undefined` would wipe the whole array at `path`, not one element.
+                if (typeof removeAt === 'number') {
+                    onUpdateByKey(key, getValueByPath(newContentConfig, key));
+                } else {
+                    onUpdateByKey(key, value);
+                }
             }
 
             if (onUpdate) {

@@ -33,7 +33,11 @@ const Text = ({text, level, color, when, content, className}: TextProps) => (
                 </div>
             </div>
         ) : (
-            <TextUIKIT className={b(null, className)} variant="subheader-1" color={color}>
+            <TextUIKIT
+                className={b({'as-title': true}, className)}
+                variant="subheader-1"
+                color={color}
+            >
                 {text}
             </TextUIKIT>
         )}

@@ -12,7 +12,7 @@ const ContentLayoutBlockConfig = {
         inputs: [
             {
                 type: 'section',
-                title: 'Main settings',
+                title: 'Layout settings',
                 opened: true,
                 fields: [
                     {
@@ -57,16 +57,19 @@ const ContentLayoutBlockConfig = {
                         type: 'textInput',
                         title: 'Title',
                         name: 'textContent.title',
+                        placeholder: 'Text',
                     },
                     {
                         type: 'textArea',
                         title: 'Description',
                         name: 'textContent.text',
+                        placeholder: 'Text',
                     },
                     {
                         type: 'textArea',
                         title: 'Additional info',
                         name: 'textContent.additionalInfo',
+                        placeholder: 'Text',
                     },
                     {
                         type: 'select',
@@ -104,16 +107,19 @@ const ContentLayoutBlockConfig = {
                         type: 'textInput',
                         title: 'Title',
                         name: 'textContent.list[{{index1}}].title',
+                        placeholder: 'Text',
                     },
                     {
                         type: 'textArea',
                         title: 'Description',
                         name: 'textContent.list[{{index1}}].text',
+                        placeholder: 'Text',
                     },
                     {
                         type: 'textInput',
                         title: 'URL icon',
                         name: 'textContent.list[{{index1}}].icon',
+                        placeholder: 'https://',
                     },
                 ],
             },
@@ -134,16 +140,19 @@ const ContentLayoutBlockConfig = {
                                 title: 'Text',
                                 type: 'textInput',
                                 name: 'textContent.buttons[{{index}}].text',
+                                placeholder: 'Text',
                             },
                             {
                                 title: 'URL',
                                 type: 'textInput',
                                 name: 'textContent.buttons[{{index}}].url',
+                                placeholder: 'https://',
                             },
                             {
                                 title: 'URL title',
                                 type: 'textInput',
                                 name: 'textContent.buttons[{{index}}].urlTitle',
+                                placeholder: 'https://',
                             },
                             {
                                 title: 'Style',
@@ -178,35 +187,30 @@ const ContentLayoutBlockConfig = {
                     {
                         type: 'section',
                         title: 'Analytics tracking',
-                        withAddButton: true,
-                        index: 'index2',
-                        itemTitle: 'Analytics event {{index2}}',
-                        itemView: 'card',
+                        itemView: 'clear',
                         fields: [
                             {
                                 title: 'Name',
                                 type: 'textInput',
-                                name: 'textContent.buttons[{{index}}].analyticsEvents[{{index2}}].name',
+                                name: 'textContent.buttons[{{index}}].analyticsEvents[0].name',
+                                placeholder: 'Text',
                             },
                             {
                                 title: 'Target',
                                 type: 'textInput',
-                                name: 'textContent.buttons[{{index}}].analyticsEvents[{{index2}}].target',
+                                name: 'textContent.buttons[{{index}}].analyticsEvents[0].target',
+                                placeholder: 'Text',
                             },
                             {
-                                title: 'Counters',
-                                withAddButton: true,
-                                type: 'section',
-                                index: 'indexgoal',
-                                itemTitle: 'Counter {{indexgoal}}',
-                                itemView: 'card',
-                                fields: [
-                                    {
-                                        title: 'Counter',
-                                        type: 'textInput',
-                                        name: 'textContent.buttons[{{index}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
-                                    },
-                                ],
+                                title: 'Counter',
+                                type: 'textInput',
+                                name: 'textContent.buttons[{{index}}].analyticsEvents[0].counters[0].includes',
+                                placeholder: 'Text',
+                            },
+                            {
+                                type: 'text',
+                                text: 'Only events for the counters listed in the input field will be sent.',
+                                level: 'info',
                             },
                         ],
                     },
@@ -224,16 +228,19 @@ const ContentLayoutBlockConfig = {
                         type: 'textInput',
                         title: 'Text',
                         name: 'textContent.links[{{index1}}].text',
+                        placeholder: 'Text',
                     },
                     {
                         type: 'textInput',
                         title: 'URL',
                         name: 'textContent.links[{{index1}}].url',
+                        placeholder: 'https://',
                     },
                     {
                         type: 'textInput',
                         title: 'URL title',
                         name: 'textContent.links[{{index1}}].urlTitle',
+                        placeholder: 'https://',
                     },
                     {
                         type: 'select',
@@ -261,35 +268,25 @@ const ContentLayoutBlockConfig = {
                     {
                         type: 'section',
                         title: 'Analytics tracking',
-                        withAddButton: true,
-                        index: 'index2',
-                        itemTitle: 'Analytics event {{index2}}',
-                        itemView: 'card',
+                        itemView: 'clear',
                         fields: [
                             {
                                 title: 'Name',
                                 type: 'textInput',
-                                name: 'textContent.links[{{index1}}].analyticsEvents[{{index2}}].name',
+                                name: 'textContent.links[{{index1}}].analyticsEvents[0].name',
+                                placeholder: 'Text',
                             },
                             {
                                 title: 'Target',
                                 type: 'textInput',
-                                name: 'textContent.links[{{index1}}].analyticsEvents[{{index2}}].target',
+                                name: 'textContent.links[{{index1}}].analyticsEvents[0].target',
+                                placeholder: 'Text',
                             },
                             {
-                                title: 'Counters',
-                                withAddButton: true,
-                                type: 'section',
-                                index: 'indexgoal',
-                                itemTitle: 'Counter {{indexgoal}}',
-                                itemView: 'card',
-                                fields: [
-                                    {
-                                        title: 'Counter',
-                                        type: 'textInput',
-                                        name: 'textContent.links[{{index1}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
-                                    },
-                                ],
+                                title: 'Counter',
+                                type: 'textInput',
+                                name: 'textContent.links[{{index1}}].analyticsEvents[0].counters[0].includes',
+                                placeholder: 'Text',
                             },
                         ],
                     },
@@ -307,11 +304,13 @@ const ContentLayoutBlockConfig = {
                         type: 'textInput',
                         title: 'Href',
                         name: 'fileContent[{{index1}}].href',
+                        placeholder: 'https://',
                     },
                     {
                         type: 'textInput',
                         title: 'Name',
                         name: 'fileContent[{{index1}}].text',
+                        placeholder: 'Text',
                     },
                 ],
             },
@@ -322,133 +321,58 @@ const ContentLayoutBlockConfig = {
                 fields: [
                     {
                         title: 'Color HEX',
-                        type: 'colorInput',
+                        type: 'textInput',
                         name: 'background.style.background',
-                    },
-                    {
-                        title: 'Type',
-                        name: '_mediaType',
-                        options: [
-                            {content: 'Image', value: 'image'},
-                            {content: 'Video', value: 'video'},
-                        ],
-                        type: 'segmentedRadioGroup',
+                        placeholder: '#000000',
                     },
                     {
                         type: 'text',
                         text: 'Light theme',
-                        when: [
-                            {
-                                field: '_mediaType',
-                                operator: '!==',
-                                value: undefined,
-                            },
-                        ],
                     },
                     {
                         title: 'Desktop',
                         type: 'textInput',
                         name: 'background.light.image.desktop',
-                        when: [
-                            {
-                                field: '_mediaType',
-                                operator: '===',
-                                value: 'image',
-                            },
-                        ],
+                        placeholder: 'https://',
                     },
                     {
                         title: 'Tablet',
                         type: 'textInput',
                         name: 'background.light.image.tablet',
-                        when: [
-                            {
-                                field: '_mediaType',
-                                operator: '===',
-                                value: 'image',
-                            },
-                        ],
+                        placeholder: 'https://',
                     },
                     {
                         title: 'Mobile',
                         type: 'textInput',
                         name: 'background.light.image.mobile',
-                        when: [
-                            {
-                                field: '_mediaType',
-                                operator: '===',
-                                value: 'image',
-                            },
-                        ],
-                    },
-                    {
-                        title: 'URL',
-                        type: 'textInput',
-                        name: 'background.light.video.src',
-                        when: [
-                            {
-                                field: '_mediaType',
-                                operator: '===',
-                                value: 'video',
-                            },
-                        ],
+                        placeholder: 'https://',
                     },
                     {
                         type: 'text',
                         text: 'Dark theme',
-                        when: [
-                            {
-                                field: '_mediaType',
-                                operator: '!==',
-                                value: undefined,
-                            },
-                        ],
                     },
                     {
                         title: 'Desktop',
                         type: 'textInput',
                         name: 'background.dark.image.desktop',
-                        when: [
-                            {
-                                field: '_mediaType',
-                                operator: '===',
-                                value: 'image',
-                            },
-                        ],
+                        placeholder: 'https://',
                     },
                     {
                         title: 'Tablet',
                         type: 'textInput',
                         name: 'background.dark.image.tablet',
-                        when: [
-                            {
-                                field: '_mediaType',
-                                operator: '===',
-                                value: 'image',
-                            },
-                        ],
+                        placeholder: 'https://',
                     },
                     {
                         title: 'Mobile',
                         type: 'textInput',
                         name: 'background.dark.image.mobile',
+                        placeholder: 'https://',
                         when: [
                             {
                                 field: '_mediaType',
                                 operator: '===',
                                 value: 'image',
-                            },
-                        ],
-                    },
-                    {
-                        title: 'URL',
-                        type: 'textInput',
-                        name: 'background.dark.video.src',
-                        when: [
-                            {
-                                field: '_mediaType',
-                                operator: '===',
-                                value: 'video',
                             },
                         ],
                     },
