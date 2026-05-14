@@ -23,15 +23,6 @@ jobs:
         id: pr
         run: echo "::set-output name=id::$(<pr/pr-id.txt)"
         shell: bash
-      - name: Clear destination path
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.STORYBOOK_S3_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.STORYBOOK_S3_SECRET_KEY }}
-          AWS_DEFAULT_REGION: ru-central1
-          AWS_EC2_METADATA_DISABLED: true
-          AWS_REQUEST_CHECKSUM_CALCULATION: when_required
-          AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
-        run: aws s3 rm s3://storybook-static/page-constructor-playground/pulls/${{ steps.pr.outputs.id }}/ --endpoint-url=https://storage.yandexcloud.net --recursive || true
       - name: Upload to S3
         uses: gravity-ui/upload-to-s3-action@v1
         with:
