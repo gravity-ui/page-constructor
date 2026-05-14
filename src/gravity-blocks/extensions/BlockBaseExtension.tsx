@@ -3,20 +3,29 @@ import * as React from 'react';
 import BlockBase from '../../components/BlockBase/BlockBase';
 import type {PageConstructorExtension} from '../../containers/PageConstructor/PageConstructor';
 import type {BlockBaseProps, BlockWrapperDataProps} from '../../models';
+import {IndentValue} from '../grid';
 
 export const BlockBaseExtensionBlockWrapper: React.FC<
     BlockWrapperDataProps<BlockBaseProps> & React.PropsWithChildren
-> = ({props, content, children}) => (
-    <BlockBase
-        anchor={content?.anchor ?? props?.anchor}
-        indent={content?.indent ?? props?.indent}
-        visible={content?.visible ?? props?.visible}
-        resetPaddings={content?.resetPaddings ?? props?.resetPaddings}
-        qa={content?.qa ?? props?.qa}
-    >
-        {children}
-    </BlockBase>
-);
+> = ({props, content, children, type}) => {
+    let defaultIndent;
+
+    if (type.includes('header-block')) {
+        defaultIndent = {top: '0' as IndentValue, bottom: '0' as IndentValue};
+    }
+
+    return (
+        <BlockBase
+            anchor={content?.anchor ?? props?.anchor}
+            indent={content?.indent ?? props?.indent ?? defaultIndent}
+            visible={content?.visible ?? props?.visible}
+            resetPaddings={content?.resetPaddings ?? props?.resetPaddings}
+            qa={content?.qa ?? props?.qa}
+        >
+            {children}
+        </BlockBase>
+    );
+};
 
 export const blockBaseExtension = (): PageConstructorExtension<{}, {}, BlockBaseProps> => ({
     name: 'Block Base',
