@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.8.1](https://github.com/gravity-ui/page-constructor/compare/v8.8.0...v8.8.1) (2026-05-14)
+
+
+### Bug Fixes
+
+* **WindowWidthProvider:** change default value ([#1454](https://github.com/gravity-ui/page-constructor/issues/1454)) ([a7c9a11](https://github.com/gravity-ui/page-constructor/commit/a7c9a1122bf1a023d35cec333ebd0652846c1c48))
+
 ## [8.8.0](https://github.com/gravity-ui/page-constructor/compare/v8.7.2...v8.8.0) (2026-05-12)
 
 
