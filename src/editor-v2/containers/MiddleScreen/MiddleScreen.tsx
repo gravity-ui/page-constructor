@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import {Xmark} from '@gravity-ui/icons';
 import {Button, Icon, Loader} from '@gravity-ui/uikit';
+import iframeResize from '@iframe-resizer/parent';
 
-import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {IframeContext} from '../../context/iframeContext';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
 import {editorCn} from '../../utils/cn';
@@ -20,9 +20,8 @@ interface MiddleScreenProps {
 
 const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
     const {zoom, initialized, deviceWidth, isPreviewMode, togglePreviewMode} = useMainEditorStore();
-    const {url, setIframeElement} = React.useContext(IframeContext);
+    const {url, iframeElement, setIframeElement} = React.useContext(IframeContext);
     const [canvasRef, setCanvasRef] = React.useState<HTMLDivElement | null>(null);
-    const [height, setHeight] = React.useState(0);
 
     const canvasStyle = React.useMemo(
         () => ({
@@ -34,20 +33,25 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
         [isPreviewMode, zoom],
     );
 
-    const onResize = React.useCallback(
-        (newHeight: number) => {
-            setHeight(newHeight + 100);
-        },
-        [setHeight],
-    );
+    React.useEffect(() => {
+        if (!iframeElement || isPreviewMode) {
+            return undefined;
+        }
 
-    usePostMessageAPIListener('ON_RESIZE', ({height: newHeight}) => {
-        onResize(newHeight);
-    });
+        const [instance] = iframeResize(
+            {
+                license: 'GPLv3',
+                direction: 'vertical',
+                checkOrigin: false,
+                waitForLoad: true,
+            },
+            iframeElement,
+        );
 
-    usePostMessageAPIListener('ON_INIT', ({height: newHeight}) => {
-        onResize(newHeight);
-    });
+        return () => {
+            instance?.iFrameResizer?.disconnect();
+        };
+    }, [iframeElement, isPreviewMode]);
 
     const isWithBackground = React.useMemo(() => {
         return deviceWidth !== '100%';
@@ -83,7 +87,6 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
                                 }}
                                 className={b('iframe', {fullscreen: isPreviewMode})}
                                 src={url}
-                                height={isPreviewMode ? '100%' : `${height}px`}
                                 width={isPreviewMode ? '100%' : deviceWidth}
                                 frameBorder="0"
                                 title="Page Constructor Iframe"

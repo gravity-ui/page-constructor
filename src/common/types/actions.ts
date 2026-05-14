@@ -6,8 +6,7 @@ import {RectMapEntry} from './rect';
 export type MessageTypes = EventMessageTypes & ActionMessageTypes;
 
 export type EventMessageTypes = {
-    ON_INIT: {height: number};
-    ON_RESIZE: {height: number};
+    ON_INIT: {};
     ON_UPDATE_RECT_MAP: {rects: RectMapEntry[]};
     ON_SUPPORTED_BLOCKS: Pick<EditorState, 'blocks' | 'subBlocks' | 'global'>;
     ON_INITIAL_CONTENT: PageContent;

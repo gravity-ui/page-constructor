@@ -157,6 +157,7 @@
     "deep-object-diff": "^1.1.9",
     "final-form": "^4.20.9",
     "github-buttons": "2.23.0",
+    "iframe-resizer": "^5.5.9",
     "immutable": "^4.3.7",
     "js-yaml-source-map": "^0.2.2",
     "lodash": "^4.17.21",
@@ -284,8 +285,8 @@
     "webpack-shell-plugin-next": "^2.3.1"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.60.1",
-    "@rollup/rollup-darwin-arm64": "^4.60.1"
+    "@rollup/rollup-darwin-arm64": "^4.60.1",
+    "@rollup/rollup-linux-x64-gnu": "^4.60.1"
   },
   "lint-staged": {
     "*.{css,scss}": [

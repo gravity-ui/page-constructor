@@ -7,6 +7,8 @@ import {BlockData} from '../constructor-items';
 import {BlockRegistry} from '../context/blockRegistryContext';
 import {Fields} from '../form-generator-v2/types';
 import {PageContent} from '../models';
+// eslint-disable-next-line import/no-unassigned-import
+import '../utils/iframe-resizer';
 
 import {usePCEditorStore} from './usePCEditorStore';
 import {sendEventPostMessage, useInternalPostMessageAPIListener} from './usePostMessageAPI';
@@ -63,11 +65,6 @@ export const usePCEditorInitializeEvents = ({
         });
     });
 
-    const onResize = React.useCallback(() => {
-        const height = document.body.scrollHeight;
-        sendEventPostMessage('ON_RESIZE', {height});
-    }, []);
-
     React.useEffect(() => {
         if (!registry) {
             return undefined;
@@ -107,19 +104,6 @@ export const usePCEditorInitializeEvents = ({
     }, [registry]);
 
     React.useEffect(() => {
-        window.addEventListener('resize', onResize);
-        const observer = new ResizeObserver(onResize);
-        observer.observe(document.documentElement);
-        observer.observe(document.body);
-
-        return () => {
-            window.removeEventListener('resize', onResize);
-            observer.disconnect();
-        };
-    }, [onResize]);
-
-    React.useEffect(() => {
-        const height = document.body.scrollHeight;
-        sendEventPostMessage('ON_INIT', {height});
+        sendEventPostMessage('ON_INIT', {});
     }, []);
 };

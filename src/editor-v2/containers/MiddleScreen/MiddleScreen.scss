@@ -64,6 +64,7 @@ $block: '.#{$ns}middle-screen';
     &__iframe-container {
         position: relative;
         margin: 0 auto;
+        overflow: hidden;
 
         &_fullscreen {
             height: 100%;
