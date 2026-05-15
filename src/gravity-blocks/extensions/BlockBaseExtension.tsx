@@ -7,11 +7,11 @@ import {IndentValue} from '../grid';
 
 export const BlockBaseExtensionBlockWrapper: React.FC<
     BlockWrapperDataProps<BlockBaseProps> & React.PropsWithChildren
-> = ({props, content, children, type}) => {
+> = ({props, content, children, index}) => {
     let defaultIndent;
 
-    if (type.includes('header-block')) {
-        defaultIndent = {top: '0' as IndentValue, bottom: '0' as IndentValue};
+    if (index === 0) {
+        defaultIndent = {top: '0' as IndentValue, bottom: 'l' as IndentValue};
     }
 
     return (
