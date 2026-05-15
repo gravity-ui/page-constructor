@@ -1,9 +1,6 @@
-import {JSONSchemaType} from 'ajv';
-
-import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
-
 import InfoBlock from './Info';
-import {InfoBlock as InfoBlockSchema} from './schema';
+import {defaultValue, form} from './form';
+import icon from './icon';
 
 const InfoBlockConfig = {
     type: 'info-block',
@@ -12,36 +9,9 @@ const InfoBlockConfig = {
         name: 'Info Block',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFormFieldsFromAjvSchema(
-            InfoBlockSchema['info-block'] as unknown as JSONSchemaType<{}>,
-        ),
-        default: {
-            type: 'info-block',
-            title: 'Info Block',
-            backgroundColor: '#1c1c1c',
-            sectionsTitle: 'Other links',
-            links: [
-                {
-                    text: 'Link 1',
-                },
-                {
-                    text: 'Link 2',
-                },
-                {
-                    text: 'Link 3',
-                },
-            ],
-            buttons: [
-                {
-                    text: 'Read more',
-                    theme: 'outlined-contrast',
-                },
-                {
-                    text: 'Go back',
-                    theme: 'action',
-                },
-            ],
-        },
+        inputs: form,
+        default: defaultValue,
+        previewImg: icon,
     },
 };
 

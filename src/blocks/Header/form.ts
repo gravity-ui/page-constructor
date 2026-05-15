@@ -1,0 +1,337 @@
+import {Fields} from '../../form-generator-v2/types';
+
+export const form = [
+    {
+        type: 'section',
+        title: 'Main settings',
+        opened: true,
+        fields: [
+            {
+                title: 'Vertical offset',
+                name: 'verticalOffset',
+                type: 'select',
+                options: [
+                    {content: '0', value: '0'},
+                    {content: 'S', value: 's'},
+                    {content: 'M', value: 'm'},
+                    {content: 'L', value: 'l'},
+                    {content: 'XL', value: 'xl'},
+                ],
+            },
+        ],
+    },
+    {
+        type: 'section',
+        title: 'Breadcrumbs',
+        withAddButton: true,
+        index: 'index',
+        itemTitle: 'Item {{index}}',
+        itemView: 'card',
+        fields: [
+            {
+                title: 'Text',
+                name: 'breadcrumbs.items[{{index}}].text',
+                type: 'textInput',
+            },
+            {
+                title: 'URL',
+                name: 'breadcrumbs.items[{{index}}].url',
+                type: 'textInput',
+            },
+        ],
+    },
+    {
+        type: 'section',
+        title: 'Text',
+        opened: true,
+        fields: [
+            {
+                title: 'Overtitle',
+                name: 'overtitle',
+                type: 'textInput',
+            },
+            {
+                title: 'Title',
+                name: 'title',
+                type: 'textInput',
+            },
+            {
+                title: 'Description',
+                name: 'description',
+                type: 'textArea',
+            },
+            {
+                title: 'Width',
+                name: 'width',
+                options: [
+                    {content: 'S', value: 's'},
+                    {content: 'M', value: 'm'},
+                ],
+                type: 'select',
+            },
+            {
+                title: 'Theme',
+                name: 'theme',
+                options: [
+                    {content: 'Light', value: 'light'},
+                    {content: 'Dark', value: 'dark'},
+                ],
+                type: 'segmentedRadioGroup',
+                defaultValue: 'light',
+            },
+        ],
+    },
+    {
+        type: 'section',
+        title: 'Buttons',
+        withAddButton: true,
+        index: 'index',
+        itemTitle: 'Button {{index}}',
+        itemView: 'card',
+        fields: [
+            {
+                type: 'section',
+                title: 'Main settings',
+                opened: true,
+                fields: [
+                    {
+                        title: 'Text',
+                        type: 'textInput',
+                        name: 'buttons[{{index}}].text',
+                    },
+                    {
+                        title: 'URL',
+                        type: 'textInput',
+                        name: 'buttons[{{index}}].url',
+                    },
+                    {
+                        title: 'URL title',
+                        type: 'textInput',
+                        name: 'buttons[{{index}}].urlTitle',
+                    },
+                    {
+                        title: 'Style',
+                        type: 'select',
+                        name: 'buttons[{{index}}].theme',
+                        options: [
+                            {value: 'action', content: 'Action'},
+                            {value: 'outlined', content: 'Outlined'},
+                            {value: 'normal', content: 'Normal'},
+                            {value: 'monochrome', content: 'Monochrome'},
+                            {
+                                value: 'outlined-contrast',
+                                content: 'Outlined-contrast',
+                            },
+                            {value: 'normal-contrast', content: 'Normal-contrast'},
+                        ],
+                    },
+                    {
+                        title: 'Target',
+                        type: 'select',
+                        name: 'buttons[{{index}}].target',
+                        options: [
+                            {value: '_blank'},
+                            {value: '_self'},
+                            {value: '_parent'},
+                            {value: '_top'},
+                        ],
+                        hasClear: true,
+                    },
+                ],
+            },
+            {
+                type: 'section',
+                title: 'Analytics tracking',
+                withAddButton: true,
+                index: 'index2',
+                itemTitle: 'Analytics event {{index2}}',
+                itemView: 'card',
+                fields: [
+                    {
+                        title: 'Name',
+                        type: 'textInput',
+                        name: 'buttons[{{index}}].analyticsEvents[{{index2}}].name',
+                    },
+                    {
+                        title: 'Target',
+                        type: 'textInput',
+                        name: 'buttons[{{index}}].analyticsEvents[{{index2}}].target',
+                    },
+                    {
+                        title: 'Counters',
+                        withAddButton: true,
+                        type: 'section',
+                        index: 'indexgoal',
+                        itemTitle: 'Counter {{indexgoal}}',
+                        itemView: 'card',
+                        fields: [
+                            {
+                                title: 'Counter',
+                                type: 'textInput',
+                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        type: 'section',
+        title: 'Background',
+        opened: true,
+        fields: [
+            {
+                title: 'Color HEX',
+                type: 'textInput',
+                name: 'background.color',
+            },
+            {
+                title: 'Type',
+                name: '_mediaType',
+                options: [
+                    {content: 'Image', value: 'image'},
+                    {content: 'Video', value: 'video'},
+                ],
+                type: 'segmentedRadioGroup',
+            },
+            {
+                type: 'text',
+                text: 'Light theme',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '!==',
+                        value: undefined,
+                    },
+                ],
+            },
+            {
+                title: 'Desktop',
+                type: 'textInput',
+                name: 'background.light.image.desktop',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'image',
+                    },
+                ],
+            },
+            {
+                title: 'Tablet',
+                type: 'textInput',
+                name: 'background.light.image.tablet',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'image',
+                    },
+                ],
+            },
+            {
+                title: 'Mobile',
+                type: 'textInput',
+                name: 'background.light.image.mobile',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'image',
+                    },
+                ],
+            },
+            {
+                title: 'URL',
+                type: 'textInput',
+                name: 'background.light.video.src',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'video',
+                    },
+                ],
+            },
+            {
+                type: 'text',
+                text: 'Dark theme',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '!==',
+                        value: undefined,
+                    },
+                ],
+            },
+            {
+                title: 'Desktop',
+                type: 'textInput',
+                name: 'background.dark.image.desktop',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'image',
+                    },
+                ],
+            },
+            {
+                title: 'Tablet',
+                type: 'textInput',
+                name: 'background.dark.image.tablet',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'image',
+                    },
+                ],
+            },
+            {
+                title: 'Mobile',
+                type: 'textInput',
+                name: 'background.dark.image.mobile',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'image',
+                    },
+                ],
+            },
+            {
+                title: 'URL',
+                type: 'textInput',
+                name: 'background.dark.video.src',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'video',
+                    },
+                ],
+            },
+        ],
+    },
+] as Fields;
+
+export const defaultValue = {
+    type: 'header-block',
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    description:
+        'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    buttons: [
+        {
+            text: 'Button\r',
+            theme: 'action',
+            url: 'https://example.com',
+        },
+        {
+            text: 'Button',
+            theme: 'outlined',
+            url: 'https://example.com',
+        },
+    ],
+};

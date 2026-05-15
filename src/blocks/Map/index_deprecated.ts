@@ -1,9 +1,5 @@
-import {JSONSchemaType} from 'ajv';
-
-import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
-
 import MapBlock from './Map';
-import {MapBlock as MapBlockSchema} from './schema';
+import {defaultValue, form} from './form';
 
 const MapBlockConfig = {
     type: 'map-block',
@@ -12,12 +8,8 @@ const MapBlockConfig = {
         name: 'Map Block',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFormFieldsFromAjvSchema(
-            MapBlockSchema['map-block'] as unknown as JSONSchemaType<{}>,
-        ),
-        default: {
-            title: 'Map Block',
-        },
+        inputs: form,
+        default: defaultValue,
     },
 };
 

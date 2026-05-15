@@ -1,9 +1,5 @@
-import {JSONSchemaType} from 'ajv';
-
-import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
-
 import FormBlock from './Form';
-import {FormBlock as FormBlockSchema} from './schema';
+import {defaultValue, form} from './formConfig';
 
 const FormBlockConfig = {
     type: 'form-block',
@@ -12,13 +8,8 @@ const FormBlockConfig = {
         name: 'Form Block',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFormFieldsFromAjvSchema(
-            FormBlockSchema['form-block'] as unknown as JSONSchemaType<{}>,
-        ),
-        default: {
-            title: 'Form Block',
-            formData: {},
-        },
+        inputs: form,
+        default: defaultValue,
     },
 };
 

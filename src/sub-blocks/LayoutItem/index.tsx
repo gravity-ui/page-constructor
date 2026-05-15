@@ -1,10 +1,8 @@
-import {JSONSchemaType} from 'ajv';
-
 import {BlockData} from '../../constructor-items';
-import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import LayoutItem from './LayoutItem';
-import {LayoutItem as LayoutItemSchema} from './schema';
+import {defaultValue, form} from './form';
+import icon from './icon';
 
 const LayoutItemConfig: BlockData = {
     type: '@gravity-ui/page-constructor/layout-item',
@@ -12,18 +10,9 @@ const LayoutItemConfig: BlockData = {
     schema: {
         name: 'Layout Item',
         group: '@gravity-ui/page-constructor/Cards',
-        // TODO: change to custom block schema
-        inputs: generateFormFieldsFromAjvSchema(LayoutItemSchema as unknown as JSONSchemaType<{}>),
-        default: {
-            type: 'layout-item',
-            content: {
-                title: 'Lorem ipsum',
-                text: 'Dolor sit amet',
-            },
-            media: {
-                image: 'https://storage.yandexcloud.net/yc-www-community-images/event_ecaf1ef1-bc3a-40fa-adef-827b0959e6c3.jpg',
-            },
-        },
+        inputs: form,
+        default: defaultValue,
+        previewImg: icon,
     },
 };
 

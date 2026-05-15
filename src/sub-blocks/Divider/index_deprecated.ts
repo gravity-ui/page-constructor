@@ -1,10 +1,8 @@
-import {JSONSchemaType} from 'ajv';
-
 import {BlockData} from '../../constructor-items';
-import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import Divider from './Divider';
-import {Divider as DividerSchema} from './schema';
+import {defaultValue, form} from './form';
+import icon from './icon';
 
 const DividerConfig: BlockData = {
     type: 'divider',
@@ -13,10 +11,9 @@ const DividerConfig: BlockData = {
         name: 'Divider',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFormFieldsFromAjvSchema(
-            DividerSchema['divider'] as unknown as JSONSchemaType<{}>,
-        ),
-        default: {},
+        inputs: form,
+        default: defaultValue,
+        previewImg: icon,
     },
 };
 

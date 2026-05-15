@@ -61,7 +61,9 @@ const CardLayout = ({
                         <Row>
                             {React.Children.map(children, (child, index) => (
                                 <Col key={index} sizes={colSizes} className={b('item')}>
-                                    <ChildrenItemWrap index={index}>{child}</ChildrenItemWrap>
+                                    <ChildrenItemWrap className={b('item-wrap')} index={index}>
+                                        {child}
+                                    </ChildrenItemWrap>
                                 </Col>
                             ))}
                         </Row>

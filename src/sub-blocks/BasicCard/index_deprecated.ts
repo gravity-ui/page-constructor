@@ -1,10 +1,8 @@
-import {JSONSchemaType} from 'ajv';
-
 import {BlockData} from '../../constructor-items';
-import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import BasicCard from './BasicCard';
-import {BasicCard as BasicCardSchema} from './schema';
+import {defaultValue, form} from './form';
+import icon from './icon';
 
 const BasicCardConfig: BlockData = {
     type: 'basic-card',
@@ -13,13 +11,9 @@ const BasicCardConfig: BlockData = {
         name: 'Basic Card',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFormFieldsFromAjvSchema(
-            BasicCardSchema['basic-card'] as unknown as JSONSchemaType<{}>,
-        ),
-        default: {
-            title: 'Basic Card',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        },
+        inputs: form,
+        default: defaultValue,
+        previewImg: icon,
     },
 };
 

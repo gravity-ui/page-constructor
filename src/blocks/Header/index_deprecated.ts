@@ -1,10 +1,7 @@
-import {JSONSchemaType} from 'ajv';
-
 import {BlockData} from '../../constructor-items';
-import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import HeaderBlock from './Header';
-import {HeaderBlock as HeaderBlockSchema} from './schema';
+import {defaultValue, form} from './form';
 
 const HeaderBlockConfig: BlockData = {
     type: 'header-block',
@@ -13,27 +10,8 @@ const HeaderBlockConfig: BlockData = {
         name: 'Header Block',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFormFieldsFromAjvSchema(
-            HeaderBlockSchema['header-block'] as unknown as JSONSchemaType<{}>,
-        ),
-        default: {
-            type: 'header-block',
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-            description:
-                'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-            buttons: [
-                {
-                    text: 'Button',
-                    theme: 'action',
-                    url: 'https://example.com',
-                },
-                {
-                    text: 'Button',
-                    theme: 'outlined',
-                    url: 'https://example.com',
-                },
-            ],
-        },
+        inputs: form,
+        default: defaultValue,
         previewImg: 'https://storage.cloud-preprod.yandex.net/qradle-test/header-block.svg',
     },
 };

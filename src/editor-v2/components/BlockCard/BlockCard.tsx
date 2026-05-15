@@ -1,9 +1,10 @@
 import * as React from 'react';
 
-import {SquareBars} from '@gravity-ui/icons';
-import {Card, Icon} from '@gravity-ui/uikit';
+import {Card} from '@gravity-ui/uikit';
 
 import {editorCn} from '../../utils/cn';
+
+import {defaultIcon} from './defaultIcon';
 
 import './BlockCard.scss';
 
@@ -26,9 +27,9 @@ const BlockCard = ({className, type, name, previewImg, onMouseDown}: BlockCardPr
         <Card className={b(null, className)} onMouseDown={handleMouseDown}>
             <div className={b('image')}>
                 {previewImg ? (
-                    <img className={b('image-img')} src={previewImg} alt="" />
+                    <img className={b('image-img')} src={previewImg} alt="preview of the block" />
                 ) : (
-                    <Icon className={b('icon')} size={45} data={SquareBars} />
+                    <img className={b('image-img')} src={defaultIcon} alt="preview of the block" />
                 )}
             </div>
             <div className={b('name')}>{name}</div>

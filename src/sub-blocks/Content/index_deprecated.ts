@@ -1,10 +1,8 @@
-import {JSONSchemaType} from 'ajv';
-
 import {BlockData} from '../../constructor-items';
-import {generateFormFieldsFromAjvSchema} from '../../form-generator-v2/utils/generateFormFieldsFromAjv';
 
 import Content from './Content';
-import {ContentBlock} from './schema';
+import {defaultValue, form} from './form';
+import icon from './icon';
 
 const ContentConfig: BlockData = {
     type: 'content',
@@ -13,13 +11,9 @@ const ContentConfig: BlockData = {
         name: 'Content',
         group: '@deprecated',
         hidden: true,
-        inputs: generateFormFieldsFromAjvSchema(
-            ContentBlock['content'] as unknown as JSONSchemaType<{}>,
-        ),
-        default: {
-            title: 'Content',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        },
+        inputs: form,
+        default: defaultValue,
+        previewImg: icon,
     },
 };
 
