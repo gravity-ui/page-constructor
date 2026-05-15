@@ -13,6 +13,9 @@ import './MiddleScreen.scss';
 
 const b = editorCn('middle-screen');
 
+// the maximum height of the iframe
+const IFRAME_MAX_HEIGHT = 50000;
+
 interface MiddleScreenProps {
     className?: string;
     CustomTop?: React.ElementType;
@@ -36,7 +39,8 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
 
     const onResize = React.useCallback(
         (newHeight: number) => {
-            setHeight(newHeight + 100);
+            const settedHeight = newHeight + 100;
+            setHeight(settedHeight > IFRAME_MAX_HEIGHT ? IFRAME_MAX_HEIGHT : settedHeight);
         },
         [setHeight],
     );
