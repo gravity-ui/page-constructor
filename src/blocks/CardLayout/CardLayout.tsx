@@ -42,14 +42,16 @@ const CardLayout = ({
         <AnimateBlock className={b(null, className)} animate={animated}>
             <Grid>
                 {(title || description) && (
-                    <Title
-                        title={title}
-                        subtitle={description}
-                        className={b('title', {centered}, titleClassName)}
-                        colJustifyContent={
-                            centered ? GridJustifyContent.Center : GridJustifyContent.Start
-                        }
-                    />
+                    <Row>
+                        <Title
+                            title={title}
+                            subtitle={description}
+                            className={b('title', {centered}, titleClassName)}
+                            colJustifyContent={
+                                centered ? GridJustifyContent.Center : GridJustifyContent.Start
+                            }
+                        />
+                    </Row>
                 )}
                 <div
                     className={b('content', {
