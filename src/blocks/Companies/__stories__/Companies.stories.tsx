@@ -3,6 +3,7 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {CompaniesBlockModel, CompaniesBlockProps} from '../../../models';
 import Companies from '../Companies';
+import {form} from '../form';
 
 import data from './data.json';
 
@@ -10,6 +11,7 @@ export default {
     title: 'Blocks/Companies',
     component: Companies,
     parameters: {
+        inputs: form,
         controls: {
             exclude: ['type'],
         },

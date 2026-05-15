@@ -5,12 +5,16 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {MediaBlockModel, MediaBlockProps} from '../../../models';
 import Media from '../Media';
+import {form} from '../form';
 
 import data from './data.json';
 
 export default {
     title: 'Blocks/Media',
     component: Media,
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<MediaBlockModel> = (args) => (

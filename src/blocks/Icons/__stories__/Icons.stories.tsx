@@ -5,12 +5,16 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {IconsBlockModel, IconsBlockProps} from '../../../models';
 import Icons, {default as IconsBlock} from '../../Icons/Icons';
+import {form} from '../form';
 
 import data from './data.json';
 
 export default {
     title: 'Blocks/Icons',
     component: Icons,
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<IconsBlockModel> = (args) => (

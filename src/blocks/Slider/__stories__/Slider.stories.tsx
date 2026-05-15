@@ -10,12 +10,16 @@ import {
 } from '../../../models';
 import {BannerCard, BasicCard, Quote} from '../../../sub-blocks';
 import Slider, {SliderBlock, SliderProps} from '../Slider';
+import {form} from '../form';
 
 import data from './data.json';
 
 export default {
     title: 'Blocks/Slider',
     component: Slider,
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const renderChild = (childArgs: SubBlockModels, index?: number) => {

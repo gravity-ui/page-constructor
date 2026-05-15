@@ -5,6 +5,7 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {HeroBlockModel, HeroBlockProps, Theme as ThemeColor} from '../../../models';
 import Hero from '../Hero';
+import {form} from '../form';
 
 import data from './data.json';
 
@@ -12,6 +13,7 @@ export default {
     title: 'Blocks/Hero',
     component: Hero,
     parameters: {
+        inputs: form,
         controls: {
             exclude: ['type'],
         },

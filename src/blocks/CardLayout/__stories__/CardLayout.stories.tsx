@@ -14,12 +14,16 @@ import {
 } from '../../../models';
 import {BackgroundCard, BasicCard, ImageCard, LayoutItem, PriceCard} from '../../../sub-blocks';
 import CardLayout, {CardLayoutBlockProps} from '../CardLayout';
+import {form} from '../form';
 
 import data from './data.json';
 
 export default {
     title: 'Blocks/CardLayout',
     component: CardLayout,
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const renderChild = (childArgs: SubBlockModels, index?: number) => {

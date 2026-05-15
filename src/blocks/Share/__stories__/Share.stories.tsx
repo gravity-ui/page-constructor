@@ -3,6 +3,7 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {PCShareSocialNetwork, ShareBLockModel, ShareBlockProps} from '../../../models';
 import Share from '../Share';
+import {form} from '../form';
 
 import data from './data.json';
 
@@ -14,6 +15,9 @@ export default {
             control: {type: 'check'},
             options: Object.values(PCShareSocialNetwork),
         },
+    },
+    parameters: {
+        inputs: form,
     },
 } as Meta;
 

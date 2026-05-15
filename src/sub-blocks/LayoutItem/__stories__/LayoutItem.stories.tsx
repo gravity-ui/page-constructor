@@ -7,12 +7,16 @@ import {ConstructorRow} from '../../../containers/PageConstructor/components/Con
 import {Grid} from '../../../gravity-blocks/grid';
 import {LayoutItemModel, LayoutItemProps} from '../../../models';
 import LayoutItem from '../LayoutItem';
+import {form} from '../form';
 
 import data from './data.json';
 
 export default {
     title: 'Components/Cards/LayoutItem',
     component: LayoutItem,
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<LayoutItemModel> = (args) => (

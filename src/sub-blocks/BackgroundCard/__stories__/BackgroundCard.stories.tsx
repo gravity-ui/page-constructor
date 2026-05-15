@@ -7,6 +7,7 @@ import {ConstructorRow} from '../../../containers/PageConstructor/components/Con
 import {Grid} from '../../../gravity-blocks/grid';
 import {BackgroundCardModel, BackgroundCardProps, CardLayoutBlockModel} from '../../../models';
 import BackgroundCard from '../BackgroundCard';
+import {form} from '../form';
 
 import data from './data.json';
 
@@ -21,6 +22,9 @@ export default {
             control: {type: 'radio', labels: {undefined: 'default'}},
             options: [undefined, 'dark', 'light'],
         },
+    },
+    parameters: {
+        inputs: form,
     },
 } as Meta;
 

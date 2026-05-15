@@ -2,6 +2,7 @@ import {Meta, StoryFn} from '@storybook/react';
 
 import {DividerProps} from '../../../models';
 import Divider from '../Divider';
+import {form} from '../form';
 
 import data from './data.json';
 
@@ -10,6 +11,9 @@ import './styles.scss';
 export default {
     component: Divider,
     title: 'Components/Divider',
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<DividerProps> = (args) => (

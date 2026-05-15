@@ -12,6 +12,7 @@ import {
     ImageCardProps,
 } from '../../../models';
 import ImageCard from '../ImageCard';
+import {form} from '../form';
 
 import data from './data.json';
 
@@ -22,6 +23,9 @@ export default {
         backgroundColor: {
             control: {type: 'color'},
         },
+    },
+    parameters: {
+        inputs: form,
     },
 } as Meta;
 

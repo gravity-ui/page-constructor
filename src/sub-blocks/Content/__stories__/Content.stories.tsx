@@ -5,12 +5,16 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {ContentBlockProps, CustomBlock} from '../../../models';
 import Content from '../Content';
+import {form} from '../form';
 
 import data from './data.json';
 
 export default {
     component: Content,
     title: 'Components/Content',
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<ContentBlockProps> = (args) => (

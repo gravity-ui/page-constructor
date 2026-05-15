@@ -12,12 +12,16 @@ import {
 } from '../../../gravity-blocks/context/mapsContext/mapsProvider';
 import {MapBlockModel, MapBlockProps} from '../../../models';
 import MapBlock from '../Map';
+import {form} from '../form';
 
 import data from './data.json';
 
 export default {
     title: 'Blocks/Map',
     component: MapBlock,
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<MapBlockModel> = (args) => (

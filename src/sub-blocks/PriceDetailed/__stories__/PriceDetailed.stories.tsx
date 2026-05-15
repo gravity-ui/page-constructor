@@ -2,12 +2,16 @@ import {Meta, StoryFn} from '@storybook/react';
 
 import {PriceDetailedProps} from '../../../models';
 import PriceDetailed from '../PriceDetailed';
+import {form} from '../form';
 
 import data from './data.json';
 
 export default {
     component: PriceDetailed,
     title: 'Components/Cards/PriceDetailed (deprecated)',
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<PriceDetailedProps> = (args) => (

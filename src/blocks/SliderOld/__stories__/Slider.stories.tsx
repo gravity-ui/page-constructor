@@ -6,6 +6,7 @@ import {blockTransform} from '../../../../.storybook/utils';
 import {subBlockMap} from '../../../constructor-items';
 import {SliderOldBlockModel, SubBlock} from '../../../models';
 import SliderOld, {SliderOldProps} from '../SliderOld';
+import {form} from '../form';
 
 import data from './data.json';
 
@@ -34,6 +35,9 @@ export default {
             </div>
         ),
     ],
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<SliderOldBlockModel> = (args) => transformAndRender(args);

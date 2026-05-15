@@ -3,12 +3,16 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {ExtendedFeaturesBlockModel, ExtendedFeaturesProps} from '../../../models';
 import ExtendedFeatures, {ExtendedFeaturesBlock} from '../ExtendedFeatures';
+import {form} from '../form';
 
 import data from './data.json';
 
 export default {
     component: ExtendedFeatures,
     title: 'Blocks/ExtendedFeatures',
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<ExtendedFeaturesBlockModel> = (args) => {
