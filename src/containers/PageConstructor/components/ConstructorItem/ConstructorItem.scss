@@ -1,8 +1,9 @@
 @import '../../../../../styles/variables';
 @import '../../../../../styles/mixins';
 
-$block: '.#{$ns}constructor-block';
+$block: '.#{$ns}constructor-item';
 
 #{$block} {
-    @include indents(&);
+    height: inherit;
+    width: inherit;
 }

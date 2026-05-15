@@ -4,6 +4,11 @@ import {BlockIdContext} from '../../../../context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
 import {usePCEditorBlockRegister} from '../../../../hooks/usePCEditorBlockRegister';
 import {ConstructorBlock} from '../../../../models';
+import {block} from '../../../../utils';
+
+import './ConstructorItem.scss';
+
+const b = block('constructor-item');
 
 export interface ConstructorItemProps {
     data: ConstructorBlock;
@@ -34,7 +39,7 @@ export const ConstructorItem = ({
 
     return (
         <BlockIdContext.Provider value={path} key={blockKey}>
-            <div ref={blockRef}>
+            <div ref={blockRef} className={b()}>
                 <Component {...rest}>{children}</Component>
             </div>
         </BlockIdContext.Provider>
