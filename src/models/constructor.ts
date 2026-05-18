@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import type {BlockBaseProps} from './constructor-items/blocks';
+
 import {Animatable, BlockDecorationProps, ConstructorItem, ThemedMediaProps} from './';
 
 export interface PageData {
@@ -10,7 +12,8 @@ export interface Menu {
     title: string;
 }
 
-export type ConstructorBlock = ConstructorItem | CustomBlock;
+export type ConstructorBlock = (ConstructorItem | CustomBlock) &
+    Partial<Pick<BlockBaseProps, 'visible'>>;
 
 export interface PageContent extends Animatable {
     blocks: ConstructorBlock[];

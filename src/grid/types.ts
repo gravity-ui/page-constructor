@@ -52,8 +52,7 @@ export interface GridColumnClassParams {
     sizes?: GridColumnSizesType | number;
     offsets?: GridColumnSizesType;
     orders?: GridColumnOrderSizesType;
-    hidden?: GridColumnSize;
-    visible?: GridColumnSize;
+    visible?: GridColumnSize | Partial<Record<GridColumnSize, boolean>>;
     alignSelf?: GridColumnAlignSelf;
     justifyContent?: GridJustifyContent;
     reset?: boolean;

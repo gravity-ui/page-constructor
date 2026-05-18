@@ -67,7 +67,9 @@ function transformBlock(
                         if (parser) {
                             block[field] = parser(transformer, block[field]);
                         } else if (typeof block[field] === 'string') {
-                            block[field] = transformer(block[field] as string);
+                            const blockFields = block as ConstructorBlock & Record<string, unknown>;
+
+                            blockFields[field as string] = transformer(block[field] as string);
                         }
                     }
                 });
