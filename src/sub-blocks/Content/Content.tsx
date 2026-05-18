@@ -52,7 +52,15 @@ const Content = (props: ContentProps) => {
         qa,
         controlPosition,
     } = props;
-    const qaAttributes = getQaAttrubutes(qa, ['links', 'link', 'buttons', 'button', 'list']);
+    const qaAttributes = getQaAttrubutes(qa, [
+        'title',
+        'links',
+        'link',
+        'additional-info',
+        'buttons',
+        'button',
+        'list',
+    ]);
 
     const titleProps =
         !title || typeof title === 'string'
@@ -76,6 +84,7 @@ const Content = (props: ContentProps) => {
                     title={titleProps}
                     colSizes={{all: 12}}
                     id={titleId}
+                    qa={qaAttributes.title}
                 />
             )}
             {text && (
@@ -102,6 +111,7 @@ const Content = (props: ContentProps) => {
                             'constructor-notice': true,
                             [`constructor-size-${size}`]: true,
                         }}
+                        qa={qaAttributes.additionalInfo}
                     />
                 </div>
             )}
