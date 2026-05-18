@@ -411,7 +411,7 @@ export interface AuthorItem {
     avatar?: ThemeSupporting<ImageProps> | JSX.Element;
 }
 
-export interface HeaderBreadCrumbsProps extends ClassNameProps {
+export interface HeaderBreadCrumbsProps extends ClassNameProps, QAProps {
     items: {
         url: string;
         text: React.ReactNode;

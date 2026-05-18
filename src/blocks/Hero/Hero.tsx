@@ -7,13 +7,15 @@ import {useWindowWidth} from '../../context/windowWidthContext';
 import {Grid} from '../../grid';
 import {ButtonProps, HeroBlockProps, Theme} from '../../models';
 import {Content} from '../../sub-blocks';
-import {block, getThemedValue} from '../../utils';
+import {block, getQaAttrubutes, getThemedValue} from '../../utils';
 
 import {useContainerAspectRatio} from './hooks';
 
 import './Hero.scss';
 
 const b = block('hero-block');
+
+const QA_ID = 'hero-block';
 
 const Hero = (props: HeroBlockProps) => {
     const {
@@ -27,6 +29,15 @@ const Hero = (props: HeroBlockProps) => {
         background: themedBackground,
         ...contentProps
     } = props;
+
+    const qaAttributes = getQaAttrubutes(QA_ID, [
+        'background',
+        'beadcrumbs',
+        'content-wrapper',
+        'content-overtitle',
+        'media-wrapper',
+        'media',
+    ]);
 
     const [mediaAspectRatio, setMediaAspectRatio] = React.useState<number>(Infinity);
 
@@ -65,7 +76,7 @@ const Hero = (props: HeroBlockProps) => {
     );
 
     return (
-        <header className={b()}>
+        <header className={b()} data-qa={qaAttributes.default}>
             {background && (
                 <Media
                     className={b('background', {
@@ -75,24 +86,30 @@ const Hero = (props: HeroBlockProps) => {
                     videoClassName={b('background-video')}
                     {...background}
                     isBackground
+                    qa={qaAttributes.background}
                 />
             )}
             <Grid>
-                <div className={b('wrapper')}>
+                <div className={b('wrapper')} data-qa={qaAttributes.wrapper}>
                     {breadcrumbs && (
                         <HeaderBreadcrumbs
                             className={b('breadcrumbs')}
                             {...breadcrumbs}
                             theme={theme}
+                            qa={qaAttributes.breadcrumbs}
                         />
                     )}
                     <div
                         className={b('content', {
                             ['vertical-offset']: verticalOffset,
                         })}
+                        data-qa={qaAttributes.contentWrapper}
                     >
                         {overtitle && (
-                            <div className={b('content-overtitle', {theme})}>
+                            <div
+                                className={b('content-overtitle', {theme})}
+                                data-qa={qaAttributes.contentOvertitle}
+                            >
                                 {typeof overtitle === 'string' ? (
                                     <YFMWrapper
                                         tagName="span"
@@ -113,10 +130,11 @@ const Hero = (props: HeroBlockProps) => {
                             {...contentProps}
                             buttons={buttonProps}
                             theme={contentTheme}
+                            qa={qaAttributes.content}
                         />
                     </div>
                     {media && (
-                        <div className={b('media')}>
+                        <div className={b('media')} data-qa={qaAttributes.mediaWrapper}>
                             <div className={b('media-container')} ref={mediaContainerRef}>
                                 <Media
                                     className={b('media-container-content', {
@@ -126,6 +144,7 @@ const Hero = (props: HeroBlockProps) => {
                                     {...media}
                                     disablePlayerAutoSizing
                                     onIntrinsicSizeChange={onMediaIntrinsicSizeChange}
+                                    qa={qaAttributes.mediaContainerContent}
                                 />
                             </div>
                         </div>
