@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.9.0](https://github.com/gravity-ui/page-constructor/compare/v8.8.1...v8.9.0) (2026-05-18)
+
+
+### Features
+
+* **Hero:** add qa attributes ([#1457](https://github.com/gravity-ui/page-constructor/issues/1457)) ([cb483cb](https://github.com/gravity-ui/page-constructor/commit/cb483cb91c74e6ae2026d303d7f8daf595472bec))
+
 ## [8.8.1](https://github.com/gravity-ui/page-constructor/compare/v8.8.0...v8.8.1) (2026-05-14)
 
 
