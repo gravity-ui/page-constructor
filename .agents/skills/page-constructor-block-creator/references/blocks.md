@@ -78,6 +78,7 @@ Models live in `src/models/constructor-items/blocks.ts` (NOT in the block's own 
 ```ts
 export interface <BlockName>BlockProps extends Animatable /* + any other base */ {
     title: string;
+    className?: string; // accepted by every block via ClassNameProps — declare explicitly so destructuring types cleanly
     // ...
 }
 
@@ -100,7 +101,7 @@ import <BlockName>Block from '../<BlockName>';
 import data from './data.json';
 
 export default {
-    title: 'Blocks/<BlockName>', // see references/storybook-routing.md
+    title: 'Blocks/<BlockName>', // all blocks live under `Blocks/`; sub-blocks and components use different roots — see references/storybook-routing.md
     component: <BlockName>Block,
 } as Meta;
 
@@ -121,7 +122,7 @@ If the block doesn't support `theme`, drop the `DarkTheme` story.
 
 ### `__stories__/data.json`
 
-Mock data is the **YAML config shape** (always includes `"type": "<block-name>"`):
+Mock data is the **YAML config shape** (always includes `"type": "<block-name>"`). The `theme` field inside each variant's `content` must match the variant key: `default.content.theme = "light"`, `darkTheme.content.theme = "dark"`. Mismatched values silently render the wrong theme in Storybook.
 
 ```json
 {

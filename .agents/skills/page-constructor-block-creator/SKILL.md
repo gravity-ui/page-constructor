@@ -86,7 +86,7 @@ These appear repeatedly across the codebase. Violating them produces mismatched 
 - **BEM via `block()` helper** from `src/utils`: `const b = block('banner-block');` — the BEM block name is the **kebab-case schema type**, NOT the React component name.
 - **SCSS file imported as side effect** (`import './Banner.scss';`) — never CSS modules.
 - **`ThemedValue<T>` for media/colors/images**: schema fields that accept light/dark variants must use `withTheme(...)` in the validator and resolve via `getThemedValue()` at render time. Mock data in `data.json` must show both: a flat string for `default` and an object `{ light, dark }` for `darkTheme`.
-- **No barrel `index.ts` re-exports for new components.** Consumers import directly from `src/components/Foo/Foo`. (See AGENTS.md "Architecture invariants".)
+- **No barrel `index.ts` re-exports for new components.** Consumers import directly from `src/components/Foo/Foo`. This rule applies to **`src/components/` only** — blocks and sub-blocks still register via their respective `src/blocks/index.ts` / `src/sub-blocks/index.ts` re-exports (those exports feed the public API and `blockMap`). (See AGENTS.md "Architecture invariants".)
 - **i18n strings centralized** (when applicable) under `src/components/<Name>/i18n/` — but only if the component has user-facing strings, not for blocks whose strings come from the YAML config.
 
 ## Storybook conventions (critical)
