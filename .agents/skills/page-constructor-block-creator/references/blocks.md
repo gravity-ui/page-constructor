@@ -180,17 +180,18 @@ List every public prop with a one-line description. Don't dump the schema verbat
 
 ## Wiring checklist
 
-After the files exist, register the block in five places. Skipping any one of these breaks a real flow.
+After the files exist, register the block in six places. Skipping any one of these breaks a real flow or hides the block from future agents.
 
-| #   | File                                     | Change                                                                                                                                                        |
-| --- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | `src/models/constructor-items/blocks.ts` | Add `BlockType.<BlockName>Block = '<block-name>'` to the enum; add `<BlockName>BlockProps` and `<BlockName>BlockModel`; include model in `BlockModels` union  |
-| 2   | `src/blocks/index.ts`                    | `export {default as <BlockName>Block} from './<BlockName>/<BlockName>';`                                                                                      |
-| 3   | `src/constructor-items.ts`               | Import `<BlockName>Block`; add `[BlockType.<BlockName>Block]: <BlockName>Block` to `blockMap`                                                                 |
-| 4   | `src/schema/validators/blocks.ts`        | `export * from '../../blocks/<BlockName>/schema';`                                                                                                            |
-| 5   | `src/schema/constants.ts`                | Import `<BlockName>Block` from `./validators/blocks`; spread `...<BlockName>Block` into `blockSchemas`; add `'<block-name>'` to `constructorBlockSchemaNames` |
+| #   | File                                     | Change                                                                                                                                                                                                                                                                                                                                                         |
+| --- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | `src/models/constructor-items/blocks.ts` | Add `BlockType.<BlockName>Block = '<block-name>'` to the enum; add `<BlockName>BlockProps` and `<BlockName>BlockModel`; include model in `BlockModels` union                                                                                                                                                                                                   |
+| 2   | `src/blocks/index.ts`                    | `export {default as <BlockName>Block} from './<BlockName>/<BlockName>';`                                                                                                                                                                                                                                                                                       |
+| 3   | `src/constructor-items.ts`               | Import `<BlockName>Block`; add `[BlockType.<BlockName>Block]: <BlockName>Block` to `blockMap`                                                                                                                                                                                                                                                                  |
+| 4   | `src/schema/validators/blocks.ts`        | `export * from '../../blocks/<BlockName>/schema';`                                                                                                                                                                                                                                                                                                             |
+| 5   | `src/schema/constants.ts`                | Import `<BlockName>Block` from `./validators/blocks`; spread `...<BlockName>Block` into `blockSchemas`; add `'<block-name>'` to `constructorBlockSchemaNames`                                                                                                                                                                                                  |
+| 6   | `memory-bank/` (4 files)                 | Create `memory-bank/usage/<blockName>.md` (Overview + Component Details, empty Usage Graph — template: `memory-bank/usage/basicCard.md`). Create `memory-bank/blockDeps/<blockNameLowercase>.md` (Mermaid graph of components/sub-blocks used — template: `memory-bank/blockDeps/banner.md`). Append entry to `activeContext.md` and `storybookComponents.md`. |
 
-After all five, `npm run typecheck` should pass and the Storybook entry should appear at `Blocks/<BlockName>`.
+After all six, `npm run typecheck` should pass, the Storybook entry should appear at `Blocks/<BlockName>`, and the block is discoverable through `memory-bank/`.
 
 ## Common pitfalls
 

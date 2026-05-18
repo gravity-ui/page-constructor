@@ -123,13 +123,14 @@ Same template as blocks — `Meta` + `StoryTemplate` + a `## Parameters` section
 
 ## Wiring checklist
 
-| #   | File                                         | Change                                                                                                                                                          |
-| --- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | `src/models/constructor-items/sub-blocks.ts` | Add `SubBlockType.<SubBlockName> = '<sub-block-name>'`; add `<SubBlockName>Props` and `<SubBlockName>Model`; include in `SubBlockModels` union                  |
-| 2   | `src/sub-blocks/index.ts`                    | `export {default as <SubBlockName>} from './<SubBlockName>/<SubBlockName>';`                                                                                    |
-| 3   | `src/constructor-items.ts`                   | Import `<SubBlockName>`; add `[SubBlockType.<SubBlockName>]: <SubBlockName>` to `subBlockMap`                                                                   |
-| 4   | `src/schema/validators/sub-blocks.ts`        | `export * from '../../sub-blocks/<SubBlockName>/schema';`                                                                                                       |
-| 5   | `src/schema/constants.ts`                    | Import `<SubBlockName>` from `./validators/sub-blocks`; spread `...<SubBlockName>` into `cardSchemas`; add `'<sub-block-name>'` to `constructorCardSchemaNames` |
+| #   | File                                         | Change                                                                                                                                                                                                                                                                         |
+| --- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | `src/models/constructor-items/sub-blocks.ts` | Add `SubBlockType.<SubBlockName> = '<sub-block-name>'`; add `<SubBlockName>Props` and `<SubBlockName>Model`; include in `SubBlockModels` union                                                                                                                                 |
+| 2   | `src/sub-blocks/index.ts`                    | `export {default as <SubBlockName>} from './<SubBlockName>/<SubBlockName>';`                                                                                                                                                                                                   |
+| 3   | `src/constructor-items.ts`                   | Import `<SubBlockName>`; add `[SubBlockType.<SubBlockName>]: <SubBlockName>` to `subBlockMap`                                                                                                                                                                                  |
+| 4   | `src/schema/validators/sub-blocks.ts`        | `export * from '../../sub-blocks/<SubBlockName>/schema';`                                                                                                                                                                                                                      |
+| 5   | `src/schema/constants.ts`                    | Import `<SubBlockName>` from `./validators/sub-blocks`; spread `...<SubBlockName>` into `cardSchemas`; add `'<sub-block-name>'` to `constructorCardSchemaNames`                                                                                                                |
+| 6   | `memory-bank/` (3 files)                     | Create `memory-bank/usage/<subBlockCamelCase>.md` (Overview + Component Details, empty Usage Graph — template: `memory-bank/usage/basicCard.md`). Append entry to `activeContext.md` and `storybookComponents.md`. No `blockDeps/` file — those are only for top-level blocks. |
 
 ## Common pitfalls
 
