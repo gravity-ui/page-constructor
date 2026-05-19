@@ -61,6 +61,22 @@ After scaffolding:
 - Suggest `npm run dev` to open Storybook on port 7009 and check the new story renders.
 - Don't claim completion until the type check passes and the Storybook entry exists at the predicted title path.
 
+### 5. Document in `memory-bank/`
+
+`memory-bank/` is the project's discovery index — future agents search it to find reuse candidates. **A new entity that isn't documented there is invisible**, even when the code is correctly wired. See `memory-bank/README.md` for the index and conventions.
+
+Required for every kind (block / sub-block / component):
+
+1. **Create `memory-bank/usage/<entityCamelCaseName>.md`** — mirror the format of an existing usage doc (template: `memory-bank/usage/basicCard.md`). Sections: Overview, Usage Graph (Mermaid), Component Details. For a brand-new entity the **Usage Graph will be empty** (no consumers yet) — write the Overview and Component Details, leave the Mermaid graph as a placeholder noting `(no consumers yet)`.
+2. **Append a one-line entry to `memory-bank/activeContext.md`** under recent changes — e.g. `Added <Name> <kind>: <one-line purpose>`.
+3. **Add the new Storybook entry to `memory-bank/storybookComponents.md`** — slot it under the correct category (Blocks / Components / Cards) with its title path.
+
+Block-specific (in addition to the three above):
+
+4. **Create `memory-bank/blockDeps/<blockNameLowercase>.md`** — Mermaid Dependency Graph listing the components and sub-blocks the new block uses. Template: `memory-bank/blockDeps/banner.md`. This one is filled in immediately because dependencies are known at creation time.
+
+Per-kind wiring checklists in `references/*.md` include these memory-bank steps as the final row — don't skip them.
+
 ## Conventions you must preserve
 
 These appear repeatedly across the codebase. Violating them produces mismatched files that don't match other entities of the same kind.
@@ -70,7 +86,7 @@ These appear repeatedly across the codebase. Violating them produces mismatched 
 - **BEM via `block()` helper** from `src/utils`: `const b = block('banner-block');` — the BEM block name is the **kebab-case schema type**, NOT the React component name.
 - **SCSS file imported as side effect** (`import './Banner.scss';`) — never CSS modules.
 - **`ThemedValue<T>` for media/colors/images**: schema fields that accept light/dark variants must use `withTheme(...)` in the validator and resolve via `getThemedValue()` at render time. Mock data in `data.json` must show both: a flat string for `default` and an object `{ light, dark }` for `darkTheme`.
-- **No barrel `index.ts` re-exports for new components.** Consumers import directly from `src/components/Foo/Foo`. (See AGENTS.md "Architecture invariants".)
+- **No barrel `index.ts` re-exports for new components.** Consumers import directly from `src/components/Foo/Foo`. This rule applies to **`src/components/` only** — blocks and sub-blocks still register via their respective `src/blocks/index.ts` / `src/sub-blocks/index.ts` re-exports (those exports feed the public API and `blockMap`). (See AGENTS.md "Architecture invariants".)
 - **i18n strings centralized** (when applicable) under `src/components/<Name>/i18n/` — but only if the component has user-facing strings, not for blocks whose strings come from the YAML config.
 
 ## Storybook conventions (critical)

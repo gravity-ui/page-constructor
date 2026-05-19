@@ -104,12 +104,13 @@ Same template as for blocks/sub-blocks. Document each prop in the `## Parameters
 
 ## Wiring checklist
 
-| #   | File             | Change                                                                                                            |
-| --- | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
-| 1   | (component file) | Define `<ComponentName>Props` interface (in component file or `src/models/constructor-items/common.ts` if shared) |
-| 2   | Importers        | Direct import: `import <ComponentName> from '../../components/<ComponentName>/<ComponentName>';`                  |
+| #   | File                     | Change                                                                                                                                                                                                                                                                 |
+| --- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | (component file)         | Define `<ComponentName>Props` interface (in component file or `src/models/constructor-items/common.ts` if shared)                                                                                                                                                      |
+| 2   | Importers                | Direct import: `import <ComponentName> from '../../components/<ComponentName>/<ComponentName>';`                                                                                                                                                                       |
+| 3   | `memory-bank/` (3 files) | Create `memory-bank/usage/<componentCamelCase>.md` (Overview + Component Details, empty Usage Graph — template: `memory-bank/usage/button.md` or `memory-bank/usage/title.md`). Append entry to `activeContext.md` and `storybookComponents.md`. No `blockDeps/` file. |
 
-That's it — no `blockMap`, no schema, no `BlockType`. Components are just code.
+No `blockMap`, no schema, no `BlockType`. Components are just code — but they still need a `memory-bank/usage/` entry to be discoverable.
 
 ## Common pitfalls
 
