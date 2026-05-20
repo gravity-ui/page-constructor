@@ -1,5 +1,19 @@
 # @gravity-ui/page-constructor — Agent Context
 
+## Pre-response gate (READ FIRST)
+
+Before answering questions or proposing changes about existing blocks, sub-blocks, components, or architectural patterns, the agent MUST first consult:
+
+1. `.agents/docs/architecture.md` — for structural / invariant questions.
+2. `memory-bank/` — start at `memory-bank/README.md`; then pick the relevant file (`systemPatterns.md` for cross-cutting patterns, `usage/<component>.md` for component-specific knowledge, `blockDeps/` for dependency graphs).
+3. `.agents/docs/navigation.md` — when locating files or understanding directory layout.
+
+Source-code exploration (grep, Read, Explore subagents) comes AFTER these docs, not instead of them. List the consulted docs in the response so the reader can verify the gate was honored.
+
+Trivial cases (typos, one-line lookups) may skip the gate but must state so explicitly.
+
+---
+
 ## Root Context
 
 **Package**: `@gravity-ui/page-constructor` v8.7.1  
@@ -71,6 +85,12 @@ Quick pointers:
 ## Testing & validation
 
 Validation checks the agent **must run before completing a change** (typecheck, lint, unit tests, visual tests) → see `.agents/validation/README.md`.
+
+---
+
+## Running evals
+
+When the user asks to "run the `<task-name>` eval" (any language), follow the workflow in `.agents/evaluation/README.md` — fresh session, answer verbatim, self-score against `expected.md`, optionally save to `runs/`.
 
 ---
 
