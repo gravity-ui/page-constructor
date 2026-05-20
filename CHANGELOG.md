@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.10.0](https://github.com/gravity-ui/page-constructor/compare/v8.9.0...v8.10.0) (2026-05-20)
+
+
+### Features
+
+* move @gravity-ui/icons to deps ([#1460](https://github.com/gravity-ui/page-constructor/issues/1460)) ([5322bd5](https://github.com/gravity-ui/page-constructor/commit/5322bd58d5253d0c0a8ad7ecdd05fda773efeabd))
+
 ## [8.9.0](https://github.com/gravity-ui/page-constructor/compare/v8.8.1...v8.9.0) (2026-05-18)
 
 
