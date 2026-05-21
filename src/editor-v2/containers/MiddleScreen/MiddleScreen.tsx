@@ -58,10 +58,8 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
     }, [deviceWidth]);
 
     React.useEffect(() => {
-        if (!isPreviewMode) return;
-
         const handleKeyDown = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') togglePreviewMode();
+            if (isPreviewMode && e.key === 'Escape') togglePreviewMode();
         };
 
         document.addEventListener('keydown', handleKeyDown);
