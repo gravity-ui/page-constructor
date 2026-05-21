@@ -6,22 +6,17 @@ export {
     type GravityBlocksProviderProps,
 } from '../context/GravityBlocksProvider';
 
+import {GeneralExtensionGlobalConfig, GeneralExtensionWrapperProps} from './GeneralExtension';
+
 import {backgroundExtension, blockBaseExtension, generalExtension, navigationExtension} from '.';
 
-export interface GravityBlocksWrapperProps {
-    isBranded?: boolean;
-    animated?: boolean;
+export interface GravityBlocksWrapperProps extends GeneralExtensionWrapperProps {
     renderMenu?: () => React.ReactNode;
-    microdata?: {
-        contentUpdatedDate?: string;
-    };
 }
 
-export interface GravityBlocksGlobalConfig {
+export interface GravityBlocksGlobalConfig extends GeneralExtensionGlobalConfig {
     background?: MediaProps;
     navigation?: NavigationData;
-    isBranded?: boolean;
-    animated?: boolean;
 }
 
 export interface GravityPageContent extends PageContent, GravityBlocksGlobalConfig {}
@@ -34,17 +29,19 @@ export const gravityBlocksExtension = ({
     wrapperProps?: GravityBlocksWrapperProps;
     globalDefaults?: GravityBlocksGlobalConfig;
 }): PageConstructorExtension<GravityBlocksGlobalConfig, GravityBlocksWrapperProps>[] => {
-    const {background, navigation, isBranded, animated} = globalDefaults;
+    const {background, navigation, ...generalGlobalDefaults} = globalDefaults;
+    const {renderMenu, ...generalWrapperProps} = wrapperProps;
 
     return [
         generalExtension({
-            globalDefaults: {isBranded, animated},
+            wrapperProps: generalWrapperProps,
+            globalDefaults: generalGlobalDefaults,
         }),
         backgroundExtension({
             globalDefaults: {background},
         }),
         navigationExtension({
-            wrapperProps,
+            wrapperProps: {renderMenu},
             globalDefaults: {navigation},
         }),
         blockBaseExtension(),
