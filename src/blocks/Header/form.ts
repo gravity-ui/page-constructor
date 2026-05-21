@@ -3,7 +3,7 @@ import {Fields} from '../../form-generator-v2/types';
 export const form = [
     {
         type: 'section',
-        title: 'Main settings',
+        title: 'Layout settings',
         opened: true,
         fields: [
             {
@@ -17,6 +17,7 @@ export const form = [
                     {content: 'L', value: 'l'},
                     {content: 'XL', value: 'xl'},
                 ],
+                defaultValue: 'm',
             },
         ],
     },
@@ -32,11 +33,13 @@ export const form = [
                 title: 'Text',
                 name: 'breadcrumbs.items[{{index}}].text',
                 type: 'textInput',
+                placeholder: 'Text',
             },
             {
                 title: 'URL',
                 name: 'breadcrumbs.items[{{index}}].url',
                 type: 'textInput',
+                placeholder: 'https://',
             },
         ],
     },
@@ -49,16 +52,19 @@ export const form = [
                 title: 'Overtitle',
                 name: 'overtitle',
                 type: 'textInput',
+                placeholder: 'Text',
             },
             {
                 title: 'Title',
                 name: 'title',
                 type: 'textInput',
+                placeholder: 'Text',
             },
             {
                 title: 'Description',
                 name: 'description',
                 type: 'textArea',
+                placeholder: 'Text',
             },
             {
                 title: 'Width',
@@ -98,16 +104,19 @@ export const form = [
                         title: 'Text',
                         type: 'textInput',
                         name: 'buttons[{{index}}].text',
+                        placeholder: 'Text',
                     },
                     {
                         title: 'URL',
                         type: 'textInput',
                         name: 'buttons[{{index}}].url',
+                        placeholder: 'https://',
                     },
                     {
                         title: 'URL title',
                         type: 'textInput',
                         name: 'buttons[{{index}}].urlTitle',
+                        placeholder: 'https://',
                     },
                     {
                         title: 'Style',
@@ -142,35 +151,30 @@ export const form = [
             {
                 type: 'section',
                 title: 'Analytics tracking',
-                withAddButton: true,
-                index: 'index2',
-                itemTitle: 'Analytics event {{index2}}',
-                itemView: 'card',
+                itemView: 'clear',
                 fields: [
                     {
                         title: 'Name',
                         type: 'textInput',
-                        name: 'buttons[{{index}}].analyticsEvents[{{index2}}].name',
+                        name: 'buttons[{{index}}].analyticsEvents[0].name',
+                        placeholder: 'Text',
                     },
                     {
                         title: 'Target',
                         type: 'textInput',
-                        name: 'buttons[{{index}}].analyticsEvents[{{index2}}].target',
+                        name: 'buttons[{{index}}].analyticsEvents[0].target',
+                        placeholder: 'Text',
                     },
                     {
-                        title: 'Counters',
-                        withAddButton: true,
-                        type: 'section',
-                        index: 'indexgoal',
-                        itemTitle: 'Counter {{indexgoal}}',
-                        itemView: 'card',
-                        fields: [
-                            {
-                                title: 'Counter',
-                                type: 'textInput',
-                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
-                            },
-                        ],
+                        title: 'Counter',
+                        type: 'textInput',
+                        name: 'buttons[{{index}}].analyticsEvents[0].counters[0].includes',
+                        placeholder: 'Text',
+                    },
+                    {
+                        type: 'text',
+                        text: 'Only events for the counters listed in the input field will be sent.',
+                        level: 'info',
                     },
                 ],
             },
@@ -185,6 +189,7 @@ export const form = [
                 title: 'Color HEX',
                 type: 'textInput',
                 name: 'background.color',
+                placeholder: '#000000',
             },
             {
                 title: 'Type',
@@ -201,8 +206,8 @@ export const form = [
                 when: [
                     {
                         field: '_mediaType',
-                        operator: '!==',
-                        value: undefined,
+                        operator: '===',
+                        value: 'image',
                     },
                 ],
             },
@@ -210,6 +215,7 @@ export const form = [
                 title: 'Desktop',
                 type: 'textInput',
                 name: 'background.light.image.desktop',
+                placeholder: 'https://',
                 when: [
                     {
                         field: '_mediaType',
@@ -222,6 +228,7 @@ export const form = [
                 title: 'Tablet',
                 type: 'textInput',
                 name: 'background.light.image.tablet',
+                placeholder: 'https://',
                 when: [
                     {
                         field: '_mediaType',
@@ -234,6 +241,7 @@ export const form = [
                 title: 'Mobile',
                 type: 'textInput',
                 name: 'background.light.image.mobile',
+                placeholder: 'https://',
                 when: [
                     {
                         field: '_mediaType',
@@ -243,25 +251,13 @@ export const form = [
                 ],
             },
             {
-                title: 'URL',
-                type: 'textInput',
-                name: 'background.light.video.src',
-                when: [
-                    {
-                        field: '_mediaType',
-                        operator: '===',
-                        value: 'video',
-                    },
-                ],
-            },
-            {
                 type: 'text',
                 text: 'Dark theme',
                 when: [
                     {
                         field: '_mediaType',
-                        operator: '!==',
-                        value: undefined,
+                        operator: '===',
+                        value: 'image',
                     },
                 ],
             },
@@ -269,6 +265,7 @@ export const form = [
                 title: 'Desktop',
                 type: 'textInput',
                 name: 'background.dark.image.desktop',
+                placeholder: 'https://',
                 when: [
                     {
                         field: '_mediaType',
@@ -281,6 +278,7 @@ export const form = [
                 title: 'Tablet',
                 type: 'textInput',
                 name: 'background.dark.image.tablet',
+                placeholder: 'https://',
                 when: [
                     {
                         field: '_mediaType',
@@ -293,6 +291,7 @@ export const form = [
                 title: 'Mobile',
                 type: 'textInput',
                 name: 'background.dark.image.mobile',
+                placeholder: 'https://',
                 when: [
                     {
                         field: '_mediaType',
@@ -302,9 +301,59 @@ export const form = [
                 ],
             },
             {
-                title: 'URL',
+                title: 'Type',
+                type: 'select',
+                options: [{value: 'default'}, {value: 'player'}],
+                name: 'background.video.type',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'video',
+                    },
+                ],
+            },
+            {
+                title: 'Video URL',
                 type: 'textInput',
-                name: 'background.dark.video.src',
+                name: 'background.video.src[0]',
+                placeholder: 'https://',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'video',
+                    },
+                ],
+            },
+            {
+                title: 'Muted',
+                type: 'switch',
+                name: 'background.video.muted',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'video',
+                    },
+                ],
+            },
+            {
+                title: 'Autoplay',
+                type: 'switch',
+                name: 'background.video.autoplay',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'video',
+                    },
+                ],
+            },
+            {
+                title: 'Loop',
+                type: 'switch',
+                name: 'background.video.loop',
                 when: [
                     {
                         field: '_mediaType',

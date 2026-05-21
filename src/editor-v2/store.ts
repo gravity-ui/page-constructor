@@ -20,6 +20,18 @@ import {
 const MAX_EDITOR_HISTORY = 50;
 const HISTORY_DEBOUNCE_MS = 500;
 
+/** After unsetting a leaf, remove empty `{}` parents (e.g. `seo` after `seo.slug` is removed). */
+function pruneEmptyObjectAncestors(root: object, unsetPath: string) {
+    const segments = _.toPath(unsetPath);
+    for (let depth = segments.length - 1; depth >= 1; depth--) {
+        const parentPath = segments.slice(0, depth);
+        const parentVal = _.get(root, parentPath);
+        if (_.isPlainObject(parentVal) && Object.keys(parentVal as object).length === 0) {
+            _.unset(root, parentPath);
+        }
+    }
+}
+
 function snapshotEditorHistory(state: EditorState): EditorHistorySnapshot {
     return {
         content: _.cloneDeep(state.content),
@@ -303,7 +315,14 @@ export const createEditorStore = initializeStore<EditorState, EditorMethods>(
                 }, HISTORY_DEBOUNCE_MS);
 
                 set((state) => {
-                    const newConfig = _.set(_.cloneDeep(state.content), path, value);
+                    const newConfig = _.cloneDeep(state.content);
+                    // `_.set(..., undefined)` leaves empty objects; clearing a field should remove the key.
+                    if (value === undefined) {
+                        _.unset(newConfig, path);
+                        pruneEmptyObjectAncestors(newConfig, path);
+                    } else {
+                        _.set(newConfig, path, value);
+                    }
                     return {...state, historyFuture: [], content: newConfig};
                 });
             },

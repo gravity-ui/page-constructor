@@ -4,7 +4,6 @@
     $class: &;
 
     position: relative;
-    // margin: 16px 0;
 
     &:before {
         position: absolute;
@@ -43,7 +42,7 @@
     }
 
     &_nested {
-        margin-top: 8px;
+        margin-top: 16px;
         margin-bottom: 8px;
 
         &:first-child {
@@ -77,8 +76,8 @@
     &__header {
         display: flex;
         align-items: center;
-        padding-top: 16px;
-        padding-bottom: 16px;
+        padding-top: 12px;
+        padding-bottom: 12px;
     }
 
     &__title {
@@ -136,6 +135,7 @@
         &_opened {
             grid-template-rows: 1fr;
             padding-bottom: 16px;
+            padding-top: 16px;
 
             & & {
                 padding-bottom: 0;
@@ -151,6 +151,7 @@
 
     &__card {
         padding: 12px;
+        padding-bottom: 16px;
 
         &:not(&:nth-last-child(1)) {
             margin-bottom: 12px;
@@ -203,9 +204,5 @@
         &_opened {
             opacity: 1;
         }
-    }
-
-    &__header:hover > &__dropdown {
-        opacity: 1;
     }
 }

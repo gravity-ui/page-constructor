@@ -7,7 +7,15 @@ import BaseInput from '../BaseInput/BaseInput';
 
 type TextInputProps = CommonProps & TextField;
 
-const TextInput = ({title, name, when, content, onUpdate, defaultValue}: TextInputProps) => {
+const TextInput = ({
+    title,
+    name,
+    when,
+    content,
+    onUpdate,
+    defaultValue,
+    placeholder,
+}: TextInputProps) => {
     const value = getValueByPath(content, name) ?? defaultValue ?? '';
 
     return (
@@ -19,7 +27,12 @@ const TextInput = ({title, name, when, content, onUpdate, defaultValue}: TextInp
             defaultValue={defaultValue}
         >
             <BaseInput title={title}>
-                <TextInputUIKIT name={name} onUpdate={(v) => onUpdate(name, v)} value={value} />
+                <TextInputUIKIT
+                    name={name}
+                    onUpdate={(v) => onUpdate(name, v)}
+                    value={value}
+                    placeholder={placeholder}
+                />
             </BaseInput>
         </Base>
     );

@@ -1,28 +1,26 @@
 .pc-fg-base-input {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
 
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 
     &:not(:first-child) {
-        margin-top: 8px;
+        margin-top: 12px;
     }
 
     &:last-child {
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
 
     &__title {
         padding: 5px 0;
         min-width: 64px;
         max-width: 128px;
-        width: 100%;
-        line-break: anywhere;
         display: inline-block;
-
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        white-space: break-spaces;
+        word-break: break-word;
+        width: 20%;
+        align-items: flex-start;
 
         &::first-letter {
             text-transform: uppercase;

@@ -43,6 +43,7 @@ export type TextField = {
     title: string;
     defaultValue?: string;
     when?: When;
+    placeholder?: string;
 };
 
 export type SegmentedRadioGroupField = {
