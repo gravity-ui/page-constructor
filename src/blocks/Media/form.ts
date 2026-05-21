@@ -3,7 +3,7 @@ import {Fields} from '../../form-generator-v2/types';
 export const form = [
     {
         type: 'section',
-        title: 'Main settings',
+        title: 'Layout settings',
         opened: true,
         fields: [
             {
@@ -22,32 +22,6 @@ export const form = [
                 options: [
                     {content: 'Media-content', value: 'media-content'},
                     {content: 'Content-media', value: 'content-media'},
-                ],
-            },
-            {
-                type: 'select',
-                title: 'Top indent',
-                name: 'indent.top',
-                options: [
-                    {value: '0'},
-                    {value: 'xs'},
-                    {value: 's'},
-                    {value: 'm'},
-                    {value: 'l'},
-                    {value: 'xl'},
-                ],
-            },
-            {
-                type: 'select',
-                title: 'Bottom indent',
-                name: 'indent.bottom',
-                options: [
-                    {value: '0'},
-                    {value: 'xs'},
-                    {value: 's'},
-                    {value: 'm'},
-                    {value: 'l'},
-                    {value: 'xl'},
                 ],
             },
             {
@@ -71,16 +45,19 @@ export const form = [
                 type: 'textInput',
                 title: 'Title',
                 name: 'title',
+                placeholder: 'Text',
             },
             {
                 type: 'textArea',
                 title: 'Description',
                 name: 'description',
+                placeholder: 'Text',
             },
             {
                 type: 'textArea',
                 title: 'Additional info',
                 name: 'additionalInfo',
+                placeholder: 'Text',
             },
             {
                 type: 'select',
@@ -111,16 +88,19 @@ export const form = [
                 type: 'textInput',
                 title: 'Title',
                 name: 'list[{{index1}}].title',
+                placeholder: 'Text',
             },
             {
                 type: 'textArea',
                 title: 'Description',
                 name: 'list[{{index1}}].text',
+                placeholder: 'Text',
             },
             {
                 type: 'textInput',
                 title: 'URL icon',
                 name: 'list[{{index1}}].icon',
+                placeholder: 'https://',
             },
         ],
     },
@@ -141,16 +121,19 @@ export const form = [
                         title: 'Text',
                         type: 'textInput',
                         name: 'buttons[{{index}}].text',
+                        placeholder: 'Text',
                     },
                     {
                         title: 'URL',
                         type: 'textInput',
                         name: 'buttons[{{index}}].url',
+                        placeholder: 'https://',
                     },
                     {
                         title: 'URL title',
                         type: 'textInput',
                         name: 'buttons[{{index}}].urlTitle',
+                        placeholder: 'https://',
                     },
                     {
                         title: 'Style',
@@ -185,35 +168,30 @@ export const form = [
             {
                 type: 'section',
                 title: 'Analytics tracking',
-                withAddButton: true,
-                index: 'index2',
-                itemTitle: 'Analytics event {{index2}}',
-                itemView: 'card',
+                itemView: 'clear',
                 fields: [
                     {
                         title: 'Name',
                         type: 'textInput',
-                        name: 'buttons[{{index}}].analyticsEvents[{{index2}}].name',
+                        name: 'buttons[{{index}}].analyticsEvents[0].name',
+                        placeholder: 'Text',
                     },
                     {
                         title: 'Target',
                         type: 'textInput',
-                        name: 'buttons[{{index}}].analyticsEvents[{{index2}}].target',
+                        name: 'buttons[{{index}}].analyticsEvents[0].target',
+                        placeholder: 'Text',
                     },
                     {
-                        title: 'Counters',
-                        withAddButton: true,
-                        type: 'section',
-                        index: 'indexgoal',
-                        itemTitle: 'Counter {{indexgoal}}',
-                        itemView: 'card',
-                        fields: [
-                            {
-                                title: 'Counter',
-                                type: 'textInput',
-                                name: 'buttons[{{index}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
-                            },
-                        ],
+                        title: 'Counter',
+                        type: 'textInput',
+                        name: 'buttons[{{index}}].analyticsEvents[0].counters[0].includes',
+                        placeholder: 'Text',
+                    },
+                    {
+                        type: 'text',
+                        text: 'Only events for the counters listed in the input field will be sent.',
+                        level: 'info',
                     },
                 ],
             },
@@ -231,16 +209,19 @@ export const form = [
                 type: 'textInput',
                 title: 'Text',
                 name: 'links[{{index1}}].text',
+                placeholder: 'Text',
             },
             {
                 type: 'textInput',
                 title: 'URL',
                 name: 'links[{{index1}}].url',
+                placeholder: 'https://',
             },
             {
                 type: 'textInput',
                 title: 'URL title',
                 name: 'links[{{index1}}].urlTitle',
+                placeholder: 'https://',
             },
             {
                 type: 'select',
@@ -263,35 +244,25 @@ export const form = [
             {
                 type: 'section',
                 title: 'Analytics tracking',
-                withAddButton: true,
-                index: 'index2',
-                itemTitle: 'Analytics event {{index2}}',
-                itemView: 'card',
+                itemView: 'clear',
                 fields: [
                     {
                         title: 'Name',
                         type: 'textInput',
-                        name: 'links[{{index1}}].analyticsEvents[{{index2}}].name',
+                        name: 'links[{{index1}}].analyticsEvents[0].name',
+                        placeholder: 'Text',
                     },
                     {
                         title: 'Target',
                         type: 'textInput',
-                        name: 'links[{{index1}}].analyticsEvents[{{index2}}].target',
+                        name: 'links[{{index1}}].analyticsEvents[0].target',
+                        placeholder: 'Text',
                     },
                     {
-                        title: 'Counters',
-                        withAddButton: true,
-                        type: 'section',
-                        index: 'indexgoal',
-                        itemTitle: 'Counter {{indexgoal}}',
-                        itemView: 'card',
-                        fields: [
-                            {
-                                title: 'Counter',
-                                type: 'textInput',
-                                name: 'links[{{index1}}].analyticsEvents[{{index2}}].counters[{{indexgoal}}].includes',
-                            },
-                        ],
+                        title: 'Counter',
+                        type: 'textInput',
+                        name: 'links[{{index1}}].analyticsEvents[0].counters[0].includes',
+                        placeholder: 'Text',
                     },
                 ],
             },
@@ -312,8 +283,10 @@ export const form = [
                 type: 'segmentedRadioGroup',
             },
             {
-                type: 'text',
-                text: 'Light theme',
+                title: 'Ratio',
+                type: 'select',
+                name: 'background.ratio',
+                options: [{value: 'auto'}, {value: 16 / 9, content: '16:9'}],
                 when: [
                     {
                         field: '_mediaType',
@@ -323,9 +296,34 @@ export const form = [
                 ],
             },
             {
+                title: 'Border',
+                type: 'select',
+                name: 'border',
+                options: [{value: 'none'}, {value: 'shadow'}, {value: 'line'}],
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'image',
+                    },
+                ],
+            },
+            {
+                type: 'text',
+                text: 'Light theme',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'image',
+                    },
+                ],
+            },
+            {
                 title: 'Desktop',
                 type: 'textInput',
                 name: 'media.light.image.desktop',
+                placeholder: 'https://',
                 when: [
                     {
                         field: '_mediaType',
@@ -338,6 +336,7 @@ export const form = [
                 title: 'Tablet',
                 type: 'textInput',
                 name: 'media.light.image.tablet',
+                placeholder: 'https://',
                 when: [
                     {
                         field: '_mediaType',
@@ -350,6 +349,7 @@ export const form = [
                 title: 'Mobile',
                 type: 'textInput',
                 name: 'media.light.image.mobile',
+                placeholder: 'https://',
                 when: [
                     {
                         field: '_mediaType',
@@ -359,25 +359,13 @@ export const form = [
                 ],
             },
             {
-                title: 'URL',
-                type: 'textInput',
-                name: 'media.light.video.src',
-                when: [
-                    {
-                        field: '_mediaType',
-                        operator: '===',
-                        value: 'video',
-                    },
-                ],
-            },
-            {
                 type: 'text',
                 text: 'Dark theme',
                 when: [
                     {
                         field: '_mediaType',
-                        operator: '!==',
-                        value: undefined,
+                        operator: '===',
+                        value: 'image',
                     },
                 ],
             },
@@ -385,6 +373,7 @@ export const form = [
                 title: 'Desktop',
                 type: 'textInput',
                 name: 'media.dark.image.desktop',
+                placeholder: 'https://',
                 when: [
                     {
                         field: '_mediaType',
@@ -397,6 +386,7 @@ export const form = [
                 title: 'Tablet',
                 type: 'textInput',
                 name: 'media.dark.image.tablet',
+                placeholder: 'https://',
                 when: [
                     {
                         field: '_mediaType',
@@ -409,6 +399,7 @@ export const form = [
                 title: 'Mobile',
                 type: 'textInput',
                 name: 'media.dark.image.mobile',
+                placeholder: 'https://',
                 when: [
                     {
                         field: '_mediaType',
@@ -418,9 +409,59 @@ export const form = [
                 ],
             },
             {
-                title: 'URL',
+                title: 'Type',
+                type: 'select',
+                options: [{value: 'default'}, {value: 'player'}],
+                name: 'media.video.type',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'video',
+                    },
+                ],
+            },
+            {
+                title: 'Video URL',
                 type: 'textInput',
-                name: 'media.dark.video.src',
+                name: 'media.video.src[0]',
+                placeholder: 'https://',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'video',
+                    },
+                ],
+            },
+            {
+                title: 'Muted',
+                type: 'switch',
+                name: 'media.video.muted',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'video',
+                    },
+                ],
+            },
+            {
+                title: 'Autoplay',
+                type: 'switch',
+                name: 'media.video.autoplay',
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'video',
+                    },
+                ],
+            },
+            {
+                title: 'Loop',
+                type: 'switch',
+                name: 'media.video.loop',
                 when: [
                     {
                         field: '_mediaType',
