@@ -1,0 +1,6 @@
+---
+description: Project-wide agent context (bridge to AGENTS.md)
+alwaysApply: true
+---
+
+@AGENTS.md
