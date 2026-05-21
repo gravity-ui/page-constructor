@@ -79,16 +79,34 @@ $block: '.#{$ns}middle-screen';
         }
     }
 
-    &__exit-preview.g-button {
+    &__exit-preview-container {
         position: fixed;
-        opacity: 0.5;
         top: 16px;
-        right: 16px;
+        right: 24px;
         z-index: 1001;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: var(--g-color-base-background);
+
+        &:hover {
+            opacity: 1;
+
+            #{$block}__exit-preview-text {
+                max-width: 100%;
+            }
+        }
+    }
+
+    &__exit-preview-text {
+        display: inline-block;
+        width: auto;
+        max-width: 3px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        transition: max-width 0.3s ease-in-out;
     }
 
     &__overlay {

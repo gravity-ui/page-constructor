@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {Xmark} from '@gravity-ui/icons';
-import {Button, Icon, Loader} from '@gravity-ui/uikit';
+import {ActionTooltip, Button, Icon, Loader} from '@gravity-ui/uikit';
 
 import {usePostMessageAPIListener} from '../../../common/postMessage';
 import {IframeContext} from '../../context/iframeContext';
@@ -57,6 +57,17 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
         return deviceWidth !== '100%';
     }, [deviceWidth]);
 
+    React.useEffect(() => {
+        if (!isPreviewMode) return;
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') togglePreviewMode();
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    }, [isPreviewMode, togglePreviewMode]);
+
     return (
         <div className={b(null, className)}>
             {CustomTop && !isPreviewMode ? (
@@ -97,16 +108,24 @@ const MiddleScreen = ({className, CustomTop}: MiddleScreenProps) => {
                             )}
                         </div>
                         {isPreviewMode && (
-                            <Button
-                                view="normal-contrast"
-                                className={b('exit-preview')}
-                                onClick={togglePreviewMode}
-                                aria-label="Exit preview mode"
-                                title="Exit preview mode"
-                                size="l"
-                            >
-                                <Icon size={24} data={Xmark} />
-                            </Button>
+                            <div className={b('exit-preview-container')}>
+                                <ActionTooltip
+                                    title="Exit preview mode"
+                                    placement="left"
+                                    hotkey="Escape"
+                                >
+                                    <Button
+                                        view="action"
+                                        className={b('exit-preview')}
+                                        onClick={togglePreviewMode}
+                                        aria-label="Exit preview mode"
+                                        title="Exit preview mode"
+                                        size="m"
+                                    >
+                                        <Icon size={20} data={Xmark} />
+                                    </Button>
+                                </ActionTooltip>
+                            </div>
                         )}
                         {!initialized && (
                             <div className={b('loading')}>
