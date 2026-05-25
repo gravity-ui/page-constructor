@@ -38,15 +38,11 @@ export const ConstructorHeader = ({
 
     const visibilityClasses = visible ? getVisibleClasses(visible) : '';
 
-    const content = (
-        <BlockDecoration type={data.type as BlockType}>
-            <ConstructorItem data={data} key={data.type} blockKey={blockKey} />
-        </BlockDecoration>
+    return (
+        <div className={visibilityClasses}>
+            <BlockDecoration type={data.type as BlockType}>
+                <ConstructorItem data={data} key={data.type} blockKey={blockKey} />
+            </BlockDecoration>
+        </div>
     );
-
-    if (!visibilityClasses) {
-        return content;
-    }
-
-    return <div className={visibilityClasses}>{content}</div>;
 };

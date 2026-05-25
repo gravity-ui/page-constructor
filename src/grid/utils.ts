@@ -63,9 +63,8 @@ export function getVisibleClasses(
     const classes: string[] = [];
 
     const hasAnyFalse = breakpoints.some((bp) => visible[bp] === false);
-    const hasAnyTrue = breakpoints.some((bp) => visible[bp] === true);
 
-    if (!hasAnyFalse && !hasAnyTrue) {
+    if (!hasAnyFalse) {
         return '';
     }
 
@@ -79,7 +78,7 @@ export function getVisibleClasses(
     let prevVisible = baseVisible;
 
     for (const bp of breakpoints) {
-        const bpVisible = visible[bp] !== false;
+        const bpVisible = visible[bp] ?? prevVisible;
 
         if (bpVisible !== prevVisible) {
             classes.push(

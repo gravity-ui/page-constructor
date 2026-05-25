@@ -61,12 +61,22 @@ describe('BlockBase', () => {
         expect(component).toHaveClass('d-md-block');
     });
 
-    test('render with object visible — hide on lg and xl', () => {
+    test('render with object visible — hide from lg and up', () => {
         render(<BlockBase qa={qa} visible={{lg: false}} />);
         const component = screen.getByTestId(qa);
 
         expect(component).toHaveClass('d-block');
         expect(component).toHaveClass('d-lg-none');
+        expect(component).not.toHaveClass('d-xl-block');
+    });
+
+    test('render with object visible — hide between md and lg', () => {
+        render(<BlockBase qa={qa} visible={{md: false, lg: true}} />);
+        const component = screen.getByTestId(qa);
+
+        expect(component).toHaveClass('d-block');
+        expect(component).toHaveClass('d-md-none');
+        expect(component).toHaveClass('d-lg-block');
     });
 
     test('should have anchor', () => {
