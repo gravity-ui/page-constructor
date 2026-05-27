@@ -85,7 +85,7 @@ export interface Childable {
 //block props
 export interface BlockBaseProps {
     anchor?: AnchorProps;
-    visible?: GridColumnSize;
+    visible?: GridColumnSize | Partial<Record<GridColumnSize, boolean>>;
     /** @deprecated */
     resetPaddings?: boolean;
     indent?: {

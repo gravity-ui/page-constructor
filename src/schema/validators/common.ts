@@ -529,8 +529,20 @@ export const BlockBaseProps = {
     ...BaseProps,
     anchor: AnchorProps,
     visible: {
-        type: 'string',
-        enum: containerSizesArray,
+        oneOf: [
+            {
+                type: 'string',
+                enum: containerSizesArray,
+            },
+            {
+                type: 'object',
+                additionalProperties: false,
+                properties: containerSizesArray.reduce(
+                    (acc, size) => ({...acc, [size]: {type: 'boolean'}}),
+                    {},
+                ),
+            },
+        ],
     },
     resetPaddings: {
         type: 'boolean',

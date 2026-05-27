@@ -3,6 +3,7 @@ import * as React from 'react';
 import {BlockIdContext} from '../../../../context/blockIdContext';
 import {InnerContext} from '../../../../context/innerContext';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
+import {getVisibleClasses} from '../../../../grid/utils';
 import {BlockType, ConstructorBlock} from '../../../../models';
 
 export interface ConstructorItemProps {
@@ -32,8 +33,16 @@ export const ConstructorItem = ({
 export const ConstructorHeader = ({
     data,
     blockKey,
-}: Pick<ConstructorItemProps, 'data' | 'blockKey'>) => (
-    <BlockDecoration type={data.type as BlockType}>
-        <ConstructorItem data={data} key={data.type} blockKey={blockKey} />
-    </BlockDecoration>
-);
+}: Pick<ConstructorItemProps, 'data' | 'blockKey'>) => {
+    const {visible} = data;
+
+    const visibilityClasses = visible ? getVisibleClasses(visible) : '';
+
+    return (
+        <div className={visibilityClasses}>
+            <BlockDecoration type={data.type as BlockType}>
+                <ConstructorItem data={data} key={data.type} blockKey={blockKey} />
+            </BlockDecoration>
+        </div>
+    );
+};
