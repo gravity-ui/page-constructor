@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.11.0](https://github.com/gravity-ui/page-constructor/compare/v8.10.0...v8.11.0) (2026-05-27)
+
+
+### Features
+
+* fixed blocks visibility on different screen sizes ([#1458](https://github.com/gravity-ui/page-constructor/issues/1458)) ([fa24a44](https://github.com/gravity-ui/page-constructor/commit/fa24a44cc37ce95467a1f1e03d520faf17610da7))
+
 ## [8.10.0](https://github.com/gravity-ui/page-constructor/compare/v8.9.0...v8.10.0) (2026-05-20)
 
 
