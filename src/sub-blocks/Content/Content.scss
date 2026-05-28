@@ -87,7 +87,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
             #{$block}__text {
                 &_without-title {
-                    margin-top: 0;
+                    margin-top: var(--pc-content-text-margin-top, 0);
                 }
             }
 
@@ -113,7 +113,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
             #{$block}__text {
                 &_without-title {
-                    margin-top: 0;
+                    margin-top: var(--pc-content-text-margin-top, 0);
                 }
             }
 
@@ -148,7 +148,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
             #{$block}__text {
                 &_without-title {
-                    margin-top: 0;
+                    margin-top: var(--pc-content-text-margin-top, 0);
                 }
             }
 
@@ -184,7 +184,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
             #{$block}__text {
                 &_without-title {
-                    margin-top: 0;
+                    margin-top: var(--pc-content-text-margin-top, 0);
                 }
             }
 
