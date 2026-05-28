@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.13.0](https://github.com/gravity-ui/page-constructor/compare/v8.12.0...v8.13.0) (2026-05-28)
+
+
+### Features
+
+* **Content:** add css variables ([#1467](https://github.com/gravity-ui/page-constructor/issues/1467)) ([f986bbc](https://github.com/gravity-ui/page-constructor/commit/f986bbc49c39658bd2d53baec990de5d30fde03a))
+
 ## [8.12.0](https://github.com/gravity-ui/page-constructor/compare/v8.11.0...v8.12.0) (2026-05-28)
 
 
