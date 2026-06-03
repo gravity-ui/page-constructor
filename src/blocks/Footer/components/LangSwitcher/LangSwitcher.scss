@@ -5,6 +5,20 @@
     &__switcher-button {
         --g-button-font-size: var(--g-text-body-2-font-size);
         --g-button-height: 36px;
+        --g-color-base-simple-hover: transparent;
+    }
+
+    &__switcher-text {
+        padding-right: var(--g-spacing-2);
+    }
+
+    &__switcher-button:hover &__switcher-text {
+        color: var(--g-color-text-link);
+    }
+
+    &__arrow {
+        position: absolute;
+        top: var(--g-spacing-3);
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {

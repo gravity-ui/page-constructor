@@ -1,6 +1,9 @@
-import {Globe} from '@gravity-ui/icons';
-import {Button, DropdownMenu, DropdownMenuItem, Icon} from '@gravity-ui/uikit';
+import * as React from 'react';
 
+import {Globe} from '@gravity-ui/icons';
+import {Button, DropdownMenu, DropdownMenuItem, Icon, Text} from '@gravity-ui/uikit';
+
+import ToggleArrow from '../../../../components/ToggleArrow/ToggleArrow';
 import {block} from '../../../../utils';
 
 import './LangSwitcher.scss';
@@ -12,16 +15,28 @@ type LangSwitcherProps = {
     items: DropdownMenuItem[];
 };
 
-export const LangSwitcher = ({switcherText, items}: LangSwitcherProps) => {
+export const LangSwitcher = ({switcherText = 'Language', items}: LangSwitcherProps) => {
+    const [isOpen, setIsOpen] = React.useState(false);
+
     return (
         <DropdownMenu
             items={items}
             popupProps={{placement: 'top-start'}}
             switcherWrapperClassName={b('switcher-wrapper')}
+            onOpenToggle={setIsOpen}
             renderSwitcher={(props) => (
                 <Button view="flat" size="m" className={b('switcher-button')} {...props}>
                     <Icon key="icon" data={Globe} size={20} />
-                    {switcherText || 'Language'}
+                    <Text variant="body-2" className={b('switcher-text')}>
+                        {switcherText}
+                    </Text>
+                    <ToggleArrow
+                        className={b('arrow')}
+                        size={12}
+                        type={'vertical'}
+                        iconType="navigation"
+                        open={isOpen}
+                    />
                 </Button>
             )}
         />

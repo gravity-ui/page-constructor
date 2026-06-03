@@ -32,7 +32,7 @@ $block: '.#{$ns}footer-block';
     }
 
     &__floor:not(:first-of-type) {
-        border-top: 1px solid var(--g-color-line-generic-solid);
+        border-top: 1px solid var(--g-color-line-generic);
     }
 
     &__logo {
@@ -44,13 +44,15 @@ $block: '.#{$ns}footer-block';
         display: block;
     }
 
-    &__floor_attribution {
+    & &__floor_attribution {
         border: none;
         padding: 0;
     }
 
     &__attribution-block {
         margin-top: 0;
+        --pc-brand-footer-border-color-light: var(--g-color-line-generic);
+        --pc-brand-footer-border-color-dark: var(--g-color-line-generic);
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {

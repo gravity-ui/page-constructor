@@ -1,4 +1,4 @@
-import {Flex, Link, Text} from '@gravity-ui/uikit';
+import {Flex, Link, Tooltip} from '@gravity-ui/uikit';
 
 import {Image} from '../../../../components';
 import {useTheme} from '../../../../context/theme';
@@ -33,7 +33,7 @@ const SocialIconItem = ({contact, theme}: SocialIconItemProps) => {
         return null;
     }
 
-    return (
+    const content = (
         <li className={b('social-icons-item')}>
             <Link
                 className={b('social-icon-link')}
@@ -47,10 +47,17 @@ const SocialIconItem = ({contact, theme}: SocialIconItemProps) => {
                         alt={contact.urlTitle ?? ''}
                         className={b('social-icon-item')}
                     />
-                    {contact.urlTitle && <Text variant="body-2">{contact.urlTitle}</Text>}
                 </Flex>
             </Link>
         </li>
+    );
+
+    return contact.urlTitle ? (
+        <Tooltip content={contact.urlTitle} openDelay={500}>
+            {content}
+        </Tooltip>
+    ) : (
+        content
     );
 };
 

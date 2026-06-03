@@ -134,10 +134,12 @@
       {"text": "Длинный пункт меню 2", "url": "#terms"}
     ],
     "linksOverflowStrategy": "dropdown",
-    "languageSwitcher": [
-      {"text": "Русский", "href": "/ru"},
-      {"text": "English", "href": "/en"}
-    ],
+    "languageSwitcher": {
+      "items": [
+        {"text": "Русский", "href": "/ru"},
+        {"text": "English", "href": "/en"}
+      ]
+    },
     "copyrightText": "© 2025 ООО \"Яндекс.Облако\"",
     "mobileHorizontalAlignment": "center"
   },
