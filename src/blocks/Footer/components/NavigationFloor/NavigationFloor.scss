@@ -38,6 +38,13 @@ $block: '.#{$ns}footer-block';
         min-width: 0;
     }
 
+    @media (min-width: map-get($gridBreakpoints, 'lg')) {
+        &__nav-row_custom-columns > &__column {
+            flex: 0 0 var(--pc-footer-navigation-column-width);
+            max-width: var(--pc-footer-navigation-column-width);
+        }
+    }
+
     &__column-title {
         @include text-size(subheader-3);
         font-weight: var(--g-text-accent-font-weight);

@@ -594,6 +594,7 @@ export interface FooterBlockProps {
             placement?: 'left' | 'top';
         };
         colSizes?: GridColumnSizesType;
+        columnsPerRow?: number;
         columns: FooterLinkColumn[];
     };
     /** Floor 2: social row (title + social icons) */

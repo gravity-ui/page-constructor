@@ -29,7 +29,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
         indentTop,
     } = props;
     const theme = useTheme();
-    const {logo, columns, colSizes} = navigation || {};
+    const {logo, columns, colSizes, columnsPerRow} = navigation || {};
     const themedBackground = backgroundColor && getThemedValue(backgroundColor, theme);
     const footerStyle = themedBackground
         ? ({
@@ -59,6 +59,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                         <NavigationFloor
                             columns={columns}
                             colSizes={colSizes}
+                            columnsPerRow={columnsPerRow}
                             logoContent={logoContent}
                             logoPlacement={logo?.placement}
                         />

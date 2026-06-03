@@ -19,9 +19,10 @@ type NavigationColumnsProps = {
     columns: FooterLinkColumn[];
     hasLogo: boolean;
     colSizes?: GridColumnSizesType;
+    columnsPerRow?: number;
 };
 
-function NavigationColumns({columns, hasLogo, colSizes}: NavigationColumnsProps) {
+function NavigationColumns({columns, hasLogo, colSizes, columnsPerRow}: NavigationColumnsProps) {
     const defaultColSizes: GridColumnSizesType = hasLogo
         ? DEFAULT_COL_SIZES_WITH_LOGO
         : DEFAULT_COL_SIZES_WITHOUT_LOGO;
@@ -34,10 +35,18 @@ function NavigationColumns({columns, hasLogo, colSizes}: NavigationColumnsProps)
         }),
         [colSizes, defaultColSizes],
     );
+    const customColumnsStyle = columnsPerRow
+        ? ({
+              '--pc-footer-navigation-column-width': `${100 / columnsPerRow}%`,
+          } as React.CSSProperties)
+        : undefined;
 
     return (
         <Col>
-            <Row className={b('nav-row')}>
+            <Row
+                className={b('nav-row', {'custom-columns': Boolean(columnsPerRow)})}
+                style={customColumnsStyle}
+            >
                 {columns.map((column, columnIndex) => (
                     <Col key={columnIndex} className={b('column')} sizes={resolvedColSizes}>
                         <div className={b('column-inner')}>
@@ -68,6 +77,7 @@ type NavigationFloorProps = {
     columns: FooterLinkColumn[];
     logoContent: React.ReactNode;
     colSizes?: GridColumnSizesType;
+    columnsPerRow?: number;
     logoPlacement?: 'left' | 'top';
 };
 
@@ -75,6 +85,7 @@ export const NavigationFloor = ({
     columns,
     logoContent,
     colSizes,
+    columnsPerRow,
     logoPlacement,
 }: NavigationFloorProps) => {
     const isTopLogoPlacement = logoPlacement === 'top';
@@ -92,7 +103,12 @@ export const NavigationFloor = ({
                     <Row>{logoContent}</Row>
                 </Col>
             )}
-            <NavigationColumns columns={columns} hasLogo={hasSideLogo} colSizes={colSizes} />
+            <NavigationColumns
+                columns={columns}
+                hasLogo={hasSideLogo}
+                colSizes={colSizes}
+                columnsPerRow={columnsPerRow}
+            />
         </Row>
     );
 };

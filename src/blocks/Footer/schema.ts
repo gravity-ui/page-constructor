@@ -110,6 +110,7 @@ const FooterNavigationBlock = {
         },
         columns: filteredArray(FooterLinkColumn),
         colSizes: containerSizesObject,
+        columnsPerRow: {type: 'number', minimum: 1, maximum: 12},
     },
 };
 
