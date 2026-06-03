@@ -67,7 +67,7 @@ $block: '.#{$ns}footer-block';
     }
 
     &__links-floor-item {
-        @include text-size(body-1);
+        @include text-size(body-2);
         margin: 0;
         white-space: nowrap;
         padding-right: 16px;

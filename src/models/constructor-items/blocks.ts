@@ -603,6 +603,7 @@ export interface FooterBlockProps {
     /** Floor 5: attribution ("Created with ...") */
     attribution?: boolean;
     backgroundColor?: ThemeSupporting<string>;
+    indentTop?: IndentValue;
 }
 
 //block models

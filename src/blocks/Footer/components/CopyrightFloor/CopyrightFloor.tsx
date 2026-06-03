@@ -64,12 +64,12 @@ const CopyrightLogo = ({logo, logoImageProps}: CopyrightLogoProps) => {
 };
 
 type VisibleLinksProps = {
-    visibleItems: LinkItem[];
+    items: LinkItem[];
     isLinksOverflowDropdown: boolean;
 };
 
-const VisibleLinks = ({visibleItems, isLinksOverflowDropdown}: VisibleLinksProps) => {
-    if (!visibleItems?.length) {
+const VisibleLinks = ({items, isLinksOverflowDropdown}: VisibleLinksProps) => {
+    if (!items?.length) {
         return null;
     }
 
@@ -79,7 +79,7 @@ const VisibleLinks = ({visibleItems, isLinksOverflowDropdown}: VisibleLinksProps
                 wrap: !isLinksOverflowDropdown,
             })}
         >
-            {visibleItems.map((item, index) => (
+            {items.map((item, index) => (
                 <li key={index} className={b('links-floor-item')}>
                     <a href={item.url}>{item.text}</a>
                 </li>
@@ -90,21 +90,21 @@ const VisibleLinks = ({visibleItems, isLinksOverflowDropdown}: VisibleLinksProps
 
 type OverflowDropdownProps = {
     isLinksOverflowDropdown: boolean;
-    hiddenItems: DropdownMenuItem[];
+    items: DropdownMenuItem[];
 };
 
-const OverflowDropdown = ({isLinksOverflowDropdown, hiddenItems}: OverflowDropdownProps) => {
-    if (!isLinksOverflowDropdown || !hiddenItems.length) {
+const OverflowDropdown = ({isLinksOverflowDropdown, items}: OverflowDropdownProps) => {
+    if (!isLinksOverflowDropdown || !items.length) {
         return null;
     }
 
     return (
         <DropdownMenu
-            items={hiddenItems}
+            items={items}
             switcherWrapperClassName={b('more-button', {
-                visible: isLinksOverflowDropdown && hiddenItems.length > 0,
+                visible: isLinksOverflowDropdown && items.length > 0,
             })}
-            size="l"
+            size="xl"
         />
     );
 };
@@ -171,12 +171,12 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
                     ref={menuContainerRef}
                 >
                     <VisibleLinks
-                        visibleItems={visibleItems}
+                        items={visibleItems}
                         isLinksOverflowDropdown={isLinksOverflowDropdown}
                     />
                     <OverflowDropdown
                         isLinksOverflowDropdown={isLinksOverflowDropdown}
-                        hiddenItems={hiddenItems}
+                        items={hiddenItems}
                     />
                 </div>
                 <RightSide copyright={copyright} />

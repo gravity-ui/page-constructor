@@ -18,11 +18,24 @@ const b = block('footer-block');
 export type FooterBlockFullProps = FooterBlockProps & ClassNameProps;
 
 export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>) => {
-    const {navigation, contacts, disclaimer, copyright, attribution, backgroundColor, className} =
-        props;
+    const {
+        navigation,
+        contacts,
+        disclaimer,
+        copyright,
+        attribution,
+        backgroundColor,
+        className,
+        indentTop,
+    } = props;
     const theme = useTheme();
     const {logo, columns, colSizes} = navigation || {};
     const themedBackground = backgroundColor && getThemedValue(backgroundColor, theme);
+    const footerStyle = themedBackground
+        ? ({
+              ...(themedBackground && {backgroundColor: themedBackground}),
+          } as React.CSSProperties)
+        : undefined;
     const logoImage = logo?.image && getThemedValue(logo.image, theme);
     const logoImageProps = useLogoImageProps(logoImage);
     const hasLogo = Boolean(logo && logoImageProps);
@@ -40,10 +53,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
     );
 
     return (
-        <footer
-            className={b(null, className)}
-            style={themedBackground ? {backgroundColor: themedBackground} : undefined}
-        >
+        <footer className={b({indentTop}, className)} style={footerStyle}>
             <Grid className={b('main-container')}>
                 <Row className={b('row')}>
                     {columns && (

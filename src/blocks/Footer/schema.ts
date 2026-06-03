@@ -117,6 +117,7 @@ export const FooterBlock = {
         properties: {
             ...BlockBaseProps,
             backgroundColor: withTheme({type: 'string'}),
+            indentTop: {type: 'string', enum: ['0', 'xs', 's', 'm', 'l', 'xl']},
             navigation: FooterNavigationBlock,
             contacts: FooterContactsBlock,
             disclaimer: FooterDisclaimerContent,
