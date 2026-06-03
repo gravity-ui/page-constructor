@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import '@diplodoc/transform/dist/js/yfm.js';
 
+import {blockTransform} from '../../../.storybook/utils';
+import Footer from '../../blocks/Footer/Footer';
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import BrandFooter from '../../components/BrandFooter/BrandFooter';
 import RootCn from '../../components/RootCn';
@@ -16,6 +18,7 @@ import {
     BlockTypes,
     CustomConfig,
     CustomItems,
+    FooterBlockProps,
     HeaderBlockTypes,
     NavigationData,
     NavigationItemTypes,
@@ -55,6 +58,7 @@ export interface PageConstructorProps {
     microdata?: {
         contentUpdatedDate?: string;
     };
+    footerData?: any;
 }
 
 export const Constructor = (props: PageConstructorProps) => {
@@ -66,6 +70,7 @@ export const Constructor = (props: PageConstructorProps) => {
         custom,
         isBranded,
         microdata,
+        footerData,
     } = props;
 
     const {context} = React.useMemo(
@@ -125,6 +130,7 @@ export const Constructor = (props: PageConstructorProps) => {
                         </Grid>
                     </Layout>
                     {isBranded && <BrandFooter />}
+                    {footerData && <Footer {...(blockTransform(footerData) as FooterBlockProps)} />}
                 </div>
             </RootCn>
         </InnerContext.Provider>

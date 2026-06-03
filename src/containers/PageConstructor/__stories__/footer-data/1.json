@@ -23,37 +23,80 @@
         ]
       },
       {
-        "title": "Ресурсы",
+        "title": "Для работы",
         "links": [
-          {"text": "Документация", "url": "#docs"},
-          {"text": "API", "url": "#api"},
-          {"text": "Примеры", "url": "#examples"},
-          {"text": "Чат сообщества", "url": "#chat"}
+          {"text": "Мероприятия и вебинары", "url": "#events"},
+          {"text": "Контент-программа", "url": "#content"},
+          {"text": "Блог", "url": "#blog"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"}
         ]
       },
       {
-        "title": "Компания",
+        "title": "Для работы",
         "links": [
-          {"text": "О нас", "url": "#about"},
-          {"text": "Контакты", "url": "#contacts"},
-          {"text": "Вакансии", "url": "#careers"},
-          {"text": "Партнёрам", "url": "#partners"}
+          {"text": "Мероприятия и вебинары", "url": "#events"},
+          {"text": "Контент-программа", "url": "#content"},
+          {"text": "Блог", "url": "#blog"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"}
         ]
       },
       {
-        "title": "Поддержка",
+        "title": "Для работы",
         "links": [
-          {"text": "Помощь", "url": "#help"},
-          {"text": "Сообщество", "url": "#community"},
-          {"text": "Статус", "url": "#status"}
+          {"text": "Мероприятия и вебинары", "url": "#events"},
+          {"text": "Контент-программа", "url": "#content"},
+          {"text": "Блог", "url": "#blog"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"}
         ]
       },
       {
-        "title": "Еще один заголовок",
+        "title": "Для работы",
         "links": [
-          {"text": "Раз пункт", "url": "#help"},
-          {"text": "Два пункт", "url": "#community"},
-          {"text": "Статус", "url": "#status"}
+          {"text": "Мероприятия и вебинары", "url": "#events"},
+          {"text": "Контент-программа", "url": "#content"},
+          {"text": "Блог", "url": "#blog"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"}
+        ]
+      },
+      {
+        "title": "Для работы",
+        "links": [
+          {"text": "Мероприятия и вебинары", "url": "#events"},
+          {"text": "Контент-программа", "url": "#content"},
+          {"text": "Блог", "url": "#blog"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"}
+        ]
+      },
+      {
+        "title": "Для работы",
+        "links": [
+          {"text": "Мероприятия и вебинары", "url": "#events"},
+          {"text": "Контент-программа", "url": "#content"},
+          {"text": "Блог", "url": "#blog"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"}
+        ]
+      },
+      {
+        "title": "Для работы",
+        "links": [
+          {"text": "Мероприятия и вебинары", "url": "#events"},
+          {"text": "Контент-программа", "url": "#content"},
+          {"text": "Блог", "url": "#blog"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"}
         ]
       }
     ]
