@@ -1,0 +1,18 @@
+{
+  "type": "footer-block",
+  "indentTop": "l",
+  "copyright": {
+    "links": [
+      {"text": "Политика конфиденциальности", "url": "#privacy"},
+      {"text": "Условия использования", "url": "#terms"}
+    ],
+    "linksOverflowStrategy": "dropdown",
+    "languageSwitcher": {
+      "items": [
+        {"text": "Русский", "href": "/ru"},
+        {"text": "English", "href": "/en"}
+      ]
+    },
+    "mobileHorizontalAlignment": "center"
+  }
+}
