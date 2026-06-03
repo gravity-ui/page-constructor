@@ -1,0 +1,93 @@
+{
+  "type": "footer-block",
+  "indentTop": "l",
+  "navigation": {
+    "logo": {
+      "image": {
+        "light": {"src": "story-assets/icon_1_light.svg"},
+        "dark": {"src": "story-assets/icon_1_dark.svg"}
+      },
+      "href": "/",
+      "alt": "Example company"
+    },
+    "columns": [
+      {
+        "title": "Для работы",
+        "links": [
+          {"text": "Мероприятия и вебинары", "url": "#events"},
+          {"text": "Контент-программа", "url": "#content"},
+          {"text": "Блог", "url": "#blog"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"}
+        ]
+      },
+      {
+        "title": "Для работы",
+        "links": [
+          {"text": "Мероприятия и вебинары", "url": "#events"},
+          {"text": "Контент-программа", "url": "#content"},
+          {"text": "Блог", "url": "#blog"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"}
+        ]
+      },
+      {
+        "title": "Для работы",
+        "links": [
+          {"text": "Мероприятия и вебинары", "url": "#events"},
+          {"text": "Контент-программа", "url": "#content"},
+          {"text": "Блог", "url": "#blog"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"}
+        ]
+      },
+      {
+        "title": "Для работы",
+        "links": [
+          {"text": "Мероприятия и вебинары", "url": "#events"},
+          {"text": "Контент-программа", "url": "#content"},
+          {"text": "Блог", "url": "#blog"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"},
+          {"text": "Все решения", "url": "#solutions"}
+        ]
+      }
+    ]
+  },
+  "contacts": {
+    "title": "Join Us",
+    "iconsSize": "m",
+    "linksPosition": "left",
+    "titlePosition": "left",
+    "links": [
+      {
+        "icon": {
+          "light": {"src": "story-assets/icons-github_light.svg"},
+          "dark": {"src": "story-assets/icons-github_dark.svg"}
+        },
+        "url": "https://example.com",
+        "urlTitle": "GitHub"
+      },
+      {
+        "icon": {
+          "light": {"src": "story-assets/icons-medium_light.svg"},
+          "dark": {"src": "story-assets/icons-medium_dark.svg"}
+        },
+        "url": "https://example.com",
+        "urlTitle": "Medium"
+      }
+    ]
+  },
+  "copyright": {
+    "links": [
+      {"text": "Политика конфиденциальности", "url": "#privacy"},
+      {"text": "Условия использования", "url": "#terms"}
+    ],
+    "linksOverflowStrategy": "dropdown",
+    "copyrightText": "© 2025 ООО \"Яндекс.Облако\"",
+    "mobileHorizontalAlignment": "center"
+  }
+}

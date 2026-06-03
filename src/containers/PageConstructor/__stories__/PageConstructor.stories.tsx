@@ -11,6 +11,7 @@ import footer3Data from './footer-data/3.json';
 import footer4Data from './footer-data/4.json';
 import footer5Data from './footer-data/5.json';
 import footer6Data from './footer-data/6.json';
+import footer7Data from './footer-data/7.json';
 
 export default {
     title: 'Containers/PageConstructor',
@@ -65,3 +66,6 @@ WithFooter5.args = {...data.default, footerData: footer5Data} as PageConstructor
 
 export const WithFooter6 = DefaultTemplate.bind({});
 WithFooter6.args = {...data.default, footerData: footer6Data} as PageConstructorProps;
+
+export const WithFooter7 = DefaultTemplate.bind({});
+WithFooter7.args = {...data.default, footerData: footer7Data} as PageConstructorProps;
