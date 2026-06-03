@@ -590,7 +590,9 @@ export interface FooterSecondFloor {
 export interface FooterBlockProps {
     /** Floor 1: first row — logo (if present) + these columns */
     navigation?: {
-        logo?: FooterLogoProps;
+        logo?: FooterLogoProps & {
+            placement?: 'left' | 'top';
+        };
         colSizes?: GridColumnSizesType;
         columns: FooterLinkColumn[];
     };

@@ -101,7 +101,13 @@ const FooterNavigationBlock = {
     additionalProperties: false,
     required: ['columns'],
     properties: {
-        logo: FooterLogoProps,
+        logo: {
+            ...FooterLogoProps,
+            properties: {
+                ...FooterLogoProps.properties,
+                placement: {type: 'string', enum: ['left', 'top']},
+            },
+        },
         columns: filteredArray(FooterLinkColumn),
         colSizes: containerSizesObject,
     },

@@ -38,7 +38,6 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
         : undefined;
     const logoImage = logo?.image && getThemedValue(logo.image, theme);
     const logoImageProps = useLogoImageProps(logoImage);
-    const hasLogo = Boolean(logo && logoImageProps);
 
     const logoContent = logo && logoImageProps && (
         <div className={b('logo')}>
@@ -58,10 +57,10 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                 <Row className={b('row')}>
                     {columns && (
                         <NavigationFloor
-                            hasLogo={hasLogo}
                             columns={columns}
                             colSizes={colSizes}
                             logoContent={logoContent}
+                            logoPlacement={logo?.placement}
                         />
                     )}
                     {contacts && <SocialFloor contacts={contacts} />}

@@ -13,6 +13,16 @@ $block: '.#{$ns}footer-block';
         padding: 0 $indentXS $indentM;
     }
 
+    &__floor_logo-placement-top {
+        padding-top: 0;
+    }
+
+    &__floor_logo-placement-top &__logo-col_top.col {
+        padding: $indentSM $indentXS;
+        margin-bottom: $indentM;
+        border-bottom: 1px solid var(--g-color-line-generic);
+    }
+
     &__column {
         min-width: 0;
         margin-bottom: $indentL;

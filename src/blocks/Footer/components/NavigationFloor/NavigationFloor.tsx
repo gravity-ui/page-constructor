@@ -66,25 +66,33 @@ function NavigationColumns({columns, hasLogo, colSizes}: NavigationColumnsProps)
 
 type NavigationFloorProps = {
     columns: FooterLinkColumn[];
-    hasLogo: boolean;
     logoContent: React.ReactNode;
     colSizes?: GridColumnSizesType;
+    logoPlacement?: 'left' | 'top';
 };
 
 export const NavigationFloor = ({
     columns,
-    hasLogo,
     logoContent,
     colSizes,
+    logoPlacement,
 }: NavigationFloorProps) => {
+    const isTopLogoPlacement = logoPlacement === 'top';
+    const hasSideLogo = Boolean(logoContent) && !isTopLogoPlacement;
+
     return (
-        <Row className={b('floor', {navigation: true})}>
-            {hasLogo && (
+        <Row className={b('floor', {navigation: true, 'logo-placement-top': isTopLogoPlacement})}>
+            {logoContent && isTopLogoPlacement && (
+                <Col className={b('logo-col', {top: true})} sizes={{all: 12}}>
+                    {logoContent}
+                </Col>
+            )}
+            {logoContent && !isTopLogoPlacement && (
                 <Col className={b('logo-col')} sizes={DEFAULT_LOGO_COL_SIZES}>
                     <Row>{logoContent}</Row>
                 </Col>
             )}
-            <NavigationColumns columns={columns} hasLogo={hasLogo} colSizes={colSizes} />
+            <NavigationColumns columns={columns} hasLogo={hasSideLogo} colSizes={colSizes} />
         </Row>
     );
 };
