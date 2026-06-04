@@ -1,5 +1,7 @@
 import {Meta, StoryFn} from '@storybook/react';
 
+import {blockTransform} from '../../../../.storybook/utils';
+import {FooterBlockModel, FooterBlockProps} from '../../../models';
 import {PageConstructor, PageConstructorProps} from '../PageConstructor';
 
 import {CustomBlocksTemplate} from './components/CustomBlocksTemplate';
@@ -24,6 +26,11 @@ export default {
 } as Meta;
 
 const DefaultTemplate: StoryFn<PageConstructorProps> = (args) => <PageConstructor {...args} />;
+const getArgsWithFooter = (footerData: FooterBlockModel) =>
+    ({
+        ...data.default,
+        footerData: blockTransform(footerData) as FooterBlockProps,
+    }) as PageConstructorProps;
 
 export const Default = DefaultTemplate.bind({});
 export const WithNavigation = DefaultTemplate.bind({});
@@ -55,37 +62,37 @@ Branded.args = {
 CustomBlocks.args = data.custom as unknown as PageConstructorProps;
 
 export const WithFooter1 = DefaultTemplate.bind({});
-WithFooter1.args = {...data.default, footerData: footer1Data} as PageConstructorProps;
+WithFooter1.args = getArgsWithFooter(footer1Data as FooterBlockModel);
 
 export const WithFooter2 = DefaultTemplate.bind({});
-WithFooter2.args = {...data.default, footerData: footer2Data} as PageConstructorProps;
+WithFooter2.args = getArgsWithFooter(footer2Data as FooterBlockModel);
 
 export const WithFooter3 = DefaultTemplate.bind({});
-WithFooter3.args = {...data.default, footerData: footer3Data} as PageConstructorProps;
+WithFooter3.args = getArgsWithFooter(footer3Data as FooterBlockModel);
 
 export const WithFooter4 = DefaultTemplate.bind({});
-WithFooter4.args = {...data.default, footerData: footer4Data} as PageConstructorProps;
+WithFooter4.args = getArgsWithFooter(footer4Data as FooterBlockModel);
 
 export const WithFooter5 = DefaultTemplate.bind({});
-WithFooter5.args = {...data.default, footerData: footer5Data} as PageConstructorProps;
+WithFooter5.args = getArgsWithFooter(footer5Data as FooterBlockModel);
 
 export const WithFooter6 = DefaultTemplate.bind({});
-WithFooter6.args = {...data.default, footerData: footer6Data} as PageConstructorProps;
+WithFooter6.args = getArgsWithFooter(footer6Data as FooterBlockModel);
 
 export const WithFooter7 = DefaultTemplate.bind({});
-WithFooter7.args = {...data.default, footerData: footer7Data} as PageConstructorProps;
+WithFooter7.args = getArgsWithFooter(footer7Data as FooterBlockModel);
 
 export const WithFooter8 = DefaultTemplate.bind({});
-WithFooter8.args = {...data.default, footerData: footer8Data} as PageConstructorProps;
+WithFooter8.args = getArgsWithFooter(footer8Data as FooterBlockModel);
 
 export const WithFooter9 = DefaultTemplate.bind({});
-WithFooter9.args = {...data.default, footerData: footer9Data} as PageConstructorProps;
+WithFooter9.args = getArgsWithFooter(footer9Data as FooterBlockModel);
 
 export const WithFooter10 = DefaultTemplate.bind({});
-WithFooter10.args = {...data.default, footerData: footer10Data} as PageConstructorProps;
+WithFooter10.args = getArgsWithFooter(footer10Data as FooterBlockModel);
 
 export const WithFooter11 = DefaultTemplate.bind({});
-WithFooter11.args = {...data.default, footerData: footer11Data} as PageConstructorProps;
+WithFooter11.args = getArgsWithFooter(footer11Data as FooterBlockModel);
 
 export const WithFooter12 = DefaultTemplate.bind({});
-WithFooter12.args = {...data.default, footerData: footer12Data} as PageConstructorProps;
+WithFooter12.args = getArgsWithFooter(footer12Data as FooterBlockModel);

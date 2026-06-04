@@ -1,8 +1,5 @@
 import * as React from 'react';
 
-import '@diplodoc/transform/dist/js/yfm.js';
-
-import {blockTransform} from '../../../.storybook/utils';
 import Footer from '../../blocks/Footer/Footer';
 import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
 import BrandFooter from '../../components/BrandFooter/BrandFooter';
@@ -58,7 +55,7 @@ export interface PageConstructorProps {
     microdata?: {
         contentUpdatedDate?: string;
     };
-    footerData?: any;
+    footerData?: FooterBlockProps;
 }
 
 export const Constructor = (props: PageConstructorProps) => {
@@ -130,7 +127,7 @@ export const Constructor = (props: PageConstructorProps) => {
                         </Grid>
                     </Layout>
                     {isBranded && <BrandFooter />}
-                    {footerData && <Footer {...(blockTransform(footerData) as FooterBlockProps)} />}
+                    {footerData && <Footer {...footerData} />}
                 </div>
             </RootCn>
         </InnerContext.Provider>
