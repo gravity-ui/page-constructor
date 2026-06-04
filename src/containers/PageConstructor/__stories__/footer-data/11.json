@@ -1,0 +1,51 @@
+{
+  "type": "footer-block",
+  "indentTop": "l",
+  "contacts": {
+    "title": "Join Us",
+    "iconsSize": "l",
+    "linksPosition": "center",
+    "titlePosition": "top",
+    "links": [
+      {
+        "icon": {
+          "light": {"src": "story-assets/icons-github_light.svg"},
+          "dark": {"src": "story-assets/icons-github_dark.svg"}
+        },
+        "url": "https://example.com",
+        "urlTitle": "GitHub"
+      },
+      {
+        "icon": {
+          "light": {"src": "story-assets/icons-medium_light.svg"},
+          "dark": {"src": "story-assets/icons-medium_dark.svg"}
+        },
+        "url": "https://example.com",
+        "urlTitle": "Medium"
+      },
+      {
+        "icon": {
+          "light": {"src": "story-assets/icons-discord_light.svg"},
+          "dark": {"src": "story-assets/icons-discord_dark.svg"}
+        },
+        "url": "https://example.com",
+        "urlTitle": "Discord"
+      }
+    ]
+  },
+  "copyright": {
+    "logo": {
+      "image": {
+        "light": {"src": "story-assets/icons-sample-company_light.svg"},
+        "dark": {"src": "story-assets/icons-sample-company_dark.svg"}
+      },
+      "href": "/",
+      "alt": "Example company"
+    },
+    "links": [{"text": "Политика конфиденциальности", "url": "#privacy"}],
+    "linksOverflowStrategy": "dropdown",
+    "copyrightText": "© 2025 ООО \"Яндекс.Облако\"",
+    "mobileHorizontalAlignment": "center"
+  },
+  "attribution": true
+}

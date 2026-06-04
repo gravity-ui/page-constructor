@@ -6,6 +6,9 @@ import {CustomBlocksTemplate} from './components/CustomBlocksTemplate';
 
 import data from './data.json';
 import footer1Data from './footer-data/1.json';
+import footer10Data from './footer-data/10.json';
+import footer11Data from './footer-data/11.json';
+import footer12Data from './footer-data/12.json';
 import footer2Data from './footer-data/2.json';
 import footer3Data from './footer-data/3.json';
 import footer4Data from './footer-data/4.json';
@@ -77,3 +80,12 @@ WithFooter8.args = {...data.default, footerData: footer8Data} as PageConstructor
 
 export const WithFooter9 = DefaultTemplate.bind({});
 WithFooter9.args = {...data.default, footerData: footer9Data} as PageConstructorProps;
+
+export const WithFooter10 = DefaultTemplate.bind({});
+WithFooter10.args = {...data.default, footerData: footer10Data} as PageConstructorProps;
+
+export const WithFooter11 = DefaultTemplate.bind({});
+WithFooter11.args = {...data.default, footerData: footer11Data} as PageConstructorProps;
+
+export const WithFooter12 = DefaultTemplate.bind({});
+WithFooter12.args = {...data.default, footerData: footer12Data} as PageConstructorProps;
