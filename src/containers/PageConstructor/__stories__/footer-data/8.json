@@ -1,0 +1,11 @@
+{
+  "type": "footer-block",
+  "indentTop": "l",
+  "copyright": {
+    "links": [{"text": "Политика конфиденциальности", "url": "#privacy"}],
+    "linksOverflowStrategy": "dropdown",
+    "copyrightText": "© 2025 ООО \"Яндекс.Облако\"",
+    "mobileHorizontalAlignment": "center"
+  },
+  "attribution": true
+}
