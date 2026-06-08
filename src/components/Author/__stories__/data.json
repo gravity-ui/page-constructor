@@ -1,12 +1,31 @@
 {
   "default": {
-    "content": {
+    "author": {
+      "firstName": "Lorem",
+      "secondName": "Ipsum",
+      "description": "Lorem Ipsum",
+      "avatar": "/story-assets/img_6-12_light.png"
+    },
+    "type": "column"
+  },
+  "types": [
+    {
       "author": {
         "firstName": "Lorem",
         "secondName": "Ipsum",
         "description": "Lorem Ipsum",
         "avatar": "/story-assets/img_6-12_light.png"
-      }
+      },
+      "type": "column"
+    },
+    {
+      "author": {
+        "firstName": "Lorem",
+        "secondName": "Ipsum",
+        "description": "Lorem Ipsum",
+        "avatar": "/story-assets/img_6-12_light.png"
+      },
+      "type": "line"
     }
-  }
+  ]
 }

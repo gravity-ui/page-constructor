@@ -83,7 +83,7 @@ export const SliderProps = {
     arrowSize: {
         type: 'number',
     },
-    animated: AnimatableProps,
+    ...AnimatableProps,
     slidesToShow: sliderSizesObject,
     disclaimer: DisclaimerProps,
     loadable: LoadableProps,

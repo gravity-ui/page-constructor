@@ -1,5 +1,87 @@
 # Changelog
 
+## [8.13.0](https://github.com/gravity-ui/page-constructor/compare/v8.12.0...v8.13.0) (2026-05-28)
+
+
+### Features
+
+* **Content:** add css variables ([#1467](https://github.com/gravity-ui/page-constructor/issues/1467)) ([f986bbc](https://github.com/gravity-ui/page-constructor/commit/f986bbc49c39658bd2d53baec990de5d30fde03a))
+
+## [8.12.0](https://github.com/gravity-ui/page-constructor/compare/v8.11.0...v8.12.0) (2026-05-28)
+
+
+### Features
+
+* **Content:** add css variables ([#1464](https://github.com/gravity-ui/page-constructor/issues/1464)) ([fffb4b3](https://github.com/gravity-ui/page-constructor/commit/fffb4b31286af4fbbe6fc1e532bda357d6b6870e))
+
+## [8.11.0](https://github.com/gravity-ui/page-constructor/compare/v8.10.0...v8.11.0) (2026-05-27)
+
+
+### Features
+
+* Upgrde blocks prop visible ([#1458](https://github.com/gravity-ui/page-constructor/issues/1458)) ([fa24a44](https://github.com/gravity-ui/page-constructor/commit/fa24a44cc37ce95467a1f1e03d520faf17610da7))
+
+## [8.10.0](https://github.com/gravity-ui/page-constructor/compare/v8.9.0...v8.10.0) (2026-05-20)
+
+
+### Features
+
+* move @gravity-ui/icons to deps ([#1460](https://github.com/gravity-ui/page-constructor/issues/1460)) ([5322bd5](https://github.com/gravity-ui/page-constructor/commit/5322bd58d5253d0c0a8ad7ecdd05fda773efeabd))
+
+## [8.9.0](https://github.com/gravity-ui/page-constructor/compare/v8.8.1...v8.9.0) (2026-05-18)
+
+
+### Features
+
+* **Hero:** add qa attributes ([#1457](https://github.com/gravity-ui/page-constructor/issues/1457)) ([cb483cb](https://github.com/gravity-ui/page-constructor/commit/cb483cb91c74e6ae2026d303d7f8daf595472bec))
+
+## [8.8.1](https://github.com/gravity-ui/page-constructor/compare/v8.8.0...v8.8.1) (2026-05-14)
+
+
+### Bug Fixes
+
+* **WindowWidthProvider:** change default value ([#1454](https://github.com/gravity-ui/page-constructor/issues/1454)) ([a7c9a11](https://github.com/gravity-ui/page-constructor/commit/a7c9a1122bf1a023d35cec333ebd0652846c1c48))
+
+## [8.8.0](https://github.com/gravity-ui/page-constructor/compare/v8.7.2...v8.8.0) (2026-05-12)
+
+
+### Features
+
+* **Hero:** mobile paddings ([#1452](https://github.com/gravity-ui/page-constructor/issues/1452)) ([40340f7](https://github.com/gravity-ui/page-constructor/commit/40340f797f9f276d5ce57d17de25ef5e84f9c341))
+
+## [8.7.2](https://github.com/gravity-ui/page-constructor/compare/v8.7.1...v8.7.2) (2026-05-07)
+
+
+### Bug Fixes
+
+* hero block stories & slider schemas ([#1438](https://github.com/gravity-ui/page-constructor/issues/1438)) ([9be0b55](https://github.com/gravity-ui/page-constructor/commit/9be0b55b0fda5d09977323308885ed6cbb75d86c))
+
+## [8.7.1](https://github.com/gravity-ui/page-constructor/compare/v8.7.0...v8.7.1) (2026-05-05)
+
+
+### Bug Fixes
+
+* **ImageCard:** add analytics events docs info ([#1443](https://github.com/gravity-ui/page-constructor/issues/1443)) ([1019ec2](https://github.com/gravity-ui/page-constructor/commit/1019ec2bc544090439b38e1bf5ca3eda3ed1f73c))
+
+## [8.7.0](https://github.com/gravity-ui/page-constructor/compare/v8.6.0...v8.7.0) (2026-05-05)
+
+
+### Features
+
+* **ImageCard:** add analytics events to image card ([#1441](https://github.com/gravity-ui/page-constructor/issues/1441)) ([29cfaaf](https://github.com/gravity-ui/page-constructor/commit/29cfaaf60af18fa5b6658be812f4967867a2c8d0))
+
+## [8.6.0](https://github.com/gravity-ui/page-constructor/compare/v8.5.0...v8.6.0) (2026-04-27)
+
+
+### Features
+
+* **yfm:** update dark theme ([#1436](https://github.com/gravity-ui/page-constructor/issues/1436)) ([a2972ef](https://github.com/gravity-ui/page-constructor/commit/a2972efc04d0fd36794f175b0c53ee26a97f4d16))
+
+
+### Bug Fixes
+
+* **SliderOld:** improve storybook story controls ([#1419](https://github.com/gravity-ui/page-constructor/issues/1419)) ([3be6e24](https://github.com/gravity-ui/page-constructor/commit/3be6e247167e0f3be33279e6ca7b7794f1be7fa5))
+
 ## [8.5.0](https://github.com/gravity-ui/page-constructor/compare/v8.4.2...v8.5.0) (2026-04-22)
 
 

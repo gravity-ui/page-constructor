@@ -1,6 +1,6 @@
 {
   "name": "@gravity-ui/page-constructor",
-  "version": "8.5.0-alpha.12",
+  "version": "8.13.0",
   "description": "Gravity UI Page Constructor",
   "license": "MIT",
   "type": "commonjs",
@@ -151,6 +151,7 @@
     "@gravity-ui/dynamic-forms": "^5.0.0",
     "@gravity-ui/i18n": "^1.7.0",
     "@gravity-ui/navigation": "^3.11.1",
+    "@gravity-ui/icons": "^2.18.0",
     "@react-spring/web": "^9.7.3",
     "ajv": "^8.12.0",
     "ajv-keywords": "^5.1.0",
@@ -191,7 +192,6 @@
     "@diplodoc/transform": "^4.57.1",
     "@gravity-ui/eslint-config": "^3.2.0",
     "@gravity-ui/gulp-utils": "^1.0.3",
-    "@gravity-ui/icons": "^2.14.0",
     "@gravity-ui/prettier-config": "^1.1.0",
     "@gravity-ui/stylelint-config": "^4.0.1",
     "@gravity-ui/tsconfig": "^1.0.0",

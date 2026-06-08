@@ -2,6 +2,8 @@ import {Meta, StoryFn} from '@storybook/react';
 
 import AnimateBlock, {AnimateBlockProps} from '../AnimateBlock';
 
+import data from './data.json';
+
 import './AnimateBlock.stories.scss';
 
 export default {
@@ -17,6 +19,4 @@ const DefaultTemplate: StoryFn<AnimateBlockProps> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = {
-    animate: true,
-};
+Default.args = data.default as AnimateBlockProps;

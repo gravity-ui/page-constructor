@@ -193,7 +193,7 @@ $intermediateBreakpoint: 993px;
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__wrapper {
             gap: 0;
-            padding-block: $indentS $indentSM;
+            padding-block: $indentS $indentM;
         }
 
         &__breadcrumbs {

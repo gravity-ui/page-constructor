@@ -169,6 +169,30 @@
     }
   },
   "themeVariants": {
+    "default": {
+      "title": "Default theme",
+      "theme": "default",
+      "buttons": [
+        {
+          "text": "Button\r",
+          "theme": "action",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Button",
+          "theme": "outlined",
+          "url": "https://example.com"
+        }
+      ],
+      "background": {
+        "light": {
+          "color": "#EFF2F8"
+        },
+        "dark": {
+          "color": "#262626"
+        }
+      }
+    },
     "light": {
       "title": "Light monochrome theme",
       "theme": "light",

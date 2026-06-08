@@ -82,12 +82,12 @@ $darkSecondary: var(--g-color-text-dark-secondary);
     &_size {
         &_s {
             #{$block}__text {
-                margin-top: $indentXXXS;
+                margin-top: var(--pc-content-text-margin-top, #{$indentXXXS});
             }
 
             #{$block}__text {
                 &_without-title {
-                    margin-top: 0;
+                    margin-top: var(--pc-content-text-margin-top, 0);
                 }
             }
 
@@ -98,7 +98,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             }
 
             #{$block}__buttons {
-                margin-top: $indentS;
+                margin-top: var(--pc-content-buttons-margin-top, #{$indentS});
             }
 
             #{$block}__notice .yfm {
@@ -108,12 +108,12 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
         &_m {
             #{$block}__text {
-                margin-top: $indentXXS;
+                margin-top: var(--pc-content-text-margin-top, #{$indentXXS});
             }
 
             #{$block}__text {
                 &_without-title {
-                    margin-top: 0;
+                    margin-top: var(--pc-content-text-margin-top, 0);
                 }
             }
 
@@ -137,18 +137,18 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             }
 
             #{$block}__buttons {
-                margin-top: $indentSM;
+                margin-top: var(--pc-content-buttons-margin-top, #{$indentSM});
             }
         }
 
         &_l {
             #{$block}__text {
-                margin-top: $indentXXS;
+                margin-top: var(--pc-content-text-margin-top, #{$indentXXS});
             }
 
             #{$block}__text {
                 &_without-title {
-                    margin-top: 0;
+                    margin-top: var(--pc-content-text-margin-top, 0);
                 }
             }
 
@@ -173,18 +173,18 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             }
 
             #{$block}__buttons {
-                margin-top: $indentSM;
+                margin-top: var(--pc-content-buttons-margin-top, #{$indentSM});
             }
         }
 
         &_xl {
             #{$block}__text {
-                margin-top: $indentXS;
+                margin-top: var(--pc-content-text-margin-top, #{$indentXS});
             }
 
             #{$block}__text {
                 &_without-title {
-                    margin-top: 0;
+                    margin-top: var(--pc-content-text-margin-top, 0);
                 }
             }
 
@@ -209,7 +209,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             }
 
             #{$block}__buttons {
-                margin-top: $indentM;
+                margin-top: var(--pc-content-buttons-margin-top, #{$indentM});
             }
         }
     }

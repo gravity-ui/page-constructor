@@ -1,16 +1,12 @@
 {
   "default": {
-    "content": {
-      "record": "https://youtu.be/0Qd3T6skprA",
-      "attributes": {
-        "color": "white",
-        "rel": "0"
-      },
-      "previewImg": "/story-assets/video_8-12_dark.png",
-      "playButton": null,
-      "className": "",
-      "stream": "",
-      "id": ""
-    }
+    "record": "https://youtu.be/0Qd3T6skprA",
+    "attributes": {
+      "color": "white",
+      "rel": "0"
+    },
+    "previewImg": "/story-assets/video_8-12_dark.png",
+    "fullscreen": false,
+    "autoplay": false
   }
 }

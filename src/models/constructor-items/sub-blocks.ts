@@ -210,6 +210,7 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
 
 export interface ImageCardProps
     extends CardBaseProps,
+        AnalyticsEventsBase,
         CardLayoutProps,
         Omit<ContentBlockProps, 'colSizes' | 'centered' | 'controlPosition'> {
     image: ThemeSupporting<ImageProps>;

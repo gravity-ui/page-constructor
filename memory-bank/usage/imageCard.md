@@ -47,6 +47,7 @@ graph TD
   - `url`: URL that opens when clicking the card
   - `urlTitle`: Accessible title for the URL
   - `target`: Target for the URL - '\_blank', '\_parent', '\_top', or '\_self'
+  - `analyticsEvents`: Analytics event or array of events fired on card click (only when `url` is provided)
   - `additionalInfo`: Additional information text with YFM support
   - `links`: Array of link objects
   - `buttons`: Array of button objects
@@ -96,6 +97,7 @@ The ImageCard component is composed of several key parts:
       target={target}
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
       className={b({border, 'with-content': hasContent, direction})}
+      onClick={() => handleAnalytics(analyticsEvents)}
       title={urlTitle}
       style={{backgroundColor}}
       extraProps={{
@@ -316,6 +318,21 @@ The ImageCard component integrates with the page-constructor theme system:
 />
 ```
 
+### With Analytics Events
+
+```tsx
+<ImageCard
+  title="Tell a story and build a narrative"
+  text="We are all storytellers. Stories are a powerful way to communicate ideas and share information."
+  image="/path/to/image.jpg"
+  url="https://example.com"
+  analyticsEvents={{
+    name: 'image-card-click',
+    type: 'default',
+  }}
+/>
+```
+
 ### With Background Color
 
 ```tsx
@@ -350,6 +367,15 @@ The ImageCard component integrates with the page-constructor theme system:
 />
 ```
 
+## Analytics Integration
+
+The ImageCard component supports analytics tracking via the `analyticsEvents` prop. When `url` is provided, clicking the card fires:
+
+1. A default `card-base-click` event (when `autoEvents` is enabled in the analytics context)
+2. Any custom events passed via `analyticsEvents`
+
+This uses the [`useAnalytics`](../../src/hooks/useAnalytics.ts) hook with `DefaultEventNames.CardBase` as the default event name.
+
 ## Storybook Documentation
 
 The ImageCard component includes Storybook stories demonstrating:
@@ -362,5 +388,6 @@ The ImageCard component includes Storybook stories demonstrating:
 - URL handling
 - Background color options
 - Control positioning (content, footer)
+- Analytics events
 
 Stories are located in `src/sub-blocks/ImageCard/__stories__/ImageCard.stories.tsx` with example data in `data.json`.

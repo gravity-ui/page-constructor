@@ -1,12 +1,15 @@
 import * as React from 'react';
 
+import type {BlockBaseProps} from './constructor-items/blocks';
+
 import {Animatable, ConstructorItem} from './';
 
 export interface PageData {
     content: PageContent;
 }
 
-export type ConstructorBlock = ConstructorItem | CustomBlock;
+export type ConstructorBlock = (ConstructorItem | CustomBlock) &
+    Partial<Pick<BlockBaseProps, 'visible'>>;
 
 /**
  * Core PageContent type - minimal fields that the engine needs.
