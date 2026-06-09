@@ -11,32 +11,6 @@ export const form = [
                 title: 'Centered',
                 name: 'centered',
             },
-            {
-                type: 'select',
-                title: 'Top indent',
-                name: 'indent.top',
-                options: [
-                    {value: '0'},
-                    {value: 'xs'},
-                    {value: 's'},
-                    {value: 'm'},
-                    {value: 'l'},
-                    {value: 'xl'},
-                ],
-            },
-            {
-                type: 'select',
-                title: 'Bottom indent',
-                name: 'indent.bottom',
-                options: [
-                    {value: '0'},
-                    {value: 'xs'},
-                    {value: 's'},
-                    {value: 'm'},
-                    {value: 'l'},
-                    {value: 'xl'},
-                ],
-            },
         ],
     },
     {
@@ -66,13 +40,23 @@ export const form = [
                 type: 'select',
                 title: 'Width',
                 name: 'textWidth',
-                options: [{value: 's'}, {value: 'm'}, {value: 'l'}],
+                options: [
+                    {value: 's', content: 'S'},
+                    {value: 'm', content: 'M'},
+                    {value: 'l', content: 'L'},
+                ],
+                defaultValue: 'm',
             },
             {
                 type: 'select',
                 title: 'Text size',
                 name: 'size',
-                options: [{value: 's'}, {value: 'm'}, {value: 'l'}],
+                options: [
+                    {value: 's', content: 'S'},
+                    {value: 'm', content: 'M'},
+                    {value: 'l', content: 'L'},
+                ],
+                defaultValue: 'l',
             },
             {
                 type: 'segmentedRadioGroup',
@@ -99,12 +83,14 @@ export const form = [
                 title: 'Title',
                 name: 'textContent.list[{{index1}}].title',
                 placeholder: 'Text',
+                defaultValue: 'Item title',
             },
             {
                 type: 'textArea',
                 title: 'Description',
                 name: 'textContent.list[{{index1}}].text',
                 placeholder: 'Text',
+                defaultValue: 'Item text',
             },
             {
                 type: 'textInput',
@@ -132,6 +118,7 @@ export const form = [
                         type: 'textInput',
                         name: 'textContent.buttons[{{index}}].text',
                         placeholder: 'Text',
+                        defaultValue: 'Learn more',
                     },
                     {
                         title: 'URL',
@@ -220,6 +207,7 @@ export const form = [
                 title: 'Text',
                 name: 'textContent.links[{{index1}}].text',
                 placeholder: 'Text',
+                defaultValue: 'Learn more',
             },
             {
                 type: 'textInput',
@@ -243,6 +231,7 @@ export const form = [
                     {content: 'Back', value: 'back'},
                     {content: 'Underline', value: 'underline'},
                 ],
+                defaultValue: 'normal',
             },
             {
                 title: 'Target',
