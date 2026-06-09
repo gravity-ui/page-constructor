@@ -35,6 +35,7 @@ export type SelectField = {
     defaultValue?: string;
     when?: When;
     hasClear?: boolean;
+    placeholder?: string;
 };
 
 export type TextField = {
@@ -74,6 +75,11 @@ export type Text = {
     when?: When;
 };
 
+export type DividerField = {
+    type: 'divider';
+    when?: When;
+};
+
 export type SwitchField = {
     type: 'switch';
     name: string;
@@ -96,6 +102,7 @@ export type Fields = (
     | TextField
     | SegmentedRadioGroupField
     | Text
+    | DividerField
     | SwitchField
     | ColorField
 )[];

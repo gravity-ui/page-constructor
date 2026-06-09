@@ -13,7 +13,7 @@ export const stripArrayModePrefix = (name: string): string =>
 export const collectNames = (fields: FormField[]): Set<string> => {
     const names = new Set<string>();
     walkFields(fields, (field) => {
-        if (field.type !== 'section' && field.type !== 'text') {
+        if (field.type !== 'section' && field.type !== 'text' && field.type !== 'divider') {
             names.add(field.name);
         }
     });
@@ -52,7 +52,7 @@ export const cloneFieldWithNewIds = (
             ),
         };
     }
-    if (field.type === 'text') {
+    if (field.type === 'text' || field.type === 'divider') {
         return {...field, id: newId};
     }
     const newName = findUniqueCopyName(field.name, existingNames);
@@ -68,7 +68,7 @@ export const transformChildNames = (
         if (field.type === 'section') {
             return {...field, fields: transformChildNames(field.fields, transform)};
         }
-        if (field.type === 'text') {
+        if (field.type === 'text' || field.type === 'divider') {
             return field;
         }
         return {...field, name: transform(field.name)};

@@ -5,6 +5,7 @@ import {
     Droplet,
     FontCursor,
     ListCheck,
+    Minus,
     TextAlignLeft,
     ToggleOn,
 } from '@gravity-ui/icons';
@@ -20,6 +21,7 @@ export const TYPE_LABELS: Record<BuilderFieldType, string> = {
     switch: 'Switch',
     colorInput: 'Color input',
     text: 'Static text',
+    divider: 'Divider',
     section: 'Section',
 };
 
@@ -31,6 +33,7 @@ export const PALETTE_LABELS: Record<BuilderFieldType, string> = {
     switch: 'Switch',
     colorInput: 'Color',
     text: 'Hint',
+    divider: 'Divider',
     section: 'Section',
 };
 
@@ -42,6 +45,7 @@ export const TYPE_ICONS: Record<BuilderFieldType, IconData> = {
     switch: ToggleOn,
     colorInput: Droplet,
     text: CircleInfo,
+    divider: Minus,
     section: Cubes3,
 };
 
@@ -53,5 +57,6 @@ export const FIELD_TYPES: BuilderFieldType[] = [
     'switch',
     'colorInput',
     'text',
+    'divider',
     'section',
 ];

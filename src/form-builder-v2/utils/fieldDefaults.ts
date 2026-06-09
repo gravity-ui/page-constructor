@@ -34,6 +34,8 @@ export const createDefaultField = (type: BuilderFieldType, name: string, id: str
             };
         case 'text':
             return {type, text: 'Static text', id};
+        case 'divider':
+            return {type, id};
         case 'section':
             return {
                 type,

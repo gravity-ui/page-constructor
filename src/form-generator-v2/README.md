@@ -150,6 +150,17 @@ Color picker (Gravity UI `unstable_ColorPicker`).
 
 ---
 
+## `divider`
+
+Horizontal line for visual separation between fields — no value stored in `content`.
+
+| Property | Type        | Required | Description    |
+| -------- | ----------- | -------- | -------------- |
+| `type`   | `'divider'` | yes      | Discriminator. |
+| `when`   | `When`      | no       | Visibility.    |
+
+---
+
 ## `text`
 
 Static hint text — no value stored in `content`.

@@ -8,6 +8,7 @@ const VALID_TYPES = new Set([
     'switch',
     'colorInput',
     'text',
+    'divider',
     'section',
 ]);
 

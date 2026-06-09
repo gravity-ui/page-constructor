@@ -14,6 +14,7 @@ export const form = [
                     {content: 'Media-content', value: 'media-content'},
                     {content: 'Content-media', value: 'content-media'},
                 ],
+                defaultValue: 'content-media',
             },
             {
                 type: 'select',
@@ -23,6 +24,7 @@ export const form = [
                     {content: 'Media-content', value: 'media-content'},
                     {content: 'Content-media', value: 'content-media'},
                 ],
+                defaultValue: 'content-media',
             },
             {
                 type: 'switch',
@@ -63,7 +65,12 @@ export const form = [
                 type: 'select',
                 title: 'Text size',
                 name: 'size',
-                options: [{value: 's'}, {value: 'm'}, {value: 'l'}],
+                options: [
+                    {value: 's', content: 'S'},
+                    {value: 'm', content: 'M'},
+                    {value: 'l', content: 'L'},
+                ],
+                defaultValue: 'l',
             },
             {
                 type: 'segmentedRadioGroup',
@@ -283,32 +290,6 @@ export const form = [
                 type: 'segmentedRadioGroup',
             },
             {
-                title: 'Ratio',
-                type: 'select',
-                name: 'background.ratio',
-                options: [{value: 'auto'}, {value: 16 / 9, content: '16:9'}],
-                when: [
-                    {
-                        field: '_mediaType',
-                        operator: '!==',
-                        value: undefined,
-                    },
-                ],
-            },
-            {
-                title: 'Border',
-                type: 'select',
-                name: 'border',
-                options: [{value: 'none'}, {value: 'shadow'}, {value: 'line'}],
-                when: [
-                    {
-                        field: '_mediaType',
-                        operator: '===',
-                        value: 'image',
-                    },
-                ],
-            },
-            {
                 type: 'text',
                 text: 'Light theme',
                 when: [
@@ -470,6 +451,40 @@ export const form = [
                     },
                 ],
             },
+            {
+                type: 'divider',
+            },
+            {
+                title: 'Ratio',
+                type: 'select',
+                name: 'media.ratio',
+                options: [
+                    {value: 'auto', content: 'Auto'},
+                    {value: String(16 / 9), content: '16:9'},
+                ],
+                defaultValue: String(16 / 9),
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '===',
+                        value: 'video',
+                    },
+                ],
+            },
+            {
+                title: 'Border',
+                type: 'select',
+                name: 'border',
+                defaultValue: 'none',
+                options: [{value: 'none'}, {value: 'shadow'}, {value: 'line'}],
+                when: [
+                    {
+                        field: '_mediaType',
+                        operator: '!==',
+                        value: undefined,
+                    },
+                ],
+            },
         ],
     },
 ] as Fields;
@@ -520,4 +535,5 @@ export const defaultValue = {
             },
         },
     },
+    _mediaType: 'image',
 };

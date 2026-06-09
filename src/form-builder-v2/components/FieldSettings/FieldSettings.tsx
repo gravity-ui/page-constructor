@@ -27,7 +27,9 @@ export const FieldSettings = ({field}: FieldSettingsProps) => {
 
     const availableFields = React.useMemo(() => {
         const all = Array.from(collectNames(formFields));
-        if (field.type === 'section' || field.type === 'text') return all;
+        if (field.type === 'section' || field.type === 'text' || field.type === 'divider') {
+            return all;
+        }
         return all.filter((n) => n !== field.name);
     }, [formFields, field]);
 
@@ -78,6 +80,10 @@ export const FieldSettings = ({field}: FieldSettingsProps) => {
                 whenEditorSection={whenEditorSection}
             />
         );
+    }
+
+    if (field.type === 'divider') {
+        return whenEditorSection;
     }
 
     if (field.type === 'textInput' || field.type === 'textArea') {
