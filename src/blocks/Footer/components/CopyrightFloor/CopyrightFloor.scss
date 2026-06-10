@@ -14,6 +14,39 @@ $block: '.#{$ns}footer-block';
             align-self: end;
             height: 36px;
         }
+
+        &_centered:not(&_threeColumn) {
+            justify-content: center;
+            gap: $indentM;
+
+            #{$block}__links-floor-left {
+                flex-grow: 0;
+                max-width: 480px;
+            }
+        }
+
+        &_threeColumn {
+            gap: $indentM;
+
+            #{$block}__logo {
+                flex: 1 1 0;
+                min-width: 0;
+                max-width: 345px;
+            }
+
+            #{$block}__links-floor-left {
+                flex: 0 1 auto;
+                max-width: 480px;
+            }
+
+            #{$block}__links-floor-right {
+                flex: 1 1 0;
+                min-width: 0;
+                max-width: 345px;
+                flex-shrink: 1;
+                justify-content: flex-end;
+            }
+        }
     }
 
     &__links-floor-left {
@@ -82,21 +115,20 @@ $block: '.#{$ns}footer-block';
     &__links-floor-copyright {
         @include text-size(body-2);
         color: var(--g-color-text-secondary);
+        text-align: right;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__links-floor-inner {
             flex-wrap: wrap;
-            gap: $indentXS;
+            gap: $indentM;
         }
 
         &__links-floor-left,
         &__links-floor-right {
             width: 100%;
         }
-    }
 
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__links-floor-list {
             flex-direction: column;
         }

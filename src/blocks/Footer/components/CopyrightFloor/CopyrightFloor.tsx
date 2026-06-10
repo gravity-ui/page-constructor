@@ -36,6 +36,7 @@ function useLinksAlignmentState(copyright: CopyrightFloorProps['copyright']) {
 
     return {
         shouldCenterLinks: areLinksInTheMiddle || hasOnlyLinks,
+        threeColumnLayout: areLinksInTheMiddle,
         mobileHorizontalAlignment: copyright.mobileHorizontalAlignment || 'left',
     };
 }
@@ -155,13 +156,21 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
         itemSelector: `.${b('links-floor-item')}`,
         moreButtonWidth: 28,
     });
-    const {shouldCenterLinks, mobileHorizontalAlignment} = useLinksAlignmentState(copyright);
+    const {shouldCenterLinks, threeColumnLayout, mobileHorizontalAlignment} =
+        useLinksAlignmentState(copyright);
+    const hasRightSideContent = Boolean(copyright.languageSwitcher || copyright.copyrightText);
     const copyrightLogoImage = copyright.logo && getThemedValue(copyright.logo.image, theme);
     const copyrightLogoImageProps = useLogoImageProps(copyrightLogoImage);
 
     return (
         <Col sizes={{all: 12}} className={b('floor', {copyright: true})} ref={floorRef}>
-            <div className={b('links-floor-inner', {mobileHorizontalAlignment})}>
+            <div
+                className={b('links-floor-inner', {
+                    mobileHorizontalAlignment,
+                    centered: shouldCenterLinks,
+                    threeColumn: threeColumnLayout,
+                })}
+            >
                 <CopyrightLogo logo={copyright.logo} logoImageProps={copyrightLogoImageProps} />
                 <div
                     className={b('links-floor-left', {
@@ -179,7 +188,7 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
                         items={hiddenItems}
                     />
                 </div>
-                <RightSide copyright={copyright} />
+                {hasRightSideContent && <RightSide copyright={copyright} />}
             </div>
         </Col>
     );

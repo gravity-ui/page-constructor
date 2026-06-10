@@ -182,12 +182,6 @@
       "alt": "Example company"
     },
     "linksOverflowStrategy": "dropdown",
-    "languageSwitcher": {
-      "items": [
-        {"text": "Русский", "href": "/ru"},
-        {"text": "English", "href": "/en"}
-      ]
-    },
     "copyrightText": "© 2025 ООО \"Яндекс.Облако\"",
     "mobileHorizontalAlignment": "center"
   },
