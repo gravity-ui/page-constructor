@@ -173,6 +173,14 @@
       {"text": "Длинный пункт меню 1", "url": "#terms"},
       {"text": "Длинный пункт меню 2", "url": "#terms"}
     ],
+    "logo": {
+      "image": {
+        "light": {"src": "story-assets/icons-sample-company_light.svg"},
+        "dark": {"src": "story-assets/icons-sample-company_dark.svg"}
+      },
+      "href": "/",
+      "alt": "Example company"
+    },
     "linksOverflowStrategy": "dropdown",
     "languageSwitcher": {
       "items": [

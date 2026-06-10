@@ -11,6 +11,11 @@
       "alt": "Example company",
       "placement": "top"
     },
+    "colSizes": {
+      "sm": 6,
+      "md": 6
+    },
+    "columnsPerRow": 5,
     "columns": [
       {
         "title": "Для работы",

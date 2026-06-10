@@ -34,17 +34,8 @@
     ]
   },
   "copyright": {
-    "logo": {
-      "image": {
-        "light": {"src": "story-assets/icons-sample-company_light.svg"},
-        "dark": {"src": "story-assets/icons-sample-company_dark.svg"}
-      },
-      "href": "/",
-      "alt": "Example company"
-    },
     "links": [{"text": "Политика конфиденциальности", "url": "#privacy"}],
     "linksOverflowStrategy": "dropdown",
-    "copyrightText": "© 2025 ООО \"Яндекс.Облако\"",
     "mobileHorizontalAlignment": "center"
   },
   "attribution": true
