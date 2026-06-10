@@ -31,11 +31,10 @@ const ColorInput = ({
             defaultValue={defaultValue}
         >
             <BaseInput title={title} className={className}>
-                {/* unstable API — size prop type mismatch, cast required */}
                 <ColorPicker
                     onUpdate={(v: string) => onUpdate(name, v)}
                     value={value}
-                    size={'xs' as never}
+                    size="s"
                     withAlpha
                 />
                 {storedValue ? (
