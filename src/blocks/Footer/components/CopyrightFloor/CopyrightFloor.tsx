@@ -130,16 +130,22 @@ const RightSide = ({copyright}: RightSideProps) => {
     );
 };
 
+const DOCUMENT_ELEMENT_REF = {
+    current: document.documentElement,
+};
+
 export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
     const theme = useTheme();
     const [isSmallWidth, setIsSmallWidth] = React.useState(false);
-    const floorRef = React.useRef<HTMLDivElement>(null);
 
     const updateFloorSize = React.useCallback(() => {
         setIsSmallWidth(document.documentElement.clientWidth <= MOBILE_WIDTH);
     }, []);
 
-    useResizeObserver({ref: floorRef, onResize: updateFloorSize});
+    useResizeObserver({
+        ref: DOCUMENT_ELEMENT_REF,
+        onResize: updateFloorSize,
+    });
 
     const menuContainerRef = React.useRef<HTMLDivElement>(null);
     const linksOverflowStrategy = copyright.linksOverflowStrategy || 'dropdown';
@@ -171,7 +177,7 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
     );
 
     return (
-        <Col sizes={{all: 12}} className={b('floor', {copyright: true})} ref={floorRef}>
+        <Col sizes={{all: 12}} className={b('floor', {copyright: true})}>
             <div
                 className={b('links-floor-inner', {
                     mobileHorizontalAlignment,
