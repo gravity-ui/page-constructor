@@ -34,9 +34,18 @@ $block: '.#{$ns}footer-block';
                 max-width: 345px;
             }
 
+            #{$block}__links-floor-center {
+                flex: 1 1 0;
+                min-width: 0;
+                display: flex;
+                justify-content: center;
+            }
+
             #{$block}__links-floor-left {
-                flex: 0 1 auto;
+                flex: 1 1 auto;
+                width: 100%;
                 max-width: 480px;
+                min-width: 0;
             }
 
             #{$block}__links-floor-right {
@@ -81,7 +90,7 @@ $block: '.#{$ns}footer-block';
         align-items: center;
         margin: 0;
         padding: 0;
-        gap: $indentXXS 0;
+        gap: $indentXXS $indentXS;
         overflow: visible;
 
         &_wrap {
@@ -103,7 +112,6 @@ $block: '.#{$ns}footer-block';
         @include text-size(body-2);
         margin: 0;
         white-space: nowrap;
-        padding-right: 16px;
         list-style: none;
 
         &:hover {

@@ -136,12 +136,7 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
     const floorRef = React.useRef<HTMLDivElement>(null);
 
     const updateFloorSize = React.useCallback(() => {
-        if (!floorRef.current) {
-            return;
-        }
-
-        const floorWidth = floorRef.current.clientWidth;
-        setIsSmallWidth(floorWidth <= MOBILE_WIDTH);
+        setIsSmallWidth(document.documentElement.clientWidth <= MOBILE_WIDTH);
     }, []);
 
     useResizeObserver({ref: floorRef, onResize: updateFloorSize});
@@ -162,6 +157,19 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
     const copyrightLogoImage = copyright.logo && getThemedValue(copyright.logo.image, theme);
     const copyrightLogoImageProps = useLogoImageProps(copyrightLogoImage);
 
+    const linksContent = (
+        <div
+            className={b('links-floor-left', {measured, centered: shouldCenterLinks})}
+            ref={menuContainerRef}
+        >
+            <VisibleLinks items={visibleItems} isLinksOverflowDropdown={isLinksOverflowDropdown} />
+            <OverflowDropdown
+                isLinksOverflowDropdown={isLinksOverflowDropdown}
+                items={hiddenItems}
+            />
+        </div>
+    );
+
     return (
         <Col sizes={{all: 12}} className={b('floor', {copyright: true})} ref={floorRef}>
             <div
@@ -172,22 +180,11 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
                 })}
             >
                 <CopyrightLogo logo={copyright.logo} logoImageProps={copyrightLogoImageProps} />
-                <div
-                    className={b('links-floor-left', {
-                        measured,
-                        centered: shouldCenterLinks,
-                    })}
-                    ref={menuContainerRef}
-                >
-                    <VisibleLinks
-                        items={visibleItems}
-                        isLinksOverflowDropdown={isLinksOverflowDropdown}
-                    />
-                    <OverflowDropdown
-                        isLinksOverflowDropdown={isLinksOverflowDropdown}
-                        items={hiddenItems}
-                    />
-                </div>
+                {threeColumnLayout ? (
+                    <div className={b('links-floor-center')}>{linksContent}</div>
+                ) : (
+                    linksContent
+                )}
                 {hasRightSideContent && <RightSide copyright={copyright} />}
             </div>
         </Col>
