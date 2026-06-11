@@ -20,6 +20,7 @@ const Select = ({
     onUpdate,
     hasClear,
     defaultValue,
+    placeholder,
 }: SelectProps) => {
     const stored = getValueByPath(content, name);
     const hasStored =
@@ -43,7 +44,7 @@ const Select = ({
                         value: option.value,
                         content: option.content || option.value,
                     }))}
-                    placeholder="Not selected"
+                    placeholder={placeholder || 'Not selected'}
                     onUpdate={(v) =>
                         v.length > 0
                             ? onUpdate(name, v[0] as string)

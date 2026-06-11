@@ -1,5 +1,6 @@
 import type {
     ColorField,
+    DividerField,
     SectionField,
     SegmentedRadioGroupField,
     SelectField,
@@ -13,6 +14,7 @@ type LeafField =
     | SelectField
     | SegmentedRadioGroupField
     | Text
+    | DividerField
     | SwitchField
     | ColorField;
 

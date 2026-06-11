@@ -1,3 +1,5 @@
+import {Xmark} from '@gravity-ui/icons';
+import {Button, Icon} from '@gravity-ui/uikit';
 import {unstable_ColorPicker as ColorPicker} from '@gravity-ui/uikit/unstable';
 
 import {ClassNameProps} from '../../../models/common';
@@ -8,8 +10,6 @@ import BaseInput from '../BaseInput/BaseInput';
 
 type ColorInputProps = ClassNameProps & CommonProps & ColorField;
 
-const COLOR_PICKER_DEFAULT = '#000000';
-
 const ColorInput = ({
     title,
     name,
@@ -19,8 +19,8 @@ const ColorInput = ({
     className,
     defaultValue,
 }: ColorInputProps) => {
-    const resolvedDefault = defaultValue ?? COLOR_PICKER_DEFAULT;
-    const value = getValueByPath(content, name) || resolvedDefault;
+    const storedValue = getValueByPath(content, name);
+    const value = (storedValue ?? defaultValue ?? '') as string;
 
     return (
         <Base
@@ -28,15 +28,24 @@ const ColorInput = ({
             content={content}
             name={name}
             onUpdate={onUpdate}
-            defaultValue={resolvedDefault}
+            defaultValue={defaultValue}
         >
             <BaseInput title={title} className={className}>
-                {/* unstable API — size prop type mismatch, cast required */}
                 <ColorPicker
                     onUpdate={(v: string) => onUpdate(name, v)}
-                    value={value as string}
-                    size={'xs' as never}
+                    value={value}
+                    size="s"
+                    withAlpha
                 />
+                {storedValue ? (
+                    <Button
+                        view="flat"
+                        size="s"
+                        onClick={() => onUpdate(name, undefined, {unset: true})}
+                    >
+                        <Icon data={Xmark} width={16} height={16} />
+                    </Button>
+                ) : null}
             </BaseInput>
         </Base>
     );

@@ -187,7 +187,7 @@ export const form = [
         fields: [
             {
                 title: 'Color HEX',
-                type: 'textInput',
+                type: 'colorInput',
                 name: 'background.color',
                 placeholder: '#000000',
             },

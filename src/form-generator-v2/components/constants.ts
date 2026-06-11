@@ -1,4 +1,5 @@
 import ColorInput from './ColorInput/ColorInput';
+import Divider from './Divider/Divider';
 import Section from './Section/Section';
 import SegmentedRadioGroup from './SegmentedRadioGroup/SegmentedRadioGroup';
 import Select from './Select/Select';
@@ -14,6 +15,7 @@ export const componentMap = {
     segmentedRadioGroup: SegmentedRadioGroup,
     colorInput: ColorInput,
     text: Text,
+    divider: Divider,
     textArea: TextArea,
     switch: Switch,
 };

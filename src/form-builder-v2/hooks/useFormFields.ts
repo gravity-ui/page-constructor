@@ -124,7 +124,11 @@ export const useFormFields = ({initialFields, onChange}: UseFormFieldsProps) => 
             const targetIsArray = isArrayModeSection(withoutField, targetSectionId);
 
             let movedField = sourceField;
-            if (sourceField.type !== 'section' && sourceField.type !== 'text') {
+            if (
+                sourceField.type !== 'section' &&
+                sourceField.type !== 'text' &&
+                sourceField.type !== 'divider'
+            ) {
                 const currentHasIndex = sourceField.name.includes('{{index}}');
                 if (targetIsArray && !currentHasIndex) {
                     movedField = {
