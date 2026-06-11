@@ -1,0 +1,109 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns-form-generator}field-base';
+
+#{$block} {
+    $class: &;
+    padding: 0;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    &:hover {
+        & > #{$class}__top #{$class}__title > #{$class}__button {
+            opacity: 1;
+        }
+    }
+
+    &_expandable {
+        flex-direction: column;
+
+        & > #{$block}__top {
+            width: 100%;
+            flex-basis: initial;
+        }
+
+        & > #{$block}__children {
+            width: 100%;
+        }
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        word-break: break-word;
+    }
+
+    &__children {
+        &_expandable {
+            border-left: 3px solid var(--g-color-line-generic);
+            padding: 6px 12px;
+        }
+    }
+
+    &__foldable {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        padding: 6px 0;
+        // border: 3px solid var(--g-color-line-generic);
+        border-top-left-radius: var(--g-border-radius-m);
+        border-top-right-radius: var(--g-border-radius-m);
+
+        &:hover {
+            // border: 3px solid transparent;
+            color: var(--g-color-text-link-hover);
+        }
+
+        &:active {
+            color: var(--g-color-text-link-active);
+        }
+    }
+
+    &__non-foldable {
+        &:before {
+            //content: '•';
+            position: absolute;
+            right: calc(100% + 5px);
+        }
+    }
+
+    &__button {
+        transition: opacity 0.3s ease;
+        opacity: 0;
+        margin-left: 2px;
+    }
+
+    &__title {
+        @include text-body-2;
+        font-weight: 500;
+        margin: 5px 16px 5px 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &_size {
+            &_s {
+                @include text-body-1;
+            }
+
+            &_m {
+                @include text-body-2;
+            }
+
+            &_l {
+                @include text-body-3;
+            }
+        }
+    }
+
+    &:last-child {
+        border-bottom: none;
+    }
+}

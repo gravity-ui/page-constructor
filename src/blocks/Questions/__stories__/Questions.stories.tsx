@@ -3,12 +3,16 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {QuestionsBlockModel, QuestionsProps} from '../../../models';
 import QuestionsBlock from '../Questions';
+import {form} from '../form';
 
 import data from './data.json';
 
 export default {
     title: 'Blocks/Questions',
     component: QuestionsBlock,
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<QuestionsBlockModel> = (args) => {

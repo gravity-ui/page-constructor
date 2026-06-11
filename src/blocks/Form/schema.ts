@@ -2,7 +2,7 @@ import omit from 'lodash/omit';
 
 import {ImageProps} from '../../components/Image/schema';
 import {YandexFormProps} from '../../components/YandexForm/schema';
-import {BlockBaseProps, withTheme} from '../../schema/validators/common';
+import {BlockBaseProps, withTheme} from '../../gravity-blocks/schema/validators/common';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 import {HubspotFormProps} from '../../sub-blocks/HubspotForm/schema';
 

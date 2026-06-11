@@ -1,0 +1,31 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}block-config-form';
+
+#{$block} {
+    height: 100%;
+
+    &_empty {
+        padding: 16px 12px;
+    }
+
+    &__title {
+        @include text-subheader-3;
+        padding: 16px 12px;
+    }
+
+    &__form {
+        padding: 0 0 12px;
+    }
+
+    &__empty {
+        padding: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+    }
+}

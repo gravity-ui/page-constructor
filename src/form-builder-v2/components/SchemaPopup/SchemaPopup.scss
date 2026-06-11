@@ -1,0 +1,59 @@
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns-form-builder-v2}schema-popup';
+
+#{$block} {
+    width: min(560px, 90vw);
+    padding: var(--g-spacing-4);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: var(--g-spacing-half);
+    }
+
+    &__textarea {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        min-height: 400px;
+        max-height: min(70vh, 700px);
+        padding: var(--g-spacing-3);
+        background: var(--g-color-base-generic);
+        border: 1px solid var(--g-color-line-generic);
+        border-radius: var(--g-border-radius-m);
+        font-family: monospace;
+        font-size: 12px;
+        line-height: 1.4;
+        color: var(--g-color-text-primary);
+        white-space: pre;
+        overflow: auto;
+        resize: vertical;
+        outline: none;
+        transition: border-color 0.15s ease;
+        tab-size: 2;
+
+        &:focus {
+            border-color: var(--g-color-line-brand);
+        }
+
+        &_error {
+            border-color: var(--g-color-line-danger);
+        }
+    }
+
+    &__error-message {
+        padding: var(--g-spacing-2) var(--g-spacing-3);
+        background: var(--g-color-base-danger-light);
+        border-radius: var(--g-border-radius-m);
+    }
+
+    &__actions {
+        display: flex;
+        gap: var(--g-spacing-2);
+        justify-content: flex-end;
+    }
+}

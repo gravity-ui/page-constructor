@@ -3,6 +3,7 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {QuoteModel, QuoteProps, QuoteType} from '../../../models';
 import Quote from '../Quote';
+import {form} from '../form';
 
 import data from './data.json';
 
@@ -11,6 +12,9 @@ export default {
     component: Quote,
     argTypes: {
         color: {control: 'color'},
+    },
+    parameters: {
+        inputs: form,
     },
 } as Meta;
 

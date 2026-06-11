@@ -1,4 +1,5 @@
 import {PageConstructor, PageConstructorProvider} from '../../../containers/PageConstructor';
+import {GravityBlocksProvider} from '../../../gravity-blocks/extensions/GravityBlocksExtension';
 import {block} from '../../../utils';
 import AddBlock from '../../components/AddBlock/AddBlock';
 import {CodeEditor} from '../../components/CodeEditor/CodeEditor';
@@ -83,8 +84,10 @@ export const Editor = (props: EditorProps) => {
                 {!isCodeOnlyMode && (
                     <Layout.Right>
                         <ErrorBoundary key={errorBoundaryState}>
-                            <PageConstructorProvider {...providerProps} theme={constructorTheme}>
-                                <PageConstructor {...outgoingProps} />
+                            <PageConstructorProvider {...providerProps}>
+                                <GravityBlocksProvider theme={constructorTheme}>
+                                    <PageConstructor {...outgoingProps} />
+                                </GravityBlocksProvider>
                             </PageConstructorProvider>
                         </ErrorBoundary>
                         {isFormEditMode && <AddBlock onAdd={onAdd} />}

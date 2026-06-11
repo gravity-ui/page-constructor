@@ -11,8 +11,8 @@ import {
     mediaDirection,
     sizeNumber,
     withTheme,
-} from '../../schema/validators/common';
-import {filteredArray} from '../../schema/validators/utils';
+} from '../../gravity-blocks/schema/validators/common';
+import {filteredArray} from '../../gravity-blocks/schema/validators/utils';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 
 const TabsItemContentProps = omit(ContentBase, ['size', 'colSizes', 'centered', 'theme']);

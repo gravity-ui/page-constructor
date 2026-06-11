@@ -50,8 +50,19 @@ module.exports = {
                         },
                     },
                     'resolve-url-loader',
-                    'sass-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sassOptions: {
+                                silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin'],
+                            },
+                        },
+                    },
                 ],
+            },
+            {
+                test: /\.svg$/i,
+                type: 'asset/resource',
             },
         ],
     },
@@ -61,7 +72,10 @@ module.exports = {
     plugins: [
         {
             apply: (compiler) => {
-                compiler.hooks.assetEmitted.tap('InjectWidgetBundlePlugin', (_, {content}) => {
+                compiler.hooks.assetEmitted.tap('InjectWidgetBundlePlugin', (file, {content}) => {
+                    if (path.basename(file) !== WIDGET_BUNDLE_FILENAME) {
+                        return;
+                    }
                     const script = JSON.stringify(content.toString());
                     const fileContent = `export default ${script};`;
 

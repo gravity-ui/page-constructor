@@ -19,6 +19,8 @@ const preview: Preview = {
     decorators: [withLang, withMobile, withContextProvider, withPageConstructorProvider],
 
     parameters: {
+        inputs: {disable: true},
+        resultPanel: {disable: true},
         layout: 'fullscreen',
         docs: {
             theme: themeLight,
@@ -55,6 +57,9 @@ const preview: Preview = {
     },
 
     globalTypes: {
+        formAddon: {
+            defaultValue: false,
+        },
         theme: {
             name: 'Theme',
             description: 'Global theme for components',

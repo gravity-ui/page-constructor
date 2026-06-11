@@ -8,9 +8,9 @@ import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcru
 import {getMediaImage} from '../../components/Media/Image/utils';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {BREAKPOINTS} from '../../constants';
-import {useTheme} from '../../context/theme';
-import {useWindowWidth} from '../../context/windowWidthContext';
-import {Col, Grid, Row} from '../../grid';
+import {useTheme} from '../../gravity-blocks/context/theme';
+import {useWindowWidth} from '../../gravity-blocks/context/windowWidthContext';
+import {Col, Grid, Row} from '../../gravity-blocks/grid';
 import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 import {mergeVideoMicrodata} from '../../utils/microdata';

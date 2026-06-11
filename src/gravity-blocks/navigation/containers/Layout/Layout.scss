@@ -1,0 +1,23 @@
+@import '../../../../../styles/variables';
+
+$block: '.#{$ns}layout';
+
+#{$block} {
+    display: flex;
+    flex-direction: column;
+
+    // TODO: It seems not okay
+    //min-height: 100vh;
+
+    &__content {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+    }
+
+    &__navigation {
+        position: sticky;
+        z-index: 98;
+        top: 0;
+    }
+}

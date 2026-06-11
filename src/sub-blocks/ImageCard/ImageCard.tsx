@@ -4,9 +4,9 @@ import {Link, useUniqId} from '@gravity-ui/uikit';
 
 import {Image} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
-import {useTheme} from '../../context/theme';
-import {GridColumnSizesType} from '../../grid';
-import {useAnalytics} from '../../hooks';
+import {useTheme} from '../../gravity-blocks/context/theme';
+import {GridColumnSizesType} from '../../gravity-blocks/grid';
+import {useAnalytics} from '../../gravity-blocks/hooks';
 import {DefaultEventNames, ImageCardDirection, ImageCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 import Content from '../Content/Content';
@@ -50,12 +50,14 @@ const ImageCard = (props: ImageCardProps) => {
 
     const cardContent = (
         <React.Fragment>
-            <div className={b('image', {margins})}>
-                <Image
-                    className={b('image_inner', {radius: enableImageBorderRadius})}
-                    {...imageProps}
-                />
-            </div>
+            {image && (
+                <div className={b('image', {margins})}>
+                    <Image
+                        className={b('image_inner', {radius: enableImageBorderRadius})}
+                        {...imageProps}
+                    />
+                </div>
+            )}
             {hasContent && (
                 <div className={b('content')}>
                     <Content

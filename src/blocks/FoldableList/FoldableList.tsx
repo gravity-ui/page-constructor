@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {Col, Row} from '../../grid';
+import {Col, Row} from '../../gravity-blocks/grid';
 import {FoldableListProps} from '../../models';
 import {Content} from '../../sub-blocks';
 import {block} from '../../utils';

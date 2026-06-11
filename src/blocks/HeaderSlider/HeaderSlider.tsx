@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import {SliderBlock} from '../../blocks';
-import {MobileContext} from '../../context/mobileContext';
+import {MobileContext} from '../../gravity-blocks/context/mobileContext';
 import {HeaderSliderBlockProps, SliderType} from '../../models';
 import {block} from '../../utils';
 import Header from '../Header/Header';
+import {default as SliderBlock} from '../Slider/Slider';
 
 import './HeaderSlider.scss';
 
@@ -25,15 +25,16 @@ export const HeaderSliderBlock = ({items, arrows, ...props}: HeaderSliderBlockPr
                 blockClassName={b()}
                 arrowSize={20}
             >
-                {items.map((item, index) => (
-                    <div
-                        key={index}
-                        className={b('item')}
-                        data-qa={`header-slider-item-${index + 1}`}
-                    >
-                        <Header {...item} className={b('item-content')} />
-                    </div>
-                ))}
+                {items &&
+                    items.map((item, index) => (
+                        <div
+                            key={index}
+                            className={b('item')}
+                            data-qa={`header-slider-item-${index + 1}`}
+                        >
+                            <Header {...item} className={b('item-content')} />
+                        </div>
+                    ))}
             </SliderBlock>
         </div>
     );

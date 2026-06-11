@@ -3,6 +3,7 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {PromoFeaturesBlockModel, PromoFeaturesProps} from '../../../models';
 import PromoFeaturesBlock from '../PromoFeaturesBlock';
+import {form} from '../form';
 
 import data from './data.json';
 
@@ -11,6 +12,9 @@ export default {
     component: PromoFeaturesBlock,
     args: {
         theme: 'default',
+    },
+    parameters: {
+        inputs: form,
     },
 } as Meta;
 

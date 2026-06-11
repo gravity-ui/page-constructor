@@ -3,12 +3,16 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {FoldableListBlockModel, FoldableListProps} from '../../../models';
 import FoldableListBlock from '../FoldableList';
+import {form} from '../form';
 
 import data from './data.json';
 
 export default {
     title: 'Blocks/FoldableList',
     component: FoldableListBlock,
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<FoldableListBlockModel> = (args) => {

@@ -2,7 +2,7 @@ import {render, screen} from '@testing-library/react';
 
 import {testCustomClassName} from '../../../../test-utils/shared/common';
 import {qaIdByDefault} from '../../../components/Anchor/Anchor';
-import {GridColumnSize, IndentValue} from '../../../grid';
+import {GridColumnSize, IndentValue} from '../../../gravity-blocks/grid';
 import {ClassNameProps} from '../../../models';
 import BlockBase, {BlockBaseFullProps} from '../BlockBase';
 

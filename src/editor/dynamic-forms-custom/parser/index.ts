@@ -2,7 +2,7 @@
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
 import {ArraySpec, ObjectSpec, SpecTypes} from '@gravity-ui/dynamic-forms';
 
-import {Schema, SchemaDefinitions} from '../../../schema';
+import {Schema, SchemaDefinitions} from '../../../gravity-blocks/schema';
 
 import {ParserType, detectParserType} from './detect';
 import {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import useHeightCalculator from '../../hooks/useHeightCalculator';
+import useHeightCalculator from '../../gravity-blocks/hooks/useHeightCalculator';
 import {QAProps} from '../../models';
 import {block, getQaAttrubutes} from '../../utils';
 

@@ -1,4 +1,4 @@
-import {filteredItem} from '../../schema/validators/utils';
+import {filteredItem} from '../../gravity-blocks/schema/validators/utils';
 
 export const imageUrlPattern =
     '^((http[s]?|ftp):\\/)?\\/?([^:\\/\\s]+)((\\/\\w+)*\\/)([\\w\\-\\.]+[^#?\\s]+)(.*)?(#[\\w\\-]+)?$';

@@ -1,0 +1,10 @@
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns-form-builder}field-header';
+
+#{$block} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}

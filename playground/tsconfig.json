@@ -1,0 +1,26 @@
+{
+  "extends": "@gravity-ui/tsconfig/tsconfig",
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["vite-plugin-svgr/client"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "*": ["../src/internal-typings/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "vite.config.mts", "../src/internal-typings/*"],
+  "exclude": ["node_modules"]
+}

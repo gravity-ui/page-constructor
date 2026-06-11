@@ -1,36 +1,32 @@
 import * as React from 'react';
 
-import pick from 'lodash/pick';
-
-import BlockBase from '../../../../components/BlockBase/BlockBase';
-import {BlockDecoration} from '../../../../customization/BlockDecoration';
-import {BlockDecorationProps, ConstructorBlock as ConstructorBlockType} from '../../../../models';
-import {block} from '../../../../utils';
+import {InnerContext} from '../../../../context/innerContext';
+import {usePCEditorChildrenItemWrap} from '../../../../hooks/usePCEditorChildrenItemWrap';
+import {ConstructorBlock as ConstructorBlockType, ConstructorItem} from '../../../../models';
 
 import './ConstructorBlock.scss';
 
-interface ConstructorBlockProps extends Pick<BlockDecorationProps, 'index'> {
+interface ConstructorBlockProps {
+    index?: number;
     data: ConstructorBlockType;
 }
-
-const b = block('constructor-block');
 
 export const ConstructorBlock = ({
     index = 0,
     data,
     children,
 }: React.PropsWithChildren<ConstructorBlockProps>) => {
-    const {type} = data;
-    const blockBaseProps = React.useMemo(
-        () => pick(data, ['anchor', 'visible', 'resetPaddings', 'indent']),
-        [data],
+    const {blockRef} = usePCEditorChildrenItemWrap(index);
+    const {blockWrappers = []} = React.useContext(InnerContext);
+
+    const wrappedContent = blockWrappers.reduce<React.ReactNode>(
+        (content, {wrapper: Wrapper, props}) => (
+            <Wrapper type={data.type} props={props} content={data as ConstructorItem} index={index}>
+                {content}
+            </Wrapper>
+        ),
+        children,
     );
 
-    return (
-        <BlockDecoration type={type} index={index} {...blockBaseProps}>
-            <BlockBase className={b({type})} {...blockBaseProps}>
-                {children}
-            </BlockBase>
-        </BlockDecoration>
-    );
+    return <div ref={blockRef}>{wrappedContent}</div>;
 };

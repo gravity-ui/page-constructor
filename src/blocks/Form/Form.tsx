@@ -2,10 +2,10 @@ import * as React from 'react';
 
 import {BackgroundImage, Title} from '../../components';
 import InnerForm from '../../components/InnerForm/InnerForm';
-import {MobileContext} from '../../context/mobileContext';
-import {useTheme} from '../../context/theme';
-import {Col, Grid, GridAlignItems, GridColumnSize, Row} from '../../grid';
-import {useDeviceValue} from '../../hooks/useDeviceValue';
+import {MobileContext} from '../../gravity-blocks/context/mobileContext';
+import {useTheme} from '../../gravity-blocks/context/theme';
+import {Col, Grid, GridAlignItems, GridColumnSize, Row} from '../../gravity-blocks/grid';
+import {useDeviceValue} from '../../gravity-blocks/hooks/useDeviceValue';
 import type {FormBlockProps} from '../../models';
 import {
     FormBlockDataTypes,

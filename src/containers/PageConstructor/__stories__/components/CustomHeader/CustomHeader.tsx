@@ -1,7 +1,7 @@
 import {Link} from '@gravity-ui/uikit';
 
 import {yfmTransform} from '../../../../../../.storybook/utils';
-import {HeaderBlock} from '../../../../../blocks';
+import {default as HeaderBlock} from '../../../../../blocks/Header/Header';
 import {YFMWrapper} from '../../../../../components';
 import {HeaderBlockProps} from '../../../../../models';
 import {cn} from '../../../../../utils';

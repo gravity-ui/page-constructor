@@ -3,12 +3,16 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {TableBlockModel, TableBlockProps} from '../../../models';
 import Table, {TableBlock} from '../Table';
+import {form} from '../form';
 
 import data from './data.json';
 
 export default {
     component: Table,
     title: 'Blocks/Table',
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<TableBlockModel> = (args) => (

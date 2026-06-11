@@ -1,5 +1,5 @@
-import {useTheme} from '../../context/theme';
-import {Col, Grid, Row} from '../../grid';
+import {useTheme} from '../../gravity-blocks/context/theme';
+import {Col, Grid, Row} from '../../gravity-blocks/grid';
 import {ContentTheme, InfoBlockProps, LinkTheme} from '../../models';
 import Content from '../../sub-blocks/Content/Content';
 import {block, getThemedValue} from '../../utils';
@@ -39,12 +39,12 @@ export const InfoBlock = (props: InfoBlockProps) => {
     };
 
     return (
-        <div className={b()}>
-            <div
-                className={b('container')}
-                style={{backgroundColor: getThemedValue(backgroundColor, theme)}}
-            >
-                <Grid>
+        <Grid>
+            <div className={b()}>
+                <div
+                    className={b('container')}
+                    style={{backgroundColor: getThemedValue(backgroundColor, theme)}}
+                >
                     <Row>
                         <Col sizes={sizes} className={b('left')}>
                             <Content
@@ -69,9 +69,9 @@ export const InfoBlock = (props: InfoBlockProps) => {
                             />
                         </Col>
                     </Row>
-                </Grid>
+                </div>
             </div>
-        </div>
+        </Grid>
     );
 };
 

@@ -1,6 +1,6 @@
 import {SpecTypes} from '@gravity-ui/dynamic-forms';
 
-import {Schema} from '../../../schema';
+import {Schema} from '../../../gravity-blocks/schema';
 
 export enum ParserType {
     Object = 'object',

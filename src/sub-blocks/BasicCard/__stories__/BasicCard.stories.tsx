@@ -4,10 +4,11 @@ import {blockListTransform, blockTransform} from '../../../../.storybook/utils';
 import CardLayout from '../../../blocks/CardLayout/CardLayout';
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
-import {Grid} from '../../../grid';
+import {Grid} from '../../../gravity-blocks/grid';
 import {BasicCardModel, BasicCardProps, CardLayoutBlockModel} from '../../../models';
 import {IconPosition} from '../../../models/constructor-items/sub-blocks';
 import BasicCard from '../BasicCard';
+import {form} from '../form';
 
 import data from './data.json';
 
@@ -20,6 +21,9 @@ const getCardWithIconTitle = (border: string) =>
 export default {
     component: BasicCard,
     title: 'Components/Cards/BasicCard',
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<BasicCardModel> = (args) => {

@@ -35,14 +35,7 @@ export type EditBlockActions = {
     [key in EditBlockControls]?: () => void;
 };
 
-const EditBlock = ({
-    actions,
-    isActive,
-    onSelect,
-    isHeader,
-    children,
-    resetPaddings,
-}: EditBlockProps) => {
+const EditBlock = ({actions, isActive, onSelect, isHeader, children}: EditBlockProps) => {
     const ref = React.useRef<HTMLDivElement>(null);
 
     const stopPropagationProps = React.useMemo(
@@ -73,7 +66,6 @@ const EditBlock = ({
                 className={b('controls', {
                     active: isActive,
                     isHeader,
-                    'reset-paddings': resetPaddings,
                 })}
             >
                 {isActive && (

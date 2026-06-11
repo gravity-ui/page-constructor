@@ -3,9 +3,9 @@ import * as React from 'react';
 import {ChevronRight} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
 
-import {LocaleContext} from '../../context/localeContext';
-import {LocationContext} from '../../context/locationContext';
-import {useAnalytics} from '../../hooks';
+import {LocaleContext} from '../../gravity-blocks/context/localeContext';
+import {LocationContext} from '../../gravity-blocks/context/locationContext';
+import {useAnalytics} from '../../gravity-blocks/hooks';
 import {
     ClassNameProps,
     DefaultEventNames,

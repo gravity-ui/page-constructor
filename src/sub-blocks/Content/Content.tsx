@@ -1,7 +1,7 @@
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {Buttons, ContentList, Links, Title, YFMWrapper} from '../../components';
-import {Col} from '../../grid';
+import {Col} from '../../gravity-blocks/grid';
 import {
     ClassNameProps,
     ContentBlockProps,

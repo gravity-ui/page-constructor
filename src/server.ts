@@ -1,1 +1,1 @@
-export * from './text-transform';
+export * from './gravity-blocks/text-transform';

@@ -14,12 +14,12 @@ $block: '.#{$ns}block-base';
 
     @include add-specificity(&) {
         @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
-            margin-top: $indentM;
+            padding-top: $indentM;
             padding-bottom: $indentM;
 
-            &:first-child {
-                margin-top: var(--pc-first-block-mobile-indent, #{$indentXL});
-            }
+            //&:first-child {
+            //    padding-top: var(--pc-first-block-mobile-indent, #{$indentXL});
+            //}
         }
     }
 

@@ -1,0 +1,27 @@
+@import '../../styles/variables.scss';
+@import '../../../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}tree';
+
+#{$block} {
+    padding: $indentXXS;
+    position: relative;
+
+    &__head {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: $indentXXXS;
+    }
+
+    &__dnd-overlay {
+        opacity: 1;
+    }
+}

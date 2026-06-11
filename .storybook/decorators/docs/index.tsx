@@ -4,7 +4,7 @@ import * as React from 'react';
 import {ThemeProvider} from '@gravity-ui/uikit';
 
 import {themes} from '../../theme';
-import {MobileContext} from '../../../src/context/mobileContext';
+
 import {cn} from '../../../src/utils/cn';
 
 import './DocsDecorator.scss';
@@ -20,9 +20,7 @@ export function DocsDecorator({children, context}: DocsDecoratorProps) {
     return (
         <div className={b()}>
             <DocsContainer context={context} theme={themes[theme as 'dark' | 'light']}>
-                <ThemeProvider theme={theme}>
-                    <MobileContext.Provider value={false}>{children}</MobileContext.Provider>
-                </ThemeProvider>
+                <ThemeProvider theme={theme}>{children}</ThemeProvider>
             </DocsContainer>
         </div>
     );

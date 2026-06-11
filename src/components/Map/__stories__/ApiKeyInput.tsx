@@ -3,7 +3,7 @@ import * as React from 'react';
 import {TextInput} from '@gravity-ui/uikit';
 
 import {Button} from '../..';
-import {useMapApiKey} from '../../../context/mapsContext/useMap';
+import {useMapApiKey} from '../../../gravity-blocks/context/mapsContext/useMap';
 
 import './ApiKeyInput.scss';
 

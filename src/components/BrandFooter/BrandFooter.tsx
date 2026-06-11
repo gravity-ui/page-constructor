@@ -1,9 +1,9 @@
 import {Link} from '@gravity-ui/uikit';
 
-import {useTheme} from '../../context/theme';
-import {BrandIconDark} from '../../icons/BrandIconDark';
-import {BrandIconLight} from '../../icons/BrandIconLight';
-import {BrandName} from '../../icons/BrandName';
+import {useTheme} from '../../gravity-blocks/context/theme';
+import {BrandIconDark} from '../../gravity-blocks/icons/BrandIconDark';
+import {BrandIconLight} from '../../gravity-blocks/icons/BrandIconLight';
+import {BrandName} from '../../gravity-blocks/icons/BrandName';
 import type {ClassNameProps} from '../../models';
 import {Theme} from '../../models';
 import {block} from '../../utils';

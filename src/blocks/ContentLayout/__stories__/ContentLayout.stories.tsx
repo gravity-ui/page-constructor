@@ -5,12 +5,16 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {ContentLayoutBlockModel, ContentLayoutBlockProps} from '../../../models';
 import Content from '../ContentLayout';
+import {form} from '../form';
 
 import data from './data.json';
 
 export default {
     title: 'Blocks/ContentLayout',
     component: Content,
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const SIZES = ['l', 'm', 's'].map((size) => ({

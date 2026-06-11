@@ -1,4 +1,4 @@
-import {BaseProps} from '../../schema/validators/common';
+import {BaseProps} from '../../gravity-blocks/schema/validators/common';
 
 export const ShareBlock = {
     'share-block': {

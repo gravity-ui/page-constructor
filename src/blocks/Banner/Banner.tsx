@@ -1,4 +1,5 @@
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
+import {Grid, Row} from '../../gravity-blocks/grid';
 import {BannerBlockProps} from '../../models';
 import {BannerCard} from '../../sub-blocks';
 import {block} from '../../utils';
@@ -12,7 +13,11 @@ export const BannerBlock = (props: BannerBlockProps) => {
 
     return (
         <AnimateBlock className={b(null, className)} animate={animated}>
-            <BannerCard {...bannerProps} />
+            <Grid>
+                <Row>
+                    <BannerCard {...bannerProps} />
+                </Row>
+            </Grid>
         </AnimateBlock>
     );
 };

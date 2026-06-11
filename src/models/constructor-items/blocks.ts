@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {ButtonSize} from '@gravity-ui/uikit';
 
-import {GridColumnSize, GridColumnSizesType, IndentValue} from '../../grid/types';
+import {GridColumnSize, GridColumnSizesType, IndentValue} from '../../gravity-blocks/grid/types';
 import {ThemeSupporting} from '../../utils';
 import {DeviceSupporting} from '../../utils/breakpoint';
 import {AnalyticsEventsBase, AnalyticsEventsProp} from '../common';

@@ -9,8 +9,8 @@ import {
     contentThemes,
     sizeNumber,
     withTheme,
-} from '../../schema/validators/common';
-import {filteredArray} from '../../schema/validators/utils';
+} from '../../gravity-blocks/schema/validators/common';
+import {filteredArray} from '../../gravity-blocks/schema/validators/utils';
 
 export const ContentItem = {
     additionalProperties: false,
@@ -78,6 +78,7 @@ export const ContentBase = {
 
 export const ContentBlock = {
     content: {
+        type: 'object',
         additionalProperties: false,
         properties: {
             ...ContentBase,

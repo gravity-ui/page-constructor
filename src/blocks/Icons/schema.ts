@@ -2,8 +2,8 @@ import {
     AnimatableProps,
     BlockBaseProps,
     containerSizesObject,
-} from '../../schema/validators/common';
-import {AnalyticsEventSchema} from '../../schema/validators/event';
+} from '../../gravity-blocks/schema/validators/common';
+import {AnalyticsEventSchema} from '../../gravity-blocks/schema/validators/event';
 
 export const IconsProps = {
     additionalProperties: false,

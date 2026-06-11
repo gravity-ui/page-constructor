@@ -1,0 +1,42 @@
+@import '../../styles/variables.scss';
+
+$block: '.#{$ns-form-builder}options-renderer';
+
+#{$block} {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    &__option-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    &__add-option-button {
+        margin-left: 8px;
+    }
+
+    &__remove-option-button {
+        margin-left: 8px;
+    }
+
+    &__nested-fields {
+        margin-top: 12px;
+        margin-left: 16px;
+        padding-left: 12px;
+        border-left: 2px solid var(--g-color-line-generic);
+    }
+
+    &__option {
+        margin-top: 12px;
+        padding: 12px;
+        background-color: var(--g-color-base-background);
+        border-radius: 6px;
+        border: 1px solid var(--g-color-line-generic);
+    }
+}

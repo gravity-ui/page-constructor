@@ -1,4 +1,4 @@
-import {Col} from '../../../grid';
+import {Col} from '../../../gravity-blocks/grid';
 import {ImageDeviceProps, ImageObjectProps, TabsBlockItem, TabsBlockProps} from '../../../models';
 import {Content} from '../../../sub-blocks';
 import {block} from '../../../utils';

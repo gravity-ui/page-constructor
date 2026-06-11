@@ -1,6 +1,6 @@
 import {Icon} from '@gravity-ui/uikit';
 
-import {Chevron, NavigationChevron} from '../../icons';
+import {Chevron, NavigationChevron} from '../../gravity-blocks/icons';
 import {block} from '../../utils';
 
 import './ToggleArrow.scss';

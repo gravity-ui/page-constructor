@@ -1,0 +1,19 @@
+import {svgToDataUri} from '../../utils/svg';
+
+export default svgToDataUri(
+    `<svg width="100" height="50" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="100" height="50" rx="7.97674" fill="white"/>
+<rect x="9.11628" y="13" width="19" height="2" rx="0.569767" fill="#262626"/>
+<rect x="9.11628" y="17" width="13" height="2" rx="0.569767" fill="#262626"/>
+<rect x="36.1163" y="13" width="50" height="2" rx="0.569767" fill="#262626"/>
+<rect x="88.8837" y="13" width="2" height="2" rx="0.569767" fill="#262626"/>
+<rect x="36.1163" y="17" width="39" height="2" rx="0.569767" fill="#262626"/>
+<rect x="88.8837" y="17" width="2" height="2" rx="0.569767" fill="#262626"/>
+<rect x="36.1163" y="21" width="44" height="2" rx="0.569767" fill="#262626"/>
+<rect x="88.8837" y="21" width="2" height="2" rx="0.569767" fill="#262626"/>
+<rect x="36.1163" y="25" width="32" height="2" rx="0.569767" fill="#262626"/>
+<rect x="88.8837" y="25" width="2" height="2" rx="0.569767" fill="#262626"/>
+<rect x="36.1163" y="29" width="36" height="2" rx="0.569767" fill="#262626"/>
+<rect x="88.8837" y="29" width="2" height="2" rx="0.569767" fill="#262626"/>
+</svg>`,
+);

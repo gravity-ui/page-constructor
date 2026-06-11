@@ -4,6 +4,7 @@ import {blockTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {FilterBlockModel} from '../../../models';
 import FilterBlock from '../FilterBlock';
+import {form} from '../form';
 
 import data from './data.json';
 
@@ -46,6 +47,9 @@ export default {
                 },
             },
         },
+    },
+    parameters: {
+        inputs: form,
     },
 } as Meta;
 

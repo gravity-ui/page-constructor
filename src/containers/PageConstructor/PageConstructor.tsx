@@ -1,43 +1,47 @@
 import * as React from 'react';
 
-import '@diplodoc/transform/dist/js/yfm.js';
-
-import BackgroundMedia from '../../components/BackgroundMedia/BackgroundMedia';
-import BrandFooter from '../../components/BrandFooter/BrandFooter';
+import type {PageConstructorWrapper} from '../../common/types';
 import RootCn from '../../components/RootCn';
-import {blockMap, navItemMap, subBlockMap} from '../../constructor-items';
-import {AnimateContext} from '../../context/animateContext';
+import {BlockData, blockMap, navItemMap, subBlockMap} from '../../constructor-items';
+import {BlockRegistryContext, useBlockRegistryProvider} from '../../context/blockRegistryContext';
+import {BlocksContext} from '../../context/blocksContext';
 import {InnerContext} from '../../context/innerContext';
-import {ProjectSettingsContext} from '../../context/projectSettingsContext';
-import {useTheme} from '../../context/theme';
-import {Grid} from '../../grid';
+import {Fields} from '../../form-generator-v2/types';
+import {usePCEditorInitializeEvents} from '../../hooks/usePCEditorInitializeEvents';
+import {usePCEditorStore} from '../../hooks/usePCEditorStore';
 import {
-    BlockType,
-    BlockTypes,
+    BlockWrapperDataProps,
     CustomConfig,
     CustomItems,
-    HeaderBlockTypes,
-    NavigationData,
-    NavigationItemTypes,
     PageContent,
     ShouldRenderBlock,
-    SubBlockTypes,
 } from '../../models';
-import Layout from '../../navigation/containers/Layout/Layout';
-import {
-    block as cnBlock,
-    getCustomItems,
-    getCustomTypes,
-    getHeaderBlock,
-    getOrderedBlocks,
-    getThemedValue,
-} from '../../utils';
+import {block as cnBlock, getCustomItems} from '../../utils';
 
-import {ConstructorBlocks} from './components/ConstructorBlocks';
-import {ConstructorHeader} from './components/ConstructorItem';
+import {ConstructorBlocks} from './components';
 import {ConstructorRow} from './components/ConstructorRow';
 
 import './PageConstructor.scss';
+
+export interface PageConstructorExtension<
+    GlobalConfig extends Object = {},
+    WrapperProps extends Object = {},
+    BlockWrapperProps extends Object = {},
+> {
+    name: string;
+    id: string;
+    settings: {
+        ContentWrapper?: PageConstructorWrapper<WrapperProps>;
+        contentWrapperProps?: WrapperProps;
+        globalInputs?: Fields;
+        globalDefaults?: GlobalConfig;
+        blockWrapper?: React.ComponentType<
+            BlockWrapperDataProps<BlockWrapperProps> & React.PropsWithChildren
+        >;
+        blockWrapperProps?: BlockWrapperProps;
+        blockInputs?: Fields;
+    };
+}
 
 const b = cnBlock('page-constructor');
 
@@ -49,95 +53,126 @@ export interface PageConstructorProps {
     content?: PageContent;
     shouldRenderBlock?: ShouldRenderBlock;
     custom?: CustomConfig;
-    renderMenu?: () => React.ReactNode;
-    navigation?: NavigationData;
-    isBranded?: boolean;
-    microdata?: {
-        contentUpdatedDate?: string;
-    };
+    blocks?: Array<BlockData>;
+    extensions?: Array<PageConstructorExtension>;
 }
 
-export const Constructor = (props: PageConstructorProps) => {
+export const PageConstructor = (props: PageConstructorProps) => {
     const {
-        content: {blocks = [], background} = {},
-        renderMenu,
+        content: initialContent = {blocks: []},
         shouldRenderBlock,
-        navigation,
         custom,
-        isBranded,
-        microdata,
+        blocks: availableLocalBlocks = [],
+        extensions: extensionsProp,
     } = props;
 
-    const {context} = React.useMemo(
-        () => ({
-            context: {
-                blockTypes: [...BlockTypes, ...getCustomTypes(['blocks', 'headers'], custom)],
-                subBlockTypes: [...SubBlockTypes, ...getCustomTypes(['subBlocks'], custom)],
-                headerBlockTypes: [...HeaderBlockTypes, ...getCustomTypes(['headers'], custom)],
-                navigationBlockTypes: [
-                    ...NavigationItemTypes,
-                    ...getCustomTypes(['navigation'], custom),
-                ],
-                itemMap: {
-                    ...blockMap,
-                    ...subBlockMap,
-                    ...getCustomItems(['blocks', 'headers', 'subBlocks'], custom),
-                },
-                navItemMap: {
-                    ...navItemMap,
-                    ...getCustomItems(['navigation'], custom),
-                },
-                loadables: custom?.loadable,
-                shouldRenderBlock,
-                customization: {
-                    decorators: custom?.decorators,
-                },
-                microdata,
-            },
+    const extensions = React.useMemo(() => extensionsProp ?? [], [extensionsProp]);
+
+    const {blocks: availableGlobalBlocks} = React.useContext(BlocksContext);
+
+    const availableBlocks = React.useMemo(
+        () => [...availableGlobalBlocks, ...availableLocalBlocks],
+        [availableGlobalBlocks, availableLocalBlocks],
+    );
+
+    const globalDefaults = extensions.reduce(
+        (acc, extension) => ({
+            ...acc,
+            ...(extension.settings.globalDefaults || {}),
         }),
-        [custom, shouldRenderBlock, microdata],
+        {},
     );
 
-    const theme = useTheme();
+    const [content, setContent] = React.useState<PageContent>({
+        ...globalDefaults,
+        ...initialContent,
+    });
 
-    const header = getHeaderBlock(blocks, context.headerBlockTypes);
-    const restBlocks = getOrderedBlocks(blocks, context.headerBlockTypes);
-    const themedBackground = getThemedValue(background, theme);
+    const store = usePCEditorStore();
+    const {initialized} = store;
 
-    return (
-        <InnerContext.Provider value={context}>
-            <RootCn className={b()}>
-                <div className={b('wrapper')}>
-                    {themedBackground && (
-                        <BackgroundMedia {...themedBackground} className={b('background')} />
-                    )}
-                    <Layout navigation={navigation}>
-                        {renderMenu && renderMenu()}
-                        {header && (
-                            <ConstructorHeader data={header} blockKey={BlockType.HeaderBlock} />
-                        )}
-                        <Grid>
-                            {restBlocks && (
-                                <ConstructorRow>
-                                    <ConstructorBlocks items={restBlocks} />
-                                </ConstructorRow>
-                            )}
-                        </Grid>
-                    </Layout>
-                    {isBranded && <BrandFooter />}
-                </div>
-            </RootCn>
-        </InnerContext.Provider>
+    const blockRegistry = useBlockRegistryProvider();
+
+    const blockWrappers = React.useMemo(
+        () =>
+            extensions.flatMap((ext) =>
+                ext.settings.blockWrapper
+                    ? [
+                          {
+                              wrapper: ext.settings.blockWrapper,
+                              props: ext.settings.blockWrapperProps ?? {},
+                          },
+                      ]
+                    : [],
+            ),
+        [extensions],
     );
-};
 
-export const PageConstructor = (props: PageConstructorProps) => {
-    const {isAnimationEnabled = true} = React.useContext(ProjectSettingsContext);
-    const {content: {animated = isAnimationEnabled} = {}, ...rest} = props;
+    const blockInputs = React.useMemo(
+        () =>
+            extensions.reduce<Fields>(
+                (acc, ext) => [...acc, ...((ext.settings.blockInputs || []) as Fields)],
+                [],
+            ),
+        [extensions],
+    );
+
+    usePCEditorInitializeEvents({
+        initialContent: content,
+        setContent,
+        blocks: availableBlocks,
+        global: extensions.reduce<Fields>(
+            (acc, extension) => [...acc, ...((extension.settings.globalInputs || []) as Fields)],
+            [],
+        ),
+        blockInputs,
+        registry: blockRegistry,
+    });
+
+    const context = React.useMemo(
+        () => ({
+            blocks: availableBlocks,
+            navItemMap: {
+                ...navItemMap,
+                ...getCustomItems(['navigation'], custom),
+            },
+            loadables: custom?.loadable,
+            shouldRenderBlock,
+            blockWrappers,
+            content,
+            setContent,
+        }),
+        [custom, shouldRenderBlock, availableBlocks, content, setContent, blockWrappers],
+    );
+
+    const restBlocks = content.blocks;
+
+    const blocksContent = restBlocks && (
+        <ConstructorRow>
+            <ConstructorBlocks items={restBlocks} />
+        </ConstructorRow>
+    );
+
+    // Apply extensions (wrappers) from outermost to innermost
+    const wrappedContent = extensions.reduceRight<React.ReactNode>(
+        (children, extension) =>
+            extension.settings.ContentWrapper ? (
+                <extension.settings.ContentWrapper
+                    {...(extension.settings.contentWrapperProps || {})}
+                >
+                    {children}
+                </extension.settings.ContentWrapper>
+            ) : (
+                children
+            ),
+        blocksContent || null,
+    );
 
     return (
-        <AnimateContext.Provider value={{animated}}>
-            <Constructor content={props.content} {...rest} />
-        </AnimateContext.Provider>
+        <BlockRegistryContext.Provider value={blockRegistry}>
+            <InnerContext.Provider value={context}>
+                <RootCn className={b('', {['with-editor']: initialized})}>{wrappedContent}</RootCn>
+            </InnerContext.Provider>
+        </BlockRegistryContext.Provider>
     );
 };

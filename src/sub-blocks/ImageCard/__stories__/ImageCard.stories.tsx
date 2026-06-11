@@ -4,7 +4,7 @@ import {blockTransform} from '../../../../.storybook/utils';
 import CardLayout from '../../../blocks/CardLayout/CardLayout';
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
-import {Grid} from '../../../grid';
+import {Grid} from '../../../gravity-blocks/grid';
 import {
     CardLayoutBlockModel,
     CardLayoutBlockProps,
@@ -12,6 +12,7 @@ import {
     ImageCardProps,
 } from '../../../models';
 import ImageCard from '../ImageCard';
+import {form} from '../form';
 
 import data from './data.json';
 
@@ -22,6 +23,9 @@ export default {
         backgroundColor: {
             control: {type: 'color'},
         },
+    },
+    parameters: {
+        inputs: form,
     },
 } as Meta;
 

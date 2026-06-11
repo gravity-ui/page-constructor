@@ -1,4 +1,4 @@
-import {useTheme} from '../../context/theme';
+import {useTheme} from '../../gravity-blocks/context/theme';
 import {ClassNameProps, GravityIconProps, ImageProps, QAProps, SVGIcon} from '../../models';
 import {ThemeSupporting, getThemedValue} from '../../utils';
 import Icon from '../Icon/Icon';

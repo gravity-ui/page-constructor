@@ -7,6 +7,9 @@ node_modules
 /coverage
 /widget
 /schema
+/playground/dist
 
 /playwright/playwright/.cache/
 playwright
+/playwright-report
+/scripts

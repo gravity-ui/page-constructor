@@ -1,7 +1,7 @@
 import omit from 'lodash/omit';
 
-import {HeaderProperties, SliderProps} from '../../schema/validators/blocks';
-import {BlockBaseProps} from '../../schema/validators/common';
+import {HeaderProperties, SliderProps} from '../../gravity-blocks/schema/validators/blocks';
+import {BlockBaseProps} from '../../gravity-blocks/schema/validators/common';
 
 export const HeaderSliderBlock = {
     'header-slider-block': {

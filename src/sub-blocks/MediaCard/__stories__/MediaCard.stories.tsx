@@ -3,6 +3,7 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {MediaCardModel, MediaCardProps} from '../../../models';
 import MediaCard from '../MediaCard';
+import {form} from '../form';
 
 import data from './data.json';
 
@@ -13,6 +14,9 @@ export default {
         color: {
             control: {type: 'color'},
         },
+    },
+    parameters: {
+        inputs: form,
     },
 } as Meta;
 

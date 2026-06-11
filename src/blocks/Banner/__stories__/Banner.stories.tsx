@@ -3,12 +3,16 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {BannerBlockModel, BannerBlockProps} from '../../../models';
 import Banner from '../Banner';
+import {form} from '../form';
 
 import data from './data.json';
 
 export default {
     title: 'Blocks/Banner',
     component: Banner,
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<BannerBlockModel> = (args) => (

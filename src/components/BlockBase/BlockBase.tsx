@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {Col} from '../../grid';
+import {Col} from '../../gravity-blocks/grid';
 import {BlockBaseProps, ClassNameProps, QAProps} from '../../models';
 import {block} from '../../utils';
 import Anchor from '../Anchor/Anchor';

@@ -1,0 +1,169 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+$block: '.#{$ns}desktop-navigation';
+
+#{$block} {
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        height: var(--header-height);
+    }
+
+    %menu-button {
+        position: absolute;
+        z-index: 2;
+    }
+
+    &__mobile-menu-button {
+        @include add-specificity(&) {
+            @include mobile-tablet-only();
+        }
+    }
+
+    &__navigation,
+    &__left,
+    &__right {
+        display: flex;
+        align-items: center;
+    }
+
+    &__navigation {
+        @include add-specificity(&) {
+            position: relative;
+
+            flex: 1 0 0;
+            justify-content: flex-start;
+
+            @include desktop-only();
+        }
+    }
+
+    &__mobile-navigation {
+        @include add-specificity(&) {
+            justify-content: flex-end;
+
+            @include mobile-tablet-only();
+        }
+
+        &-container {
+            padding-right: $indentXXXS;
+        }
+
+        &-container:has(.#{$ns}overflow-scroller__arrow) & {
+            justify-content: flex-start;
+        }
+
+        &-container:has(.#{$ns}overflow-scroller__arrow_type_right) {
+            padding-right: $indentXS;
+        }
+    }
+
+    &__right {
+        justify-content: flex-end;
+
+        @include text-size(body-2);
+
+        @media (max-width: map-get($gridBreakpoints,'md') - 1) {
+            flex: 3 0 0;
+            max-width: 50%;
+        }
+    }
+
+    &__navigation-container,
+    &__mobile-navigation-container {
+        display: flex;
+        overflow-x: hidden;
+        flex: 1 0 0;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__navigation-container {
+        margin-right: $indentM;
+    }
+
+    &__button {
+        margin-top: 0;
+    }
+
+    &__logo {
+        margin: 0 $indentM 0 0;
+
+        cursor: pointer;
+    }
+
+    &__links,
+    &__buttons,
+    &__mobile-buttons {
+        display: flex;
+        align-items: center;
+
+        @include reset-list-style();
+    }
+
+    &__buttons {
+        @include desktop-only();
+
+        & > * {
+            &:not(:last-child) {
+                margin-right: $indentXS;
+            }
+        }
+    }
+
+    &__mobile-buttons {
+        @include mobile-tablet-only();
+    }
+
+    &__mobile-buttons &__item {
+        &:not(:last-child) {
+            margin-right: 0;
+        }
+    }
+
+    &__links {
+        position: relative;
+
+        @include text-size(body-2);
+    }
+
+    &__item {
+        position: relative;
+
+        &:not(:last-child) {
+            margin-right: $indentS;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md') - 1) {
+        &__navigation-container {
+            justify-content: flex-end;
+        }
+
+        &__navigation-container,
+        &__mobile-navigation-container {
+            justify-content: flex-end;
+        }
+
+        &__navigation-container {
+            flex: 0 0 0;
+        }
+
+        &__left {
+            flex: 1 0 0;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+        &__navigation-container {
+            margin-right: $indentXXS;
+        }
+
+        &__logo {
+            margin-right: 0;
+        }
+    }
+}

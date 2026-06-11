@@ -1,4 +1,4 @@
-import {BaseProps, dividerEnum} from '../../schema/validators/common';
+import {BaseProps, dividerEnum} from '../../gravity-blocks/schema/validators/common';
 
 export const Divider = {
     divider: {

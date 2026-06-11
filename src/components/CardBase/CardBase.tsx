@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {Link} from '@gravity-ui/uikit';
 
-import {useAnalytics} from '../../hooks';
+import {useAnalytics} from '../../gravity-blocks/hooks';
 import {
     AnalyticsEventsBase,
     CardBaseProps as CardBaseParams,

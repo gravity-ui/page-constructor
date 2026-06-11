@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {MapType, MapsContext} from '../../context/mapsContext/mapsContext';
+import {MapType, MapsContext} from '../../gravity-blocks/context/mapsContext/mapsContext';
 import {GMapProps, MapProps, YMapProps} from '../../models';
 
 import GoogleMap from './GoogleMap';

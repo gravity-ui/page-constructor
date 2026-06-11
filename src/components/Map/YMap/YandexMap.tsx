@@ -3,9 +3,9 @@ import * as React from 'react';
 import {Spin} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 
-import {LocaleContext} from '../../../context/localeContext/localeContext';
-import {MapsContext} from '../../../context/mapsContext/mapsContext';
-import {MobileContext} from '../../../context/mobileContext';
+import {LocaleContext} from '../../../gravity-blocks/context/localeContext';
+import {MapsContext} from '../../../gravity-blocks/context/mapsContext/mapsContext';
+import {MobileContext} from '../../../gravity-blocks/context/mobileContext';
 import {YMapMarker, YMapMarkerLabelPrivate, YMapMarkerPrivate, YMapProps} from '../../../models';
 import {block} from '../../../utils';
 import ErrorWrapper from '../../ErrorWrapper/ErrorWrapper';

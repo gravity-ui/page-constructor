@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {useTheme} from '../../context/theme';
+import {useTheme} from '../../gravity-blocks/context/theme';
 import {ClassNameProps} from '../../models';
 import {rootCn} from '../../utils';
 

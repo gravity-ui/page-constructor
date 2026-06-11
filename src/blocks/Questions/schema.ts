@@ -1,7 +1,7 @@
 import omit from 'lodash/omit';
 
-import {BlockBaseProps, LinkProps} from '../../schema/validators/common';
-import {filteredArray} from '../../schema/validators/utils';
+import {BlockBaseProps, LinkProps} from '../../gravity-blocks/schema/validators/common';
+import {filteredArray} from '../../gravity-blocks/schema/validators/utils';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 
 const QuestionsBlockContentProps = omit(ContentBase, ['size', 'theme']);

@@ -6,7 +6,7 @@ import {
     HeaderBreadcrumbsProps,
     MediaProps,
     withTheme,
-} from '../../schema/validators/common';
+} from '../../gravity-blocks/schema/validators/common';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 
 export const HeroBlockButton = {

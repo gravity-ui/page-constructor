@@ -4,47 +4,54 @@ import {Link} from '@gravity-ui/uikit';
 
 import {yfmTransform} from '../../../../../../.storybook/utils';
 import {BlockBase, YFMWrapper} from '../../../../../components';
-import {BlockDecorator} from '../../../../../models';
+import {BlockWrapperDataProps} from '../../../../../models';
 import {cn} from '../../../../../utils';
+import {PageConstructorExtension} from '../../../PageConstructor';
 
 import './CustomDecorator.scss';
 
 const b = cn('custom-decorator');
 
 const CUSTOM_DECORATOR_CODE = `
-const customDecorator = ...;
-
-const customConfig: CustomConfig = {
-    ...
-    decorators: {
-        block: [customDecorator],
-    },
+const CustomDecoratorWrapper = ({type, children}) => {
+    if (type !== 'banner-block') {
+        return <React.Fragment>{children}</React.Fragment>;
+    }
+    return <div className="custom-wrapper">{children}</div>;
 };
 
-...
+const customExtension = () => ({
+    name: 'Custom Decorator',
+    id: 'my-app/custom-decorator',
+    settings: {
+        blockWrapper: CustomDecoratorWrapper,
+    },
+});
 
-<PageConstructor {...props} custom={customConfig} />
+<PageConstructor extensions={[BlockBaseExtension(), customExtension()]} />
 `
     .trim()
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
 
 const CUSTOM_DECORATOR_DESCRIPTION = `
-**Custom decorators let you modify how blocks are displayed on the page. Every block on the page goes through them, but you can specify how different block types are handled.**
+**Block wrapper extensions let you modify how blocks are displayed on the page. Every block goes through them, but you can specify how different block types are handled.**
 
-To create and use a custom decorator you need to:
-1. Create your own decorator function
-3. Add it to your \`CustomConfig\`
-3. Pass this config to \`<PageConstructor />\`
+To create and use a custom block wrapper extension you need to:
+1. Create a wrapper component that receives \`type\`, \`index\`, all block data props, and \`children\`
+2. Create an extension factory that returns a \`PageConstructorExtension\` with \`blockWrapper\`
+3. Pass it to \`<PageConstructor extensions={[...]} />\`
 
 Check out this Stories' \`content\` control to see page data.
 
 The code block links to the current example's source.
 `;
 
-export const customDecorator: BlockDecorator = ({type, children}) => {
+export const CustomDecoratorBlockWrapper: React.FC<
+    BlockWrapperDataProps & React.PropsWithChildren
+> = ({type, children}) => {
     if (type !== 'banner-block') {
-        return children as React.ReactElement;
+        return <React.Fragment>{children}</React.Fragment>;
     }
 
     return (
@@ -65,3 +72,11 @@ export const customDecorator: BlockDecorator = ({type, children}) => {
         </BlockBase>
     );
 };
+
+export const customDecoratorExtension = (): PageConstructorExtension => ({
+    name: 'Custom Decorator',
+    id: 'page-constructor-stories/custom-decorator',
+    settings: {
+        blockWrapper: CustomDecoratorBlockWrapper,
+    },
+});

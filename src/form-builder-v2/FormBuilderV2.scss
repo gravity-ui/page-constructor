@@ -1,0 +1,128 @@
+@import './styles/variables.scss';
+
+$block: '.#{$ns-form-builder-v2}main';
+$palette-block: '.#{$ns-form-builder-v2}palette';
+
+#{$block} {
+    width: 100%;
+    min-width: 640px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+
+    &__toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--g-spacing-2) 0;
+        gap: var(--g-spacing-3);
+    }
+
+    &__toolbar-option {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    &__schema-popup {
+        width: min(560px, 90vw);
+        padding: var(--g-spacing-4);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__schema-popup-header {
+        display: flex;
+        flex-direction: column;
+        gap: var(--g-spacing-half);
+    }
+
+    &__schema-popup-json {
+        margin: 0;
+        padding: var(--g-spacing-3);
+        background: var(--g-color-base-generic);
+        border-radius: var(--g-border-radius-m);
+        font-size: 12px;
+        line-height: 1.4;
+        max-height: min(480px, 60vh);
+        overflow: auto;
+        white-space: pre;
+    }
+
+    &__schema-popup-actions {
+        display: flex;
+        gap: var(--g-spacing-2);
+        justify-content: flex-end;
+    }
+
+    &__visual {
+        display: grid;
+        grid-template-columns:
+            var(--fb2-palette-w, 220px)
+            var(--g-spacing-2)
+            minmax(240px, 1fr)
+            var(--g-spacing-2)
+            var(--fb2-inspector-w, 320px);
+        padding: var(--g-spacing-4) 0;
+        align-items: stretch;
+    }
+
+    &__palette,
+    &__canvas,
+    &__inspector {
+        min-width: 0;
+    }
+
+    &__palette,
+    &__inspector {
+        position: sticky;
+        top: var(--g-spacing-4);
+        align-self: start;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+    }
+
+    &_compact {
+        #{$block}__visual {
+            grid-template-columns:
+                56px
+                minmax(240px, 1fr)
+                var(--g-spacing-2)
+                var(--fb2-inspector-w, 320px);
+        }
+
+        #{$block}__canvas {
+            padding-left: var(--g-spacing-2);
+        }
+
+        #{$palette-block} {
+            padding: 6px;
+        }
+
+        #{$palette-block}__header {
+            display: none;
+        }
+
+        #{$palette-block}__items {
+            grid-template-columns: 1fr;
+        }
+
+        #{$palette-block}__tile {
+            padding: var(--g-spacing-1);
+            gap: 0;
+        }
+
+        #{$palette-block}__tile-label {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    }
+}

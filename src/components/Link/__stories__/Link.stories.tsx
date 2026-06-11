@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import {Col, GridAlignItems, Row} from '../../../grid';
+import {Col, GridAlignItems, Row} from '../../../gravity-blocks/grid';
 import Link, {LinkFullProps} from '../Link';
 
 import data from './data.json';

@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import {MobileContext} from '../../context/mobileContext';
-import {useTheme} from '../../context/theme';
-import {useAnalytics, useHandleHubspotEvents} from '../../hooks';
+import {MobileContext} from '../../gravity-blocks/context/mobileContext';
+import {useTheme} from '../../gravity-blocks/context/theme';
+import {useAnalytics, useHandleHubspotEvents} from '../../gravity-blocks/hooks';
 import {DefaultEventNames, HubspotFormProps} from '../../models';
 import {HubspotEventHandlers, block} from '../../utils';
 

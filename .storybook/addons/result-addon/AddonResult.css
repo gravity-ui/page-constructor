@@ -1,0 +1,13 @@
+.result-addon {
+    padding: 11px;
+}
+
+.result-addon pre {
+    margin: 10px 0 0;
+    padding: 0;
+}
+
+.result-addon__empty {
+    opacity: 0.5;
+    font-style: italic;
+}

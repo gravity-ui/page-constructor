@@ -3,8 +3,8 @@ import * as React from 'react';
 import {ArrowLeft} from '@gravity-ui/icons';
 import {Button, ButtonSize, Icon, ButtonProps as UIKitButtonProps} from '@gravity-ui/uikit';
 
-import {LocationContext} from '../../context/locationContext';
-import {useAnalytics} from '../../hooks';
+import {LocationContext} from '../../gravity-blocks/context/locationContext';
+import {useAnalytics} from '../../gravity-blocks/hooks';
 import {DefaultEventNames, Tabbable} from '../../models';
 
 export type Theme = 'default' | 'special';

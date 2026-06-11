@@ -1,0 +1,16 @@
+import {svgToDataUri} from '../../utils/svg';
+
+export default svgToDataUri(
+    `<svg width="100" height="50" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="100" height="50" rx="7.97674" fill="white"/>
+<rect x="9.11628" y="8.5" width="10" height="2" rx="0.569767" fill="black"/>
+<rect x="20.1163" y="8.5" width="10" height="2" rx="0.569767" fill="black"/>
+<rect x="31.1163" y="8.5" width="10" height="2" rx="0.569767" fill="black"/>
+<rect x="42.1163" y="8.5" width="10" height="2" rx="0.569767" fill="black"/>
+<rect x="9.11628" y="12.5" width="52" height="29" rx="3" fill="black"/>
+<rect x="63.1163" y="12.5" width="13" height="2" rx="0.569767" fill="#262626"/>
+<rect x="63.1163" y="15.5" width="23.7674" height="2" rx="0.569767" fill="#262626"/>
+<rect x="63.1163" y="18.5" width="23.7674" height="2" rx="0.569767" fill="#262626"/>
+<rect x="63.1163" y="22.5" width="7" height="2" rx="0.569767" fill="#262626"/>
+</svg>`,
+);

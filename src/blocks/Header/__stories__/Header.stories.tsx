@@ -5,6 +5,7 @@ import {Meta, StoryFn} from '@storybook/react';
 import {blockTransform} from '../../../../.storybook/utils';
 import {HeaderBlockModel, HeaderBlockProps} from '../../../models';
 import Header from '../Header';
+import {form} from '../form';
 
 import data from './data.json';
 
@@ -17,6 +18,9 @@ const SIZES = ['l', 'm', 's'].map((width) => ({
 export default {
     title: 'Blocks/Header',
     component: Header,
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<HeaderBlockModel> = (args) => (

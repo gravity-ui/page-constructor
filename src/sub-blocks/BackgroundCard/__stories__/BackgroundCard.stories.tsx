@@ -4,9 +4,10 @@ import {blockTransform} from '../../../../.storybook/utils';
 import CardLayout, {CardLayoutBlockProps} from '../../../blocks/CardLayout/CardLayout';
 import {BlockBase} from '../../../components';
 import {ConstructorRow} from '../../../containers/PageConstructor/components/ConstructorRow';
-import {Grid} from '../../../grid';
+import {Grid} from '../../../gravity-blocks/grid';
 import {BackgroundCardModel, BackgroundCardProps, CardLayoutBlockModel} from '../../../models';
 import BackgroundCard from '../BackgroundCard';
+import {form} from '../form';
 
 import data from './data.json';
 
@@ -21,6 +22,9 @@ export default {
             control: {type: 'radio', labels: {undefined: 'default'}},
             options: [undefined, 'dark', 'light'],
         },
+    },
+    parameters: {
+        inputs: form,
     },
 } as Meta;
 

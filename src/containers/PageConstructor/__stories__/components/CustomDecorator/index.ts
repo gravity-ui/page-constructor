@@ -1,1 +1,1 @@
-export {customDecorator} from './CustomDecorator';
+export {customDecoratorExtension} from './CustomDecorator';

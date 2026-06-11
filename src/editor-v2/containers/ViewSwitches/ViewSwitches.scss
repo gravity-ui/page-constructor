@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+$block: '.#{$ns}view-switches';
+
+#{$block} {
+    padding: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    &__zoom {
+        display: flex;
+        gap: 4px;
+
+        &-select {
+            min-width: 80px;
+        }
+    }
+
+    &__history-buttons {
+        width: max-content;
+    }
+}

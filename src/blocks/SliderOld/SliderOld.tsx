@@ -11,10 +11,10 @@ import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import OutsideClick from '../../components/OutsideClick/OutsideClick';
 import Title from '../../components/Title/Title';
 import {BREAKPOINTS} from '../../constants';
-import {MobileContext} from '../../context/mobileContext';
-import {SSRContext} from '../../context/ssrContext';
-import {StylesContext} from '../../context/stylesContext/StylesContext';
-import useFocus from '../../hooks/useFocus';
+import {MobileContext} from '../../gravity-blocks/context/mobileContext';
+import {SSRContext} from '../../gravity-blocks/context/ssrContext';
+import {StylesContext} from '../../gravity-blocks/context/stylesContext/StylesContext';
+import useFocus from '../../gravity-blocks/hooks/useFocus';
 import {
     ClassNameProps,
     Refable,

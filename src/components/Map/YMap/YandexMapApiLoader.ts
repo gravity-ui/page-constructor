@@ -1,4 +1,4 @@
-import {Maplangs} from '../../../context/mapsContext/mapsContext';
+import {Maplangs} from '../../../gravity-blocks/context/mapsContext/mapsContext';
 import {loadScript} from '../../../utils';
 
 export enum MapApiStatus {

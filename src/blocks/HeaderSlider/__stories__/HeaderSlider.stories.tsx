@@ -2,12 +2,16 @@ import {Meta, StoryFn} from '@storybook/react';
 
 import {HeaderSliderBlockProps} from '../../../models';
 import HeaderSlider from '../HeaderSlider';
+import {form} from '../form';
 
 import data from './data.json';
 
 export default {
     title: 'Blocks/HeaderSlider',
     component: HeaderSlider,
+    parameters: {
+        inputs: form,
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<HeaderSliderBlockProps> = (args) => {

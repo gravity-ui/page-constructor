@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {useMount} from '../../hooks';
+import {useMount} from '../../gravity-blocks/hooks';
 import {HubspotFormProps} from '../../models';
 
 import loadHubspotScript from './loadHubspotScript';
