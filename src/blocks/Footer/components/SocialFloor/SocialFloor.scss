@@ -17,6 +17,10 @@ $block: '.#{$ns}footer-block';
 
         &_links-position_center {
             align-items: center;
+
+            #{$block}__social-icons-list {
+                justify-content: center;
+            }
         }
 
         &_size_m {

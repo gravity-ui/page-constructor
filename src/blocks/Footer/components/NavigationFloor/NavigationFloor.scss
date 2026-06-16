@@ -4,7 +4,7 @@
 $block: '.#{$ns}footer-block';
 
 #{$block} {
-    &__floor_navigation {
+    #{$block}__floor#{$block}__floor_navigation {
         padding: $indentM 0 40px;
         border: none;
     }
@@ -18,7 +18,7 @@ $block: '.#{$ns}footer-block';
     }
 
     &__floor_logo-placement-top &__logo-col_top.col {
-        padding: $indentSM $indentXS;
+        padding: $indentSM $indentXXXS;
         margin-bottom: $indentM;
         border-bottom: 1px solid var(--g-color-line-generic);
     }
