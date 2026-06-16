@@ -37,7 +37,9 @@ function useLinksAlignmentState(copyright: CopyrightFloorProps['copyright']) {
     return {
         shouldCenterLinks: areLinksInTheMiddle || hasOnlyLinks,
         threeColumnLayout: areLinksInTheMiddle,
-        mobileHorizontalAlignment: copyright.mobileHorizontalAlignment || 'left',
+        mobileHorizontalAlignment: copyright.logo
+            ? copyright.mobileHorizontalAlignment || 'left'
+            : 'left',
     };
 }
 
@@ -136,7 +138,13 @@ const DOCUMENT_ELEMENT_REF = {
 
 export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
     const theme = useTheme();
-    const [isSmallWidth, setIsSmallWidth] = React.useState(false);
+    const [isSmallWidth, setIsSmallWidth] = React.useState(() => {
+        if (typeof document === 'undefined') {
+            return false;
+        }
+
+        return document.documentElement.clientWidth <= MOBILE_WIDTH;
+    });
 
     const updateFloorSize = React.useCallback(() => {
         setIsSmallWidth(document.documentElement.clientWidth <= MOBILE_WIDTH);
