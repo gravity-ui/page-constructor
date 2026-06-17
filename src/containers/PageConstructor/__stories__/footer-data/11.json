@@ -35,8 +35,7 @@
   },
   "copyright": {
     "links": [{"text": "Политика конфиденциальности", "url": "#privacy"}],
-    "linksOverflowStrategy": "dropdown",
-    "mobileHorizontalAlignment": "center"
+    "linksOverflowStrategy": "dropdown"
   },
   "attribution": true
 }

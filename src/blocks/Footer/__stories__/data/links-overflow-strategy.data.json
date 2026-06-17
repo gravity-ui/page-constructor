@@ -23,8 +23,7 @@
           {"text": "Русский", "href": "/ru"},
           {"text": "English", "href": "/en"}
         ],
-        "copyrightText": "© 2026 Yandex Cloud",
-        "mobileHorizontalAlignment": "center"
+        "copyrightText": "© 2026 Yandex Cloud"
       }
     },
     {
@@ -50,8 +49,7 @@
           {"text": "Русский", "href": "/ru"},
           {"text": "English", "href": "/en"}
         ],
-        "copyrightText": "© 2026 Yandex Cloud",
-        "mobileHorizontalAlignment": "center"
+        "copyrightText": "© 2026 Yandex Cloud"
       }
     }
   ]

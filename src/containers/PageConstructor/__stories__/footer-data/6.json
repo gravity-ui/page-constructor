@@ -77,7 +77,6 @@
         {"text": "Русский", "href": "/ru"},
         {"text": "English", "href": "/en"}
       ]
-    },
-    "mobileHorizontalAlignment": "center"
+    }
   }
 }

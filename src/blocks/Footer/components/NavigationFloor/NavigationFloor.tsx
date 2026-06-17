@@ -42,7 +42,7 @@ function NavigationColumns({columns, hasLogo, colSizes, columnsPerRow}: Navigati
         : undefined;
 
     return (
-        <Col>
+        <Col className={b('columns-container')}>
             <Row
                 className={b('nav-row', {'custom-columns': Boolean(columnsPerRow)})}
                 style={customColumnsStyle}

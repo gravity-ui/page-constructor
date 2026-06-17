@@ -563,7 +563,6 @@ export interface FooterDisclaimerFloor {
 }
 
 export interface FooterCopyright {
-    mobileHorizontalAlignment?: 'left' | 'center';
     links?: Required<Pick<LinkProps, 'text' | 'url'>>[];
     linksOverflowStrategy?: 'dropdown' | 'line-wrap';
     languageSwitcher?: {

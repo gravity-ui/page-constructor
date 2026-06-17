@@ -37,9 +37,7 @@ function useLinksAlignmentState(copyright: CopyrightFloorProps['copyright']) {
     return {
         shouldCenterLinks: areLinksInTheMiddle || hasOnlyLinks,
         threeColumnLayout: areLinksInTheMiddle,
-        mobileHorizontalAlignment: copyright.logo
-            ? copyright.mobileHorizontalAlignment || 'left'
-            : 'left',
+        mobileHorizontalAlignment: copyright.logo ? 'center' : 'left',
     };
 }
 

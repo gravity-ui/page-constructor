@@ -231,7 +231,6 @@ type FooterCopyright = {
   languageSwitcher?: FooterLanguageSwitcher;
   copyrightText?: string;
   logo?: FooterLogo;
-  mobileHorizontalAlignment?: 'left' | 'center';
 };
 ```
 
@@ -254,7 +253,6 @@ type FooterLanguageSwitcherItem = {
 ### Values
 
 `linksOverflowStrategy`: `'dropdown' | 'line-wrap'`  
-`mobileHorizontalAlignment`: `'left' | 'center'` (default `'left'`)  
 `logo`: optional
 
 See stories:
@@ -278,8 +276,7 @@ See stories:
       ],
       "buttonText": "Language"
     },
-    "copyrightText": "© 2026 Company",
-    "mobileHorizontalAlignment": "center"
+    "copyrightText": "© 2026 Company"
   }
 }
 ```

@@ -85,8 +85,7 @@
       {"text": "Длинный пункт меню 2", "url": "#terms"}
     ],
     "linksOverflowStrategy": "dropdown",
-    "copyrightText": "© 2025 ООО \"Яндекс.Облако\"",
-    "mobileHorizontalAlignment": "center"
+    "copyrightText": "© 2025 ООО \"Яндекс.Облако\""
   },
   "attribution": true
 }
