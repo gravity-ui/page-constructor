@@ -15,7 +15,11 @@ $block: '.#{$ns}footer-block';
     }
 
     &__logo-col.col {
-        padding: 0 $indentXS $indentM;
+        padding: 0 $indentXXXS $indentM;
+
+        & .row {
+            margin: 0;
+        }
     }
 
     &__floor_logo-placement-top {
@@ -89,7 +93,7 @@ $block: '.#{$ns}footer-block';
         }
 
         &__logo-col.col {
-            padding: $indentXXXS $indentXS 40px;
+            padding: 0 $indentXXXS $indentM;
         }
     }
 }
