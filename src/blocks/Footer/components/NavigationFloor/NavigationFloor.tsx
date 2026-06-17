@@ -92,7 +92,7 @@ export const NavigationFloor = ({
     const hasSideLogo = Boolean(logoContent) && !isTopLogoPlacement;
 
     return (
-        <Row className={b('floor', {navigation: true, 'logo-placement-top': isTopLogoPlacement})}>
+        <Row className={b('floor', {navigation: true, 'logo-placement': logoPlacement})}>
             {logoContent && isTopLogoPlacement && (
                 <Col className={b('logo-col', {top: true})} sizes={{all: 12}}>
                     {logoContent}

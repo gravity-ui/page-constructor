@@ -61,7 +61,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
                             colSizes={colSizes}
                             columnsPerRow={columnsPerRow}
                             logoContent={logoContent}
-                            logoPlacement={logo?.placement}
+                            logoPlacement={logo?.placement ?? 'left'}
                         />
                     )}
                     {contacts && <SocialFloor contacts={contacts} />}
