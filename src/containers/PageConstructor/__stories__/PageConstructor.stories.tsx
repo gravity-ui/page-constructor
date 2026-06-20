@@ -11,6 +11,8 @@ import footer1Data from './footer-data/1.json';
 import footer10Data from './footer-data/10.json';
 import footer11Data from './footer-data/11.json';
 import footer12Data from './footer-data/12.json';
+import footer13Data from './footer-data/13.json';
+import footer14Data from './footer-data/14.json';
 import footer2Data from './footer-data/2.json';
 import footer3Data from './footer-data/3.json';
 import footer4Data from './footer-data/4.json';
@@ -96,3 +98,9 @@ WithFooter11.args = getArgsWithFooter(footer11Data as FooterBlockModel);
 
 export const WithFooter12 = DefaultTemplate.bind({});
 WithFooter12.args = getArgsWithFooter(footer12Data as FooterBlockModel);
+
+export const WithFooter13 = DefaultTemplate.bind({});
+WithFooter13.args = getArgsWithFooter(footer13Data as FooterBlockModel);
+
+export const WithFooter14 = DefaultTemplate.bind({});
+WithFooter14.args = getArgsWithFooter(footer14Data as FooterBlockModel);

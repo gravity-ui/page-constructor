@@ -15,7 +15,7 @@ import './CopyrightFloor.scss';
 
 const b = block('footer-block');
 
-const MOBILE_WIDTH = 768;
+const MOBILE_WIDTH = 577;
 
 type CopyrightFloorProps = {
     copyright: NonNullable<FooterBlockProps['copyright']>;
@@ -37,7 +37,6 @@ function useLinksAlignmentState(copyright: CopyrightFloorProps['copyright']) {
     return {
         shouldCenterLinks: areLinksInTheMiddle || hasOnlyLinks,
         threeColumnLayout: areLinksInTheMiddle,
-        mobileHorizontalAlignment: copyright.logo ? 'center' : 'left',
     };
 }
 
@@ -105,7 +104,7 @@ const OverflowDropdown = ({isLinksOverflowDropdown, items}: OverflowDropdownProp
             switcherWrapperClassName={b('more-button', {
                 visible: isLinksOverflowDropdown && items.length > 0,
             })}
-            size="xl"
+            size="l"
         />
     );
 };
@@ -137,10 +136,6 @@ const DOCUMENT_ELEMENT_REF = {
 export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
     const theme = useTheme();
     const [isSmallWidth, setIsSmallWidth] = React.useState(() => {
-        if (typeof document === 'undefined') {
-            return false;
-        }
-
         return document.documentElement.clientWidth <= MOBILE_WIDTH;
     });
 
@@ -163,17 +158,13 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
         itemSelector: `.${b('links-floor-item')}`,
         moreButtonWidth: 28,
     });
-    const {shouldCenterLinks, threeColumnLayout, mobileHorizontalAlignment} =
-        useLinksAlignmentState(copyright);
+    const {shouldCenterLinks, threeColumnLayout} = useLinksAlignmentState(copyright);
     const hasRightSideContent = Boolean(copyright.languageSwitcher || copyright.copyrightText);
     const copyrightLogoImage = copyright.logo && getThemedValue(copyright.logo.image, theme);
     const copyrightLogoImageProps = useLogoImageProps(copyrightLogoImage);
 
     const linksContent = (
-        <div
-            className={b('links-floor-left', {measured, centered: shouldCenterLinks})}
-            ref={menuContainerRef}
-        >
+        <div className={b('links-floor-left', {measured})} ref={menuContainerRef}>
             <VisibleLinks items={visibleItems} isLinksOverflowDropdown={isLinksOverflowDropdown} />
             <OverflowDropdown
                 isLinksOverflowDropdown={isLinksOverflowDropdown}
@@ -186,9 +177,9 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
         <Col sizes={{all: 12}} className={b('floor', {copyright: true})}>
             <div
                 className={b('links-floor-inner', {
-                    mobileHorizontalAlignment,
                     centered: shouldCenterLinks,
                     threeColumn: threeColumnLayout,
+                    overflow: linksOverflowStrategy,
                 })}
             >
                 <CopyrightLogo logo={copyright.logo} logoImageProps={copyrightLogoImageProps} />
