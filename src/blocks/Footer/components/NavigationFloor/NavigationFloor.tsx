@@ -11,7 +11,7 @@ import './NavigationFloor.scss';
 
 const b = block('footer-block');
 
-const DEFAULT_COL_SIZES_WITH_LOGO: GridColumnSizesType = {all: 6, sm: 3, md: 3, lg: 3};
+const DEFAULT_COL_SIZES_WITH_LOGO: GridColumnSizesType = {all: 6, sm: 4, md: 3, lg: 3};
 const DEFAULT_COL_SIZES_WITHOUT_LOGO: GridColumnSizesType = {all: 6, sm: 4, md: 3, lg: 0};
 const DEFAULT_LOGO_COL_SIZES: GridColumnSizesType = {all: 12, md: 4};
 
