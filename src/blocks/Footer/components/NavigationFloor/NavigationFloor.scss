@@ -102,9 +102,5 @@ $block: '.#{$ns}footer-block';
         &__floor_navigation &__logo {
             height: 48px;
         }
-
-        &__floor_logo-placement_left &__logo-col.col {
-            padding: 0 $indentXS $indentM;
-        }
     }
 }
