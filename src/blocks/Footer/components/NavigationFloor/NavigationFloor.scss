@@ -48,6 +48,7 @@ $block: '.#{$ns}footer-block';
     }
 
     &__nav-row {
+        width: calc(100% + $indentSM);
         min-width: 0;
         gap: $indentL 0;
     }
