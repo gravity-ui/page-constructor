@@ -37,6 +37,7 @@ function useLinksAlignmentState(copyright: CopyrightFloorProps['copyright']) {
     return {
         shouldCenterLinks: areLinksInTheMiddle || hasOnlyLinks,
         threeColumnLayout: areLinksInTheMiddle,
+        hasOnlyLinks,
     };
 }
 
@@ -158,7 +159,7 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
         itemSelector: `.${b('links-floor-item')}`,
         moreButtonWidth: 28,
     });
-    const {shouldCenterLinks, threeColumnLayout} = useLinksAlignmentState(copyright);
+    const {shouldCenterLinks, threeColumnLayout, hasOnlyLinks} = useLinksAlignmentState(copyright);
     const hasRightSideContent = Boolean(copyright.languageSwitcher || copyright.copyrightText);
     const copyrightLogoImage = copyright.logo && getThemedValue(copyright.logo.image, theme);
     const copyrightLogoImageProps = useLogoImageProps(copyrightLogoImage);
@@ -180,6 +181,7 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
                     centered: shouldCenterLinks,
                     threeColumn: threeColumnLayout,
                     overflow: linksOverflowStrategy,
+                    hasOnlyLinks,
                 })}
             >
                 <CopyrightLogo logo={copyright.logo} logoImageProps={copyrightLogoImageProps} />

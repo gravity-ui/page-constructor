@@ -132,6 +132,10 @@ $block: '.#{$ns}footer-block';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__links-floor-inner_hasOnlyLinks &__links-floor-left {
+            width: auto;
+        }
+
         &__links-floor-center {
             padding: $indentXXXS 0;
         }
