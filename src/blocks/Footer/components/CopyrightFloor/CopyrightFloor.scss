@@ -2,8 +2,31 @@
 @import '../../../../../styles/variables.scss';
 
 $block: '.#{$ns}footer-block';
+$links-floor-side-width: 345px;
+$links-floor-center-width: 480px;
+$links-floor-row-height: 36px;
+
+@mixin links-floor-flex-column($flex-basis, $max-width: $flex-basis) {
+    flex: 1 1 $flex-basis;
+    min-width: 0;
+    max-width: $max-width;
+}
+
+@mixin links-floor-vertical-stack($gap: $indentXXXS) {
+    flex-flow: column;
+    gap: $gap;
+}
+
+@mixin links-floor-text-hover() {
+    &:hover {
+        color: var(--g-color-text-secondary);
+        background-color: transparent;
+    }
+}
 
 #{$block} {
+    // --- Layout container ---
+
     &__links-floor-inner {
         display: flex;
         align-items: center;
@@ -11,7 +34,7 @@ $block: '.#{$ns}footer-block';
         gap: $indentM $indentL;
 
         #{$block}__logo {
-            height: 36px;
+            height: $links-floor-row-height;
         }
 
         &_centered:not(&_threeColumn) {
@@ -20,7 +43,7 @@ $block: '.#{$ns}footer-block';
 
             #{$block}__links-floor-left {
                 flex-grow: 0;
-                max-width: 480px;
+                max-width: $links-floor-center-width;
             }
         }
 
@@ -28,35 +51,29 @@ $block: '.#{$ns}footer-block';
             gap: $indentM;
 
             #{$block}__logo {
-                flex: 1 1 345px;
-                min-width: 0;
-                max-width: 345px;
+                @include links-floor-flex-column($links-floor-side-width);
             }
 
             #{$block}__links-floor-center {
-                flex: 1 1 480px;
-                min-width: 0;
-                max-width: 480px;
+                @include links-floor-flex-column($links-floor-center-width);
                 display: flex;
                 justify-content: center;
             }
 
             #{$block}__links-floor-left {
-                flex: 1 1 auto;
+                @include links-floor-flex-column(auto, $links-floor-center-width);
                 justify-content: center;
                 width: 100%;
-                max-width: 480px;
-                min-width: 0;
             }
 
             #{$block}__links-floor-right {
-                flex: 1 1 345px;
-                min-width: 0;
-                max-width: 345px;
+                @include links-floor-flex-column($links-floor-side-width);
                 justify-content: flex-end;
             }
         }
     }
+
+    // --- Columns ---
 
     &__links-floor-left {
         position: relative;
@@ -70,10 +87,6 @@ $block: '.#{$ns}footer-block';
         &_measured {
             visibility: visible;
         }
-
-        &_centered {
-            justify-content: center;
-        }
     }
 
     &__links-floor-right {
@@ -81,8 +94,10 @@ $block: '.#{$ns}footer-block';
         align-items: center;
         gap: $indentXS;
         flex-shrink: 0;
-        height: 36px;
+        height: $links-floor-row-height;
     }
+
+    // --- Links list ---
 
     &__links-floor-list {
         display: flex;
@@ -100,10 +115,7 @@ $block: '.#{$ns}footer-block';
             text-decoration: none;
             color: var(--g-color-text-primary);
 
-            &:hover {
-                color: var(--g-color-text-secondary);
-                background-color: transparent;
-            }
+            @include links-floor-text-hover();
         }
     }
 
@@ -116,11 +128,6 @@ $block: '.#{$ns}footer-block';
         margin: 0;
         white-space: nowrap;
         list-style: none;
-
-        &:hover {
-            color: var(--g-color-text-secondary);
-            background-color: transparent;
-        }
     }
 
     &__links-floor-copyright {
@@ -131,47 +138,52 @@ $block: '.#{$ns}footer-block';
         white-space: nowrap;
     }
 
+    // --- Tablet ---
+
     @media (max-width: map-get($gridBreakpoints, 'md')) {
-        &__links-floor-inner_hasOnlyLinks &__links-floor-left {
-            width: auto;
-        }
+        &__links-floor-inner {
+            &_hasOnlyLinks #{$block}__links-floor-left {
+                width: auto;
+            }
 
-        &__links-floor-center {
-            padding: $indentXXXS 0;
-        }
+            &_centered,
+            &_overflow_dropdown {
+                @include links-floor-vertical-stack();
+            }
 
-        &__links-floor-inner_centered,
-        &__links-floor-inner_overflow_dropdown {
-            flex-flow: column;
-            gap: $indentXXXS;
-        }
+            &_centered {
+                align-items: center;
 
-        &__links-floor-inner_centered {
-            align-items: center;
-        }
+                #{$block}__links-floor-right {
+                    width: auto;
+                }
+            }
 
-        &__links-floor-inner_centered &__links-floor-right {
-            width: auto;
-        }
+            &_overflow_line-wrap #{$block}__links-floor-right {
+                flex-shrink: 1;
+            }
 
-        &__links-floor-inner_overflow_line-wrap &__links-floor-right {
-            flex-shrink: 1;
-        }
+            &_threeColumn {
+                #{$block}__logo,
+                #{$block}__links-floor-center,
+                #{$block}__links-floor-right {
+                    flex: none;
+                    max-width: none;
+                }
+            }
 
-        &__links-floor-inner_threeColumn {
-            #{$block}__logo,
-            #{$block}__links-floor-center,
-            #{$block}__links-floor-right {
-                flex: none;
-                max-width: none;
+            &_overflow_dropdown:not(&_centered) #{$block}__links-floor-right {
+                width: 100%;
             }
         }
 
         &__links-floor-left,
-        &__links-floor-center,
-        &__links-floor-inner_overflow_dropdown:not(&__links-floor-inner_centered)
-            &__links-floor-right {
+        &__links-floor-center {
             width: 100%;
+        }
+
+        &__links-floor-center {
+            padding: $indentXXXS 0;
         }
 
         &__links-floor-right {
@@ -184,32 +196,34 @@ $block: '.#{$ns}footer-block';
         }
     }
 
+    // --- Mobile ---
+
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__links-floor-inner:not(&__links-floor-inner_centered) {
-            gap: $indentXXXS;
+        &__links-floor-inner {
+            gap: $indentXS;
+
+            &:not(&_centered) {
+                gap: $indentXXXS;
+
+                #{$block}__links-floor-right {
+                    width: 100%;
+                }
+            }
+
+            &_overflow_line-wrap {
+                @include links-floor-vertical-stack();
+            }
+
+            &_centered {
+                #{$block}__links-floor-center,
+                #{$block}__links-floor-list {
+                    align-items: center;
+                }
+            }
         }
 
         &__links-floor-left {
             padding: $indentXXXS 0;
-        }
-
-        &__links-floor-inner_overflow_line-wrap {
-            flex-flow: column;
-            gap: $indentXXXS;
-        }
-
-        &__links-floor-inner_overflow_line-wrap:not(&__links-floor-inner_centered)
-            &__links-floor-right {
-            width: 100%;
-        }
-
-        &__links-floor-inner_centered &__links-floor-center,
-        &__links-floor-inner_centered &__links-floor-list {
-            align-items: center;
-        }
-
-        &__links-floor-inner {
-            gap: $indentXS;
         }
 
         &__links-floor-list {
