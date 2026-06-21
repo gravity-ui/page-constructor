@@ -207,6 +207,10 @@ $links-floor-row-height: 36px;
     // --- Mobile ---
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__links-floor-inner_centered .pc-lang-switcher {
+            margin: 0 auto;
+        }
+
         &__links-floor-inner {
             gap: $indentXS;
 

@@ -38,7 +38,7 @@ $block: '.#{$ns}footer-block';
 
     &__column {
         min-width: 0;
-        margin-bottom: $indentL;
+        padding-right: $indentXS;
     }
 
     &__column-inner {
@@ -49,6 +49,7 @@ $block: '.#{$ns}footer-block';
 
     &__nav-row {
         min-width: 0;
+        gap: $indentL 0;
     }
 
     @media (min-width: map-get($gridBreakpoints, 'lg')) {

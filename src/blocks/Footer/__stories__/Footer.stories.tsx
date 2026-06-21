@@ -1,9 +1,16 @@
-import * as React from 'react';
-
 import {Meta, StoryFn} from '@storybook/react';
 
 import {blockTransform} from '../../../../.storybook/utils';
-import {FooterBlockModel, FooterBlockProps} from '../../../models';
+import {blockMap, navItemMap, subBlockMap} from '../../../constructor-items';
+import {InnerContext} from '../../../context/innerContext';
+import {
+    BlockTypes,
+    FooterBlockModel,
+    FooterBlockProps,
+    HeaderBlockTypes,
+    NavigationItemTypes,
+    SubBlockTypes,
+} from '../../../models';
 import Footer from '../Footer';
 
 import columnsColSizesData from './data/columns-col-sizes.data.json';
@@ -19,18 +26,38 @@ export default {
     component: Footer,
 } as Meta;
 
-const DefaultTemplate: StoryFn<FooterBlockModel> = (args) => (
-    <Footer {...(blockTransform(args) as FooterBlockProps)} />
-);
+const INNER_CONTEXT_VALUE = {
+    navItemMap: {
+        ...navItemMap,
+    },
+    itemMap: {
+        ...blockMap,
+        ...subBlockMap,
+    },
+    blockTypes: [...BlockTypes],
+    subBlockTypes: [...SubBlockTypes],
+    headerBlockTypes: [...HeaderBlockTypes],
+    navigationBlockTypes: [...NavigationItemTypes],
+    shouldRenderBlock: () => true,
+    customization: {},
+};
+
+const DefaultTemplate: StoryFn<FooterBlockModel> = (args) => {
+    return (
+        <InnerContext.Provider value={INNER_CONTEXT_VALUE}>
+            <Footer {...(blockTransform(args) as FooterBlockProps)} />
+        </InnerContext.Provider>
+    );
+};
 
 const VariantsTemplate: StoryFn<Record<number, FooterBlockModel>> = (args) => (
-    <React.Fragment>
+    <InnerContext.Provider value={INNER_CONTEXT_VALUE}>
         {Object.values(args).map((arg, index) => (
             <div key={index} style={{marginBottom: '120px'}}>
                 <Footer {...(blockTransform(arg) as FooterBlockProps)} />
             </div>
         ))}
-    </React.Fragment>
+    </InnerContext.Provider>
 );
 
 export const Full = DefaultTemplate.bind({});
