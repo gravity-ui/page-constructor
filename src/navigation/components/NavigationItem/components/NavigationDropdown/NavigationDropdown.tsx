@@ -56,6 +56,7 @@ export const NavigationDropdown = ({
                 onClose={hidePopup}
                 items={items}
                 anchorRef={anchorRef}
+                placement={props.placement}
             />
         </React.Fragment>
     );

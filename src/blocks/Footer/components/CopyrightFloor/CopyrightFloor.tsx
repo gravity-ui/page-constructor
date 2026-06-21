@@ -9,7 +9,7 @@ import type {FooterBlockProps} from '../../../../models';
 import {block, getThemedValue} from '../../../../utils';
 import {useLogoImageProps} from '../../hooks/useLogoImageProps';
 import {LinkItem, useOverflowListItems} from '../../hooks/useOverflowListItems';
-import {LangSwitcher} from '../LangSwitcher';
+import {LanguageSwitcher} from '../LangSwitcher/LangSwitcher';
 
 import './CopyrightFloor.scss';
 
@@ -115,12 +115,16 @@ type RightSideProps = {
 };
 
 const RightSide = ({copyright}: RightSideProps) => {
+    const theme = useTheme();
+    console.log({copyright});
+
     return (
         <div className={b('links-floor-right')}>
             {copyright.languageSwitcher && (
-                <LangSwitcher
-                    switcherText={copyright.languageSwitcher.buttonText}
+                <LanguageSwitcher
+                    buttonText={copyright.languageSwitcher.buttonText}
                     items={copyright.languageSwitcher.items}
+                    image={getThemedValue(copyright.languageSwitcher.image, theme)}
                 />
             )}
             {copyright.copyrightText && (
@@ -157,7 +161,7 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
         containerRef: menuContainerRef,
         items: copyright.links,
         itemSelector: `.${b('links-floor-item')}`,
-        moreButtonWidth: 28,
+        moreButtonWidth: 36,
     });
     const {shouldCenterLinks, threeColumnLayout, hasOnlyLinks} = useLinksAlignmentState(copyright);
     const hasRightSideContent = Boolean(copyright.languageSwitcher || copyright.copyrightText);

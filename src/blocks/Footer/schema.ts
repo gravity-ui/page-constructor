@@ -79,6 +79,7 @@ const FooterLanguageSwitcher = {
     properties: {
         items: filteredArray(FooterLanguageSwitcherItem),
         buttonText: {type: 'string', contentType: 'text'},
+        image: withTheme(ImageProps),
     },
 };
 

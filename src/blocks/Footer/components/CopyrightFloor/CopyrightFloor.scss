@@ -97,6 +97,14 @@ $links-floor-row-height: 36px;
         height: $links-floor-row-height;
     }
 
+    &__language-switcher {
+        height: $links-floor-row-height;
+
+        &:hover {
+            color: var(--g-color-text-link);
+        }
+    }
+
     // --- Links list ---
 
     &__links-floor-list {

@@ -571,6 +571,7 @@ export interface FooterCopyright {
             href: string;
         }[];
         buttonText?: string;
+        image?: ThemeSupporting<ImageProps>;
     };
     logo?: FooterLogoProps;
     copyrightText?: string;

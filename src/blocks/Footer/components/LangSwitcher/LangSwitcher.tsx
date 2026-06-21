@@ -1,44 +1,74 @@
 import * as React from 'react';
 
-import {Globe} from '@gravity-ui/icons';
-import {Button, DropdownMenu, DropdownMenuItem, Icon, Text} from '@gravity-ui/uikit';
-
-import ToggleArrow from '../../../../components/ToggleArrow/ToggleArrow';
+import {InnerContext} from '../../../../context/innerContext';
+import {
+    ImageProps,
+    NavigationDropdownItem,
+    NavigationItemType,
+    NavigationLinkItem,
+} from '../../../../models';
 import {block} from '../../../../utils';
 
 import './LangSwitcher.scss';
 
-const b = block('lang-switcher');
-
-type LangSwitcherProps = {
-    switcherText?: string;
-    items: DropdownMenuItem[];
+type LanguageSwitcherProps = {
+    buttonText?: string;
+    items: {
+        text: string;
+        href: string;
+    }[];
+    image?: ImageProps;
 };
 
-export const LangSwitcher = ({switcherText = 'Language', items}: LangSwitcherProps) => {
-    const [isOpen, setIsOpen] = React.useState(false);
+const b = block('lang-switcher');
+
+export const LanguageSwitcher = ({buttonText, items, image}: LanguageSwitcherProps) => {
+    const [isActive, setIsActive] = React.useState(false);
+    const {navItemMap} = React.useContext(InnerContext);
+
+    const navigationItems = React.useMemo<NavigationLinkItem[]>(
+        () =>
+            items.map((item) => ({
+                type: NavigationItemType.Link,
+                text: item.text,
+                url: item.href,
+            })),
+        [items],
+    );
+
+    const hidePopup = React.useCallback(() => {
+        setIsActive(false);
+    }, []);
+
+    const onClick = React.useCallback((event: React.MouseEvent) => {
+        event.stopPropagation();
+        setIsActive((active) => !active);
+    }, []);
+
+    const text = buttonText ?? 'Language';
+    const data: NavigationDropdownItem = {
+        type: NavigationItemType.Dropdown,
+        text,
+        items: navigationItems,
+        isActive,
+        hidePopup,
+    };
+
+    const NavigationDropdown = navItemMap[NavigationItemType.Dropdown];
 
     return (
-        <DropdownMenu
-            items={items}
-            popupProps={{placement: 'top-start'}}
-            switcherWrapperClassName={b('switcher-wrapper')}
-            onOpenToggle={setIsOpen}
-            renderSwitcher={(props) => (
-                <Button view="flat" size="m" className={b('switcher-button')} {...props}>
-                    <Icon key="icon" data={Globe} size={20} />
-                    <Text variant="body-2" className={b('switcher-text')}>
-                        {switcherText}
-                    </Text>
-                    <ToggleArrow
-                        className={b('arrow')}
-                        size={12}
-                        type={'vertical'}
-                        iconType="navigation"
-                        open={isOpen}
-                    />
-                </Button>
-            )}
+        <NavigationDropdown
+            data={data}
+            text={text}
+            type={NavigationItemType.Dropdown}
+            items={navigationItems}
+            isActive={isActive}
+            hidePopup={hidePopup}
+            onClick={onClick}
+            className={b()}
+            placement="top-start"
+            icon={image}
+            iconSize={20}
         />
     );
 };

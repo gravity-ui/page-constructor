@@ -51,7 +51,7 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
         </div>
     );
 
-    return (
+    const footer = (
         <footer className={b({indentTop}, className)} style={footerStyle}>
             <Grid className={b('main-container')}>
                 <Row className={b('row')}>
@@ -76,6 +76,8 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
             </Grid>
         </footer>
     );
+
+    return footer;
 };
 
 export default FooterBlock;

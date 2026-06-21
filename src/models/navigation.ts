@@ -59,6 +59,7 @@ export interface NavigationDropdownItem extends NavigationItemBase {
     items: NavigationLinkItem[];
     hidePopup: () => void;
     isActive: boolean;
+    placement?: 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
 }
 
 export interface NavigationSocialItem extends Omit<NavigationItemBase, 'text'> {
