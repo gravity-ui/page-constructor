@@ -22,7 +22,7 @@ type LanguageSwitcherProps = {
 
 const b = block('lang-switcher');
 
-export const LanguageSwitcher = ({buttonText, items, image}: LanguageSwitcherProps) => {
+export const LangSwitcher = ({buttonText, items, image}: LanguageSwitcherProps) => {
     const [isActive, setIsActive] = React.useState(false);
     const {navItemMap} = React.useContext(InnerContext);
 

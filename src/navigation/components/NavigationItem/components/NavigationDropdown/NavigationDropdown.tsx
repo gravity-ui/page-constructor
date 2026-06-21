@@ -24,6 +24,7 @@ export const NavigationDropdown = ({
     hidePopup,
     items,
     isActive,
+    data: _data,
     ...props
 }: NavigationDropdownProps) => {
     const iconData = icon && getMediaImage(icon);

@@ -1,7 +1,9 @@
 @import '../../../../../styles/mixins.scss';
 @import '../../../../../styles/variables.scss';
 
-.pc-lang-switcher {
+.pc-footer-block__links-floor-right .pc-lang-switcher {
+    height: 36px;
+    padding: 0;
     cursor: pointer;
 
     .pc-content-wrapper__text {
@@ -10,11 +12,5 @@
 
     &:hover .pc-content-wrapper__text {
         color: var(--g-color-text-secondary);
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
-        & {
-            width: 100%;
-        }
     }
 }

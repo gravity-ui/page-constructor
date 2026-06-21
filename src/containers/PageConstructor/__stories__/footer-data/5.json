@@ -11,7 +11,11 @@
       "items": [
         {"text": "Русский", "href": "/ru"},
         {"text": "English", "href": "/en"}
-      ]
+      ],
+      "image": {
+        "light": {"src": "story-assets/icons_globe_light.svg"},
+        "dark": {"src": "story-assets/icons_globe_dark.svg"}
+      }
     }
   }
 }

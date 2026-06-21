@@ -9,7 +9,7 @@ import type {FooterBlockProps} from '../../../../models';
 import {block, getThemedValue} from '../../../../utils';
 import {useLogoImageProps} from '../../hooks/useLogoImageProps';
 import {LinkItem, useOverflowListItems} from '../../hooks/useOverflowListItems';
-import {LanguageSwitcher} from '../LangSwitcher/LangSwitcher';
+import {LangSwitcher} from '../LangSwitcher';
 
 import './CopyrightFloor.scss';
 
@@ -116,12 +116,11 @@ type RightSideProps = {
 
 const RightSide = ({copyright}: RightSideProps) => {
     const theme = useTheme();
-    console.log({copyright});
 
     return (
         <div className={b('links-floor-right')}>
             {copyright.languageSwitcher && (
-                <LanguageSwitcher
+                <LangSwitcher
                     buttonText={copyright.languageSwitcher.buttonText}
                     items={copyright.languageSwitcher.items}
                     image={getThemedValue(copyright.languageSwitcher.image, theme)}

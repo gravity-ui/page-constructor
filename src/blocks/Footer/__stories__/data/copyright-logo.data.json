@@ -17,10 +17,16 @@
           {"text": "Terms of Service", "url": "#terms"}
         ],
         "linksOverflowStrategy": "line-wrap",
-        "languageSwitcher": [
-          {"text": "Русский", "href": "/ru"},
-          {"text": "English", "href": "/en"}
-        ],
+        "languageSwitcher": {
+          "items": [
+            {"text": "Русский", "href": "/ru"},
+            {"text": "English", "href": "/en"}
+          ],
+          "image": {
+            "light": {"src": "story-assets/icons_globe_light.svg"},
+            "dark": {"src": "story-assets/icons_globe_dark.svg"}
+          }
+        },
         "copyrightText": "© 2026 Yandex Cloud"
       }
     },
@@ -33,10 +39,16 @@
           {"text": "Terms of Service", "url": "#terms"}
         ],
         "linksOverflowStrategy": "line-wrap",
-        "languageSwitcher": [
-          {"text": "Русский", "href": "/ru"},
-          {"text": "English", "href": "/en"}
-        ],
+        "languageSwitcher": {
+          "items": [
+            {"text": "Русский", "href": "/ru"},
+            {"text": "English", "href": "/en"}
+          ],
+          "image": {
+            "light": {"src": "story-assets/icons_globe_light.svg"},
+            "dark": {"src": "story-assets/icons_globe_dark.svg"}
+          }
+        },
         "copyrightText": "© 2026 Yandex Cloud"
       }
     }
