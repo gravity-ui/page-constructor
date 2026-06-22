@@ -11,11 +11,7 @@ $block: '.#{$ns}footer-block';
     }
 
     &__columns-container {
-        padding-right: 0;
-    }
-
-    &__floor_logo-placement_top &__columns-container {
-        padding-left: 0;
+        padding: 0;
     }
 
     &__floor_logo-placement_left &__logo-col.col {
