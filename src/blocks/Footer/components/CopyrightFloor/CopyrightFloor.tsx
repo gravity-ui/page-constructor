@@ -16,10 +16,32 @@ import './CopyrightFloor.scss';
 const b = block('footer-block');
 
 const MOBILE_WIDTH = 577;
+const THREE_COLUMN_DESKTOP_WIDTH = 769;
 
 type CopyrightFloorProps = {
     copyright: NonNullable<FooterBlockProps['copyright']>;
 };
+
+function getElementFlexContentWidth(element: HTMLElement) {
+    const children = Array.from(element.children) as HTMLElement[];
+
+    if (!children.length) {
+        return Math.ceil(element.getBoundingClientRect().width);
+    }
+
+    const elementStyles = window.getComputedStyle(element);
+    const columnGap = parseFloat(elementStyles.columnGap);
+    const gap = Number.isNaN(columnGap) ? 0 : columnGap;
+    const childrenWidths = children.map((child) => child.getBoundingClientRect().width);
+
+    if (elementStyles.flexDirection.startsWith('column')) {
+        return Math.ceil(Math.max(...childrenWidths));
+    }
+
+    return Math.ceil(
+        childrenWidths.reduce((sum, width) => sum + width, 0) + gap * (children.length - 1),
+    );
+}
 
 function useLinksAlignmentState(copyright: CopyrightFloorProps['copyright']) {
     const hasOnlyLinks = Boolean(
@@ -44,15 +66,16 @@ function useLinksAlignmentState(copyright: CopyrightFloorProps['copyright']) {
 type CopyrightLogoProps = {
     logo: CopyrightFloorProps['copyright']['logo'];
     logoImageProps: Record<string, unknown> | null;
+    logoRef?: React.RefObject<HTMLDivElement>;
 };
 
-const CopyrightLogo = ({logo, logoImageProps}: CopyrightLogoProps) => {
+const CopyrightLogo = ({logo, logoImageProps, logoRef}: CopyrightLogoProps) => {
     if (!logo || !logoImageProps) {
         return null;
     }
 
     return (
-        <div className={b('logo')}>
+        <div className={b('logo')} ref={logoRef}>
             {logo.href ? (
                 <Link href={logo.href}>
                     <Image {...logoImageProps} alt={logo.alt ?? ''} className={b('logo-image')} />
@@ -112,13 +135,15 @@ const OverflowDropdown = ({isLinksOverflowDropdown, items}: OverflowDropdownProp
 
 type RightSideProps = {
     copyright: CopyrightFloorProps['copyright'];
+    rightSideRef: React.RefObject<HTMLDivElement>;
+    style?: React.CSSProperties;
 };
 
-const RightSide = ({copyright}: RightSideProps) => {
+const RightSide = ({copyright, rightSideRef, style}: RightSideProps) => {
     const theme = useTheme();
 
     return (
-        <div className={b('links-floor-right')}>
+        <div className={b('links-floor-right')} ref={rightSideRef} style={style}>
             {copyright.languageSwitcher && (
                 <LangSwitcher
                     buttonText={copyright.languageSwitcher.buttonText}
@@ -142,10 +167,28 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
     const [isSmallWidth, setIsSmallWidth] = React.useState(() => {
         return document.documentElement.clientWidth <= MOBILE_WIDTH;
     });
+    const [isThreeColumnStacked, setIsThreeColumnStacked] = React.useState(() => {
+        return document.documentElement.clientWidth <= THREE_COLUMN_DESKTOP_WIDTH;
+    });
+    const [sideColumnWidth, setSideColumnWidth] = React.useState<number>();
+    const logoRef = React.useRef<HTMLDivElement>(null);
+    const rightSideRef = React.useRef<HTMLDivElement>(null);
+
+    const updateSideColumnWidth = React.useCallback(() => {
+        const logoWidth = Math.ceil(logoRef.current?.getBoundingClientRect().width ?? 0);
+        const rightSideWidth = rightSideRef.current
+            ? getElementFlexContentWidth(rightSideRef.current)
+            : 0;
+        const maxSideWidth = Math.max(logoWidth, rightSideWidth);
+
+        setSideColumnWidth(maxSideWidth || undefined);
+    }, []);
 
     const updateFloorSize = React.useCallback(() => {
         setIsSmallWidth(document.documentElement.clientWidth <= MOBILE_WIDTH);
-    }, []);
+        setIsThreeColumnStacked(document.documentElement.clientWidth <= THREE_COLUMN_DESKTOP_WIDTH);
+        updateSideColumnWidth();
+    }, [updateSideColumnWidth]);
 
     useResizeObserver({
         ref: DOCUMENT_ELEMENT_REF,
@@ -167,6 +210,10 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
     const copyrightLogoImage = copyright.logo && getThemedValue(copyright.logo.image, theme);
     const copyrightLogoImageProps = useLogoImageProps(copyrightLogoImage);
 
+    React.useLayoutEffect(() => {
+        updateSideColumnWidth();
+    }, [updateSideColumnWidth, copyrightLogoImageProps, hasRightSideContent, isThreeColumnStacked]);
+
     const linksContent = (
         <div className={b('links-floor-left', {measured})} ref={menuContainerRef}>
             <VisibleLinks items={visibleItems} isLinksOverflowDropdown={isLinksOverflowDropdown} />
@@ -176,6 +223,14 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
             />
         </div>
     );
+
+    const sideColumnStyle = React.useMemo<React.CSSProperties | undefined>(() => {
+        if (!threeColumnLayout || isThreeColumnStacked || sideColumnWidth === undefined) {
+            return undefined;
+        }
+
+        return {width: sideColumnWidth};
+    }, [isThreeColumnStacked, sideColumnWidth, threeColumnLayout]);
 
     return (
         <Col sizes={{all: 12}} className={b('floor', {copyright: true})}>
@@ -187,13 +242,33 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
                     hasOnlyLinks,
                 })}
             >
-                <CopyrightLogo logo={copyright.logo} logoImageProps={copyrightLogoImageProps} />
+                {threeColumnLayout ? (
+                    <div className={b('links-floor-side')} style={sideColumnStyle}>
+                        <CopyrightLogo
+                            logo={copyright.logo}
+                            logoImageProps={copyrightLogoImageProps}
+                            logoRef={logoRef}
+                        />
+                    </div>
+                ) : (
+                    <CopyrightLogo
+                        logo={copyright.logo}
+                        logoImageProps={copyrightLogoImageProps}
+                        logoRef={logoRef}
+                    />
+                )}
                 {threeColumnLayout ? (
                     <div className={b('links-floor-center')}>{linksContent}</div>
                 ) : (
                     linksContent
                 )}
-                {hasRightSideContent && <RightSide copyright={copyright} />}
+                {hasRightSideContent && (
+                    <RightSide
+                        copyright={copyright}
+                        rightSideRef={rightSideRef}
+                        style={sideColumnStyle}
+                    />
+                )}
             </div>
         </Col>
     );

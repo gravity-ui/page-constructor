@@ -50,24 +50,33 @@ $links-floor-row-height: 36px;
         &_threeColumn {
             gap: $indentM;
 
+            #{$block}__links-floor-side {
+                flex-shrink: 0;
+                min-width: 0;
+                max-width: $links-floor-side-width;
+            }
+
             #{$block}__logo {
-                @include links-floor-flex-column($links-floor-side-width);
+                max-width: $links-floor-side-width;
             }
 
             #{$block}__links-floor-center {
-                @include links-floor-flex-column($links-floor-center-width);
+                flex: 1 1 auto;
+                min-width: 0;
                 display: flex;
                 justify-content: center;
             }
 
             #{$block}__links-floor-left {
-                @include links-floor-flex-column(auto, $links-floor-center-width);
+                flex-shrink: 0;
+                min-width: 0;
                 justify-content: center;
                 width: 100%;
             }
 
             #{$block}__links-floor-right {
-                @include links-floor-flex-column($links-floor-side-width);
+                min-width: 0;
+                max-width: $links-floor-side-width;
                 justify-content: flex-end;
             }
         }
@@ -172,6 +181,7 @@ $links-floor-row-height: 36px;
             }
 
             &_threeColumn {
+                #{$block}__links-floor-side,
                 #{$block}__logo,
                 #{$block}__links-floor-center,
                 #{$block}__links-floor-right {
