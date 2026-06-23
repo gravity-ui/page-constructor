@@ -14,9 +14,9 @@ html {
     -ms-overflow-style: scrollbar;
 }
 
-*,
-*::before,
-*::after {
+#{$ns}page-constructor,
+#{$ns}page-constructor::before,
+#{$ns}page-constructor::after {
     box-sizing: inherit;
 }
 
