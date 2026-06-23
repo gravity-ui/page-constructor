@@ -26,13 +26,13 @@ function getElementFlexContentWidth(element: HTMLElement) {
     const children = Array.from(element.children) as HTMLElement[];
 
     if (!children.length) {
-        return Math.ceil(element.getBoundingClientRect().width);
+        return element.scrollWidth;
     }
 
     const elementStyles = window.getComputedStyle(element);
     const columnGap = parseFloat(elementStyles.columnGap);
     const gap = Number.isNaN(columnGap) ? 0 : columnGap;
-    const childrenWidths = children.map((child) => child.getBoundingClientRect().width);
+    const childrenWidths = children.map((child) => child.scrollWidth);
 
     if (elementStyles.flexDirection.startsWith('column')) {
         return Math.ceil(Math.max(...childrenWidths));

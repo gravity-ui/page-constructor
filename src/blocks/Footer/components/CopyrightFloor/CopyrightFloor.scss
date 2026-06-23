@@ -155,6 +155,18 @@ $links-floor-row-height: 36px;
         white-space: nowrap;
     }
 
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__links-floor-inner_centered &__links-floor-right {
+            flex-shrink: 1;
+        }
+
+        &__links-floor-inner_centered &__links-floor-copyright {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
     // --- Tablet ---
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
