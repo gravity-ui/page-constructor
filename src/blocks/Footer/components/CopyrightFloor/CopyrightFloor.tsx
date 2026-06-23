@@ -203,7 +203,7 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
         containerRef: menuContainerRef,
         items: copyright.links,
         itemSelector: `.${b('links-floor-item')}`,
-        moreButtonWidth: 36,
+        moreButtonWidth: 52,
     });
     const {shouldCenterLinks, threeColumnLayout, hasOnlyLinks} = useLinksAlignmentState(copyright);
     const hasRightSideContent = Boolean(copyright.languageSwitcher || copyright.copyrightText);
@@ -211,7 +211,9 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
     const copyrightLogoImageProps = useLogoImageProps(copyrightLogoImage);
 
     React.useLayoutEffect(() => {
-        updateSideColumnWidth();
+        if (isThreeColumnStacked) {
+            updateSideColumnWidth();
+        }
     }, [updateSideColumnWidth, copyrightLogoImageProps, hasRightSideContent, isThreeColumnStacked]);
 
     const linksContent = (

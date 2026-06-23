@@ -22,6 +22,12 @@ type OverflowListItemsResult = {
     measured: boolean;
 };
 
+function parseCssPixelValue(value: string) {
+    const parsedValue = parseFloat(value);
+
+    return Number.isNaN(parsedValue) ? 0 : parsedValue;
+}
+
 export function useOverflowListItems({
     isDropdown = false,
     containerRef,
@@ -31,6 +37,7 @@ export function useOverflowListItems({
 }: UseOverflowListItemsProps): OverflowListItemsResult {
     const [containerWidth, setContainerWidth] = React.useState<number>(0);
     const [itemWidths, setItemWidths] = React.useState<number[]>([]);
+    const [itemGap, setItemGap] = React.useState<number>(0);
 
     React.useLayoutEffect(() => {
         if (!containerRef.current) {
@@ -40,8 +47,15 @@ export function useOverflowListItems({
         const itemElements = Array.from(
             containerRef.current?.querySelectorAll(itemSelector) ?? [],
         ) as HTMLElement[];
+        const listElement = itemElements[0]?.parentElement;
+
         setItemWidths(itemElements.map((item) => item.clientWidth));
-    }, [containerRef, itemSelector]);
+
+        if (listElement) {
+            const listStyles = window.getComputedStyle(listElement);
+            setItemGap(parseCssPixelValue(listStyles.columnGap));
+        }
+    }, [containerRef, itemSelector, items]);
 
     const updateContainerSize = React.useMemo(
         () =>
@@ -80,7 +94,9 @@ export function useOverflowListItems({
 
         for (const width of itemWidths) {
             const isMoreThanOneItemLeft = itemsCount !== visibleItemsCount + 1;
-            remainingContainerWidth -= width;
+            const currentItemWidth = width + (visibleItemsCount === 0 ? 0 : itemGap);
+
+            remainingContainerWidth -= currentItemWidth;
 
             const hasNoSpaceForTheLastItem = remainingContainerWidth < 0;
             if (
@@ -99,7 +115,7 @@ export function useOverflowListItems({
             visibleItems: items?.slice(0, visibleItemsCount) ?? [],
             hiddenItems: transformItemsToDropdownMenuItems(items?.slice(visibleItemsCount) ?? []),
         };
-    }, [containerWidth, isMeasured, itemWidths, items, moreButtonWidth, isDropdown]);
+    }, [containerWidth, isMeasured, itemGap, itemWidths, items, moreButtonWidth, isDropdown]);
 
     return {visibleItems, hiddenItems, measured: isMeasured};
 }

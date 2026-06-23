@@ -77,6 +77,7 @@ $links-floor-row-height: 36px;
             #{$block}__links-floor-right {
                 min-width: 0;
                 max-width: $links-floor-side-width;
+                flex-shrink: 1;
                 justify-content: flex-end;
             }
         }
@@ -148,23 +149,13 @@ $links-floor-row-height: 36px;
     }
 
     &__links-floor-copyright {
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-size: var(--g-text-body-2-font-size);
         line-height: var(--g-text-display-1-line-height);
         color: var(--g-color-text-secondary);
         text-align: right;
         white-space: nowrap;
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'lg')) {
-        &__links-floor-inner_centered &__links-floor-right {
-            flex-shrink: 1;
-        }
-
-        &__links-floor-inner_centered &__links-floor-copyright {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
     }
 
     // --- Tablet ---
@@ -198,7 +189,7 @@ $links-floor-row-height: 36px;
                 #{$block}__links-floor-center,
                 #{$block}__links-floor-right {
                     flex: none;
-                    max-width: none;
+                    max-width: 100%;
                 }
             }
 
