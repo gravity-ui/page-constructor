@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Tabs, {TabItemProps} from '../components/Tabs/Tabs';
+import {TabItemProps} from '../components/Tabs/Tabs';
 import BlockConfigForm from '../containers/BlockConfigForm/BlockConfigForm';
 import BlocksList from '../containers/BlocksList/BlocksList';
 import GlobalConfig from '../containers/GlobalConfig/GlobalConfig';
@@ -45,30 +45,17 @@ export const useEditorTabs = ({
             ],
             right: [
                 {
-                    id: 'edit',
-                    title: 'EDIT',
-                    component: () => (
-                        <Tabs
-                            items={[
-                                {
-                                    id: 'block-config',
-                                    title: 'INPUTS',
-                                    component: BlockConfigForm,
-                                },
-                                {
-                                    id: 'source-code',
-                                    title: 'RAW',
-                                    component: ({className}) => (
-                                        <SourceCode
-                                            className={className}
-                                            showSelectedBlockOnly={true}
-                                        />
-                                    ),
-                                    withPadding: true,
-                                },
-                            ]}
-                        />
+                    id: 'block-config',
+                    title: 'INPUTS',
+                    component: BlockConfigForm,
+                },
+                {
+                    id: 'source-code',
+                    title: 'RAW',
+                    component: ({className}: {className?: string}) => (
+                        <SourceCode className={className} showSelectedBlockOnly={true} />
                     ),
+                    withPadding: true,
                 },
                 ...(rightTabs || []),
             ],
