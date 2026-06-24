@@ -28,6 +28,10 @@ function parseCssPixelValue(value: string) {
     return Number.isNaN(parsedValue) ? 0 : parsedValue;
 }
 
+function getElementWidth(element: HTMLElement) {
+    return Math.ceil(Math.max(element.scrollWidth, element.getBoundingClientRect().width));
+}
+
 export function useOverflowListItems({
     isDropdown = false,
     containerRef,
@@ -38,24 +42,62 @@ export function useOverflowListItems({
     const [containerWidth, setContainerWidth] = React.useState<number>(0);
     const [itemWidths, setItemWidths] = React.useState<number[]>([]);
     const [itemGap, setItemGap] = React.useState<number>(0);
+    const itemsCount = items?.length ?? 0;
+    const areItemsMeasured = !isDropdown || itemWidths.length === itemsCount;
 
-    React.useLayoutEffect(() => {
-        if (!containerRef.current) {
+    const updateItemWidths = React.useCallback(() => {
+        if (!containerRef.current || !itemsCount) {
+            setItemWidths([]);
             return;
         }
 
         const itemElements = Array.from(
-            containerRef.current?.querySelectorAll(itemSelector) ?? [],
+            containerRef.current.querySelectorAll(itemSelector),
         ) as HTMLElement[];
+
+        if (itemElements.length !== itemsCount) {
+            return;
+        }
+
         const listElement = itemElements[0]?.parentElement;
 
-        setItemWidths(itemElements.map((item) => item.clientWidth));
+        setItemWidths(itemElements.map(getElementWidth));
 
         if (listElement) {
             const listStyles = window.getComputedStyle(listElement);
             setItemGap(parseCssPixelValue(listStyles.columnGap));
         }
-    }, [containerRef, itemSelector, items]);
+    }, [containerRef, itemSelector, itemsCount]);
+
+    React.useEffect(() => {
+        setItemWidths((currentItemWidths) => (currentItemWidths.length ? [] : currentItemWidths));
+    }, [items, isDropdown]);
+
+    React.useLayoutEffect(() => {
+        if (isDropdown && !areItemsMeasured) {
+            updateItemWidths();
+        }
+    }, [areItemsMeasured, isDropdown, updateItemWidths]);
+
+    React.useEffect(() => {
+        if (!isDropdown || typeof document === 'undefined' || !('fonts' in document)) {
+            return undefined;
+        }
+
+        let cancelled = false;
+
+        document.fonts.ready.then(() => {
+            if (!cancelled) {
+                setItemWidths((currentItemWidths) =>
+                    currentItemWidths.length ? [] : currentItemWidths,
+                );
+            }
+        });
+
+        return () => {
+            cancelled = true;
+        };
+    }, [items, isDropdown]);
 
     const updateContainerSize = React.useMemo(
         () =>
@@ -71,7 +113,7 @@ export function useOverflowListItems({
 
     useResizeObserver({ref: containerRef, onResize: updateContainerSize});
 
-    const isMeasured = containerWidth > 0;
+    const isMeasured = containerWidth > 0 && areItemsMeasured;
 
     const {visibleItems, hiddenItems} = React.useMemo(() => {
         if (!isDropdown) {
@@ -88,12 +130,12 @@ export function useOverflowListItems({
             };
         }
 
-        const itemsCount = itemWidths.length;
+        const linksCount = itemWidths.length;
         let visibleItemsCount = 0;
         let remainingContainerWidth = containerWidth;
 
         for (const width of itemWidths) {
-            const isMoreThanOneItemLeft = itemsCount !== visibleItemsCount + 1;
+            const isMoreThanOneItemLeft = linksCount !== visibleItemsCount + 1;
             const currentItemWidth = width + (visibleItemsCount === 0 ? 0 : itemGap);
 
             remainingContainerWidth -= currentItemWidth;

@@ -210,7 +210,7 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
     const copyrightLogoImage = copyright.logo && getThemedValue(copyright.logo.image, theme);
     const copyrightLogoImageProps = useLogoImageProps(copyrightLogoImage);
 
-    React.useLayoutEffect(() => {
+    React.useEffect(() => {
         if (isThreeColumnStacked) {
             updateSideColumnWidth();
         }

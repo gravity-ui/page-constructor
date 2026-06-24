@@ -119,6 +119,7 @@ $links-floor-row-height: 36px;
         }
 
         a {
+            display: inline-block;
             text-decoration: none;
             color: var(--g-color-text-primary);
 
