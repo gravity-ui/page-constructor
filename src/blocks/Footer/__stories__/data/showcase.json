@@ -12,48 +12,69 @@
     },
     "columns": [
       {
-        "title": "Для работы",
+        "title": "For work",
         "links": [
-          {"text": "Мероприятия и вебинары", "url": "#events"},
-          {"text": "Контент-программа", "url": "#content"},
-          {"text": "Блог", "url": "#blog"},
-          {"text": "Все решения", "url": "#solutions"},
-          {"text": "Все решения", "url": "#solutions"},
-          {"text": "Все решения", "url": "#solutions"}
+          {"text": "Events and webinars", "url": "#overview"},
+          {"text": "Content program", "url": "#content"},
+          {"text": "Blog", "url": "#blog"},
+          {"text": "All solutions", "url": "#solutions"},
+          {"text": "All solutions", "url": "#solutions"},
+          {"text": "All solutions", "url": "#solutions"}
         ]
       },
       {
-        "title": "Ресурсы",
+        "title": "For work",
         "links": [
-          {"text": "Документация", "url": "#docs"},
-          {"text": "API", "url": "#api"},
-          {"text": "Примеры", "url": "#examples"},
-          {"text": "Чат сообщества", "url": "#chat"}
+          {"text": "Events and webinars", "url": "#overview"},
+          {"text": "Content program", "url": "#content"},
+          {"text": "Blog", "url": "#blog"},
+          {"text": "All solutions", "url": "#solutions"},
+          {"text": "All solutions", "url": "#solutions"},
+          {"text": "All solutions", "url": "#solutions"}
         ]
       },
       {
-        "title": "Компания",
+        "title": "For work",
         "links": [
-          {"text": "О нас", "url": "#about"},
-          {"text": "Контакты", "url": "#contacts"},
-          {"text": "Вакансии", "url": "#careers"},
-          {"text": "Партнёрам", "url": "#partners"}
+          {"text": "Events and webinars", "url": "#overview"},
+          {"text": "Content program", "url": "#content"},
+          {"text": "Blog", "url": "#blog"},
+          {"text": "All solutions", "url": "#solutions"},
+          {"text": "All solutions", "url": "#solutions"},
+          {"text": "All solutions", "url": "#solutions"}
         ]
       },
       {
-        "title": "Поддержка",
+        "title": "For work",
         "links": [
-          {"text": "Помощь", "url": "#help"},
-          {"text": "Сообщество", "url": "#community"},
-          {"text": "Статус", "url": "#status"}
+          {"text": "Events and webinars", "url": "#overview"},
+          {"text": "Content program", "url": "#content"},
+          {"text": "Blog", "url": "#blog"},
+          {"text": "All solutions", "url": "#solutions"},
+          {"text": "All solutions", "url": "#solutions"},
+          {"text": "All solutions", "url": "#solutions"}
         ]
       },
       {
-        "title": "Еще один заголовок",
+        "title": "For work",
         "links": [
-          {"text": "Раз пункт", "url": "#help"},
-          {"text": "Два пункт", "url": "#community"},
-          {"text": "Статус", "url": "#status"}
+          {"text": "Events and webinars", "url": "#overview"},
+          {"text": "Content program", "url": "#content"},
+          {"text": "Blog", "url": "#blog"},
+          {"text": "All solutions", "url": "#solutions"},
+          {"text": "All solutions", "url": "#solutions"},
+          {"text": "All solutions", "url": "#solutions"}
+        ]
+      },
+      {
+        "title": "For work",
+        "links": [
+          {"text": "Events and webinars", "url": "#overview"},
+          {"text": "Content program", "url": "#content"},
+          {"text": "Blog", "url": "#blog"},
+          {"text": "All solutions", "url": "#solutions"},
+          {"text": "All solutions", "url": "#solutions"},
+          {"text": "All solutions", "url": "#solutions"}
         ]
       }
     ]

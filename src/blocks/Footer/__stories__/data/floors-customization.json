@@ -2,24 +2,38 @@
   "variants": [
     {
       "type": "footer-block",
-      "indentTop": "l",
       "navigation": {
         "logo": {
           "image": {
-            "light": {"src": "story-assets/icons-sample-company_light.svg"},
-            "dark": {"src": "story-assets/icons-sample-company_dark.svg"}
+            "light": {"src": "story-assets/icon_1-with-text_light.svg"},
+            "dark": {"src": "story-assets/icon_1-with-text_dark.svg"}
           },
           "href": "/",
-          "alt": "Example company",
-          "placement": "left"
-        },
-        "colSizes": {
-          "all": 6,
-          "sm": 4,
-          "md": 4,
-          "lg": 4
+          "alt": "Example company"
         },
         "columns": [
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
           {
             "title": "For work",
             "links": [
@@ -180,100 +194,6 @@
     },
     {
       "type": "footer-block",
-      "indentTop": "l",
-      "navigation": {
-        "columnsPerRow": 5,
-        "columns": [
-          {
-            "title": "For work",
-            "links": [
-              {"text": "Events and webinars", "url": "#overview"},
-              {"text": "Content program", "url": "#content"},
-              {"text": "Blog", "url": "#blog"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"}
-            ]
-          },
-          {
-            "title": "For work",
-            "links": [
-              {"text": "Events and webinars", "url": "#overview"},
-              {"text": "Content program", "url": "#content"},
-              {"text": "Blog", "url": "#blog"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"}
-            ]
-          },
-          {
-            "title": "For work",
-            "links": [
-              {"text": "Events and webinars", "url": "#overview"},
-              {"text": "Content program", "url": "#content"},
-              {"text": "Blog", "url": "#blog"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"}
-            ]
-          },
-          {
-            "title": "For work",
-            "links": [
-              {"text": "Events and webinars", "url": "#overview"},
-              {"text": "Content program", "url": "#content"},
-              {"text": "Blog", "url": "#blog"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"}
-            ]
-          },
-          {
-            "title": "For work",
-            "links": [
-              {"text": "Events and webinars", "url": "#overview"},
-              {"text": "Content program", "url": "#content"},
-              {"text": "Blog", "url": "#blog"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"}
-            ]
-          },
-          {
-            "title": "For work",
-            "links": [
-              {"text": "Events and webinars", "url": "#overview"},
-              {"text": "Content program", "url": "#content"},
-              {"text": "Blog", "url": "#blog"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"}
-            ]
-          },
-          {
-            "title": "For work",
-            "links": [
-              {"text": "Events and webinars", "url": "#overview"},
-              {"text": "Content program", "url": "#content"},
-              {"text": "Blog", "url": "#blog"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"}
-            ]
-          },
-          {
-            "title": "For work",
-            "links": [
-              {"text": "Events and webinars", "url": "#overview"},
-              {"text": "Content program", "url": "#content"},
-              {"text": "Blog", "url": "#blog"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"},
-              {"text": "All solutions", "url": "#solutions"}
-            ]
-          }
-        ]
-      },
       "contacts": {
         "title": "Join Us",
         "iconsSize": "l",
@@ -343,15 +263,6 @@
         "align": "left"
       },
       "copyright": {
-        "logo": {
-          "image": {
-            "light": {"src": "story-assets/icons-sample-company_light.svg"},
-            "dark": {"src": "story-assets/icons-sample-company_dark.svg"}
-          },
-          "href": "/",
-          "alt": "Example company",
-          "placement": "left"
-        },
         "links": [
           {"text": "Политика конфиденциальности", "url": "#privacy"},
           {"text": "Условия использования", "url": "#terms"},
@@ -359,9 +270,42 @@
           {"text": "Длинный пункт меню 2", "url": "#terms"}
         ],
         "linksOverflowStrategy": "dropdown",
+        "languageSwitcher": {
+          "items": [
+            {"text": "Русский", "href": "/ru"},
+            {"text": "English", "href": "/en"}
+          ],
+          "image": {
+            "light": {"src": "story-assets/icons_globe_light.svg"},
+            "dark": {"src": "story-assets/icons_globe_dark.svg"}
+          }
+        },
         "copyrightText": "© 2025 ООО \"Яндекс.Облако\""
       },
       "attribution": true
+    },
+    {
+      "type": "footer-block",
+      "copyright": {
+        "links": [
+          {"text": "Политика конфиденциальности", "url": "#privacy"},
+          {"text": "Условия использования", "url": "#terms"},
+          {"text": "Длинный пункт меню 1", "url": "#terms"},
+          {"text": "Длинный пункт меню 2", "url": "#terms"}
+        ],
+        "linksOverflowStrategy": "dropdown",
+        "languageSwitcher": {
+          "items": [
+            {"text": "Русский", "href": "/ru"},
+            {"text": "English", "href": "/en"}
+          ],
+          "image": {
+            "light": {"src": "story-assets/icons_globe_light.svg"},
+            "dark": {"src": "story-assets/icons_globe_dark.svg"}
+          }
+        },
+        "copyrightText": "© 2025 ООО \"Яндекс.Облако\""
+      }
     }
   ]
 }

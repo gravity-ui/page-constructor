@@ -13,13 +13,14 @@ import {
 } from '../../../models';
 import Footer from '../Footer';
 
-import columnsColSizesData from './data/columns-col-sizes.data.json';
+import columnLayoutData from './data/column-layout.json';
 import contactsIconsSizeData from './data/contacts-icons-size.data.json';
 import contactsPositionsData from './data/contacts-positions.data.json';
 import contactsUrlTitlesData from './data/contacts-url-titles.data.json';
 import copyrightLogoData from './data/copyright-logo.data.json';
-import fullData from './data/full.json';
+import floorsCustomizationData from './data/floors-customization.json';
 import linksOverflowStrategyData from './data/links-overflow-strategy.data.json';
+import showcaseData from './data/showcase.json';
 
 export default {
     title: 'Blocks/Footer',
@@ -60,10 +61,10 @@ const VariantsTemplate: StoryFn<Record<number, FooterBlockModel>> = (args) => (
     </InnerContext.Provider>
 );
 
-export const Full = DefaultTemplate.bind({});
+export const ShowcaseData = DefaultTemplate.bind({});
 
-Full.args = fullData as unknown as FooterBlockModel;
-Full.parameters = {
+ShowcaseData.args = showcaseData as unknown as FooterBlockModel;
+ShowcaseData.parameters = {
     docs: {
         description: {
             story: 'Full 5-floor footer: (1) logo + link columns + additional row, (2) Join Us + social icons, (3) legal disclaimer, (4) privacy/terms + language + copyright, (5) attribution.',
@@ -71,12 +72,25 @@ Full.parameters = {
     },
 };
 
+export const FloorsCustomization = VariantsTemplate.bind({});
 export const ContactsPositions = VariantsTemplate.bind({});
 export const ContactsIconsSize = VariantsTemplate.bind({});
 export const ContactsUrlTitles = VariantsTemplate.bind({});
-export const ColumnsColSizes = VariantsTemplate.bind({});
+export const ColumnsLayout = VariantsTemplate.bind({});
 export const CopyrightLogo = VariantsTemplate.bind({});
 export const LinksOverflowStrategy = VariantsTemplate.bind({});
+
+FloorsCustomization.args = floorsCustomizationData.variants as FooterBlockModel[];
+FloorsCustomization.parameters = {
+    controls: {
+        include: Object.keys(FloorsCustomization.args),
+    },
+    docs: {
+        description: {
+            story: 'Floors customization.',
+        },
+    },
+};
 
 ContactsPositions.args = contactsPositionsData.variants as FooterBlockModel[];
 ContactsPositions.parameters = {
@@ -114,10 +128,10 @@ ContactsUrlTitles.parameters = {
     },
 };
 
-ColumnsColSizes.args = columnsColSizesData.variants as FooterBlockModel[];
-ColumnsColSizes.parameters = {
+ColumnsLayout.args = columnLayoutData.variants as FooterBlockModel[];
+ColumnsLayout.parameters = {
     controls: {
-        include: Object.keys(ColumnsColSizes.args),
+        include: Object.keys(ColumnsLayout.args),
     },
     docs: {
         description: {
