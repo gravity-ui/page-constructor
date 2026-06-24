@@ -92,9 +92,19 @@ $backgroundWidth: 1440px;
 
     &__title {
         @include add-specificity(&) {
-            @include heading1();
+            @include text-display-4();
 
+            color: var(--pc-text-header-color);
+            margin: 0;
             position: relative;
+
+            @media (max-width: map-get($gridBreakpoints, 'md')) {
+                @include text-display-3();
+            }
+
+            @media (max-width: map-get($gridBreakpoints, 'sm')) {
+                @include text-display-2();
+            }
 
             a {
                 @include link();
