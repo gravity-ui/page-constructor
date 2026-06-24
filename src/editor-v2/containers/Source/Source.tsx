@@ -13,7 +13,7 @@ const b = editorCn('source');
 
 const Source = () => {
     const {resetInitialize} = useMainEditorStore();
-    const {disableUrlField, url, setUrl} = React.useContext(IframeContext);
+    const {disableUrlField, hideUrl, url, setUrl} = React.useContext(IframeContext);
 
     const onUpdateUrl = React.useCallback(
         (value: string) => {
@@ -29,6 +29,10 @@ const Source = () => {
             setUrl(url);
         }, 0);
     };
+
+    if (hideUrl) {
+        return null;
+    }
 
     return (
         <div className={b()}>

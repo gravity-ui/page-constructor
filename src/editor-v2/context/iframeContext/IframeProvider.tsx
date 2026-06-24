@@ -5,12 +5,14 @@ import {IframeContext} from './IframeContext';
 interface IframeProviderProps extends React.PropsWithChildren {
     initialUrl?: string;
     disableUrlField?: boolean;
+    hideUrl?: boolean;
 }
 
 export const IframeProvider = ({
     children,
     initialUrl = '',
     disableUrlField,
+    hideUrl,
 }: IframeProviderProps) => {
     const [iframeElement, setIframeElement] = React.useState<HTMLIFrameElement>();
     const [url, setUrl] = React.useState(initialUrl);
@@ -25,6 +27,7 @@ export const IframeProvider = ({
                 iframeElement,
                 setIframeElement: setIframeElementFunc,
                 disableUrlField,
+                hideUrl,
             }}
         >
             {children}
