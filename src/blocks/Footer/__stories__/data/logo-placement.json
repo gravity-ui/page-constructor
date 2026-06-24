@@ -158,23 +158,196 @@
       },
       "copyright": {
         "links": [
-          {"text": "Политика конфиденциальности", "url": "#privacy"},
-          {"text": "Условия использования", "url": "#terms"},
-          {"text": "Длинный пункт меню 1", "url": "#terms"},
-          {"text": "Длинный пункт меню 2", "url": "#terms"}
+          {"text": "Privacy Policy", "url": "#privacy"},
+          {"text": "Terms of Service", "url": "#terms"},
+          {"text": "Long menu item 1", "url": "#terms"},
+          {"text": "Long menu item 2", "url": "#terms"}
         ],
         "linksOverflowStrategy": "dropdown",
         "languageSwitcher": {
           "items": [
-            {"text": "Русский", "href": "/ru"},
-            {"text": "English", "href": "/en"}
+            {"text": "English", "href": "/en"},
+            {"text": "Русский", "href": "/ru"}
           ],
           "image": {
             "light": {"src": "story-assets/icons_globe_light.svg"},
             "dark": {"src": "story-assets/icons_globe_dark.svg"}
           }
         },
-        "copyrightText": "© 2025 ООО \"Яндекс.Облако\""
+        "copyrightText": "© 2025 Yandex Cloud LLC"
+      },
+      "attribution": true
+    },
+    {
+      "type": "footer-block",
+      "indentTop": "l",
+      "navigation": {
+        "columnsPerRow": 5,
+        "logo": {
+          "image": {
+            "light": {"src": "story-assets/icons-sample-company_light.svg"},
+            "dark": {"src": "story-assets/icons-sample-company_dark.svg"}
+          },
+          "href": "/",
+          "alt": "Example company",
+          "placement": "top"
+        },
+        "columns": [
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          }
+        ]
+      },
+      "contacts": {
+        "title": "Join Us",
+        "iconsSize": "l",
+        "linksPosition": "left",
+        "titlePosition": "top",
+        "links": [
+          {
+            "icon": {
+              "light": {"src": "story-assets/icons-github_light.svg"},
+              "dark": {"src": "story-assets/icons-github_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "GitHub"
+          },
+          {
+            "icon": {
+              "light": {"src": "story-assets/icons-medium_light.svg"},
+              "dark": {"src": "story-assets/icons-medium_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "Medium"
+          },
+          {
+            "icon": {
+              "light": {"src": "story-assets/icons-discord_light.svg"},
+              "dark": {"src": "story-assets/icons-discord_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "Discord"
+          },
+          {
+            "icon": {
+              "light": {"src": "story-assets/icons-x_light.svg"},
+              "dark": {"src": "story-assets/icons-x_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "X"
+          },
+          {
+            "icon": {
+              "light": {"src": "story-assets/icons-linkedin_light.svg"},
+              "dark": {"src": "story-assets/icons-linkedin_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "Linkedin"
+          },
+          {
+            "icon": {
+              "light": {"src": "story-assets/icons-youtube_light.svg"},
+              "dark": {"src": "story-assets/icons-youtube_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "YouTube"
+          },
+          {
+            "icon": {
+              "light": {"src": "story-assets/icons-telegram_light.svg"},
+              "dark": {"src": "story-assets/icons-telegram_dark.svg"}
+            },
+            "url": "https://example.com",
+            "urlTitle": "Telegram"
+          }
+        ]
+      },
+      "disclaimer": {
+        "text": "Example company is a software distributed under the Apache License, Version 2.0. Feel free to contact the **Example company** team at [info@example.tech](mailto:info@example.tech). Apache®, Apache Spark™ and their logos are either registered trademarks or trademarks of the Apache Software Foundation. [Trademarks](https://trademarks.apache.org). ClickHouse® is a trademark of ClickHouse, Inc. [clickhouse.com](https://clickhouse.com).",
+        "align": "left"
+      },
+      "copyright": {
+        "links": [
+          {"text": "Privacy Policy", "url": "#privacy"},
+          {"text": "Terms of Service", "url": "#terms"},
+          {"text": "Long menu item 1", "url": "#terms"},
+          {"text": "Long menu item 2", "url": "#terms"}
+        ],
+        "linksOverflowStrategy": "dropdown",
+        "languageSwitcher": {
+          "items": [
+            {"text": "English", "href": "/en"},
+            {"text": "Русский", "href": "/ru"}
+          ],
+          "image": {
+            "light": {"src": "story-assets/icons_globe_light.svg"},
+            "dark": {"src": "story-assets/icons_globe_dark.svg"}
+          }
+        },
+        "copyrightText": "© 2025 Yandex Cloud LLC"
       },
       "attribution": true
     },
@@ -353,13 +526,13 @@
           "placement": "left"
         },
         "links": [
-          {"text": "Политика конфиденциальности", "url": "#privacy"},
-          {"text": "Условия использования", "url": "#terms"},
-          {"text": "Длинный пункт меню 1", "url": "#terms"},
-          {"text": "Длинный пункт меню 2", "url": "#terms"}
+          {"text": "Privacy Policy", "url": "#privacy"},
+          {"text": "Terms of Service", "url": "#terms"},
+          {"text": "Long menu item 1", "url": "#terms"},
+          {"text": "Long menu item 2", "url": "#terms"}
         ],
         "linksOverflowStrategy": "dropdown",
-        "copyrightText": "© 2025 ООО \"Яндекс.Облако\""
+        "copyrightText": "© 2025 Yandex Cloud LLC"
       },
       "attribution": true
     }

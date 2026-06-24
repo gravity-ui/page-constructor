@@ -1,0 +1,18 @@
+{
+  "variants": [
+    {
+      "type": "footer-block",
+      "disclaimer": {
+        "text": "Example company is a software distributed under the Apache License, Version 2.0. Feel free to contact the **Example company** team at [info@example.tech](mailto:info@example.tech). Apache®, Apache Spark™ and their logos are either registered trademarks or trademarks of the Apache Software Foundation. [Trademarks](https://trademarks.apache.org). ClickHouse® is a trademark of ClickHouse, Inc. [clickhouse.com](https://clickhouse.com).",
+        "align": "left"
+      }
+    },
+    {
+      "type": "footer-block",
+      "disclaimer": {
+        "text": "Example company is a software distributed under the Apache License, Version 2.0. Feel free to contact the **Example company** team at [info@example.tech](mailto:info@example.tech). Apache®, Apache Spark™ and their logos are either registered trademarks or trademarks of the Apache Software Foundation. [Trademarks](https://trademarks.apache.org). ClickHouse® is a trademark of ClickHouse, Inc. [clickhouse.com](https://clickhouse.com).",
+        "align": "center"
+      }
+    }
+  ]
+}

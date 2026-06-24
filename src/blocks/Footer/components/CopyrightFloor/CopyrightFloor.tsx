@@ -32,7 +32,8 @@ function getElementFlexContentWidth(element: HTMLElement) {
     const elementStyles = window.getComputedStyle(element);
     const columnGap = parseFloat(elementStyles.columnGap);
     const gap = Number.isNaN(columnGap) ? 0 : columnGap;
-    const childrenWidths = children.map((child) => child.scrollWidth);
+    // extra 1px to prevent overflow
+    const childrenWidths = children.map((child) => child.scrollWidth + 1);
 
     if (elementStyles.flexDirection.startsWith('column')) {
         return Math.ceil(Math.max(...childrenWidths));

@@ -14,12 +14,14 @@ import {
 import Footer from '../Footer';
 
 import columnLayoutData from './data/column-layout.json';
-import contactsIconsSizeData from './data/contacts-icons-size.data.json';
-import contactsPositionsData from './data/contacts-positions.data.json';
-import contactsUrlTitlesData from './data/contacts-url-titles.data.json';
-import copyrightLogoData from './data/copyright-logo.data.json';
+import contactsIconsSizeData from './data/contacts-icons-size.json';
+import contactsPositionsData from './data/contacts-positions.json';
+import contactsUrlTitlesData from './data/contacts-url-titles.json';
+import disclaimerAlignmentData from './data/disclaimer-alignment.json';
 import floorsCustomizationData from './data/floors-customization.json';
-import linksOverflowStrategyData from './data/links-overflow-strategy.data.json';
+import linksAlignmentData from './data/links-alignment.json';
+import linksOverflowStrategyData from './data/links-overflow-strategy.json';
+import logoPlacementData from './data/logo-placement.json';
 import showcaseData from './data/showcase.json';
 
 export default {
@@ -77,8 +79,34 @@ export const ContactsPositions = VariantsTemplate.bind({});
 export const ContactsIconsSize = VariantsTemplate.bind({});
 export const ContactsUrlTitles = VariantsTemplate.bind({});
 export const ColumnsLayout = VariantsTemplate.bind({});
-export const CopyrightLogo = VariantsTemplate.bind({});
+export const LogoPlacement = VariantsTemplate.bind({});
 export const LinksOverflowStrategy = VariantsTemplate.bind({});
+export const LinksAlignment = VariantsTemplate.bind({});
+export const DisclaimerAlignment = VariantsTemplate.bind({});
+
+DisclaimerAlignment.args = disclaimerAlignmentData.variants as FooterBlockModel[];
+DisclaimerAlignment.parameters = {
+    controls: {
+        include: Object.keys(DisclaimerAlignment.args),
+    },
+    docs: {
+        description: {
+            story: 'Disclaimer alignment.',
+        },
+    },
+};
+
+LinksAlignment.args = linksAlignmentData.variants as FooterBlockModel[];
+LinksAlignment.parameters = {
+    controls: {
+        include: Object.keys(LinksAlignment.args),
+    },
+    docs: {
+        description: {
+            story: 'Links alignment.',
+        },
+    },
+};
 
 FloorsCustomization.args = floorsCustomizationData.variants as FooterBlockModel[];
 FloorsCustomization.parameters = {
@@ -140,14 +168,14 @@ ColumnsLayout.parameters = {
     },
 };
 
-CopyrightLogo.args = copyrightLogoData.variants as unknown as FooterBlockModel[];
-CopyrightLogo.parameters = {
+LogoPlacement.args = logoPlacementData.variants as unknown as FooterBlockModel[];
+LogoPlacement.parameters = {
     controls: {
-        include: Object.keys(CopyrightLogo.args),
+        include: Object.keys(LogoPlacement.args),
     },
     docs: {
         description: {
-            story: 'Fourth floor variations with and without logo.',
+            story: 'Logo placement.',
         },
     },
 };
