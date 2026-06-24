@@ -16,13 +16,13 @@ $block: '.#{$ns}content-layout-block';
         margin-top: $indentSM;
 
         &_size_s {
-            @extend %heading-margin-reset;
+            margin: 0;
             @include text-size(body-2);
         }
 
         &_size_l,
         &_size_xl {
-            @extend %heading-margin-reset;
+            margin: 0;
             @include text-size(body-3);
         }
 
