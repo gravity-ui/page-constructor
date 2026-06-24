@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.13.2](https://github.com/gravity-ui/page-constructor/compare/v8.13.1...v8.13.2) (2026-06-24)
+
+
+### Bug Fixes
+
+* **deps:** bump swiper to ^12.2.0 to fix prototype pollution (CVE-2026-27212) ([#1472](https://github.com/gravity-ui/page-constructor/issues/1472)) ([70038c8](https://github.com/gravity-ui/page-constructor/commit/70038c8887af0a3535da854800ee847055c362e1))
+
 ## [8.13.1](https://github.com/gravity-ui/page-constructor/compare/v8.13.0...v8.13.1) (2026-06-24)
 
 
