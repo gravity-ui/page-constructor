@@ -58,7 +58,7 @@ const FooterDisclaimerContent = {
     required: ['text', 'align'],
     properties: {
         text: {type: 'string', contentType: 'text'},
-        align: {type: 'string', enum: ['left', 'center', 'right']},
+        align: {type: 'string', enum: ['left', 'center']},
     },
 };
 

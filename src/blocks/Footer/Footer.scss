@@ -55,17 +55,6 @@ $block: '.#{$ns}footer-block';
         --pc-brand-footer-border-color-dark: var(--g-color-line-generic);
     }
 
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
-        &__logo-image {
-            max-height: 28px;
-
-            picture,
-            img {
-                max-height: 28px;
-            }
-        }
-    }
-
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         & .pc-Grid .container-fluid {
             padding: 0 $indentSM;

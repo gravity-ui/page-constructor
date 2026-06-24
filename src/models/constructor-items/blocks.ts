@@ -559,7 +559,7 @@ export interface FooterContacts {
 
 export interface FooterDisclaimerFloor {
     text: string;
-    align: 'left' | 'center' | 'right';
+    align: 'left' | 'center';
 }
 
 export interface FooterCopyright {

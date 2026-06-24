@@ -6,17 +6,6 @@ $links-floor-side-width: 345px;
 $links-floor-center-width: 480px;
 $links-floor-row-height: 36px;
 
-@mixin links-floor-flex-column($flex-basis, $max-width: $flex-basis) {
-    flex: 1 1 $flex-basis;
-    min-width: 0;
-    max-width: $max-width;
-}
-
-@mixin links-floor-vertical-stack($gap: $indentXXXS) {
-    flex-flow: column;
-    gap: $gap;
-}
-
 @mixin links-floor-text-hover() {
     &:hover {
         color: var(--g-color-text-secondary);
@@ -51,7 +40,7 @@ $links-floor-row-height: 36px;
             gap: $indentM;
 
             #{$block}__links-floor-side {
-                flex-shrink: 0;
+                flex-shrink: 1;
                 min-width: 0;
                 max-width: $links-floor-side-width;
             }
@@ -121,8 +110,8 @@ $links-floor-row-height: 36px;
         display: flex;
         align-items: center;
         margin: 0;
-        padding: 0;
-        gap: $indentXS $indentXXS;
+        padding: $indentXXXS 0;
+        gap: $indentXXS $indentXS;
         overflow: visible;
 
         &_wrap {
@@ -162,13 +151,12 @@ $links-floor-row-height: 36px;
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__links-floor-inner {
+            flex-direction: column;
+            gap: $indentXXXS;
+            align-items: flex-start;
+
             &_hasOnlyLinks #{$block}__links-floor-left {
                 width: auto;
-            }
-
-            &_centered,
-            &_overflow_dropdown {
-                @include links-floor-vertical-stack();
             }
 
             &_centered {
@@ -203,10 +191,6 @@ $links-floor-row-height: 36px;
             width: 100%;
         }
 
-        &__links-floor-center {
-            padding: $indentXXXS 0;
-        }
-
         &__links-floor-right {
             justify-content: flex-start;
             height: auto;
@@ -214,6 +198,7 @@ $links-floor-row-height: 36px;
 
         &__links-floor-copyright {
             text-align: left;
+            line-height: var(--g-text-body-2-line-height);
         }
     }
 
@@ -225,18 +210,11 @@ $links-floor-row-height: 36px;
         }
 
         &__links-floor-inner {
-            gap: $indentXS;
+            gap: $indentXXXS;
 
-            &:not(&_centered) {
-                gap: $indentXXXS;
-
-                #{$block}__links-floor-right {
-                    width: 100%;
-                }
-            }
-
-            &_overflow_line-wrap {
-                @include links-floor-vertical-stack();
+            &:not(&_centered) #{$block}__links-floor-right {
+                width: 100%;
+                gap: var(--g-spacing-1);
             }
 
             &_centered {
@@ -245,10 +223,10 @@ $links-floor-row-height: 36px;
                     align-items: center;
                 }
             }
-        }
 
-        &__links-floor-left {
-            padding: $indentXXXS 0;
+            &_threeColumn {
+                gap: $indentXS;
+            }
         }
 
         &__links-floor-list {
