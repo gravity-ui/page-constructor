@@ -18,39 +18,28 @@ export const useEditorTabs = ({
         () => ({
             left: [
                 {
-                    id: 'page',
-                    title: 'PAGE',
-                    component: () => (
-                        <Tabs
-                            items={[
-                                {
-                                    id: 'blocks-list',
-                                    title: 'BLOCKS',
-                                    component: BlocksList,
-                                    withPadding: true,
-                                },
-                                {
-                                    id: 'layers',
-                                    title: 'LAYERS',
-                                    component: Tree,
-                                    withPadding: true,
-                                },
-                                {
-                                    id: 'source-code',
-                                    title: 'RAW',
-                                    component: ({className}) => (
-                                        <SourceCode className={className} />
-                                    ),
-                                    withPadding: true,
-                                },
-                            ]}
-                        />
-                    ),
+                    id: 'blocks-list',
+                    title: 'BLOCKS',
+                    component: BlocksList,
+                    withPadding: true,
+                },
+                {
+                    id: 'layers',
+                    title: 'LAYERS',
+                    component: Tree,
+                    withPadding: true,
                 },
                 {
                     id: 'global',
                     title: 'GLOBAL',
                     component: GlobalConfig,
+                    withPadding: true,
+                },
+                {
+                    id: 'source-code',
+                    title: 'RAW',
+                    component: SourceCode,
+                    withPadding: true,
                 },
                 ...(leftTabs || []),
             ],
