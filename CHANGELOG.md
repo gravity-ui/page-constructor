@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.13.1](https://github.com/gravity-ui/page-constructor/compare/v8.13.0...v8.13.1) (2026-06-24)
+
+
+### Bug Fixes
+
+* global styles ([#1471](https://github.com/gravity-ui/page-constructor/issues/1471)) ([ae81414](https://github.com/gravity-ui/page-constructor/commit/ae814140dd389ea1046fba5c3f8c0207a71beb96))
+
 ## [8.13.0](https://github.com/gravity-ui/page-constructor/compare/v8.12.0...v8.13.0) (2026-05-28)
 
 
