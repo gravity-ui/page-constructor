@@ -10,12 +10,12 @@ $block: '.#{$ns}footer-block';
         border: none;
     }
 
-    &__columns-container {
+    &__floor &__columns-container {
         padding: 0;
     }
 
     &__floor_logo-placement_left &__logo-col.col {
-        padding: 0 $indentXXXS $indentM;
+        padding: 0 0 $indentM;
 
         & .row {
             margin: 0;
