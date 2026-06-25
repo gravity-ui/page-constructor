@@ -159,10 +159,7 @@
       {"text": "Политика конфиденциальности", "url": "#privacy"},
       {"text": "Условия использования", "url": "#terms"},
       {"text": "Длинный пункт меню 1", "url": "#terms"},
-      {"text": "Длинный пункт меню 1", "url": "#terms"},
-      {"text": "Длинный пункт меню 1", "url": "#terms"},
-      {"text": "Длинный пункт меню 1", "url": "#terms"},
-      {"text": "Длинный пункт меню 2", "url": "#terms"}
+      {"text": "Длинный пункт меню 1", "url": "#terms"}
     ],
     "linksOverflowStrategy": "line-wrap",
     "languageSwitcher": {

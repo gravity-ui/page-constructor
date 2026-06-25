@@ -245,7 +245,7 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
                     hasOnlyLinks,
                 })}
             >
-                {threeColumnLayout ? (
+                {copyright.logo && (
                     <div className={b('links-floor-side')} style={sideColumnStyle}>
                         <CopyrightLogo
                             logo={copyright.logo}
@@ -253,12 +253,6 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
                             logoRef={logoRef}
                         />
                     </div>
-                ) : (
-                    <CopyrightLogo
-                        logo={copyright.logo}
-                        logoImageProps={copyrightLogoImageProps}
-                        logoRef={logoRef}
-                    />
                 )}
                 {threeColumnLayout ? (
                     <div className={b('links-floor-center')}>{linksContent}</div>

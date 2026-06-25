@@ -6,13 +6,6 @@ $links-floor-side-width: 345px;
 $links-floor-center-width: 480px;
 $links-floor-row-height: 36px;
 
-@mixin links-floor-text-hover() {
-    &:hover {
-        color: var(--g-color-text-secondary);
-        background-color: transparent;
-    }
-}
-
 #{$block} {
     // --- Layout container ---
 
@@ -28,7 +21,6 @@ $links-floor-row-height: 36px;
 
         &_centered:not(&_threeColumn) {
             justify-content: center;
-            gap: $indentM;
 
             #{$block}__links-floor-left {
                 flex-grow: 0;
@@ -37,16 +29,9 @@ $links-floor-row-height: 36px;
         }
 
         &_threeColumn {
-            gap: $indentM;
-
             #{$block}__links-floor-side {
-                flex-shrink: 1;
+                flex-shrink: 0;
                 min-width: 0;
-                max-width: $links-floor-side-width;
-            }
-
-            #{$block}__logo {
-                max-width: $links-floor-side-width;
             }
 
             #{$block}__links-floor-center {
@@ -65,7 +50,6 @@ $links-floor-row-height: 36px;
 
             #{$block}__links-floor-right {
                 min-width: 0;
-                flex-shrink: 1;
                 justify-content: flex-end;
             }
         }
@@ -109,7 +93,7 @@ $links-floor-row-height: 36px;
         display: flex;
         align-items: center;
         margin: 0;
-        padding: $indentXXXS 0 0;
+        padding: $indentXXXS 0;
         gap: $indentXXS $indentXS;
         overflow: visible;
 
@@ -122,7 +106,10 @@ $links-floor-row-height: 36px;
             text-decoration: none;
             color: var(--g-color-text-primary);
 
-            @include links-floor-text-hover();
+            &:hover {
+                color: var(--g-color-text-secondary);
+                background-color: transparent;
+            }
         }
     }
 
@@ -148,6 +135,7 @@ $links-floor-row-height: 36px;
     }
 
     @media (min-width: map-get($gridBreakpoints, 'lg')) {
+        #{$block}__links-floor-side,
         #{$block}__links-floor-right {
             max-width: $links-floor-side-width;
         }
@@ -159,6 +147,11 @@ $links-floor-row-height: 36px;
         &__links-floor-inner {
             flex-direction: column;
             align-items: flex-start;
+
+            #{$block}__links-floor-side,
+            #{$block}__links-floor-right {
+                flex-shrink: 1;
+            }
 
             &_hasOnlyLinks #{$block}__links-floor-left {
                 width: auto;
@@ -172,17 +165,16 @@ $links-floor-row-height: 36px;
                 }
             }
 
-            &_overflow_line-wrap #{$block}__links-floor-right {
-                flex-shrink: 1;
-            }
-
             &_threeColumn {
                 #{$block}__links-floor-side,
-                #{$block}__logo,
                 #{$block}__links-floor-center {
-                    flex: none;
+                    justify-content: center;
                     max-width: 100%;
                 }
+            }
+
+            &_overflow_line-wrap #{$block}__links-floor-right {
+                flex-shrink: 1;
             }
 
             &_overflow_dropdown:not(&_centered) #{$block}__links-floor-right {
@@ -211,10 +203,6 @@ $links-floor-row-height: 36px;
     // --- Mobile ---
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &__links-floor-inner_centered .pc-lang-switcher {
-            margin: 0 auto;
-        }
-
         &__links-floor-inner {
             &:not(&_centered) #{$block}__links-floor-right {
                 width: 100%;
@@ -224,6 +212,10 @@ $links-floor-row-height: 36px;
                 #{$block}__links-floor-center,
                 #{$block}__links-floor-list {
                     align-items: center;
+                }
+
+                .pc-lang-switcher {
+                    margin: 0 auto;
                 }
             }
         }
