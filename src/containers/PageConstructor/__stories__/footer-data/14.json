@@ -165,7 +165,11 @@
   "copyright": {
     "links": [
       {"text": "Политика конфиденциальности", "url": "#privacy"},
-      {"text": "Условия использования", "url": "#terms"}
+      {"text": "Условия использования", "url": "#terms"},
+      {"text": "Справка", "url": "#terms"},
+      {"text": "Справка", "url": "#terms"},
+      {"text": "Справка", "url": "#terms"},
+      {"text": "Справка", "url": "#terms"}
     ],
     "logo": {
       "image": {
@@ -176,7 +180,7 @@
       "alt": "Example company"
     },
     "linksOverflowStrategy": "line-wrap",
-    "copyrightText": "© 2025 ООО \"Яндекс.Облако\""
+    "copyrightText": "© 2025 ООО \"Яндекс\""
   },
   "attribution": true
 }

@@ -73,7 +73,7 @@ $block: '.#{$ns}footer-block';
         margin: 0;
 
         &:not(:last-child) {
-            margin-bottom: $indentXXXS;
+            margin-bottom: $indentXS;
         }
     }
 

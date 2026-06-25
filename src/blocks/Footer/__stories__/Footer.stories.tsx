@@ -75,10 +75,10 @@ ShowcaseData.parameters = {
 };
 
 export const FloorsCustomization = VariantsTemplate.bind({});
+export const ColumnsLayout = VariantsTemplate.bind({});
 export const ContactsPositions = VariantsTemplate.bind({});
 export const ContactsIconsSize = VariantsTemplate.bind({});
 export const ContactsUrlTitles = VariantsTemplate.bind({});
-export const ColumnsLayout = VariantsTemplate.bind({});
 export const LogoPlacement = VariantsTemplate.bind({});
 export const LinksOverflowStrategy = VariantsTemplate.bind({});
 export const LinksAlignment = VariantsTemplate.bind({});
@@ -120,6 +120,18 @@ FloorsCustomization.parameters = {
     },
 };
 
+ColumnsLayout.args = columnLayoutData.variants as FooterBlockModel[];
+ColumnsLayout.parameters = {
+    controls: {
+        include: Object.keys(ColumnsLayout.args),
+    },
+    docs: {
+        description: {
+            story: 'Navigation floor only: columns with different colSizes combinations.',
+        },
+    },
+};
+
 ContactsPositions.args = contactsPositionsData.variants as FooterBlockModel[];
 ContactsPositions.parameters = {
     controls: {
@@ -152,18 +164,6 @@ ContactsUrlTitles.parameters = {
     docs: {
         description: {
             story: 'Contacts floor variations with and without urlTitle labels.',
-        },
-    },
-};
-
-ColumnsLayout.args = columnLayoutData.variants as FooterBlockModel[];
-ColumnsLayout.parameters = {
-    controls: {
-        include: Object.keys(ColumnsLayout.args),
-    },
-    docs: {
-        description: {
-            story: 'Navigation floor only: columns with different colSizes combinations.',
         },
     },
 };

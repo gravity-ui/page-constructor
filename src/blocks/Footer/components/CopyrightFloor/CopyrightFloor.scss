@@ -20,7 +20,7 @@ $links-floor-row-height: 36px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: $indentM $indentL;
+        gap: $indentXS $indentL;
 
         #{$block}__logo {
             height: $links-floor-row-height;
@@ -65,7 +65,6 @@ $links-floor-row-height: 36px;
 
             #{$block}__links-floor-right {
                 min-width: 0;
-                max-width: $links-floor-side-width;
                 flex-shrink: 1;
                 justify-content: flex-end;
             }
@@ -110,7 +109,7 @@ $links-floor-row-height: 36px;
         display: flex;
         align-items: center;
         margin: 0;
-        padding: $indentXXXS 0;
+        padding: $indentXXXS 0 0;
         gap: $indentXXS $indentXS;
         overflow: visible;
 
@@ -148,12 +147,17 @@ $links-floor-row-height: 36px;
         white-space: nowrap;
     }
 
-    // --- Tablet ---
+    @media (min-width: map-get($gridBreakpoints, 'lg')) {
+        #{$block}__links-floor-right {
+            max-width: $links-floor-side-width;
+        }
+    }
 
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
+    // --- Desktop mini ---
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
         &__links-floor-inner {
             flex-direction: column;
-            gap: $indentXXXS;
             align-items: flex-start;
 
             &_hasOnlyLinks #{$block}__links-floor-left {
@@ -175,8 +179,7 @@ $links-floor-row-height: 36px;
             &_threeColumn {
                 #{$block}__links-floor-side,
                 #{$block}__logo,
-                #{$block}__links-floor-center,
-                #{$block}__links-floor-right {
+                #{$block}__links-floor-center {
                     flex: none;
                     max-width: 100%;
                 }
@@ -193,6 +196,8 @@ $links-floor-row-height: 36px;
         }
 
         &__links-floor-right {
+            flex: none;
+            max-width: 100%;
             justify-content: flex-start;
             height: auto;
         }
@@ -211,11 +216,8 @@ $links-floor-row-height: 36px;
         }
 
         &__links-floor-inner {
-            gap: $indentXXXS;
-
             &:not(&_centered) #{$block}__links-floor-right {
                 width: 100%;
-                gap: var(--g-spacing-1);
             }
 
             &_centered {
@@ -223,10 +225,6 @@ $links-floor-row-height: 36px;
                 #{$block}__links-floor-list {
                     align-items: center;
                 }
-            }
-
-            &_threeColumn {
-                gap: $indentXS;
             }
         }
 
@@ -239,7 +237,6 @@ $links-floor-row-height: 36px;
         &__links-floor-right {
             flex-direction: column;
             align-items: flex-start;
-            gap: 0;
         }
 
         &__floor_copyright.col {
