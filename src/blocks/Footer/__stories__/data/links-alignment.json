@@ -18,7 +18,7 @@
             "dark": {"src": "story-assets/icons_globe_dark.svg"}
           }
         },
-        "copyrightText": "© 2026 Yandex Cloud"
+        "copyrightText": "© 2026 My Company"
       }
     },
     {
@@ -37,7 +37,7 @@
           {"text": "Terms of Service", "url": "#terms"}
         ],
         "linksOverflowStrategy": "line-wrap",
-        "copyrightText": "© 2026 Yandex Cloud"
+        "copyrightText": "© 2026 My Company"
       }
     }
   ]

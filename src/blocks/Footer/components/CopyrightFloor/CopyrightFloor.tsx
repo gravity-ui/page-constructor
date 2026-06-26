@@ -3,6 +3,7 @@ import * as React from 'react';
 import {DropdownMenu, DropdownMenuItem, Link, useResizeObserver} from '@gravity-ui/uikit';
 
 import {Image} from '../../../../components';
+import {BREAKPOINTS} from '../../../../constants';
 import {useTheme} from '../../../../context/theme';
 import {Col} from '../../../../grid';
 import type {FooterBlockProps} from '../../../../models';
@@ -15,8 +16,8 @@ import './CopyrightFloor.scss';
 
 const b = block('footer-block');
 
-const MOBILE_WIDTH = 577;
-const THREE_COLUMN_DESKTOP_WIDTH = 769;
+const MOBILE_WIDTH = BREAKPOINTS.sm;
+const THREE_COLUMN_DESKTOP_WIDTH = BREAKPOINTS.md;
 
 type CopyrightFloorProps = {
     copyright: NonNullable<FooterBlockProps['copyright']>;

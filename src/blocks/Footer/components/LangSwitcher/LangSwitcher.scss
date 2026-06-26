@@ -2,7 +2,7 @@
 @import '../../../../../styles/variables.scss';
 
 .pc-footer-block__links-floor-right .pc-lang-switcher {
-    height: 36px;
+    height: var(--g-spacing-9);
     padding: 0;
     cursor: pointer;
 

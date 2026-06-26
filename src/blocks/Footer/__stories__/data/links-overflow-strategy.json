@@ -25,7 +25,7 @@
             "dark": {"src": "story-assets/icons_globe_dark.svg"}
           }
         },
-        "copyrightText": "© 2026 Yandex Cloud"
+        "copyrightText": "© 2026 My Company"
       }
     },
     {
@@ -53,7 +53,7 @@
             "dark": {"src": "story-assets/icons_globe_dark.svg"}
           }
         },
-        "copyrightText": "© 2026 Yandex Cloud"
+        "copyrightText": "© 2026 My Company"
       }
     }
   ]

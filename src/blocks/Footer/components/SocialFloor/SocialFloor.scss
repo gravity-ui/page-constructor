@@ -29,19 +29,19 @@ $block: '.#{$ns}footer-block';
             }
 
             #{$block}__social-icon-item {
-                width: 32px;
-                height: 32px;
+                width: $indentM;
+                height: $indentM;
             }
         }
 
         &_size_l {
             #{$block}__social-icons-list {
-                gap: 40px;
+                gap: var(--g-spacing-10);
             }
 
             #{$block}__social-icon-item {
-                width: 48px;
-                height: 48px;
+                width: $indentL;
+                height: $indentL;
             }
         }
     }
@@ -52,7 +52,7 @@ $block: '.#{$ns}footer-block';
 
     &__social-floor-title {
         @include text-size(body-3);
-        font-weight: 500;
+        font-weight: var(--g-text-accent-font-weight);
         margin: 0;
         color: var(--g-color-text-primary);
     }
@@ -71,7 +71,7 @@ $block: '.#{$ns}footer-block';
         transition: transform 200ms ease-in-out;
 
         &:hover {
-            transform: translateY(-4px);
+            transform: translateY(-$indent4XS);
         }
     }
 
@@ -85,13 +85,13 @@ $block: '.#{$ns}footer-block';
         margin-right: 0;
 
         &_size_m {
-            width: 32px;
-            height: 32px;
+            width: $indentM;
+            height: $indentM;
         }
 
         &_size_l {
-            width: 48px;
-            height: 48px;
+            width: $indentL;
+            height: $indentL;
         }
     }
 

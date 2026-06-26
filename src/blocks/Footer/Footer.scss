@@ -61,7 +61,7 @@ $block: '.#{$ns}footer-block';
         }
 
         &__floor_attribution {
-            height: 64px;
+            height: $indentXL;
         }
     }
 }

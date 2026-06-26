@@ -174,7 +174,7 @@
             "dark": {"src": "story-assets/icons_globe_dark.svg"}
           }
         },
-        "copyrightText": "© 2025 Yandex Cloud LLC"
+        "copyrightText": "© 2026 My Company"
       },
       "attribution": true
     },
@@ -347,7 +347,7 @@
             "dark": {"src": "story-assets/icons_globe_dark.svg"}
           }
         },
-        "copyrightText": "© 2025 Yandex Cloud LLC"
+        "copyrightText": "© 2026 My Company"
       },
       "attribution": true
     },
@@ -532,7 +532,7 @@
           {"text": "Long menu item 2", "url": "#terms"}
         ],
         "linksOverflowStrategy": "dropdown",
-        "copyrightText": "© 2025 Yandex Cloud LLC"
+        "copyrightText": "© 2026 My Company"
       },
       "attribution": true
     }

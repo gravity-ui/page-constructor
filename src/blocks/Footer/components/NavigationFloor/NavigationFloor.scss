@@ -6,7 +6,7 @@ $block: '.#{$ns}footer-block';
 #{$block} {
     #{$block}__floor#{$block}__floor_navigation {
         margin: 0 auto;
-        padding: $indentM 0 40px;
+        padding: $indentM 0 var(--g-spacing-10);
         border: none;
     }
 
@@ -82,7 +82,7 @@ $block: '.#{$ns}footer-block';
         @include link();
         color: var(--g-color-text-primary);
         text-decoration: none;
-        line-height: 20px;
+        line-height: var(--g-text-body-2-line-height);
 
         &:hover {
             color: var(--g-color-text-secondary);
@@ -97,7 +97,7 @@ $block: '.#{$ns}footer-block';
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &__floor_navigation &__logo {
-            height: 48px;
+            height: $indentL;
         }
     }
 }

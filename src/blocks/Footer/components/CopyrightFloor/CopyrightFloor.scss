@@ -4,7 +4,6 @@
 $block: '.#{$ns}footer-block';
 $links-floor-side-width: 345px;
 $links-floor-center-width: 480px;
-$links-floor-row-height: 36px;
 
 #{$block} {
     // --- Layout container ---
@@ -16,7 +15,7 @@ $links-floor-row-height: 36px;
         gap: $indentM;
 
         #{$block}__logo {
-            height: $links-floor-row-height;
+            height: var(--g-spacing-9);
         }
 
         &_centered:not(&_threeColumn) {
@@ -76,11 +75,11 @@ $links-floor-row-height: 36px;
         align-items: center;
         gap: $indentXS;
         flex-shrink: 0;
-        height: $links-floor-row-height;
+        height: var(--g-spacing-9);
     }
 
     &__language-switcher {
-        height: $links-floor-row-height;
+        height: var(--g-spacing-9);
 
         &:hover {
             color: var(--g-color-text-link);
