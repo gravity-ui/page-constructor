@@ -13,7 +13,7 @@ const FooterLogoProps = {
     required: ['image'],
     properties: {
         image: withTheme(ImageProps),
-        href: {type: 'string'},
+        url: {type: 'string'},
         alt: {type: 'string', contentType: 'text'},
     },
 };

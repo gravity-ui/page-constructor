@@ -8,7 +8,10 @@ import {Col, Grid, Row} from '../../grid';
 import {ClassNameProps, FooterBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
-import {CopyrightFloor, DisclaimerFloor, NavigationFloor, SocialFloor} from './components/index';
+import {CopyrightFloor} from './components/CopyrightFloor/CopyrightFloor';
+import {DisclaimerFloor} from './components/DisclaimerFloor/DisclaimerFloor';
+import {NavigationFloor} from './components/NavigationFloor/NavigationFloor';
+import {SocialFloor} from './components/SocialFloor/SocialFloor';
 import {useLogoImageProps} from './hooks/useLogoImageProps';
 
 import './Footer.scss';
