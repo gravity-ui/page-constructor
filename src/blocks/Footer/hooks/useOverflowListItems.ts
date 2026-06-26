@@ -3,10 +3,9 @@ import * as React from 'react';
 import {DropdownMenuItem, useResizeObserver} from '@gravity-ui/uikit';
 import throttleFn from 'lodash/throttle';
 
-export type LinkItem = {
-    text: string;
-    url: string;
-};
+import {LinkProps} from '../../../models';
+
+export type LinkItem = Required<Pick<LinkProps, 'text' | 'url'>>;
 
 type UseOverflowListItemsProps = {
     isDropdown?: boolean;

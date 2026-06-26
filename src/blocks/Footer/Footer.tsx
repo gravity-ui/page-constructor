@@ -41,8 +41,8 @@ export const FooterBlock = (props: React.PropsWithChildren<FooterBlockFullProps>
 
     const logoContent = logo && logoImageProps && (
         <div className={b('logo')}>
-            {logo.href ? (
-                <Link href={logo.href}>
+            {logo.url ? (
+                <Link href={logo.url}>
                     <Image {...logoImageProps} alt={logo.alt ?? ''} className={b('logo-image')} />
                 </Link>
             ) : (

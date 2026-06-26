@@ -13,7 +13,7 @@ $links-floor-row-height: 36px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: $indentXS $indentL;
+        gap: $indentM;
 
         #{$block}__logo {
             height: $links-floor-row-height;
@@ -93,7 +93,7 @@ $links-floor-row-height: 36px;
         display: flex;
         align-items: center;
         margin: 0;
-        padding: $indentXXXS 0;
+        padding: 0;
         gap: $indentXXS $indentXS;
         overflow: visible;
 
@@ -125,6 +125,7 @@ $links-floor-row-height: 36px;
     }
 
     &__links-floor-copyright {
+        max-width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
         font-size: var(--g-text-body-2-font-size);
@@ -166,6 +167,9 @@ $links-floor-row-height: 36px;
             }
 
             &_threeColumn {
+                gap: $indentXS;
+
+                #{$block}__logo,
                 #{$block}__links-floor-side,
                 #{$block}__links-floor-center {
                     justify-content: center;
@@ -200,10 +204,29 @@ $links-floor-row-height: 36px;
         }
     }
 
+    // --- Desktop Mini and Tablet ---
+    @media (min-width: map-get($gridBreakpoints, 'sm')) and (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__links-floor-inner {
+            &_overflow_line-wrap {
+                gap: $indentXS;
+            }
+
+            &_overflow_dropdown {
+                gap: $indentXXXS;
+
+                #{$block}__links-floor-left {
+                    min-height: var(--g-spacing-9);
+                }
+            }
+        }
+    }
+
     // --- Mobile ---
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         &__links-floor-inner {
+            gap: $indentXS;
+
             &:not(&_centered) #{$block}__links-floor-right {
                 width: 100%;
             }

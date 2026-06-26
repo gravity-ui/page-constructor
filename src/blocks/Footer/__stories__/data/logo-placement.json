@@ -9,7 +9,7 @@
             "light": {"src": "story-assets/icons-sample-company_light.svg"},
             "dark": {"src": "story-assets/icons-sample-company_dark.svg"}
           },
-          "href": "/",
+          "url": "/",
           "alt": "Example company",
           "placement": "left"
         },
@@ -188,7 +188,7 @@
             "light": {"src": "story-assets/icons-sample-company_light.svg"},
             "dark": {"src": "story-assets/icons-sample-company_dark.svg"}
           },
-          "href": "/",
+          "url": "/",
           "alt": "Example company",
           "placement": "top"
         },
@@ -521,7 +521,7 @@
             "light": {"src": "story-assets/icons-sample-company_light.svg"},
             "dark": {"src": "story-assets/icons-sample-company_dark.svg"}
           },
-          "href": "/",
+          "url": "/",
           "alt": "Example company",
           "placement": "left"
         },

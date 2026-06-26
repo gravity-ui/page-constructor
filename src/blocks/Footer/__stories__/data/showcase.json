@@ -7,7 +7,7 @@
         "light": {"src": "story-assets/icon_1-with-text_light.svg"},
         "dark": {"src": "story-assets/icon_1-with-text_dark.svg"}
       },
-      "href": "/",
+      "url": "/",
       "alt": "Example company"
     },
     "columns": [

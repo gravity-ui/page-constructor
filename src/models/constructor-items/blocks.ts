@@ -535,7 +535,7 @@ export interface FooterLinkColumn {
 
 export interface FooterLogoProps {
     image: ThemeSupporting<ImageProps>;
-    href?: string;
+    url?: string;
     alt?: string;
 }
 

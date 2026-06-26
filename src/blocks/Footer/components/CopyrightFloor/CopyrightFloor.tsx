@@ -77,8 +77,8 @@ const CopyrightLogo = ({logo, logoImageProps, logoRef}: CopyrightLogoProps) => {
 
     return (
         <div className={b('logo')} ref={logoRef}>
-            {logo.href ? (
-                <Link href={logo.href}>
+            {logo.url ? (
+                <Link href={logo.url}>
                     <Image {...logoImageProps} alt={logo.alt ?? ''} className={b('logo-image')} />
                 </Link>
             ) : (
