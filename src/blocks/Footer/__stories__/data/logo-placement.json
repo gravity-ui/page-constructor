@@ -6,8 +6,8 @@
       "navigation": {
         "logo": {
           "image": {
-            "light": {"src": "story-assets/icons-sample-company_light.svg"},
-            "dark": {"src": "story-assets/icons-sample-company_dark.svg"}
+            "light": {"src": "story-assets/icon_1-with-text_light.svg"},
+            "dark": {"src": "story-assets/icon_1-with-text_dark.svg"}
           },
           "url": "/",
           "alt": "Example company",
@@ -185,8 +185,8 @@
         "columnsPerRow": 5,
         "logo": {
           "image": {
-            "light": {"src": "story-assets/icons-sample-company_light.svg"},
-            "dark": {"src": "story-assets/icons-sample-company_dark.svg"}
+            "light": {"src": "story-assets/icon_1-with-text_light.svg"},
+            "dark": {"src": "story-assets/icon_1-with-text_dark.svg"}
           },
           "url": "/",
           "alt": "Example company",
@@ -518,8 +518,8 @@
       "copyright": {
         "logo": {
           "image": {
-            "light": {"src": "story-assets/icons-sample-company_light.svg"},
-            "dark": {"src": "story-assets/icons-sample-company_dark.svg"}
+            "light": {"src": "story-assets/icon_1-with-text_light.svg"},
+            "dark": {"src": "story-assets/icon_1-with-text_dark.svg"}
           },
           "url": "/",
           "alt": "Example company",
