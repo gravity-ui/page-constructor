@@ -207,7 +207,9 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
         moreButtonWidth: 52,
     });
     const {shouldCenterLinks, threeColumnLayout, hasOnlyLinks} = useLinksAlignmentState(copyright);
-    const hasRightSideContent = Boolean(copyright.languageSwitcher || copyright.copyrightText);
+    const hasLanguageSwitcher = Boolean(copyright.languageSwitcher);
+    const hasCopyrightText = Boolean(copyright.copyrightText);
+    const hasRightSideContent = hasLanguageSwitcher || hasCopyrightText;
     const copyrightLogoImage = copyright.logo && getThemedValue(copyright.logo.image, theme);
     const copyrightLogoImageProps = useLogoImageProps(copyrightLogoImage);
 
@@ -242,6 +244,7 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
                     centered: shouldCenterLinks,
                     threeColumn: threeColumnLayout,
                     overflow: linksOverflowStrategy,
+                    withLanguageSwitcher: hasLanguageSwitcher,
                     hasOnlyLinks,
                 })}
             >
