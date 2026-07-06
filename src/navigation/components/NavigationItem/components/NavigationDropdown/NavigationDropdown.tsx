@@ -24,6 +24,7 @@ export const NavigationDropdown = ({
     hidePopup,
     items,
     isActive,
+    data: _data,
     ...props
 }: NavigationDropdownProps) => {
     const iconData = icon && getMediaImage(icon);
@@ -56,6 +57,7 @@ export const NavigationDropdown = ({
                 onClose={hidePopup}
                 items={items}
                 anchorRef={anchorRef}
+                placement={props.placement}
             />
         </React.Fragment>
     );

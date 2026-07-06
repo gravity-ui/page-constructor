@@ -87,4 +87,5 @@ export interface NavigationPopupProps {
     items: NavigationLinkItem[];
     onClose: () => void;
     anchorRef: React.RefObject<Element>;
+    placement?: 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
 }

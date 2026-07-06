@@ -1,0 +1,16 @@
+@import '../../../../../styles/mixins.scss';
+@import '../../../../../styles/variables.scss';
+
+.pc-footer-block__links-floor-right .pc-lang-switcher {
+    height: var(--g-spacing-9);
+    padding: 0;
+    cursor: pointer;
+
+    .pc-content-wrapper__text {
+        @include text-size(body-2);
+    }
+
+    &:hover .pc-content-wrapper__text {
+        color: var(--g-color-text-secondary);
+    }
+}

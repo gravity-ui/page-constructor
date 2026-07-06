@@ -1,0 +1,103 @@
+@import '../../../../../styles/mixins.scss';
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$ns}footer-block';
+
+#{$block} {
+    #{$block}__floor#{$block}__floor_navigation {
+        margin: 0 auto;
+        padding: $indentM 0 var(--g-spacing-10);
+        border: none;
+    }
+
+    &__floor &__columns-container {
+        padding: 0;
+    }
+
+    &__floor_logo-placement_left &__logo-col.col {
+        padding: 0 0 $indentM;
+
+        & .row {
+            margin: 0;
+        }
+    }
+
+    &__floor_logo-placement_top {
+        padding-top: 0;
+    }
+
+    &__floor_logo-placement_top &__logo-col_top.col {
+        padding: 0 0 $indentSM;
+        margin-bottom: $indentM;
+        border-bottom: 1px solid var(--g-color-line-generic);
+    }
+
+    &__column {
+        min-width: 0;
+        padding-right: $indentXS;
+    }
+
+    &__column-inner {
+        display: flex;
+        flex-direction: column;
+        gap: $indentS;
+    }
+
+    &__nav-row {
+        width: calc(100% + $indentSM);
+        min-width: 0;
+        gap: $indentL 0;
+    }
+
+    @media (min-width: map-get($gridBreakpoints, 'lg')) {
+        &__nav-row_custom-columns > &__column {
+            flex: 0 0 var(--pc-footer-navigation-column-width);
+            max-width: var(--pc-footer-navigation-column-width);
+        }
+    }
+
+    &__column-title {
+        @include text-size(subheader-3);
+        font-weight: var(--g-text-accent-font-weight);
+        color: var(--g-color-text-primary);
+        margin: 0;
+    }
+
+    &__links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__link-item {
+        margin: 0;
+
+        &:not(:last-child) {
+            margin-bottom: $indentXS;
+        }
+    }
+
+    &__link {
+        @include text-size(body-2);
+        @include link();
+        color: var(--g-color-text-primary);
+        text-decoration: none;
+        line-height: var(--g-text-body-2-line-height);
+
+        &:hover {
+            color: var(--g-color-text-secondary);
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__floor_logo-placement_top &__logo-col.col {
+            padding: 0 0 $indentM;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__floor_navigation &__logo {
+            height: $indentL;
+        }
+    }
+}

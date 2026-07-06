@@ -1,0 +1,312 @@
+{
+  "variants": [
+    {
+      "type": "footer-block",
+      "navigation": {
+        "logo": {
+          "image": {
+            "light": {"src": "story-assets/icon_1-with-text_light.svg"},
+            "dark": {"src": "story-assets/icon_1-with-text_dark.svg"}
+          },
+          "url": "/",
+          "alt": "Example company"
+        },
+        "columns": [
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          }
+        ],
+        "colSizes": {
+          "all": 6,
+          "sm": 4,
+          "md": 4,
+          "lg": 4
+        }
+      }
+    },
+    {
+      "type": "footer-block",
+      "navigation": {
+        "logo": {
+          "image": {
+            "light": {"src": "story-assets/icon_1-with-text_light.svg"},
+            "dark": {"src": "story-assets/icon_1-with-text_dark.svg"}
+          },
+          "url": "/",
+          "alt": "Example company"
+        },
+        "columns": [
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "footer-block",
+      "navigation": {
+        "columnsPerRow": 5,
+        "columns": [
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          },
+          {
+            "title": "For work",
+            "links": [
+              {"text": "Events and webinars", "url": "#overview"},
+              {"text": "Content program", "url": "#content"},
+              {"text": "Blog", "url": "#blog"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"},
+              {"text": "All solutions", "url": "#solutions"}
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

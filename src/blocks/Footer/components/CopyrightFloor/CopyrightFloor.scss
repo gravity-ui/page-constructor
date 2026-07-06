@@ -1,0 +1,271 @@
+@import '../../../../../styles/mixins.scss';
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$ns}footer-block';
+$links-floor-side-width: 345px;
+$links-floor-center-width: 480px;
+
+#{$block} {
+    // --- Layout container ---
+
+    &__links-floor-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $indentM;
+
+        #{$block}__logo {
+            height: var(--g-spacing-9);
+        }
+
+        &_centered:not(&_threeColumn) {
+            justify-content: center;
+
+            #{$block}__links-floor-left {
+                flex-grow: 0;
+                max-width: $links-floor-center-width;
+            }
+        }
+
+        &_threeColumn {
+            #{$block}__links-floor-side {
+                flex-shrink: 0;
+                min-width: 0;
+            }
+
+            #{$block}__links-floor-center {
+                flex: 1 1 auto;
+                min-width: 0;
+                display: flex;
+                justify-content: center;
+            }
+
+            #{$block}__links-floor-left {
+                flex-shrink: 0;
+                min-width: 0;
+                justify-content: center;
+                width: 100%;
+            }
+
+            #{$block}__links-floor-right {
+                min-width: 0;
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    // --- Columns ---
+
+    &__links-floor-left {
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        gap: $indentXS;
+        min-width: 0;
+        visibility: hidden;
+
+        &_measured {
+            visibility: visible;
+        }
+    }
+
+    &__links-floor-right {
+        display: flex;
+        align-items: center;
+        gap: $indentXS;
+        flex-shrink: 0;
+        height: var(--g-spacing-9);
+    }
+
+    &__language-switcher {
+        height: var(--g-spacing-9);
+
+        &:hover {
+            color: var(--g-color-text-link);
+        }
+    }
+
+    // --- Links list ---
+
+    &__links-floor-list {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        gap: $indentXXS $indentXS;
+        overflow: visible;
+
+        &_wrap {
+            flex-wrap: wrap;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--g-color-text-primary);
+
+            &:hover {
+                color: var(--g-color-text-secondary);
+                background-color: transparent;
+            }
+        }
+    }
+
+    &__links-floor-inner_centered &__links-floor-list_wrap {
+        justify-content: center;
+    }
+
+    &__links-floor-item {
+        @include text-size(body-2);
+        margin: 0;
+        white-space: nowrap;
+        list-style: none;
+    }
+
+    &__links-floor-copyright {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: var(--g-text-body-2-font-size);
+        line-height: var(--g-text-display-1-line-height);
+        color: var(--g-color-text-secondary);
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    @media (min-width: map-get($gridBreakpoints, 'lg')) {
+        #{$block}__links-floor-side,
+        #{$block}__links-floor-right {
+            max-width: $links-floor-side-width;
+        }
+    }
+
+    // --- Desktop mini ---
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__links-floor-inner {
+            flex-direction: column;
+            align-items: flex-start;
+
+            #{$block}__links-floor-side,
+            #{$block}__links-floor-right {
+                flex-shrink: 1;
+            }
+
+            &_withLanguageSwitcher {
+                gap: $indentXXXS;
+            }
+
+            &_hasOnlyLinks #{$block}__links-floor-left {
+                width: auto;
+            }
+
+            &_centered {
+                align-items: center;
+
+                #{$block}__links-floor-right {
+                    width: auto;
+                }
+            }
+
+            &_threeColumn {
+                gap: $indentXS;
+
+                #{$block}__logo,
+                #{$block}__links-floor-side,
+                #{$block}__links-floor-center {
+                    justify-content: center;
+                    max-width: 100%;
+                }
+            }
+
+            &_overflow_line-wrap #{$block}__links-floor-right {
+                flex-shrink: 1;
+            }
+
+            &_overflow_dropdown:not(&_centered) #{$block}__links-floor-right {
+                width: 100%;
+            }
+        }
+
+        &__links-floor-left,
+        &__links-floor-center {
+            width: 100%;
+        }
+
+        &__links-floor-right {
+            flex: none;
+            max-width: 100%;
+            justify-content: flex-start;
+            height: auto;
+        }
+
+        &__links-floor-copyright {
+            text-align: left;
+            line-height: var(--g-text-body-2-line-height);
+        }
+    }
+
+    // --- Desktop Mini and Tablet only ---
+    @media (min-width: map-get($gridBreakpoints, 'sm')) and (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__links-floor-inner {
+            &:not(&_withLanguageSwitcher) &_overflow_line-wrap {
+                gap: $indentXS;
+            }
+
+            &_overflow_dropdown {
+                gap: $indentXXXS;
+
+                #{$block}__links-floor-left {
+                    min-height: var(--g-spacing-9);
+                }
+            }
+        }
+
+        #{$block}__links-floor-inner_withLanguageSwitcher#{$block}__links-floor-inner_overflow_dropdown {
+            gap: 0;
+        }
+    }
+
+    // --- Mobile ---
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__links-floor-inner {
+            &:not(&_withLanguageSwitcher) {
+                gap: $indentXS;
+            }
+
+            &:not(&_centered) #{$block}__links-floor-right {
+                width: 100%;
+            }
+
+            &_centered {
+                #{$block}__links-floor-center,
+                #{$block}__links-floor-list {
+                    align-items: center;
+                }
+
+                .pc-lang-switcher {
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        &__links-floor-list {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: $indentXS;
+        }
+
+        &__links-floor-right {
+            gap: $indentXXXS;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__floor_copyright.col {
+            padding: $indentSM 0;
+        }
+    }
+}
