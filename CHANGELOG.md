@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.14.0](https://github.com/gravity-ui/page-constructor/compare/v8.13.2...v8.14.0) (2026-07-06)
+
+
+### Features
+
+* added new Footer block ([#1426](https://github.com/gravity-ui/page-constructor/issues/1426)) ([f5b31db](https://github.com/gravity-ui/page-constructor/commit/f5b31dbe8f0a213d673a8b250482c400284462d7))
+
 ## [8.13.2](https://github.com/gravity-ui/page-constructor/compare/v8.13.1...v8.13.2) (2026-06-24)
 
 
