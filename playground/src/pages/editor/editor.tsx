@@ -3,10 +3,7 @@ import * as React from 'react';
 import {Button, Menu, Popup, ThemeProvider} from '@gravity-ui/uikit';
 import block from 'bem-cn-lite';
 
-import {PageContent} from '../../../../src';
 import {EditorProvider, EditorView, usePCEditorSettings} from '../../../../src/editor-v2';
-
-import contentExample1 from '../pc/example-2/content.json';
 
 import './editor.scss';
 
@@ -55,20 +52,12 @@ const NavigateToButton = () => {
 export default function EditorPage() {
     const initialUrl = import.meta.env.BASE_URL + '?page=gravity-blocks&id=1';
 
-    const [content, setContent] = React.useState<PageContent>(contentExample1);
-
     return (
         <ThemeProvider theme={'light'}>
             <div className={b()}>
-                {initialUrl && (
-                    <EditorProvider initialUrl={initialUrl} disableUrlField={true}>
-                        <EditorView
-                            content={content}
-                            slots={{rightTop: [NavigateToButton]}}
-                            onUpdate={setContent}
-                        />
-                    </EditorProvider>
-                )}
+                <EditorProvider initialUrl={initialUrl} disableUrlField={true}>
+                    <EditorView slots={{rightTop: [NavigateToButton]}} />
+                </EditorProvider>
             </div>
         </ThemeProvider>
     );
