@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.14.1](https://github.com/gravity-ui/page-constructor/compare/v8.14.0...v8.14.1) (2026-07-10)
+
+
+### Bug Fixes
+
+* use custom target for external links ([#1480](https://github.com/gravity-ui/page-constructor/issues/1480)) ([c6f4a4e](https://github.com/gravity-ui/page-constructor/commit/c6f4a4ebd667bf18ad5930bfb129255d6273043a))
+
 ## [8.14.0](https://github.com/gravity-ui/page-constructor/compare/v8.13.2...v8.14.0) (2026-07-06)
 
 
