@@ -8,7 +8,7 @@ export const EXTERNAL_LINK_PROPS = {target: '_blank', rel: 'noopener noreferrer'
 export function getLinkProps(url: string, hostname?: string, target?: string) {
     let linkProps = {target};
 
-    if (isLinkExternal(url, hostname)) {
+    if (isLinkExternal(url, hostname) && (!target || target === '_blank')) {
         linkProps = {...linkProps, ...EXTERNAL_LINK_PROPS};
     }
 

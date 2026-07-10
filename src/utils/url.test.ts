@@ -49,6 +49,7 @@ describe('URL utils check', () => {
             '_blank',
             {target: '_blank', rel: 'noopener noreferrer'},
         ],
+        ['http://example.net/path', 'example.com', '_self', {target: '_self'}],
         [
             'http://example.net/path',
             'example.com',
@@ -61,6 +62,7 @@ describe('URL utils check', () => {
             '_blank',
             {target: '_blank', rel: 'noopener noreferrer'},
         ],
+        ['http://example.net/path', undefined, '_self', {target: '_self'}],
         [
             'http://example.net/path',
             undefined,
