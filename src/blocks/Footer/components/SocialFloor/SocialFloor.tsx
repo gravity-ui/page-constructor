@@ -1,3 +1,5 @@
+'use client';
+
 import {Flex, Link, Tooltip} from '@gravity-ui/uikit';
 
 import {Image} from '../../../../components';

@@ -1,3 +1,5 @@
+'use client';
+
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {BackgroundImage, CardBase} from '../../components/';

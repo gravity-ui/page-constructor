@@ -1,3 +1,5 @@
+'use client';
+
 import {NavigationListItemProps} from '../../models';
 import {getItemClickHandler} from '../../utils';
 import NavigationItem from '../NavigationItem';

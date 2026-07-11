@@ -1,3 +1,5 @@
+'use client';
+
 import {useActionHandlers} from '@gravity-ui/uikit';
 
 import {Foldable, ToggleArrow, YFMWrapper} from '../../../components';

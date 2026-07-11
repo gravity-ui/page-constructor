@@ -1,3 +1,5 @@
+'use client';
+
 import {Link} from '@gravity-ui/uikit';
 
 import {useTheme} from '../../context/theme';

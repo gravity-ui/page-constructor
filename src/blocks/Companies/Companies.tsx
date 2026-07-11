@@ -1,3 +1,5 @@
+'use client';
+
 import {Image, Title} from '../../components';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import {useTheme} from '../../context/theme';

@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {Check, Minus} from '@gravity-ui/icons';

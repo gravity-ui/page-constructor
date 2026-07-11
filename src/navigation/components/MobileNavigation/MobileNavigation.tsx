@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {Portal} from '@gravity-ui/uikit';

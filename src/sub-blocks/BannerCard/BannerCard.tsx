@@ -1,3 +1,5 @@
+'use client';
+
 import {BackgroundImage, Button, RouterLink, YFMWrapper} from '../../components';
 import {useTheme} from '../../context/theme';
 import {BannerCardProps} from '../../models';

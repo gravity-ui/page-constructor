@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {getMediaImage} from '../../../components/Media/Image/utils';

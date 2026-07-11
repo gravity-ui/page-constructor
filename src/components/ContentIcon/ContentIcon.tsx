@@ -1,3 +1,5 @@
+'use client';
+
 import {useTheme} from '../../context/theme';
 import {ClassNameProps, GravityIconProps, ImageProps, QAProps, SVGIcon} from '../../models';
 import {ThemeSupporting, getThemedValue} from '../../utils';
