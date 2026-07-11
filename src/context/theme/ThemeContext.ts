@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 
 import {DEFAULT_THEME} from '../../components/constants';
@@ -13,4 +11,8 @@ export const initialValue: ThemeContextProps = {
     theme: DEFAULT_THEME,
 };
 
-export const ThemeContext = React.createContext(initialValue);
+const isRscServer = typeof React.createContext !== 'function';
+
+export const ThemeContext = (
+    isRscServer ? null : React.createContext(initialValue)
+) as React.Context<ThemeContextProps>;

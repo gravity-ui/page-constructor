@@ -6,7 +6,7 @@ import {ButtonSize} from '@gravity-ui/uikit';
 
 import {AnalyticsEventsProp, ButtonProps, QAProps} from '../../models';
 import {block} from '../../utils';
-import {Button} from '../index';
+import Button from '../Button/Button';
 
 import './ButtonTabs.scss';
 

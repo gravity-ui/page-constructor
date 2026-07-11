@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 
-import {ToggleArrow} from '../../../../../components';
 import {getMediaImage} from '../../../../../components/Media/Image/utils';
+import ToggleArrow from '../../../../../components/ToggleArrow/ToggleArrow';
 import {NavigationDropdownItem} from '../../../../../models';
 import {block} from '../../../../../utils';
 import {NavigationItemProps} from '../../../../models';

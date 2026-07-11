@@ -1,8 +1,6 @@
-'use client';
-
 import {Flex, Link, Tooltip} from '@gravity-ui/uikit';
 
-import {Image} from '../../../../components';
+import Image from '../../../../components/Image/Image';
 import {useTheme} from '../../../../context/theme';
 import {Col} from '../../../../grid';
 import type {FooterBlockProps, FooterContactItem} from '../../../../models';

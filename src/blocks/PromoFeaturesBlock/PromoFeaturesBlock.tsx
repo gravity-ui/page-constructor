@@ -1,5 +1,3 @@
-'use client';
-
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import BalancedMasonry from '../../components/BalancedMasonry/BalancedMasonry';
 import FullWidthBackground from '../../components/FullWidthBackground/FullWidthBackground';

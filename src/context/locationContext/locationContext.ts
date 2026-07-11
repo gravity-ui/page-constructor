@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 
 import {RouterLinkProps} from '../../components/RouterLink/RouterLink';
@@ -30,4 +28,11 @@ export type LocationContextProps = {
     asPath?: string;
 };
 
-export const LocationContext = React.createContext<LocationContextProps>({});
+export const initialLocation: LocationContextProps = {};
+
+// Изоморфный контекст (без 'use client') — см. context/theme/ThemeContext.
+const isRscServer = typeof React.createContext !== 'function';
+
+export const LocationContext = (
+    isRscServer ? null : React.createContext<LocationContextProps>(initialLocation)
+) as React.Context<LocationContextProps>;

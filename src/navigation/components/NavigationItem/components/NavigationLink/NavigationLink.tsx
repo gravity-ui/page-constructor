@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 
-import {RouterLink} from '../../../../../components';
 import {getMediaImage} from '../../../../../components/Media/Image/utils';
+import RouterLink from '../../../../../components/RouterLink/RouterLink';
 import {LocationContext} from '../../../../../context/locationContext';
 import {useAnalytics} from '../../../../../hooks';
 import {NavigationArrow} from '../../../../../icons';

@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 
-import {Foldable, ToggleArrow} from '../../../components';
+import Foldable from '../../../components/Foldable/Foldable';
+import ToggleArrow from '../../../components/ToggleArrow/ToggleArrow';
 import {
     PriceDetailsListProps,
     PriceDetailsProps,

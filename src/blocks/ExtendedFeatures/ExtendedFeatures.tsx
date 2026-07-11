@@ -1,12 +1,12 @@
-'use client';
-
-import {AnimateBlock, Title, YFMWrapper} from '../../components/';
+import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import Image from '../../components/Image/Image';
 import {getMediaImage} from '../../components/Media/Image/utils';
+import Title from '../../components/Title/Title';
+import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {useTheme} from '../../context/theme';
 import {Col, Row} from '../../grid';
 import {ExtendedFeaturesProps} from '../../models';
-import {Content} from '../../sub-blocks';
+import Content from '../../sub-blocks/Content/Content';
 import {block, getThemedValue} from '../../utils';
 
 import './ExtendedFeatures.scss';

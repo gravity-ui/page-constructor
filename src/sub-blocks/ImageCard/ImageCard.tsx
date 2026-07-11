@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import {Link, useUniqId} from '@gravity-ui/uikit';
 
-import {Image} from '../../components';
+import Image from '../../components/Image/Image';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
 import {GridColumnSizesType} from '../../grid';

@@ -1,5 +1,3 @@
-'use client';
-
 import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
 import {ContentTheme, InfoBlockProps, LinkTheme} from '../../models';

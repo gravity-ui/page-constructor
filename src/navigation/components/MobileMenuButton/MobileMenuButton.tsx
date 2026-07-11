@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import {Bars, Xmark} from '@gravity-ui/icons';
 
-import {Control} from '../../../components';
+import Control from '../../../components/Control/Control';
 import {block} from '../../../utils';
 import {MobileMenuButtonProps} from '../../models';
 

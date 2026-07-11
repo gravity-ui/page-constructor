@@ -2,8 +2,11 @@
 
 import * as React from 'react';
 
-import {Author, Button, Image, YFMWrapper} from '../../components';
+import Author from '../../components/Author/Author';
+import Button from '../../components/Button/Button';
+import Image from '../../components/Image/Image';
 import {getMediaImage} from '../../components/Media/Image/utils';
+import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {useTheme} from '../../context/theme';
 import {useAnalytics} from '../../hooks';
 import {AuthorItem, AuthorType, DefaultEventNames, QuoteProps, QuoteType} from '../../models';

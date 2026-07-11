@@ -1,8 +1,5 @@
-'use client';
-
-import {useUniqId} from '@gravity-ui/uikit';
-
-import {BackgroundImage, CardBase} from '../../components/';
+import BackgroundImage from '../../components/BackgroundImage/BackgroundImage';
+import CardBase from '../../components/CardBase/CardBase';
 import {useTheme} from '../../context/theme';
 import {BackgroundCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
@@ -33,7 +30,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         size = 's',
     } = props;
 
-    const titleId = useUniqId();
+    const titleId = `pc-background-card-title-${typeof title === 'string' ? title : (title?.text ?? '')}`;
 
     const theme = useTheme();
     const hasBackgroundColor = backgroundColor || cardTheme !== 'default';

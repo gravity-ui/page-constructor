@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import {Image} from '../../../../../components';
+import Image from '../../../../../components/Image/Image';
 import {ImageProps} from '../../../../../models';
 import {block} from '../../../../../utils';
 

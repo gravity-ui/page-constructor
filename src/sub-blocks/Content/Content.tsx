@@ -2,7 +2,11 @@
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {Buttons, ContentList, Links, Title, YFMWrapper} from '../../components';
+import Buttons from '../../components/Buttons/Buttons';
+import ContentList from '../../components/ContentList/ContentList';
+import Links from '../../components/Links/Links';
+import Title from '../../components/Title/Title';
+import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {Col} from '../../grid';
 import {
     ClassNameProps,

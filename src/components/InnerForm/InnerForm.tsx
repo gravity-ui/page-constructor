@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 
-import {YandexForm} from '..';
 import {
     FormsContext,
     HubspotFormsContextProps,
@@ -10,8 +9,9 @@ import {
 } from '../../context/formsContext/FormsContext';
 import {useTheme} from '../../context/theme';
 import {FormBlockData, isHubspotDataForm, isYandexDataForm} from '../../models';
-import {HubspotForm} from '../../sub-blocks';
+import HubspotForm from '../../sub-blocks/HubspotForm';
 import {getThemedValue} from '../../utils';
+import YandexForm from '../YandexForm/YandexForm';
 
 interface InnerFormProps {
     formData: FormBlockData;

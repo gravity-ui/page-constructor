@@ -1,10 +1,7 @@
-'use client';
-
-import * as React from 'react';
-
-import {useUniqId} from '@gravity-ui/uikit';
-
-import {FullscreenMedia, IconWrapper, Media, MetaInfo} from '../../components';
+import FullscreenMedia from '../../components/FullscreenMedia/FullscreenMedia';
+import IconWrapper from '../../components/IconWrapper/IconWrapper';
+import Media from '../../components/Media/Media';
+import MetaInfo from '../../components/MetaInfo/MetaInfo';
 import {useTheme} from '../../context/theme';
 import {ContentBlockProps, LayoutItemProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
@@ -29,7 +26,7 @@ const LayoutItem = ({
     analyticsEvents,
     controlPosition = 'content',
 }: LayoutItemProps) => {
-    const normalizedLinks = React.useMemo(() => getLayoutItemLinks(links), [links]);
+    const normalizedLinks = getLayoutItemLinks(links);
     const areControlsInFooter = controlPosition === 'footer';
     const theme = useTheme();
     const themedIcon = getThemedValue(icon, theme);
@@ -41,7 +38,7 @@ const LayoutItem = ({
         size: content.size || 's',
         colSizes: {all: 12, md: 12},
     };
-    const titleId = useUniqId();
+    const titleId = `pc-layout-item-title-${typeof content.title === 'string' ? content.title : (content.title?.text ?? '')}`;
     const renderMedia = () => {
         if (!media) {
             return null;

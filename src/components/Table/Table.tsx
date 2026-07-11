@@ -5,9 +5,9 @@ import * as React from 'react';
 import {Check, Minus} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
 
-import {YFMWrapper} from '../';
 import {ClassNameProps, Justify, LegendTableMarkerType, TableProps} from '../../models';
 import {block} from '../../utils';
+import YFMWrapper from '../YFMWrapper/YFMWrapper';
 
 import './Table.scss';
 
