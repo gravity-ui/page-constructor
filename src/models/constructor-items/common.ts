@@ -33,6 +33,7 @@ export enum PlayButtonType {
 export enum PlayButtonThemes {
     Blue = 'blue',
     Grey = 'grey',
+    Custom = 'custom',
 }
 
 export enum CustomControlsType {
@@ -260,6 +261,10 @@ export interface PlayButtonProps extends ClassNameProps {
     type?: PlayButtonType;
     theme?: PlayButtonThemes;
     text?: string;
+    colors?: {
+        backgroundColor?: string;
+        color?: string;
+    };
 }
 
 export type ThemedMediaVideoProps = ThemeSupporting<MediaVideoProps>;

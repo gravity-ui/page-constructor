@@ -28,24 +28,4 @@ $block: '.#{$ns}VideoBlock';
             width: 100%;
         }
     }
-
-    &__button {
-        @include reset-button-style();
-        @include focusable();
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        width: 64px;
-        height: 64px;
-
-        color: var(--g-color-base-background);
-        background-color: var(--g-color-base-brand);
-        border-radius: 50%;
-    }
-
-    &__icon {
-        margin-left: 1px;
-    }
 }

@@ -1,0 +1,53 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}video-button';
+
+#{$block} {
+    @include reset-button-style();
+    @include focusable();
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+
+    &_theme_blue {
+        color: var(--g-color-base-background);
+        background-color: var(--g-color-base-brand);
+        transition: 0.4s;
+
+        &:hover {
+            background-color: var(--g-color-base-brand-hover);
+        }
+    }
+
+    &_theme_grey {
+        color: var(--pc-text-header-color);
+        background-color: $videoPlayButtonGrey;
+    }
+
+    &_text {
+        padding: 16px 32px;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 32px;
+
+        width: auto;
+        height: auto;
+    }
+
+    &__icon {
+        margin-left: 1px;
+    }
+
+    @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
+        &_text {
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+}
