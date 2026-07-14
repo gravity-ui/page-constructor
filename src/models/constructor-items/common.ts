@@ -257,14 +257,18 @@ export interface CustomControlsOptions {
     positioning?: CustomControlsButtonPositioning;
 }
 
+export interface PlayButtonColors {
+    circleColor?: string;
+    circleHoverColor?: string;
+    triangleColor?: string;
+    triangleHoverColor?: string;
+}
+
 export interface PlayButtonProps extends ClassNameProps {
     type?: PlayButtonType;
     theme?: PlayButtonThemes;
     text?: string;
-    colors?: {
-        backgroundColor?: string;
-        color?: string;
-    };
+    colors?: ThemeSupporting<PlayButtonColors>;
 }
 
 export type ThemedMediaVideoProps = ThemeSupporting<MediaVideoProps>;

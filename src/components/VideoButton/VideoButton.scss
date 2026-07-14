@@ -16,11 +16,13 @@ $block: '.#{$ns}video-button';
     width: $size;
     height: $size;
     border-radius: 50%;
+    transition:
+        color 0.4s,
+        background-color 0.4s;
 
     &_theme_blue {
         color: var(--g-color-base-background);
         background-color: var(--g-color-base-brand);
-        transition: 0.4s;
 
         &:hover {
             background-color: var(--g-color-base-brand-hover);
@@ -30,6 +32,22 @@ $block: '.#{$ns}video-button';
     &_theme_grey {
         color: var(--pc-text-header-color);
         background-color: $videoPlayButtonGrey;
+    }
+
+    &_theme_custom {
+        color: var(--pc-video-button-triangle-color);
+        background-color: var(--pc-video-button-circle-color);
+
+        &:hover {
+            color: var(
+                --pc-video-button-triangle-hover-color,
+                var(--pc-video-button-triangle-color)
+            );
+            background-color: var(
+                --pc-video-button-circle-hover-color,
+                var(--pc-video-button-circle-color)
+            );
+        }
     }
 
     &_text {

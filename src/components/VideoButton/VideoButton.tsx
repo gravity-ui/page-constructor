@@ -4,8 +4,9 @@ import {PlayFill} from '@gravity-ui/icons';
 import {Icon} from '@gravity-ui/uikit';
 
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
-import {PlayButtonProps, PlayButtonThemes, PlayButtonType} from '../../models';
-import {block} from '../../utils';
+import {useTheme} from '../../context/theme';
+import {PlayButtonColors, PlayButtonProps, PlayButtonThemes, PlayButtonType} from '../../models';
+import {block, getThemedValue} from '../../utils';
 import {i18n} from '../ReactPlayer/i18n';
 
 import './VideoButton.scss';
@@ -29,6 +30,7 @@ const VideoButton = ({
     colors,
 }: VideoButtonProps) => {
     const {defaultVideoButtonSettings} = React.useContext(ProjectSettingsContext);
+    const currentTheme = useTheme();
 
     const playButtonContent = React.useMemo(() => {
         switch (type) {
@@ -40,11 +42,31 @@ const VideoButton = ({
         }
     }, [text, type]);
 
-    const style = React.useMemo(
-        () => defaultVideoButtonSettings?.colors || colors,
-        [colors, defaultVideoButtonSettings?.colors],
-    );
     const theme = initialTheme || defaultVideoButtonSettings?.theme || PlayButtonThemes.Blue;
+
+    const style = React.useMemo(() => {
+        if (theme !== PlayButtonThemes.Custom) {
+            return undefined;
+        }
+
+        const defaultThemedColors = defaultVideoButtonSettings?.colors
+            ? getThemedValue(defaultVideoButtonSettings.colors, currentTheme)
+            : undefined;
+        const localThemedColors = colors ? getThemedValue(colors, currentTheme) : undefined;
+
+        const themedColors = localThemedColors || defaultThemedColors;
+
+        const resolveColor = (colorName: keyof PlayButtonColors) => {
+            return themedColors?.[colorName];
+        };
+
+        return {
+            '--pc-video-button-circle-color': resolveColor('circleColor'),
+            '--pc-video-button-circle-hover-color': resolveColor('circleHoverColor'),
+            '--pc-video-button-triangle-color': resolveColor('triangleColor'),
+            '--pc-video-button-triangle-hover-color': resolveColor('triangleHoverColor'),
+        } as React.CSSProperties;
+    }, [colors, currentTheme, defaultVideoButtonSettings?.colors, theme]);
 
     if (customButton) {
         return customButton;
