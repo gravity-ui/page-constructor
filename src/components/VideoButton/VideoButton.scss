@@ -7,12 +7,14 @@ $block: '.#{$ns}video-button';
     @include reset-button-style();
     @include focusable();
 
+    $size: 64px;
+
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    width: 64px;
-    height: 64px;
+    width: $size;
+    height: $size;
     border-radius: 50%;
 
     &_theme_blue {
@@ -31,7 +33,7 @@ $block: '.#{$ns}video-button';
     }
 
     &_text {
-        padding: 16px 32px;
+        padding: $indentXS $indentM;
         font-weight: 400;
         font-size: 24px;
         line-height: 32px;
