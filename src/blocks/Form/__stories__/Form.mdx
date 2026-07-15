@@ -1,39 +1,11 @@
-import {Meta} from '@storybook/blocks';
+import {Markdown, Meta} from '@storybook/blocks';
 
 import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
 import * as FormBlockStories from './Form.stories.tsx';
+import readme from '../README.md';
 
 <Meta of={FormBlockStories} />
+
 <StoryTemplate>
-## Parameters
-
-`type: "form-block"`
-
-`title?: string` - Title.
-
-`textContent?` - See the [Content](?path=/docs/components-content--docs) component.
-
-`formData: {yandex?: Object, hubspot?: Object}` - See [Yandex](?path=/docs/components-yandexform--docs) / [Hubspot](?path=/docs/components-hubspotform--docs) form data.
-
-`direction?: 'form-content' | 'content-form' | 'center'` - Direction.
-
-`background?: FormBlockBackgroundProps` — Same as `BackgroundImage` (see [background](?path=/docs/components-pics-video-datalens-backgroundimage--docs) properties), but the `style` prop supports `Device` breakpoints, for example:
-
-```ts
-{
-    style: {
-        desktop: {
-            background: 'red',
-        },
-        mobile: {
-            background: 'blue',
-        },
-    }
-}
-```
-
-`customFormNode?: React.ReactNode` - A custom React node that will be rendered instead of the form.
-
-`additionalContentNode?: React.ReactNode` - A custom React node that will be rendered inside content block form.
-
+<Markdown>{readme}</Markdown>
 </StoryTemplate>

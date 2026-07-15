@@ -1,31 +1,11 @@
-import {Meta} from '@storybook/blocks';
+import {Markdown, Meta} from '@storybook/blocks';
 
 import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
 import * as BannerStories from './Banner.stories.tsx';
+import readme from '../README.md';
 
 <Meta of={BannerStories} />
+
 <StoryTemplate>
-
-## Usage
-
-For a detailed dependency graph of the Banner block, see [Banner Dependencies](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/blockDeps/banner.md).
-
-## Parameters
-
-`type: 'banner-block'`
-
-`animated?: bool` — Enables/disables animation for the block (enabled by default).
-
-`title: string` — Title
-
-`subtitle?: string` — Subtitle
-
-`image?: url` — Image on the right
-
-`color?: string` — Background color
-
-`button?: Button` — Button
-
-`mediaView?: full | fit` — full is default value, the media content covers all width and height. Fit - media content has real sizes and locates in the middle
-
+<Markdown>{readme}</Markdown>
 </StoryTemplate>

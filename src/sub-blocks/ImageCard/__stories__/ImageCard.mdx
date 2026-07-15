@@ -1,45 +1,11 @@
-import {Meta} from '@storybook/blocks';
+import {Markdown, Meta} from '@storybook/blocks';
 
 import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
 import * as ImageCardStories from './ImageCard.stories.tsx';
+import readme from '../README.md';
 
 <Meta of={ImageCardStories} />
+
 <StoryTemplate>
-
-## Usage
-
-For a detailed usage guide of the ImageCard component, see [ImageCard Usage](https://github.com/gravity-ui/page-constructor/blob/main/memory-bank/usage/imageCard.md).
-
-## Parameters
-
-`type: "image-card"`
-
-[`image: string | ImageObjectProps | ReactNode` — ImageProps](?path=/docs/documentation-types--docs#imageobjectprops---image-property). Supports different values for themes
-
-`title?: Title | string` — Card title.
-
-`text?: string` — Card description (with YFM support).
-
-`border: 'shadow' | 'line' | 'none'` — Select border of the card.
-
-`backgroundColor?: string` — Card background color.
-
-`margins?: 's' | 'm'` — Space between the image and the card borders.
-
-`direction?: 'direct' | 'reverse'` — Image and Content direction.
-
-`enableImageBorderRadius?: boolean` — Set border-radius for the image. Affects only when `margins='none'`.
-
-`url?: string` — URL that opens when clicking the card
-
-`analyticsEvents?: AnalyticsEvent | AnalyticsEvent[]` — Analytics event or list of events fired on card click (only when `url` is provided). See [AnalyticsEvent](?path=/docs/documentation-types--docs#analyticsevent).
-
-`additionalInfo?: string` — Gray text (with YFM support)
-
-`links?: Link[]` — An array with link objects (see [Content blocks](?path=/docs/documentation-types--docs))
-
-`buttons?: Button[]` — An array with button objects (see [Content blocks](?path=/docs/documentation-types--docs))
-
-`list?:  ContentItemProps[]` - An Array of items with icon - [ContentList](?path=/docs/components-contentlist--docs)
-
+<Markdown>{readme}</Markdown>
 </StoryTemplate>

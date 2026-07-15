@@ -1,34 +1,11 @@
-import {Meta} from '@storybook/blocks';
+import {Markdown, Meta} from '@storybook/blocks';
 
 import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
 import * as MapStories from './Map.stories.tsx';
+import readme from '../README.md';
 
 <Meta of={MapStories} />
+
 <StoryTemplate>
-
-## Parameters
-
-`type: map-block`
-
-`title: string | TitleItemBaseProps` — Title. Can be a simple string or an object with additional properties like `textSize`, `url`, `urlTitle`, `custom`, and `onClick`.
-
-`description: string` — Description.
-
-[`button: Button` — Button](?path=/docs/documentation-types--docs#button)
-
-[`map: Map` — Map description](?path=/docs/components-map--docs)
-
-`direction: 'media-content' | 'content-media'` — Relative position of map and content.
-
-`mobileDirection: 'media-content' | 'content-media'` - Relative position of map and content for touch
-
-`largeMedia?: boolean` — An image/video takes 8 columns.
-
-`border?: 'shadow' | 'line' | 'none` — Select border of the block.
-
-`additionalInfo?: string` — Gray text (with YFM support)
-
-[`links?: Link[]` — An array with link objects](?path=/docs/documentation-types--docs#link)
-
-[`buttons?: Button[]` — An array with button objects](?path=/docs/documentation-types--docs#button)
+<Markdown>{readme}</Markdown>
 </StoryTemplate>

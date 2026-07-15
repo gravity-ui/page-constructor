@@ -1,32 +1,11 @@
-import {Meta} from '@storybook/blocks';
+import {Markdown, Meta} from '@storybook/blocks';
 
 import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
 import * as CardLayoutStories from './CardLayout.stories.tsx';
+import readme from '../README.md';
 
 <Meta of={CardLayoutStories} />
+
 <StoryTemplate>
-## Parameters
-
-`type: "card-layout-block"`
-
-`title?: Title | string` — Title.
-
-`description?: string` — Text.
-
-`colSizes?: Object` — more info [here](?path=/docs/documentation-types--docs#colsizes).
-
-`background?: Object` — supports different values for themes.
-- `BackgroundImage` [properties](?path=/docs/components-pics-video-datalens-backgroundimage--docs).
-- `border?: 'none' | 'shadow' | 'border'`
-
-`children:[]` — You can add an array of any available cards here.
-
-The following blocks are currently supported:
-
-- [`BasicCard` — Basic card](?path=/docs/components-cards-basiccard--default)
-- <s>Price Detailed</s> (Deprecated, use PriceCard instead)
-- [`BackgroundCard` — Background card](?path=/docs/components-cards-backgroundcard--default)
-- [`PriceCard` — Price card](?path=/docs/components-cards-pricecard--default)
-- [`LayoutItem` — Component part of `Layout` component, consists with `Media` and `Content`](?path=/docs/components-cards-layoutitem--default)
-- [`ImageCard` — Image card](?path=/docs/components-cards-imagecard--default)
+<Markdown>{readme}</Markdown>
 </StoryTemplate>

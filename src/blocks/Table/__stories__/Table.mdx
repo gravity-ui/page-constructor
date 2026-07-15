@@ -1,29 +1,11 @@
-import {Meta} from '@storybook/blocks';
+import {Markdown, Meta} from '@storybook/blocks';
 
 import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
 import * as TableStories from './Table.stories.tsx';
+import readme from '../README.md';
 
 <Meta of={TableStories} />
 
 <StoryTemplate>
-## Parameters
-
-`type: 'table-block'`
-
-`title: string` — Title on the left
-
-`table: TableProps` — Table content
-
----
-
-## TableProps
-
-- `content: string[][]` — Двумерный массив со строками и ячейками таблицы.
-- `legend?: string[]` — Подписи (легенда) под таблицей.
-- `hideLegend?: boolean` — Скрыть легенду, если `true`.
-- `justify?: Justify[]` — Выравнивание колонок; одно значение на колонку.
-- `marker?: LegendTableMarkerType` — Тип маркера для элементов легенды.
-- `caption?: string` — Используется только как доступное имя (не отображается визуально).
-
+<Markdown>{readme}</Markdown>
 </StoryTemplate>
-

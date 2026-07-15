@@ -1,20 +1,11 @@
-import {Meta} from '@storybook/blocks';
+import {Markdown, Meta} from '@storybook/blocks';
 
 import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
 import * as InfoStories from './Info.stories.tsx';
+import readme from '../README.md';
 
 <Meta of={InfoStories} />
+
 <StoryTemplate>
-## Parameters
-
-`type: 'info-block'`
-
-`backgroundColor?: string` — Fill color. Supports different values for themes
-
-`theme?: 'light' | 'dark'` — Theme (defines the text color)
-
-`rightContent?` - See the [Content](?path=/docs/components-content--default) component
-
-`leftContent?` - See the [Content](?path=/docs/components-content--default) component
+<Markdown>{readme}</Markdown>
 </StoryTemplate>
-

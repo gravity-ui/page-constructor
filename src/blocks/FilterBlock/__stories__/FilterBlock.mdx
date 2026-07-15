@@ -1,34 +1,11 @@
-import {Meta} from '@storybook/blocks';
+import {Markdown, Meta} from '@storybook/blocks';
 
 import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
 import * as FilterBlockStories from './FilterBlock.stories.tsx';
+import readme from '../README.md';
 
 <Meta of={FilterBlockStories} />
+
 <StoryTemplate>
-## Parameters
-
-`type: "filter-block"`
-
-`tags: []` - Tags by which content can be filtered.
-
-`items:` — Items, the block displays.
-
-- `tags: string[]` - tags assigned to the card.
-
-- `card: [SubBlock]` - card to show. More about SubBlocks [here](?path=/docs/documentation-sub-blocks--docs)
-
-`title?: TitleItemProps | string` — Title.
-
-`description?: string` — Text.
-
-`tagButtonSize?: 's' | 'm' | 'l' | 'xl'` - Size of filter tags.
-
-`allTag?: boolean | string` - Specifies whether to show the 'All' tag. If the value is a non-falsy string, the block uses the value as label for the `All` tag.
-
-`centered?: boolean` - Specifies whether the header and the tab panel are centered.
-
-`animated?: boolean` — Enables/disables animation for the block (enabled by default).
-
-`colSizes?: GridColumnSizesType` — Grid column sizes configuration, more info [here](?path=/docs/documentation-types--docs#colsizes).
-
+<Markdown>{readme}</Markdown>
 </StoryTemplate>

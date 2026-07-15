@@ -1,38 +1,11 @@
-import {Meta} from '@storybook/blocks';
+import {Markdown, Meta} from '@storybook/blocks';
 
 import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
 import * as MediaStories from './Media.stories.tsx';
+import readme from '../README.md';
 
 <Meta of={MediaStories} />
+
 <StoryTemplate>
-## Parameters
-
-`type: media-block`
-
-`title: string | TitleItemBaseProps` — Title. Can be a simple string or an object with additional properties like `textSize`, `url`, `urlTitle`, `custom`, and `onClick`.
-
-`description: string` — Description.
-
-[`button: Button` — Button](?path=/docs/documentation-types--docs#button)
-
-[`media: Media` — Media description](?path=/docs/documentation-types--docs#media--imagevideodatalensyoutube)
-
-`direction: 'media-content' | 'content-media'` — Relative position of media and content.
-
-`largeMedia?: boolean` — An image/video takes 8 columns.
-
-`border?: 'shadow' | 'line' | 'none` — Select border of the block.
-
-`additionalInfo?: string` — Gray text (with YFM support)
-
-`mediaOnly?: boolean`
-
-`mediaOnlyColSizes?: GridColumnSizesType` - [Title colSizes settings](?path=/docs/documentation-types--docs#colsizes) when `mediaOnly` enabled. Default `{all: 12, md: 8}`
-
-[`links?: Link[]` — An array with link objects](?path=/docs/documentation-types--docs#link)
-
-[`buttons?: Button[]` — An array with button objects](?path=/docs/documentation-types--docs#button)
-
-`border?: 'shadow' | 'line' | 'none'` — Image border
-
+<Markdown>{readme}</Markdown>
 </StoryTemplate>
