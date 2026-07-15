@@ -1,25 +1,54 @@
-[`title?: Title | string` - title](?path=/docs/documentation-types--docs#title-block-title)
+# Content
 
-`text?: string` — Text (with YFM support)
+A text content block rendering a title, body text, additional info, links, buttons, and/or an icon content list. Used on its own as the textual portion of a content layout.
 
-`additionalInfo?: string` — Gray text (with YFM support)
+## Sub-block type
 
-[`links?: Link[]` — An array with link objects](?path=/docs/documentation-types--docs#link)
+`type: 'content'`
 
-[`buttons?: Button[]` — An array with button objects](?path=/docs/documentation-types--docs#button)
+## Used in
 
-`centered?: false | true` - Aligns all content to the center ('false' by default)
+Accepted as `textContent` of: `content-layout-block`.
 
-`theme?: 'default' | 'dark' | 'light'` — Component's theme: default, dark, or monochrome light ('default' by default).
+## Example
 
-`size?: 's' | 'm' | 'l' | 'xl'` — Component's size that defines font sizes ('l' by default)
+```json
+{
+  "type": "content",
+  "title": "Lorem ipsum",
+  "text": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris.",
+  "additionalInfo": "Duis aute irure dolor in reprehenderit.",
+  "size": "l",
+  "centered": false,
+  "links": [{"url": "#", "text": "Link", "theme": "normal", "arrow": true}],
+  "buttons": [{"text": "Button", "theme": "action", "url": "https://example.com"}],
+  "list": [
+    {
+      "icon": {"light": "/story-assets/icon_1_light.svg", "dark": "/story-assets/icon_1_dark.svg"},
+      "title": "Lorem ipsum",
+      "text": "Ut enim ad minim veniam quis nostrud exercitation."
+    }
+  ]
+}
+```
 
-`сolSizes?: Object` — Width of buttons tabs, the value ranges from 1 to 12 columns. If 12 columns, buttons takes up the entire width of the row.
+## Properties
 
-- `all: number` — On all screens.
-- `sm: number` — On a screen wider than 577px.
-- `md: number` — On a screen wider than 769px.
-- `lg: number` — On a screen wider than 1081px.
-- `xl: number` — On a screen wider than 1185px.
+| Property          | Type                                              | Default            | Description                                                                                         |
+| ----------------- | ------------------------------------------------- | ------------------ | --------------------------------------------------------------------------------------------------- |
+| `type` _required_ | `'content'`                                       | —                  | Sub-block discriminator.                                                                            |
+| `title`           | `string \| TitleProps`                            | —                  | Heading (plain string or [Title](?path=/docs/documentation-types--docs#title-block-title) options). |
+| `text`            | `string`                                          | —                  | Body text (YFM supported).                                                                          |
+| `additionalInfo`  | `string`                                          | —                  | Secondary gray text (YFM supported).                                                                |
+| `size`            | `'s' \| 'm' \| 'l' \| 'xl'`                       | `'l'`              | Content size; controls font sizes.                                                                  |
+| `centered`        | `boolean`                                         | `false`            | Centers all content horizontally.                                                                   |
+| `theme`           | `'default' \| 'dark' \| 'light'`                  | —                  | Content theme.                                                                                      |
+| `links`           | `LinkProps[]`                                     | —                  | Array of [links](?path=/docs/documentation-types--docs#link).                                       |
+| `buttons`         | `ButtonProps[]`                                   | —                  | Array of [buttons](?path=/docs/documentation-types--docs#button).                                   |
+| `list`            | `ContentItem[]`                                   | —                  | Array of icon-content items (each requires `icon` or `gravityIcon`).                                |
+| `controlPosition` | `'default' \| 'bottom'`                           | `'default'`        | Position of buttons/links.                                                                          |
+| `colSizes`        | `{all?, sm?, md?, lg?, xl?}` (each `number` 1–12) | `{all: 12, sm: 8}` | Column width per breakpoint.                                                                        |
 
-`list?: Array` - An Array of items with icon - [ContentList](?path=/docs/components-contentlist--docs)
+## Themed values
+
+`icon`/`gravityIcon` inside `list` items accept either a plain value or a `{light, dark}` object resolved against the active runtime theme.

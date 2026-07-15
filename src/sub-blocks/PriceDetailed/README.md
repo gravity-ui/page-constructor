@@ -1,162 +1,70 @@
-![PriceDetailed](https://img.shields.io/static/v1?label=Status&message=Deprecated&color=red) Use [PriceCard](?path=/docs/components-cards-pricecard--default) instead.
+# PriceDetailed
+
+> ⚠️ **Deprecated.** This sub-block is deprecated and will be removed in a future major release. Prefer [`PriceCard`](../PriceCard/README.md) for pricing cards.
+
+Renders a detailed pricing comparison table: each item has a title, a per-unit description, an optional label, and a list of details (either a marked list or a settings list). Supports combined or separate layout, foldable details, and per-color default label text.
+
+## Sub-block type
 
 `type: 'price-detailed'`
 
-`items: `[PriceItemProps](#PriceItemProps)[] - prices
+## Used in
 
-`description?: object` - description settings
+Accepted as `children` by `CardLayout`, `Slider`, `SliderOld`.
 
-- `titleSize?: `[TextSize](#TextSize). (Default: `l`)
-- `descriptionSize?: `[TextSize](#TextSize). (Default: `m`)
-- `titleColor?: `[PriceDescriptionColor](#PriceDescriptionColor). (Default: `cornflower`)
+## Example
 
-`details?: object` - details settings
-
-- `titleSize?: `[TextSize](#TextSize). (Default: `s`)
-- `descriptionSize?: `[TextSize](#TextSize). (Default: `m`)
-
-`priceType?: `[PriceDetailsType](#PriceDetailsType) - details view. (Default: `settings`)
-
-`numberGroupItems?: 3 | 4 | 5` - if you want to group prices, you need to choose how many prices will be in group. (Default: `1`)
-
-`isCombined?: boolean` - if you need to display prices in table. For example: Grants. (Default: `false`)
-
-`useMixedView?: boolean` - if you need to extended details for desktop (>1081px), and extend-collapse for Tablet and Mobile (<1081px). (Default: `false`)
-
-`foldable?: object` - settings for foldable details
-
-- `title: string`
-- `size?: `[TextSize](#TextSize). (Default: as 'descriptionSize' default `m`)
-- `titleColor?: `[PriceDescriptionColor](#PriceDescriptionColor). (Default: `cornflower`)
-
-`labelsDefaultText?: Record<`[PriceLabelColor](#PriceLabelColor)`, string>` - group colorful labels. For each color you need to add label name, it is labels for all prices.
-
-## <a name="PriceDetailsSettingsProps">PriceDetailsSettingsProps</a>
-
-`title: string`
-
-`description: string`
-
-## <a name="PriceDetailsListProps">PriceDetailsListProps</a>
-
-`text: string`
-
-## <a name="PriceDescriptionProps">PriceDescriptionProps</a>
-
-`title: string`
-
-`description: string`
-
-`detailedTitle?: string`
-
-`label?: object` — Custom label settings for current price
-
-- `color: `[PriceLabelColor](#PriceLabelColor)
-- `text?: string`
-- `size?: `[TextSize](#TextSize). (Default: as 'descriptionSize' default `m`)
-
-## <a name="PriceDetailsProps">PriceDetailsProps</a>
-
-`items?: `[PriceDetailsSettingsProps](#PriceDetailsSettingsProps)[] | [PriceDetailsListProps](PriceDetailsListProps)[]
-
-### <a name="TextSize">TextSize: 's' | 'm' | 'l' </a>
-
-### <a name="PriceLabelColor">PriceLabelColor: 'blue' | 'green' | 'yellow' | 'purple' </a>
-
-### <a name="PriceDescriptionColor">PriceDescriptionColor: 'cornflower' | 'black' </a>
-
-### <a name="PriceDetailsType">PriceDetailsType: 'marked-list' | 'settings' </a>
-
-### <a name="PriceItemProps">PriceItemProps:</a> [PriceDetailsProps](#PriceDetailsProps) & [PriceDescriptionProps](#PriceDescriptionProps)
-
-Example, with all fields:
-
-```yaml
-- type: price-detailed
-  priceType: 'settings'
-  numberGroupItems: 5
-  isCombined: true
-  useMixedView: true
-  description:
-    titleSize: 'l'
-    descriptionSize: 'm'
-    titleColor: 'cornflower'
-  details:
-    titleSize: 's'
-    descriptionSize: 'm'
-  foldable:
-    title: Show details
-    size: 'm'
-    titleColor: 'cornflower'
-  labelsDefaultText:
-    blue: 'Basic'
-    green: 'Standard'
-    yellow: 'Business'
-    purple: 'Ultima'
-  items:
-    - title: ₽100
-      detailedTitle: '/ month*'
-      description: Small edits
-      label:
-        color: 'green'
-        text: 'New label'
-        size: 'm'
-      items:
-        - title: GitHub label
-          description: editorial
+```json
+{
+  "type": "price-detailed",
+  "priceType": "settings",
+  "description": {"titleSize": "l", "descriptionSize": "m", "titleColor": "cornflower"},
+  "details": {"titleSize": "s", "descriptionSize": "m"},
+  "items": [
+    {
+      "title": "Free",
+      "detailedTitle": "",
+      "description": "For use by individuals and small teams",
+      "label": {"color": "blue", "text": "Free", "size": "s"},
+      "items": [{"title": "up to 5 users", "description": "up to 5 users"}]
+    }
+  ]
+}
 ```
 
-```yaml
-- type: price-detailed
-  priceType: 'marked-list'
-  description:
-    titleColor: 'black'
-  labelsDefaultText:
-    blue: 'Basic'
-    green: 'Standard'
-    yellow: 'Business'
-    purple: 'Ultima'
-  items:
-    - title: '100$'
-      detailedTitle: '/ month*'
-      description: The table shows the average period from creating a Pull request to publishing your text and the size of grant for each case.
-      label:
-        color: 'green'
-        text: 'New label'
-      items:
-        - text: '0-5 people'
-        - text: '6-100 people'
-    - title: '₽000'
-      detailedTitle: '/ month*'
-      description: 'For medium companies!!!'
-      label:
-        color: 'green'
-      items:
-        - text: '0-5 people'
-        - text: '6-100 people'
-        - text: '100-200 people'
-        - text: '200-500 people'
-    - title: '₽000'
-      detailedTitle: '/ month*'
-      description: 'For medium companies!!!'
-      label:
-        color: 'purple'
-      items:
-        - text: '0-5 people'
-        - text: '6-100 people'
-        - text: '200-500 people'
-    - title: '₽000'
-      description: 'For medium companies!!!'
-      label:
-        color: 'yellow'
-      items:
-        - text: '0-5 people'
-        - text: '6-100 people'
-    - title: '₽000'
-      description: 'For medium companies!!!'
-      label:
-        color: 'blue'
-      items:
-        - text: '0-5 people'
-        - text: '6-100 people'
-```
+## Properties
+
+| Property                      | Type                                      | Default        | Description                                                                   |
+| ----------------------------- | ----------------------------------------- | -------------- | ----------------------------------------------------------------------------- |
+| `type` _required_             | `'price-detailed'`                        | —              | Sub-block discriminator.                                                      |
+| `when`                        | `string`                                  | —              | Conditional rendering expression.                                             |
+| `animated`                    | `boolean`                                 | —              | Enables scroll-triggered entrance animation.                                  |
+| `items` _required_            | `PriceItem[]`                             | —              | Pricing columns/rows. See below.                                              |
+| `description`                 | `object`                                  | —              | Sizing/color overrides for the description block.                             |
+| `description.titleSize`       | `'xs' \| 's' \| 'sm' \| 'm' \| 'l'`       | `'l'`          | Description title size.                                                       |
+| `description.descriptionSize` | `'xs' \| 's' \| 'sm' \| 'm' \| 'l'`       | `'m'`          | Description body size.                                                        |
+| `description.titleColor`      | `'cornflower' \| 'black'`                 | `'cornflower'` | Description title color.                                                      |
+| `details`                     | `object`                                  | —              | Sizing overrides for the details block.                                       |
+| `details.titleSize`           | `'xs' \| 's' \| 'sm' \| 'm' \| 'l'`       | `'s'`          | Details title size.                                                           |
+| `details.descriptionSize`     | `'xs' \| 's' \| 'sm' \| 'm' \| 'l'`       | `'m'`          | Details body size.                                                            |
+| `priceType`                   | `'marked-list' \| 'settings'`             | `'settings'`   | Layout of each item's `items` list.                                           |
+| `numberGroupItems`            | `3 \| 4 \| 5`                             | —              | Items per row in the combined layout.                                         |
+| `isCombined`                  | `boolean`                                 | `false`        | Use the combined grid layout instead of separate columns.                     |
+| `useMixedView`                | `boolean`                                 | `false`        | Mix list item views (extended details on desktop, collapse on tablet/mobile). |
+| `foldable`                    | `{title*required, size?, titleColor?}`    | —              | Makes the details section collapsible with a toggle.                          |
+| `labelsDefaultText`           | `{blue?, green?, yellow?, purple?, red?}` | —              | Default text used for each label color when an item label has no `text`.      |
+
+### `PriceItem` object
+
+| Property                 | Type                                           | Default | Description                                                                                                                      |
+| ------------------------ | ---------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `title` _required_       | `string`                                       | —       | Plan title (e.g. `"Free"`, `"100$"`).                                                                                            |
+| `description` _required_ | `string` (YFM)                                 | —       | Plan description.                                                                                                                |
+| `detailedTitle`          | `string`                                       | —       | Suffix/qualifier shown next to the title (e.g. `"/ month*"`).                                                                    |
+| `label`                  | `{color*required, text?, size?}`               | —       | Colored label badge. `color`: `'blue' \| 'green' \| 'yellow' \| 'purple' \| 'red'`. `size`: `'xs' \| 's' \| 'sm' \| 'm' \| 'l'`. |
+| `items`                  | `PriceDetailsList[] \| PriceDetailsSettings[]` | —       | Detail list. With `priceType: 'marked-list'` each item requires `text`; with `'settings'` each requires `title` + `description`. |
+| `analyticsEvents`        | `AnalyticsEvent \| AnalyticsEvent[]`           | —       | Analytics events.                                                                                                                |
+
+## Themed values
+
+This sub-block does not consume themed media; sizing/color controls above are explicit.
