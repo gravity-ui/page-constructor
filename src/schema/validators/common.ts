@@ -119,16 +119,6 @@ export const PlayButtonProps = {
             type: 'string',
             contentType: 'text',
         },
-        colors: withTheme({
-            type: 'object',
-            additionalProperties: false,
-            properties: {
-                circleColor: {type: 'string'},
-                circleHoverColor: {type: 'string'},
-                triangleColor: {type: 'string'},
-                triangleHoverColor: {type: 'string'},
-            },
-        }),
     },
 };
 

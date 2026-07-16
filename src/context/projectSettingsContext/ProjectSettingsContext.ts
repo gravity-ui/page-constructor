@@ -1,13 +1,18 @@
 import * as React from 'react';
 
-import {PlayButtonProps} from '../../models';
+import {PlayButtonColors, PlayButtonProps} from '../../models';
+import {ThemeSupporting} from '../../utils';
+
+type DefaultVideoButtonSettings = Pick<PlayButtonProps, 'theme'> & {
+    colors?: ThemeSupporting<PlayButtonColors>;
+};
 
 export interface ProjectSettingsContextProps {
     disableCompress?: boolean;
     isAnimationEnabled?: boolean;
     renderInvisibleBlocks?: boolean;
     defaultYandexFormTheme?: string;
-    defaultVideoButtonSettings?: Pick<PlayButtonProps, 'theme' | 'colors'>;
+    defaultVideoButtonSettings?: DefaultVideoButtonSettings;
 }
 
 export const ProjectSettingsContext = React.createContext<ProjectSettingsContextProps>({});

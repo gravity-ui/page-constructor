@@ -27,7 +27,6 @@ const VideoButton = ({
     className,
     ref,
     id,
-    colors,
 }: VideoButtonProps) => {
     const {defaultVideoButtonSettings} = React.useContext(ProjectSettingsContext);
     const currentTheme = useTheme();
@@ -49,12 +48,9 @@ const VideoButton = ({
             return undefined;
         }
 
-        const defaultThemedColors = defaultVideoButtonSettings?.colors
+        const themedColors = defaultVideoButtonSettings?.colors
             ? getThemedValue(defaultVideoButtonSettings.colors, currentTheme)
             : undefined;
-        const localThemedColors = colors ? getThemedValue(colors, currentTheme) : undefined;
-
-        const themedColors = localThemedColors || defaultThemedColors;
 
         const resolveColor = (colorName: keyof PlayButtonColors) => {
             return themedColors?.[colorName];
@@ -66,7 +62,7 @@ const VideoButton = ({
             '--pc-video-button-triangle-color': resolveColor('triangleColor'),
             '--pc-video-button-triangle-hover-color': resolveColor('triangleHoverColor'),
         } as React.CSSProperties;
-    }, [colors, currentTheme, defaultVideoButtonSettings?.colors, theme]);
+    }, [currentTheme, defaultVideoButtonSettings?.colors, theme]);
 
     if (customButton) {
         return customButton;

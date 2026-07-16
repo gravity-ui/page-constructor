@@ -268,7 +268,6 @@ export interface PlayButtonProps extends ClassNameProps {
     type?: PlayButtonType;
     theme?: PlayButtonThemes;
     text?: string;
-    colors?: ThemeSupporting<PlayButtonColors>;
 }
 
 export type ThemedMediaVideoProps = ThemeSupporting<MediaVideoProps>;
