@@ -4,6 +4,7 @@ import {DropdownMenu, DropdownMenuItem, Link, useResizeObserver} from '@gravity-
 
 import {Image} from '../../../../components';
 import {BREAKPOINTS} from '../../../../constants';
+import {SSRContext} from '../../../../context/ssrContext';
 import {useTheme} from '../../../../context/theme';
 import {Col} from '../../../../grid';
 import type {FooterBlockProps} from '../../../../models';
@@ -160,21 +161,22 @@ const RightSide = ({copyright, rightSideRef, style}: RightSideProps) => {
     );
 };
 
-const DOCUMENT_ELEMENT_REF = {
-    current: document.documentElement,
-};
-
 export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
     const theme = useTheme();
+    const {isServer} = React.useContext(SSRContext);
     const [isSmallWidth, setIsSmallWidth] = React.useState(() => {
-        return document.documentElement.clientWidth <= MOBILE_WIDTH;
+        return !isServer && document.documentElement.clientWidth <= MOBILE_WIDTH;
     });
     const [isThreeColumnStacked, setIsThreeColumnStacked] = React.useState(() => {
-        return document.documentElement.clientWidth <= THREE_COLUMN_DESKTOP_WIDTH;
+        return !isServer && document.documentElement.clientWidth <= THREE_COLUMN_DESKTOP_WIDTH;
     });
     const [sideColumnWidth, setSideColumnWidth] = React.useState<number>();
     const logoRef = React.useRef<HTMLDivElement>(null);
     const rightSideRef = React.useRef<HTMLDivElement>(null);
+    const documentElementRef = React.useMemo(
+        () => ({current: isServer ? null : document.documentElement}),
+        [isServer],
+    );
 
     const updateSideColumnWidth = React.useCallback(() => {
         const logoWidth = Math.ceil(logoRef.current?.getBoundingClientRect().width ?? 0);
@@ -193,7 +195,7 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
     }, [updateSideColumnWidth]);
 
     useResizeObserver({
-        ref: DOCUMENT_ELEMENT_REF,
+        ref: documentElementRef,
         onResize: updateFloorSize,
     });
 
