@@ -67,7 +67,7 @@ Renders a two-column block: a content panel on the left (title, text, links, but
 
 ### Common properties
 
-Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' \| 'dark'`), `when`, `context`. See the root README for details.
+Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' | 'dark'`), `when`, `context`. See the root README for details.
 
 ## Themed values
 
@@ -75,4 +75,4 @@ No dedicated themed props; the block follows the runtime `theme` for text/backgr
 
 ## Storybook
 
-[FoldableList](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-foldable-list-block--docs)
+[FoldableList](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-foldablelist--docs)

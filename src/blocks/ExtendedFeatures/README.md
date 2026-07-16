@@ -63,7 +63,7 @@ Renders a responsive grid of feature cards, each with an icon, title, text, an o
 
 ### Common properties
 
-Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' \| 'dark'`), `when`, `context`. See the root README for details.
+Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' | 'dark'`), `when`, `context`. See the root README for details.
 
 ## Themed values
 
@@ -71,4 +71,4 @@ Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?
 
 ## Storybook
 
-[ExtendedFeatures](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-extended-features-block--docs)
+[ExtendedFeatures](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-extendedfeatures--docs)

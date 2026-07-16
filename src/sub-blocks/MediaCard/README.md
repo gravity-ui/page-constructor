@@ -59,4 +59,8 @@ Array of images creates a slider:
 
 ## Themed values
 
-`color`, `image`, and other media fields resolve themed values (`T \| {light: T, dark: T}`) at runtime via the active theme.
+`color`, `image`, and other media fields resolve themed values (`T | {light: T, dark: T}`) at runtime via the active theme.
+
+## Storybook
+
+[MediaCard](https://preview.gravity-ui.com/page-constructor/?path=/docs/components-cards-mediacard--docs)

@@ -43,7 +43,7 @@ Renders a single-column content section (title, body text, optional list, links,
 
 ### Common properties
 
-Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' \| 'dark'`), `when`, `context`. See the root README for details.
+Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' | 'dark'`), `when`, `context`. See the root README for details.
 
 ## Themed values
 
@@ -51,4 +51,4 @@ None of the top-level ContentLayout props accept `{light, dark}` directly; the `
 
 ## Storybook
 
-[ContentLayout](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-content-layout-block--docs)
+[ContentLayout](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-contentlayout--docs)

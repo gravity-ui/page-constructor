@@ -63,7 +63,7 @@ Renders a masonry layout of promotional feature cards, each pairing a title, YFM
 
 ### Common properties
 
-Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' \| 'dark'`), `when`, `context`. See the root README for details.
+Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' | 'dark'`), `when`, `context`. See the root README for details.
 
 ## Themed values
 
@@ -71,4 +71,4 @@ Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?
 
 ## Storybook
 
-[PromoFeaturesBlock](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-promo-features-block--docs)
+[PromoFeaturesBlock](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-promofeaturesblock--docs)

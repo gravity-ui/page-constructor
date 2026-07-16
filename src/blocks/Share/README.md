@@ -42,4 +42,4 @@ This block has no themed-value properties.
 
 ## Storybook
 
-[Share](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-share-block--docs)
+[Share](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-share--docs)

@@ -70,4 +70,4 @@ Inherits: `when`. See the root README for details. (This block does not expose `
 
 ## Storybook
 
-[Info](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-info-block--docs)
+[Info](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-info--docs)

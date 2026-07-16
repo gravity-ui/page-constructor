@@ -53,4 +53,8 @@ Accepted as `children` by `CardLayout`, `Slider`, `SliderOld`; also usable as a 
 
 ## Themed values
 
-`backgroundColor` and color-bearing fields resolve themed values (`T \| {light: T, dark: T}`) at runtime via the active theme.
+`backgroundColor` and color-bearing fields resolve themed values (`T | {light: T, dark: T}`) at runtime via the active theme.
+
+## Storybook
+
+[PriceCard](https://preview.gravity-ui.com/page-constructor/?path=/docs/components-cards-pricecard--docs)

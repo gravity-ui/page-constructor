@@ -63,4 +63,8 @@ Inherits the `Content` schema (without `colSizes` / `centered`):
 
 ## Themed values
 
-`media` (and the deprecated `icon`) accept `T \| {light: T, dark: T}` and are resolved at runtime via the active theme.
+`media` (and the deprecated `icon`) accept `T | {light: T, dark: T}` and are resolved at runtime via the active theme.
+
+## Storybook
+
+[LayoutItem](https://preview.gravity-ui.com/page-constructor/?path=/docs/components-cards-layoutitem--docs)

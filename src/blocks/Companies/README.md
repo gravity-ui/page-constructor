@@ -64,4 +64,4 @@ Inherits: `when`, `animated`. See the root README for details. (This block does 
 
 ## Storybook
 
-[Companies](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-companies-block--docs)
+[Companies](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-companies--docs)

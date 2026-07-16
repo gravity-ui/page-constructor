@@ -107,4 +107,4 @@ Inherits: `anchor`, `visible`, `indent`, `qa`, `className`, `animated`, `theme`,
 
 ## Storybook
 
-[Footer](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-footer-block--docs)
+[Footer](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-footer--docs)

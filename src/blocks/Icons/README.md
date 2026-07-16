@@ -58,4 +58,4 @@ Each item's `src` accepts either a plain URL string or a `{light, dark}` object 
 
 ## Storybook
 
-[Icons](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-icons-block--docs)
+[Icons](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-icons--docs)

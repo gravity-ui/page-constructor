@@ -57,3 +57,7 @@ Accepted as a child of: `card-layout-block`, `slider-block`, `slider-old-block`.
 ## Themed values
 
 `background` accepts either a plain value or a `{light, dark}` object resolved against the active runtime theme.
+
+## Storybook
+
+[BackgroundCard](https://preview.gravity-ui.com/page-constructor/?path=/docs/components-cards-backgroundcard--docs)

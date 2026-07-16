@@ -89,4 +89,4 @@ Each tab's `media` (and the legacy `image`) accepts either a plain value or a `{
 
 ## Storybook
 
-[Tabs](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-tabs-block--docs)
+[Tabs](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-tabs--docs)

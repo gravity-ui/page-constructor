@@ -52,3 +52,7 @@ Accepted as `textContent` of: `content-layout-block`.
 ## Themed values
 
 `icon`/`gravityIcon` inside `list` items accept either a plain value or a `{light, dark}` object resolved against the active runtime theme.
+
+## Storybook
+
+[Content](https://preview.gravity-ui.com/page-constructor/?path=/docs/components-content--docs)

@@ -56,7 +56,7 @@ Renders a modern, content-driven hero block: an overtitle, a rich content column
 
 ### Common properties
 
-Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' \| 'dark'`), `when`, `context`. See the root README for details.
+Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' | 'dark'`), `when`, `context`. See the root README for details.
 
 ## Themed values
 
@@ -64,4 +64,4 @@ Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?
 
 ## Storybook
 
-[Hero](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-hero-block--docs)
+[Hero](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-hero--docs)

@@ -60,4 +60,4 @@ Child cards may individually use themed values; the block itself does not theme 
 
 ## Storybook
 
-[SliderOld](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-slider-old-block--docs)
+[SliderOld](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-sliderold-deprecated--docs)

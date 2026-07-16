@@ -86,4 +86,4 @@ Child cards may individually use themed values (e.g. `{light, dark}` images); th
 
 ## Storybook
 
-[Slider](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-slider-block--docs)
+[Slider](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-slider--docs)

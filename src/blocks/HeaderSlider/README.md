@@ -59,7 +59,7 @@ Each `HeaderItem` supports every property of the [Header](../Header/README.md) b
 
 ### Common properties
 
-Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' \| 'dark'`), `when`, `context`. See the root README for details.
+Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' | 'dark'`), `when`, `context`. See the root README for details.
 
 ## Themed values
 
@@ -67,4 +67,4 @@ Theming is delegated to the individual slide `items`, which support `{light, dar
 
 ## Storybook
 
-[HeaderSlider](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-header-slider-block--docs)
+[HeaderSlider](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-headerslider--docs)

@@ -68,3 +68,7 @@ Accepted as `children` by `CardLayout`, `Slider`, `SliderOld`.
 ## Themed values
 
 This sub-block does not consume themed media; sizing/color controls above are explicit.
+
+## Storybook
+
+[PriceDetailed](https://preview.gravity-ui.com/page-constructor/?path=/docs/components-cards-pricedetailed-deprecated--docs)

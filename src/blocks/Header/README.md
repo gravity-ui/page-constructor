@@ -59,7 +59,7 @@ Renders a full-width page header with a title, optional overtitle/description, c
 
 ### Common properties
 
-Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' \| 'dark'`), `when`, `context`. See the root README for details.
+Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' | 'dark'`), `when`, `context`. See the root README for details.
 
 ## Themed values
 
@@ -67,4 +67,4 @@ Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?
 
 ## Storybook
 
-[Header](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-header-block--docs)
+[Header](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-header--docs)

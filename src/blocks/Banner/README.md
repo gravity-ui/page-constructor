@@ -48,7 +48,7 @@ Renders a compact promotional card with a title, subtitle, an optional backgroun
 
 ### Common properties
 
-Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' \| 'dark'`), `when`, `context`. See the root README for details.
+Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' | 'dark'`), `when`, `context`. See the root README for details.
 
 ## Themed values
 
@@ -56,4 +56,4 @@ Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?
 
 ## Storybook
 
-[Banner](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-banner-block--docs)
+[Banner](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-banner--docs)

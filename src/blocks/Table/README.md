@@ -61,4 +61,4 @@ This block does not introduce theme-aware properties of its own.
 
 ## Storybook
 
-[Table](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-table-block--docs)
+[Table](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-table--docs)

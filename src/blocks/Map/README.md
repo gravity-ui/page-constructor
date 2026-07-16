@@ -78,4 +78,4 @@ The Map block requires the maps provider. Pass `mapsContext` (with `apikey`, map
 
 ## Storybook
 
-[Map](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-map-block--docs)
+[Map](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-map--docs)

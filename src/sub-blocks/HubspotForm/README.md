@@ -41,3 +41,7 @@ HubSpot forms require the `formsContext` to be configured on `PageConstructorPro
 ## Themed values
 
 No themed media fields; theme is taken from the active theme context (or the `theme` runtime prop).
+
+## Storybook
+
+[HubspotForm](https://preview.gravity-ui.com/page-constructor/?path=/docs/components-hubspotform--docs)

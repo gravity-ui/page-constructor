@@ -97,7 +97,7 @@ Renders a set of cards grouped by tags, with a row of toggle buttons that lets t
 
 ### Common properties
 
-Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' \| 'dark'`), `when`, `context`. See the root README for details.
+Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' | 'dark'`), `when`, `context`. See the root README for details.
 
 ## Children / sub-blocks
 
@@ -109,4 +109,4 @@ No dedicated themed props on the block itself; individual card `media`/`backgrou
 
 ## Storybook
 
-[FilterBlock](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-filter-block--docs)
+[FilterBlock](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-filterblock--docs)

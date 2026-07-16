@@ -52,7 +52,7 @@ Renders a two-column layout that pairs a content column (title, body, list, link
 
 ### Common properties
 
-Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' \| 'dark'`), `when`, `context`. See the root README for details.
+Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' | 'dark'`), `when`, `context`. See the root README for details.
 
 ## Themed values
 
@@ -60,4 +60,4 @@ Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?
 
 ## Storybook
 
-[Media](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-media-block--docs)
+[Media](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-media--docs)

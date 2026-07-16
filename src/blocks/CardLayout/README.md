@@ -56,7 +56,7 @@ Renders a responsive grid of arbitrary cards (children) with an optional header 
 
 ### Common properties
 
-Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' \| 'dark'`), `when`, `context`. See the root README for details.
+Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' | 'dark'`), `when`, `context`. See the root README for details.
 
 ## Children / sub-blocks
 
@@ -76,4 +76,4 @@ Each child is rendered inside a grid column sized by `colSizes`.
 
 ## Storybook
 
-[CardLayout](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-card-layout-block--docs)
+[CardLayout](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-cardlayout--docs)

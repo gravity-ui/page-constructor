@@ -67,4 +67,8 @@ Accepted as `children` by `CardLayout`, `Slider`, `SliderOld`; also usable as a 
 
 ## Themed values
 
-`image` and `author.avatar` accept `T \| {light: T, dark: T}` and are resolved at runtime via the active theme.
+`image` and `author.avatar` accept `T | {light: T, dark: T}` and are resolved at runtime via the active theme.
+
+## Storybook
+
+[Quote](https://preview.gravity-ui.com/page-constructor/?path=/docs/components-cards-quote--docs)

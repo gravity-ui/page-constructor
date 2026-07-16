@@ -41,3 +41,7 @@ With a horizontal line:
 ## Themed values
 
 None — `Divider` has no themed properties.
+
+## Storybook
+
+[Divider](https://preview.gravity-ui.com/page-constructor/?path=/docs/components-divider--docs)

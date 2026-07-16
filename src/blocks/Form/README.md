@@ -86,4 +86,4 @@ HubSpot forms are loaded through the HubSpot embed script automatically; no extr
 
 ## Storybook
 
-[Form](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-form-block--docs)
+[Form](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-form--docs)

@@ -67,7 +67,7 @@ Renders an FAQ block: a left content panel (title, text, links, buttons) and a l
 
 ### Common properties
 
-Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' \| 'dark'`), `when`, `context`. See the root README for details.
+Inherits common block properties: `anchor`, `visible`, `indent` (`{top?, bottom?}`), `qa`, `className`, `animated`, `theme` (`'light' | 'dark'`), `when`, `context`. See the root README for details.
 
 ## Themed values
 
@@ -75,4 +75,4 @@ No dedicated themed props; the block follows the runtime `theme` for text/backgr
 
 ## Storybook
 
-[Questions](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-questions-block--docs)
+[Questions](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-questions--docs)
