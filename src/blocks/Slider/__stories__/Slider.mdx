@@ -1,4 +1,6 @@
-import {Markdown, Meta} from '@storybook/blocks';
+import {Meta} from '@storybook/blocks';
+
+import {Readme} from '../../../../.storybook/readme';
 
 import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
 import * as SliderStories from './Slider.stories.tsx';
@@ -7,5 +9,5 @@ import readme from '../README.md';
 <Meta of={SliderStories} />
 
 <StoryTemplate>
-<Markdown>{readme}</Markdown>
+<Readme>{readme}</Readme>
 </StoryTemplate>
