@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.14.2](https://github.com/gravity-ui/page-constructor/compare/v8.14.1...v8.14.2) (2026-07-16)
+
+
+### Bug Fixes
+
+* add SSR guard to Footer ([#1483](https://github.com/gravity-ui/page-constructor/issues/1483)) ([57d4e5e](https://github.com/gravity-ui/page-constructor/commit/57d4e5e6adcf80d43c9ed798da1d2179599dbc94))
+
 ## [8.14.1](https://github.com/gravity-ui/page-constructor/compare/v8.14.0...v8.14.1) (2026-07-10)
 
 
