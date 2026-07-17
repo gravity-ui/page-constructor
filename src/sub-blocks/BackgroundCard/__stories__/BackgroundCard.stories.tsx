@@ -87,6 +87,7 @@ export const Paddings = VariousContentTemplate.bind([]);
 export const CardThemes = CardThemesTemplate.bind([]);
 export const BorderLine = VariousContentTemplate.bind([]);
 export const BackgroundColor = VariousContentTemplate.bind([]);
+export const BorderWithBackground = CardThemesTemplate.bind([]);
 export const Sizes = VariousContentTemplate.bind([]);
 export const WithUrl = CardThemesTemplate.bind([]);
 export const ControlPosition = ControlPositionTemplate.bind([]);
@@ -142,6 +143,13 @@ BackgroundColor.args = data.backgroundColor as BackgroundCardModel[];
 BackgroundColor.parameters = {
     controls: {
         include: Object.keys(data.backgroundColor),
+    },
+};
+
+BorderWithBackground.args = data.borderWithBackground as BackgroundCardModel[];
+BorderWithBackground.parameters = {
+    controls: {
+        include: Object.keys(data.borderWithBackground),
     },
 };
 

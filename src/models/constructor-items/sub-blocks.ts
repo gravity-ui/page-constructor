@@ -153,6 +153,7 @@ export interface BackgroundCardProps
     background?: ThemeSupporting<ImageObjectProps>;
     paddingBottom?: 's' | 'm' | 'l' | 'xl';
     backgroundColor?: string;
+    forceBorder?: boolean;
 }
 
 export interface BasicCardProps
