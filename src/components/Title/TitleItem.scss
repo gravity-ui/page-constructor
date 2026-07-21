@@ -11,7 +11,7 @@ $block: '.#{$ns}title-item';
     margin: 0;
 
     &_size_xs {
-        @include text-body-3();
+        @include text-subheader-3();
     }
 
     &_size_s {
