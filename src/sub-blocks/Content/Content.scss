@@ -119,14 +119,14 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
             #{$block}__text .yfm,
             #{$block}__notice .yfm {
-                @extend %heading-margin-reset;
+                margin: 0;
                 @include text-size(body-3);
             }
             #{$block}__text .yfm {
                 @include text-size(body-3);
             }
             #{$block}__notice .yfm {
-                @extend %heading-margin-reset;
+                margin: 0;
                 @include text-size(body-2);
             }
 
@@ -154,7 +154,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
             #{$block}__text .yfm,
             #{$block}__notice .yfm {
-                @extend %heading-margin-reset;
+                margin: 0;
                 @include text-size(body-3);
             }
             #{$block}__text .yfm {
@@ -162,7 +162,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             }
 
             #{$block}__notice .yfm {
-                @extend %heading-margin-reset;
+                margin: 0;
                 @include text-size(body-2);
             }
 
@@ -190,7 +190,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
             #{$block}__text .yfm,
             #{$block}__notice .yfm {
-                @extend %heading-margin-reset;
+                margin: 0;
                 @include text-size(body-3);
             }
             #{$block}__text .yfm {
@@ -198,7 +198,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             }
 
             #{$block}__notice .yfm {
-                @extend %heading-margin-reset;
+                margin: 0;
                 @include text-size(body-2);
             }
 
