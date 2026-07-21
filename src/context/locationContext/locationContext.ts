@@ -30,7 +30,6 @@ export type LocationContextProps = {
 
 export const initialLocation: LocationContextProps = {};
 
-// Изоморфный контекст (без 'use client') — см. context/theme/ThemeContext.
 const isRscServer = typeof React.createContext !== 'function';
 
 export const LocationContext = (

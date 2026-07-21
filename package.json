@@ -29,6 +29,11 @@
       "require": "./server/index.js",
       "import": "./server/index.js"
     },
+    "./server-context": {
+      "types": "./build/esm/server-context.d.ts",
+      "require": "./build/cjs/server-context.js",
+      "import": "./build/esm/server-context.js"
+    },
     "./models": {
       "types": "./build/esm/models/index.d.ts",
       "require": "./build/cjs/models/index.js",
@@ -38,6 +43,41 @@
       "types": "./build/esm/utils/index.d.ts",
       "require": "./build/cjs/utils/index.js",
       "import": "./build/esm/utils/index.js"
+    },
+    "./grid": {
+      "types": "./build/esm/grid/index.d.ts",
+      "require": "./build/cjs/grid/index.js",
+      "import": "./build/esm/grid/index.js"
+    },
+    "./grid/*": {
+      "types": "./build/esm/grid/*.d.ts",
+      "require": "./build/cjs/grid/*.js",
+      "import": "./build/esm/grid/*.js"
+    },
+    "./components": {
+      "types": "./build/esm/components/index.d.ts",
+      "require": "./build/cjs/components/index.js",
+      "import": "./build/esm/components/index.js"
+    },
+    "./components/*": {
+      "types": "./build/esm/components/*.d.ts",
+      "require": "./build/cjs/components/*.js",
+      "import": "./build/esm/components/*.js"
+    },
+    "./sub-blocks/*": {
+      "types": "./build/esm/sub-blocks/*.d.ts",
+      "require": "./build/cjs/sub-blocks/*.js",
+      "import": "./build/esm/sub-blocks/*.js"
+    },
+    "./blocks/*": {
+      "types": "./build/esm/blocks/*.d.ts",
+      "require": "./build/cjs/blocks/*.js",
+      "import": "./build/esm/blocks/*.js"
+    },
+    "./navigation/*": {
+      "types": "./build/esm/navigation/*.d.ts",
+      "require": "./build/cjs/navigation/*.js",
+      "import": "./build/esm/navigation/*.js"
     },
     "./styles/*": "./styles/*",
     "./widget/*": "./widget/*",
@@ -57,11 +97,20 @@
       "server": [
         "./server/index.d.ts"
       ],
+      "server-context": [
+        "./build/esm/server-context.d.ts"
+      ],
       "models": [
         "./build/esm/models/index.d.ts"
       ],
       "utils": [
         "./build/esm/utils/index.d.ts"
+      ],
+      "grid": [
+        "./build/esm/grid/index.d.ts"
+      ],
+      "components": [
+        "./build/esm/components/index.d.ts"
       ]
     }
   },
