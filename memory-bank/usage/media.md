@@ -65,7 +65,7 @@ graph TD
     - `ImageDeviceProps`: `{desktop: string, mobile: string, tablet?: string, alt?: string, disableCompress?: boolean, hide?: boolean | Partial<Record<'desktop' | 'mobile' | 'tablet', boolean>>, fetchPriority?: 'high' | 'low' | 'auto', loading?: 'eager' | 'lazy', 'aria-describedby'?: string}`
   - `video`: MediaVideoProps - video configuration
     - `{src: string[], type?: 'default' | 'player', loop?: boolean | {start: number, end?: number}, muted?: boolean, autoplay?: boolean, elapsedTime?: number, playButton?: PlayButtonProps, controls?: 'default' | 'custom', customControlsOptions?: CustomControlsOptions, ariaLabel?: string, contain?: boolean, onVideoEnd?: () => void, ref?: React.Ref<HTMLVideoElement | null>}`
-    - `PlayButtonProps`: `{type?: 'default' | 'text', theme?: 'blue' | 'grey', text?: string, className?: string}`
+    - `PlayButtonProps`: `{type?: 'default' | 'text', theme?: 'blue' | 'grey' | 'custom', text?: string, className?: string}`. The `custom` TypeScript value uses provider-level colors; JSON Schema still accepts only `blue | grey`.
     - `CustomControlsOptions`: `{type?: 'with-mute-button' | 'with-play-pause-button', muteButtonShown?: boolean, positioning?: 'left' | 'right' | 'center'}`
   - `youtube`: string - YouTube video ID
   - `videoIframe`: string - video iframe URL

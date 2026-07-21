@@ -202,6 +202,17 @@ Multiple context providers manage different aspects of the application:
 - **SSRContext**: Handles server-side rendering configuration
 - **AnimateContext**: Controls animation settings
 - **InnerContext**: Provides internal configuration to blocks
+- **ProjectSettingsContext**: Provides project-wide defaults and feature flags. Video controls use `defaultVideoButtonSettings` for the default theme and optional theme-aware custom colors.
+
+### Shared Video Button Pattern
+
+`VideoBlock` and `ReactPlayer` delegate preview-control rendering to the internal `VideoButton` component. This keeps icon/text markup, focus behavior, hover states, and BEM styles in one place.
+
+- Per-button `theme` has priority over the project default.
+- `PlayButtonThemes.Custom` reads `PlayButtonColors` from `ProjectSettingsContext` and resolves light/dark variants through `ThemeContext`.
+- `VideoBlock` may also receive a custom React node; that node owns its accessibility attributes and styles.
+- The content JSON Schema currently supports only `blue | grey`, even though the TypeScript enum also exposes `custom`; treat the custom palette as provider-driven unless the schema changes.
+- See `usage/videoButton.md` for consumer-specific fallback behavior.
 
 ### Analytics Integration Pattern
 

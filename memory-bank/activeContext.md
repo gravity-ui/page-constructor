@@ -13,7 +13,17 @@ The Page Constructor library is currently focused on providing a comprehensive s
 
 Recent development has focused on:
 
-1. **FilterBlock Analytics Enhancement** (Branch `filter_block_analytics`, commits bf0ca3da → db2bc170 → 14b950e3):
+1. **Shared Themed Video Button** (Branch `aeksandla/new-video-btn-theme`, commits a066eee3 → c6dfebd4 → b224747d → 035e726a):
+
+   - **Shared Renderer**: Added internal `VideoButton`; `ReactPlayer` and `VideoBlock` no longer own duplicate play-button markup and styles
+   - **Custom Theme**: Added `PlayButtonThemes.Custom` and `PlayButtonColors` with base and hover colors for the circle and triangle
+   - **Project Defaults**: Added `projectSettings.defaultVideoButtonSettings` to `ProjectSettingsContext`; its colors may be plain or light/dark themed values
+   - **Theme Resolution**: Custom colors are resolved with `getThemedValue()` and passed to SCSS through `--pc-video-button-*` variables
+   - **VideoBlock Configuration**: `VideoBlock.playButton` now accepts either a custom `ReactNode` or a `VideoButtonProps` object
+   - **Current Boundaries**: `VideoButton` is internal; JSON Schema still accepts only `blue | grey`; `ReactPlayer` defaults an omitted local theme to `blue`, so its project custom palette requires `playButton.theme = custom`
+   - **Detailed Usage**: See `usage/videoButton.md`, plus the updated `usage/videoBlock.md` and `usage/reactPlayer.md`
+
+2. **FilterBlock Analytics Enhancement** (Branch `filter_block_analytics`, commits bf0ca3da → db2bc170 → 14b950e3):
 
    - **Analytics on Tags**: `FilterTag` type now includes `analyticsEvent?: AnalyticsEventsProp` — each tag button can carry its own analytics event
    - **Analytics on allTag**: `allTag` prop unified — previously separate `allTagsAnalytics` is gone; `allTag` now accepts `boolean | string | FilterTag` where object form carries `label` + `analyticsEvent`
@@ -21,7 +31,7 @@ Recent development has focused on:
    - **ButtonTabsItemProps Extended**: `analyticsEvent?: AnalyticsEventsProp` added to `ButtonTabsItemProps` so analytics metadata flows through the tab system
    - **Schema Updated**: `FilterTagProps` in `schema.ts` now includes `analyticsEvent: AnalyticsEventSchema`; `allTag` oneOf supports boolean / string / FilterTagProps object
 
-2. **Title Component Analytics Enhancement** (Commit f0f0c970):
+3. **Title Component Analytics Enhancement** (Commit f0f0c970):
 
    - **Analytics Events Support**: Added `analyticsEvents?: AnalyticsEventsBase` prop to TitleItem component
    - **Enhanced Click Handling**: New `handleClick` function combines analytics tracking with existing onClick functionality
@@ -31,7 +41,7 @@ Recent development has focused on:
    - **Backward Compatibility**: Maintains existing onClick behavior while adding optional analytics tracking
    - **Event Flow**: Analytics events are triggered before existing onClick handlers for proper event sequencing
 
-3. **Gravity Icons Integration** (Commits a72c3f3 and 8a8aa02):
+4. **Gravity Icons Integration** (Commits a72c3f3 and 8a8aa02):
 
    - **New Icon Component**: Created universal component `src/components/Icon/Icon.tsx` for working with icons
    - **Gravity UI Icons Support**: Integration with `@gravity-ui/icons` library for using ready-made icons
@@ -42,14 +52,14 @@ Recent development has focused on:
    - **Schema Validation**: Added validation for GravityIconProps in BasicCard and Content schemas
    - **Storybook Examples**: Added new stories to demonstrate gravity icons
 
-4. **Button Component Enhancement**: Added support for icons through the `img` prop
+5. **Button Component Enhancement**: Added support for icons through the `img` prop
 
    - Support for Gravity UI icons (React components)
    - Support for custom SVG strings
    - Configurable icon positioning (left/right)
    - Configurable icon size
 
-5. **HeaderBlock Enhancements**: Significant updates to HeaderBlock with new functionality:
+6. **HeaderBlock Enhancements**: Significant updates to HeaderBlock with new functionality:
 
    - **New Content Properties**: Added `additionalInfo`, `overtitle`, and `status` for richer content structure
    - **Custom Rendering**: Added `renderTitle` function prop for custom title rendering
@@ -62,7 +72,7 @@ Recent development has focused on:
    - **Component Architecture**: Refactored background rendering into separate `Background` and `FullWidthBackground` components
    - **Props Refactoring**: Renamed `containerFluidClassName` to `contentWrapperClassName` for better clarity
 
-6. **Text Size Enhancement**: Updated `textSize` constant in `src/schema/validators/common.ts`:
+7. **Text Size Enhancement**: Updated `textSize` constant in `src/schema/validators/common.ts`:
 
    - **Previous values**: `['s', 'm', 'l']`
    - **Current values**: `['xs', 's', 'sm', 'm', 'l']`
@@ -70,7 +80,7 @@ Recent development has focused on:
    - This affects all components that use text sizing: Links, FileLinkProps, TitleProps, and various blocks
    - Updated TypeScript type `TextSize` to include new values
 
-7. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
+8. **Card Component Standardization**: Updated BasicCard, LayoutItem, BackgroundCard, and ImageCard with consistent patterns:
 
    - Standardized `controlPosition` prop for flexible control placement ('content' vs 'footer')
    - Enhanced accessibility with `useUniqId()` for proper ARIA labeling
@@ -78,12 +88,12 @@ Recent development has focused on:
    - Unified theme support using `getThemedValue` utility
    - Improved integration with the Content sub-block
 
-8. **Accessibility Improvements**: Enhanced ARIA attributes and ID management across card components
-9. **Control Positioning**: New flexible control positioning system allowing buttons/links in footer area
-10. **Performance Optimization**: Reducing bundle size and improving rendering performance
-11. **Documentation**: Expanding Storybook examples and documentation
+9. **Accessibility Improvements**: Enhanced ARIA attributes and ID management across card components
+10. **Control Positioning**: New flexible control positioning system allowing buttons/links in footer area
+11. **Performance Optimization**: Reducing bundle size and improving rendering performance
+12. **Documentation**: Expanding Storybook examples and documentation
 
-12. **Hover Background Color Enhancement**: Added support for customizable hover background colors in BasicCard component:
+13. **Hover Background Color Enhancement**: Added support for customizable hover background colors in BasicCard component:
 
     - **Schema Support**: Added `hoverBackgroundColor` property to BasicCard schema as optional string field (**deprecated**)
     - **Component Implementation**: BasicCard component now accepts `hoverBackgroundColor` prop and applies it as CSS custom property `--hover-background-color` (**deprecated**)
@@ -91,7 +101,7 @@ Recent development has focused on:
     - **Flexible Styling**: Allows any valid CSS color value (hex, rgb, rgba, named colors, etc.)
     - **Backward Compatibility**: Optional property that doesn't affect existing implementations
 
-13. **CardLayout Title Centering Enhancement**: Added title centering support for CardLayout block:
+14. **CardLayout Title Centering Enhancement**: Added title centering support for CardLayout block:
 
     - **New Prop**: Added `centered?: boolean` prop to `CardLayoutBlockProps` for centering title and subtitle
     - **Default Behavior**: Default value is `false`, maintaining backward compatibility (left-aligned by default)
