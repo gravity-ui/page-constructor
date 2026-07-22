@@ -1,0 +1,13 @@
+import {Meta} from '@storybook/blocks';
+
+import {Readme} from '../../../../.storybook/readme';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as IconsStories from './Icons.stories.tsx';
+import readme from '../README.md';
+
+<Meta of={IconsStories} />
+
+<StoryTemplate>
+<Readme>{readme}</Readme>
+</StoryTemplate>

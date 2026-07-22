@@ -1,39 +1,13 @@
 import {Meta} from '@storybook/blocks';
 
+import {Readme} from '../../../../.storybook/readme';
+
 import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
 import * as TabsStories from './Tabs.stories.tsx';
+import readme from '../README.md';
 
 <Meta of={TabsStories} />
+
 <StoryTemplate>
-## Parameters
-
-`type: tabs-block`
-
-`title?: Title | string`
-
-`description?: string`
-
-`animated?: boolean` — Enables/disables animation for the block (enabled by default).
-
-`centered?: false | true` - Aligns all content to the center ('false' by default)
-
-`tabsColSizes?: colSizes` more info about colSizes [here](?path=/docs/documentation-types--docs#colsizes).
-
-`contentSize?: 's' | 'm' | 'l' | 'xl'` — Component's size that defines font sizes (`'s'` by default)
-
-`items: TabsBlockItem[]` — Tab description
-
-- `tabName: string` — Tab title.
-- `title?: string` — Item's title
-- `text?: string` — Item's text (with YFM support)
-- `additionalInfo?: string` — Gray text (with YFM support)
-- `links?: Link[]` — An array with link objects (see [Content blocks](?path=/docs/documentation-types--docs))
-- `buttons?: Button[]` — An array with button objects (see [Content blocks](?path=/docs/documentation-types--docs))
-- `image?: string | ImageObjectProps` — Image.
-- [`media: Media` — Media description](?path=/docs/documentation-types#media--imagevideodatalensyoutube)
-- `caption?: string` — Image caption (with YFM support)
-- `border?: 'shadow' | 'line' | 'none` — Select border of the media.
-
-When `renderInvisibleBlocks` is set to `true` in `projectSettings`, will render all of the incative tabs' text content with `display: none`.
-
+<Readme>{readme}</Readme>
 </StoryTemplate>
