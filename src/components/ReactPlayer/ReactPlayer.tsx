@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import {PlayFill} from '@gravity-ui/icons';
-import {Icon} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 import _ReactPlayer from 'react-player';
 import type {ReactPlayerProps} from 'react-player';
@@ -17,16 +15,15 @@ import {
     DefaultEventNames,
     MediaVideoControlsType,
     MediaVideoProps,
-    PlayButtonProps,
     PlayButtonThemes,
     PlayButtonType,
     PredefinedEventTypes,
     ReactPlayerBlockHandler,
 } from '../../models';
 import {block} from '../../utils';
+import VideoButton from '../VideoButton/VideoButton';
 
 import CustomBarControls from './CustomBarControls';
-import {i18n} from './i18n';
 import {checkYoutubeVideos} from './utils';
 import {isYoutubePlayerInstance} from './utils/youtube';
 
@@ -88,13 +85,6 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             autoRatio,
             contain = true,
         } = props;
-
-        const {
-            type = PlayButtonType.Default,
-            theme = PlayButtonThemes.Blue,
-            text,
-            className: buttonClassName,
-        } = playButton || ({} as PlayButtonProps);
         const {
             type: customControlsType = CustomControlsType.WithMuteButton,
             muteButtonShown,
@@ -235,28 +225,15 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
         );
 
         const playIcon = React.useMemo(() => {
-            let playButtonContent;
-
-            switch (type) {
-                case PlayButtonType.Text:
-                    playButtonContent = text;
-                    break;
-                case PlayButtonType.Default:
-                default:
-                    playButtonContent = <Icon className={b('icon')} data={PlayFill} size={24} />;
-                    break;
-            }
-
+            const {theme, type} = playButton || {};
             return (
-                <button
-                    className={b('button', {theme, text: Boolean(text)}, buttonClassName)}
-                    aria-label={i18n('play')}
-                    ref={buttonRef}
-                >
-                    {playButtonContent}
-                </button>
+                <VideoButton
+                    {...playButton}
+                    theme={theme || PlayButtonThemes.Blue}
+                    type={type || PlayButtonType.Default}
+                />
             );
-        }, [type, theme, text, buttonClassName]);
+        }, [playButton]);
 
         const changeMute = React.useCallback(
             (isMuted: boolean) => {

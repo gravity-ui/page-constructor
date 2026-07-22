@@ -17,12 +17,14 @@ The Media component supports various media types including images, videos, YouTu
 ### Image-specific Parameters
 
 `image?: ImageProps | ImageProps[] | ImageDeviceProps` — Image data, can be:
+
 - `string` — Simple image URL
 - `ImageObjectProps` — Object with src, alt, and other properties
 - `ImageDeviceProps` — Device-specific images (desktop, mobile, tablet)
 - `ImageProps[]` — Array of images for slider functionality
 
 #### ImageObjectProps
+
 - `src: string` — Image source URL
 - `alt?: string` — Alternative text for accessibility
 - `disableCompress?: boolean` — Disable image compression (default: false)
@@ -32,6 +34,7 @@ The Media component supports various media types including images, videos, YouTu
 - `aria-describedby?: string` — ARIA describedby attribute
 
 #### ImageDeviceProps
+
 - `desktop: string` — Desktop image URL
 - `mobile: string` — Mobile image URL
 - `tablet?: string` — Tablet image URL (optional)
@@ -59,11 +62,12 @@ The Media component supports various media types including images, videos, YouTu
 `video?: MediaVideoProps` — Video configuration object with the following properties:
 
 #### MediaVideoProps
+
 - `src: string[]` — Array of video source URLs in different formats
 - `type?: 'default' | 'player'` — Video player type (default: 'default')
 - `loop?: boolean | LoopProps` — Video looping behavior
-  - `boolean` — Simple loop on/off
-  - `LoopProps` — Advanced loop with start/end times: `{start: number, end?: number}`
+    - `boolean` — Simple loop on/off
+    - `LoopProps` — Advanced loop with start/end times: `{start: number, end?: number}`
 - `muted?: boolean` — Whether video is muted by default
 - `autoplay?: boolean` — Whether video autoplays (default: true)
 - `elapsedTime?: number` — Starting elapsed time in seconds
@@ -75,12 +79,14 @@ The Media component supports various media types including images, videos, YouTu
 - `onVideoEnd?: () => void` — Callback when video ends
 
 #### PlayButtonProps
+
 - `type?: 'default' | 'text'` — Play button type
-- `theme?: 'blue' | 'grey'` — Play button theme
+- `theme?: 'blue' | 'grey' | 'custom'` — Play button theme. The custom theme reads colors from `projectSettings.defaultVideoButtonSettings`; content JSON Schema currently accepts only `blue | grey`.
 - `text?: string` — Custom text for text-type button
 - `className?: string` — CSS class for styling
 
 #### CustomControlsOptions
+
 - `type?: 'with-mute-button' | 'with-play-pause-button'` — Custom controls type
 - `muteButtonShown?: boolean` — Whether to show mute button
 - `positioning?: 'left' | 'right' | 'center'` — Button positioning

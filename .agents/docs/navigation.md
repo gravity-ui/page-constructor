@@ -51,7 +51,7 @@ Reusable card/content units composed inside blocks.
 
 Shared UI primitives used across blocks. Not page-level; imported directly (no barrel).
 
-Notable: `Button`, `Buttons`, `Image`, `ImageBase`, `BackgroundMedia`, `Media`, `MediaBase`, `Link`, `Title`, `HTML`, `YFMWrapper`, `VideoBlock`, `ReactPlayer`, `AnimateBlock`, `BlockBase`, `CardBase`, `FullscreenMedia`, `HeaderBreadcrumbs`, `OverflowScroller`, `Table`, `MetaInfo`, `Author`
+Notable: `Button`, `Buttons`, `Image`, `ImageBase`, `BackgroundMedia`, `Media`, `MediaBase`, `Link`, `Title`, `HTML`, `YFMWrapper`, `VideoBlock`, `VideoButton` (internal shared play control), `ReactPlayer`, `AnimateBlock`, `BlockBase`, `CardBase`, `FullscreenMedia`, `HeaderBreadcrumbs`, `OverflowScroller`, `Table`, `MetaInfo`, `Author`
 
 ## `src/containers/`
 
@@ -66,24 +66,24 @@ Notable: `Button`, `Buttons`, `Image`, `ImageBase`, `BackgroundMedia`, `Media`, 
 
 Each subdirectory exports a `Context` + optional `Provider` + hook.
 
-| Context                  | Purpose                                 |
-| ------------------------ | --------------------------------------- |
-| `analyticsContext`       | `sendEvents` callback for tracking      |
-| `animateContext`         | Scroll-based animation toggle           |
-| `blockIdContext`         | Current block identifier                |
-| `formsContext`           | HubSpot / YandexForm config             |
-| `imageContext`           | Image transformation (compress, resize) |
-| `innerContext`           | Internal constructor state              |
-| `localeContext`          | Language/locale                         |
-| `locationContext`        | `pathname`, `history`                   |
-| `mapsContext`            | Google/Yandex Maps API keys             |
-| `mobileContext`          | `isMobile` flag                         |
-| `projectSettingsContext` | Feature flags, background mode          |
-| `ssrContext`             | SSR detection                           |
-| `stylesContext`          | Custom CSS class overrides              |
-| `theme`                  | `ThemeContext`, `useTheme()`            |
-| `videoContext`           | Video player config                     |
-| `windowWidthContext`     | Responsive breakpoint value             |
+| Context                  | Purpose                                                                      |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| `analyticsContext`       | `sendEvents` callback for tracking                                           |
+| `animateContext`         | Scroll-based animation toggle                                                |
+| `blockIdContext`         | Current block identifier                                                     |
+| `formsContext`           | HubSpot / YandexForm config                                                  |
+| `imageContext`           | Image transformation (compress, resize)                                      |
+| `innerContext`           | Internal constructor state                                                   |
+| `localeContext`          | Language/locale                                                              |
+| `locationContext`        | `pathname`, `history`                                                        |
+| `mapsContext`            | Google/Yandex Maps API keys                                                  |
+| `mobileContext`          | `isMobile` flag                                                              |
+| `projectSettingsContext` | Feature flags and project-wide defaults, including video button theme/colors |
+| `ssrContext`             | SSR detection                                                                |
+| `stylesContext`          | Custom CSS class overrides                                                   |
+| `theme`                  | `ThemeContext`, `useTheme()`                                                 |
+| `videoContext`           | Video player config                                                          |
+| `windowWidthContext`     | Responsive breakpoint value                                                  |
 
 ## `src/models/`
 

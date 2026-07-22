@@ -27,7 +27,7 @@ Current coverage: `banner.md`, `hero.md`
 
 Per-component usage documents: full usage graph across the codebase, application context, and common patterns.
 
-Covered: `animateBlock`, `author`, `backgroundCard`, `backgroundImage`, `backgroundMedia`, `backLink`, `balancedMasonry`, `basicCard`, `brandFooter`, `button`, `content`, `contentList`, `control`, `divider`, `errorWrapper`, `fileLink`, `filterBlock`, `fullscreenImage`, `fullscreenMedia`, `fullWidthBackground`, `headerBlock`, `headerBreadcrumbs`, `heroBlock`, `hubspotForm`, `icon`, `image`, `imageCard`, `layoutItem`, `link`, `map`, `media`, `mediaCard`, `metaInfo`, `overflowScroller`, `priceCard`, `priceDetailed`, `quote`, `reactPlayer`, `table`, `title`, `toggleArrow`, `unpublishedLabel`, `videoBlock`, `yandexForm`, `yfmWrapper`
+Covered: `animateBlock`, `author`, `backgroundCard`, `backgroundImage`, `backgroundMedia`, `backLink`, `balancedMasonry`, `basicCard`, `brandFooter`, `button`, `content`, `contentList`, `control`, `divider`, `errorWrapper`, `fileLink`, `filterBlock`, `fullscreenImage`, `fullscreenMedia`, `fullWidthBackground`, `headerBlock`, `headerBreadcrumbs`, `heroBlock`, `hubspotForm`, `icon`, `image`, `imageCard`, `layoutItem`, `link`, `map`, `media`, `mediaCard`, `metaInfo`, `overflowScroller`, `priceCard`, `priceDetailed`, `quote`, `reactPlayer`, `table`, `title`, `toggleArrow`, `unpublishedLabel`, `videoBlock`, `videoButton`, `yandexForm`, `yfmWrapper`
 
 ## When to consult
 
