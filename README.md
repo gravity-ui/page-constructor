@@ -596,3 +596,32 @@ AI agents can read these files to quickly get up to speed with the project conte
 ## Tests
 
 Comprehensive documentation is available at the provided [link](./test-utils/docs/README.md).
+
+## License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for details.
+
+## For AI agents
+
+A library for rendering whole web pages or page sections from declarative JSON/YAML config, using a set of ready-made, orderable blocks — reach for it to build marketing/landing pages, not general application UI.
+
+### When to use
+
+- Data-driven pages: render a `content` config of typed blocks with `PageConstructor` wrapped in `PageConstructorProvider`.
+- Marketing, landing, and documentation pages assembled from prebuilt blocks (headers, media, cards, etc.).
+- Server-side YFM processing of block text via the `@gravity-ui/page-constructor/server` utilities (`contentTransformer`, `fullTransform`).
+- Reusing just the responsive grid (`Grid`/`Row`/`Col`) or `Navigation` component standalone.
+
+### When not to use
+
+- General application UI (buttons, forms, modals) — use [`@gravity-ui/uikit`](https://github.com/gravity-ui/uikit).
+- Editing Markdown/YFM content — use [`@gravity-ui/markdown-editor`](https://github.com/gravity-ui/markdown-editor).
+- App navigation shells (aside header) — use [`@gravity-ui/navigation`](https://github.com/gravity-ui/navigation); this package's `Navigation` is a page-level top nav.
+
+### Common pitfalls
+
+- **`PageConstructor` must be wrapped in `PageConstructorProvider`.** Rendering it bare breaks context (locale, theme, SSR, analytics).
+- **The content prop is `content`, shaped `{blocks: [...]}`.** Each block object needs a `type` matching a known block plus its data fields; there is no `data`/`config` prop.
+- **YFM in block text needs server processing.** Markdown-like fields render as plain text unless you run content through `contentTransformer`/`fullTransform` from `@gravity-ui/page-constructor/server`; `@diplodoc/transform` is a required peer dependency.
+- **Import the SCSS styles.** Add `@gravity-ui/page-constructor/styles/styles.scss` (SCSS, not CSS); custom blocks import the same file to reuse mixins/variables.
+- **Vite needs `vite-plugin-dynamic-import`.** Dynamic block imports fail under Vite without it.
