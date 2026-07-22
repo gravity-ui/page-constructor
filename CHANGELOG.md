@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.15.0](https://github.com/gravity-ui/page-constructor/compare/v8.14.2...v8.15.0) (2026-07-22)
+
+
+### Features
+
+* custom video button theme ([#1482](https://github.com/gravity-ui/page-constructor/issues/1482)) ([a99648d](https://github.com/gravity-ui/page-constructor/commit/a99648d6e8383e260ffbcb0ea5e61e37647c1e36))
+
 ## [8.14.2](https://github.com/gravity-ui/page-constructor/compare/v8.14.1...v8.14.2) (2026-07-16)
 
 
