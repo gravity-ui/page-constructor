@@ -73,6 +73,7 @@
     "lint": "run-p lint:js lint:styles lint:prettier typecheck",
     "typecheck": "tsc --noEmit",
     "dev": "npm run storybook:start",
+    "storybook:map": "node scripts/storybook-map/generate.js",
     "storybook:start": "storybook dev -p 7009",
     "storybook:build": "storybook build -c .storybook -o storybook-static",
     "start": "node dist",

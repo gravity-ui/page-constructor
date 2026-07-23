@@ -1,3 +1,4 @@
+import {execFileSync} from 'child_process';
 import {resolve} from 'path';
 import WebpackShellPluginNext from 'webpack-shell-plugin-next';
 import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
@@ -8,6 +9,13 @@ const PREVIEW_DEST_PATH = process.env.PREVIEW_DEST_PATH;
 const customAlias = {
     widget: resolve(__dirname, '../widget'),
 };
+
+const generateComponentMap = () => {
+    execFileSync(process.execPath, [resolve(__dirname, '../scripts/storybook-map/generate.js')], {
+        stdio: 'inherit',
+    });
+};
+
 const config = {
     framework: {
         name: '@storybook/react-webpack5',
@@ -37,6 +45,8 @@ const config = {
     ],
 
     webpackFinal: (storybookBaseConfig: any) => {
+        generateComponentMap();
+
         storybookBaseConfig.plugins.push(
             new MonacoWebpackPlugin(),
             new WebpackShellPluginNext({
