@@ -15,6 +15,7 @@ node_modules
 /coverage
 /widget
 /schema
+.storybook/generated/component-map.json
 
 *.tgz
 .env
