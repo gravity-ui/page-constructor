@@ -1,4 +1,4 @@
-import {YFMWrapper} from '../../../../components';
+import YFMWrapper from '../../../../components/YFMWrapper/YFMWrapper';
 import {Col} from '../../../../grid';
 import {FooterBlockProps} from '../../../../models';
 import {block} from '../../../../utils';

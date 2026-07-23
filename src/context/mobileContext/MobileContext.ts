@@ -1,3 +1,7 @@
 import * as React from 'react';
 
-export const MobileContext = React.createContext<boolean>(false);
+const isRscServer = typeof React.createContext !== 'function';
+
+export const MobileContext = (
+    isRscServer ? null : React.createContext<boolean>(false)
+) as React.Context<boolean>;

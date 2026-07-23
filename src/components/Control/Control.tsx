@@ -1,3 +1,5 @@
+'use client';
+
 import {Icon, IconData} from '@gravity-ui/uikit';
 
 import {block} from '../../utils';

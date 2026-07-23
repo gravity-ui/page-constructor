@@ -1,8 +1,10 @@
+'use client';
+
 import * as React from 'react';
 
 import {Col, Row} from '../../grid';
 import {FoldableListProps} from '../../models';
-import {Content} from '../../sub-blocks';
+import Content from '../../sub-blocks/Content/Content';
 import {block} from '../../utils';
 
 import {FoldableListBlockItem} from './FoldableListBlockItem/FoldableListBlockItem';

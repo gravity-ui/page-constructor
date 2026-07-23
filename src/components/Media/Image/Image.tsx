@@ -1,9 +1,11 @@
+'use client';
+
 import * as React from 'react';
 
 import {Interpolation, animated, config, useSpring} from '@react-spring/web';
 import debounce from 'lodash/debounce';
 
-import {SliderBlock} from '../../../blocks';
+import SliderBlock from '../../../blocks/Slider/Slider';
 import {ImageProps, MediaComponentImageProps, QAProps, SliderType} from '../../../models';
 import {block, getQaAttrubutes} from '../../../utils';
 import BackgroundImage from '../../BackgroundImage/BackgroundImage';

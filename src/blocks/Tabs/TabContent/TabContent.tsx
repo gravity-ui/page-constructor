@@ -1,11 +1,14 @@
+'use client';
+
 import * as React from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {FullscreenImage, YFMWrapper} from '../../../components';
+import FullscreenImage from '../../../components/FullscreenImage/FullscreenImage';
 import {getMediaImage} from '../../../components/Media/Image/utils';
 import Media from '../../../components/Media/Media';
 import {getHeight} from '../../../components/VideoBlock/VideoBlock';
+import YFMWrapper from '../../../components/YFMWrapper/YFMWrapper';
 import {ProjectSettingsContext} from '../../../context/projectSettingsContext';
 import {useTheme} from '../../../context/theme';
 import {Col, GridColumnOrderClasses, Row} from '../../../grid';

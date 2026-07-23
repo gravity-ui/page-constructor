@@ -1,5 +1,5 @@
 import * as GravityIcons from '@gravity-ui/icons';
-import {IconData} from '@gravity-ui/uikit';
+import type {IconData} from '@gravity-ui/uikit';
 
 export function getGravityIcon(iconName: string): IconData | undefined {
     if (hasGravityIcon(iconName)) {

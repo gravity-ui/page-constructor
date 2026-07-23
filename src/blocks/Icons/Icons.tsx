@@ -1,6 +1,9 @@
+'use client';
+
 import * as React from 'react';
 
-import {Image, Title} from '../../components';
+import Image from '../../components/Image/Image';
+import Title from '../../components/Title/Title';
 import {LocationContext} from '../../context/locationContext';
 import {useTheme} from '../../context/theme';
 import {useAnalytics} from '../../hooks';

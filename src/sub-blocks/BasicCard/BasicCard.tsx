@@ -1,6 +1,5 @@
-import {useUniqId} from '@gravity-ui/uikit';
-
-import {CardBase, IconWrapper} from '../../components';
+import CardBase from '../../components/CardBase/CardBase';
+import IconWrapper from '../../components/IconWrapper/IconWrapper';
 import {useTheme} from '../../context/theme';
 import {BasicCardProps} from '../../models';
 import {IconPosition} from '../../models/constructor-items/sub-blocks';
@@ -28,8 +27,9 @@ const BasicCard = (props: BasicCardProps) => {
         hoverBackgroundColor,
         ...cardParams
     } = props;
-    const titleId = useUniqId();
-    const descriptionId = useUniqId();
+    const stableKey = typeof title === 'string' ? title : (title?.text ?? '');
+    const titleId = `pc-basic-card-title-${stableKey}`;
+    const descriptionId = `pc-basic-card-desc-${stableKey}`;
     const areControlsInFooter = controlPosition === 'footer';
     const theme = useTheme();
     const themedIcon = getThemedValue(icon, theme);

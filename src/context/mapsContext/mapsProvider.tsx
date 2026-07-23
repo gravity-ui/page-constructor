@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {MapType, MapsContext} from './mapsContext';

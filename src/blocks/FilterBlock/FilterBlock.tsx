@@ -1,13 +1,16 @@
+'use client';
+
 import * as React from 'react';
 
-import {CardLayoutBlock} from '..';
-import {AnimateBlock, Title} from '../../components';
+import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
+import Title from '../../components/Title/Title';
 import {ConstructorItem} from '../../containers/PageConstructor/components/ConstructorItem';
 import {Col, Row} from '../../grid';
 import {useAnalytics} from '../../hooks';
 import {FilterBlockProps, FilterItem} from '../../models';
 import {block, getBlockKey} from '../../utils';
+import CardLayoutBlock from '../CardLayout/CardLayout';
 
 import {i18n} from './i18n';
 

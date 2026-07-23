@@ -1,4 +1,4 @@
-import {Image} from '../../../components';
+import Image from '../../../components/Image/Image';
 import {getMediaImage} from '../../../components/Media/Image/utils';
 import {NavigationSocialItem} from '../../../models';
 import {block} from '../../../utils';

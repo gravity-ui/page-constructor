@@ -1,4 +1,7 @@
-import {Button, RouterLink} from '../../../../../components';
+'use client';
+
+import Button from '../../../../../components/Button/Button';
+import RouterLink from '../../../../../components/RouterLink/RouterLink';
 import {BlockIdContext} from '../../../../../context/blockIdContext';
 import {ButtonProps} from '../../../../../models';
 import {block} from '../../../../../utils';

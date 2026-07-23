@@ -1,8 +1,10 @@
+'use client';
+
 import * as React from 'react';
 
 import {DropdownMenu, DropdownMenuItem, Link, useResizeObserver} from '@gravity-ui/uikit';
 
-import {Image} from '../../../../components';
+import Image from '../../../../components/Image/Image';
 import {BREAKPOINTS} from '../../../../constants';
 import {SSRContext} from '../../../../context/ssrContext';
 import {useTheme} from '../../../../context/theme';
@@ -193,6 +195,10 @@ export const CopyrightFloor = ({copyright}: CopyrightFloorProps) => {
         setIsThreeColumnStacked(document.documentElement.clientWidth <= THREE_COLUMN_DESKTOP_WIDTH);
         updateSideColumnWidth();
     }, [updateSideColumnWidth]);
+
+    React.useEffect(() => {
+        updateFloorSize();
+    }, [updateFloorSize]);
 
     useResizeObserver({
         ref: documentElementRef,

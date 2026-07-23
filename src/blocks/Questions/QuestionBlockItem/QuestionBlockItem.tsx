@@ -1,7 +1,11 @@
+'use client';
+
 import {useActionHandlers} from '@gravity-ui/uikit';
 
-import {Foldable, ToggleArrow, YFMWrapper} from '../../../components';
+import Foldable from '../../../components/Foldable/Foldable';
 import Link from '../../../components/Link/Link';
+import ToggleArrow from '../../../components/ToggleArrow/ToggleArrow';
+import YFMWrapper from '../../../components/YFMWrapper/YFMWrapper';
 import {QuestionBlockItemProps} from '../../../models';
 import {block} from '../../../utils';
 

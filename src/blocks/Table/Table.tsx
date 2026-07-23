@@ -1,6 +1,9 @@
+'use client';
+
 import * as React from 'react';
 
-import {Table, YFMWrapper} from '../../components';
+import Table from '../../components/Table/Table';
+import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {Col, Grid, GridColumnSize, Row} from '../../grid';
 import {TableBlockProps} from '../../models';
 import {block} from '../../utils';

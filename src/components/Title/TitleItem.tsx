@@ -1,12 +1,15 @@
+'use client';
+
 import * as React from 'react';
 
-import {ToggleArrow, YFMWrapper} from '../';
 import {LocationContext} from '../../context/locationContext';
 import {MobileContext} from '../../context/mobileContext';
 import {useAnalytics} from '../../hooks';
 import {AnalyticsEventsBase, QAProps, TextSize, TitleItemProps} from '../../models';
 import {block, getHeaderTag, getLinkProps} from '../../utils';
 import Anchor from '../Anchor/Anchor';
+import ToggleArrow from '../ToggleArrow/ToggleArrow';
+import YFMWrapper from '../YFMWrapper/YFMWrapper';
 
 import './TitleItem.scss';
 

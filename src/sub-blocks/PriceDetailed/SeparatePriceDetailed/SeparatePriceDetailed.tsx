@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {CardBase} from '../../../components';
+import CardBase from '../../../components/CardBase/CardBase';
 import {
     CardBorder,
     PriceDescriptionProps,
