@@ -614,3 +614,7 @@ A library for rendering whole web pages or page sections from declarative JSON/Y
 - **YFM in block text needs server processing.** Markdown-like fields render as plain text unless you run content through `contentTransformer`/`fullTransform` from `@gravity-ui/page-constructor/server`; `@diplodoc/transform` is a required peer dependency.
 - **Import the SCSS styles.** Add `@gravity-ui/page-constructor/styles/styles.scss` (SCSS, not CSS); custom blocks import the same file to reuse mixins/variables.
 - **Vite needs `vite-plugin-dynamic-import`.** Dynamic block imports fail under Vite without it.
+
+## Documentation for AI agents
+
+Agent-readable documentation for the installed version is located in `node_modules/@gravity-ui/page-constructor/build/docs/INDEX.md`.
