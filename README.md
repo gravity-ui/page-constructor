@@ -582,17 +582,6 @@ The Memory Bank is located in the `memory-bank/` directory and consists of regul
 - `usage/` - Component-specific usage documentation
 - `storybookComponents.md` - Storybook integration details
 
-### For AI Agents
-
-When working with AI agents on this project, the Memory Bank serves as a comprehensive knowledge base that helps agents understand:
-
-- Project structure and patterns
-- Component APIs and usage examples
-- Development workflows and best practices
-- Current implementation status and next steps
-
-AI agents can read these files to quickly get up to speed with the project context and make more informed decisions about code changes and implementations.
-
 ## Tests
 
 Comprehensive documentation is available at the provided [link](./test-utils/docs/README.md).
