@@ -52,6 +52,15 @@ const config = {
             ...customAlias,
         };
 
+        // Import README.md files as raw strings so each block's docs page
+        // (.mdx) can render the README via <Markdown> instead of duplicating
+        // the content. (.mdx files are unaffected — they end in .mdx, not .md.)
+        storybookBaseConfig.module.rules.push({
+            test: /\.md$/u,
+            exclude: [/node_modules/u],
+            type: 'asset/source',
+        });
+
         // main and branch storybook previews are deployed in subfolders
         // so we need to add subfolder prefix to stories asset static path:
         if (PREVIEW_DEST_PATH) {

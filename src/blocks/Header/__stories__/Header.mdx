@@ -1,58 +1,13 @@
 import {Meta} from '@storybook/blocks';
 
+import {Readme} from '../../../../.storybook/readme';
+
 import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
 import * as HeaderStories from './Header.stories.tsx';
+import readme from '../README.md';
 
 <Meta of={HeaderStories} />
+
 <StoryTemplate>
-## Parameters
-
-There could be only one one Header block on the page.
-
-`type: 'header-block'`
-
-`title: text` — Title.
-
-`description?: text` — Subtitle.
-
-`width?: 's' | 'm' | 'l'` — Title text width.
-
-`centered?: boolean —  Specifies whether the header is centered.
-
-`buttons?: button[]` — List of Button blocks.
-
-`offset?: 'default' | 'large'` — Top and bottom margins.
-
-`image?: string | {src: string; alt?: string;}` — Image to the right of the text.
-
-`video?:`
-
-- `src: string[]`
-- `loop?:`
-  - `start: number`
-  - `end: number`
-
-`videoIframe?:`
-- `src: string`
-- `autoplay?: boolean`
-- `previewImg?: string`
-- `height?: number`
-
-`backLink?: 'url' | 'title'`
-
-`imageSize?: 's' | 'm'` — Image size.
-
-`background?:`
-
-- `fullWidth: true | false` — Background width: Color to the entire screen width or as per column size.
-- `fullWidthMedia: true | false` — Media width: Picture or Video to the entire screen width or as per column size.
-- `color: string` — Background color
-- `image?: string | ImageObjectProps | ImageDeviceProps`
-- `video?: Video`
-
-`theme?: default | dark` — Sets the text color (black by default, white for the dark background).
-
-`verticalOffset?: '0' | 's' | 'm' | 'l' | 'xl'` — Top and bottom offsets from the text. (Values: '0' - 0px, 's' - 48px, 'm' - 80px, 'l' - 112px, 'xl' - 144px.)
+<Readme>{readme}</Readme>
 </StoryTemplate>
-
-`mediaView?: full | fit` — full is default value, the media content covers all width and height. Fit - media content has real sizes and locates in the middle
