@@ -1,0 +1,63 @@
+.pc-component-map {
+    position: relative;
+    width: 100%;
+    height: min(760px, calc(100vh - 96px));
+    min-height: 480px;
+    overflow: hidden;
+
+    &__canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: grab;
+        touch-action: none;
+
+        &_interactive {
+            cursor: pointer;
+        }
+
+        &_dragging {
+            cursor: grabbing;
+        }
+
+        &:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: -3px;
+        }
+    }
+
+    &__toolbar {
+        position: absolute;
+        z-index: 1;
+        top: 12px;
+        right: 12px;
+        left: 12px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    &__search {
+        flex: 1 1 200px;
+        width: 0;
+        max-width: 320px;
+        min-width: 0;
+    }
+
+    &__live {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    &__empty {
+        margin: 0;
+        padding: 24px;
+    }
+}
