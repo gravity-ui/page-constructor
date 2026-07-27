@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.16.0](https://github.com/gravity-ui/page-constructor/compare/v8.15.0...v8.16.0) (2026-07-27)
+
+
+### Features
+
+* LLM-ready README + Validate README workflow ([#1479](https://github.com/gravity-ui/page-constructor/issues/1479)) ([f14a3ec](https://github.com/gravity-ui/page-constructor/commit/f14a3ece6a45297d4ddaea65ee85b7e43cc9ecdc))
+
 ## [8.15.0](https://github.com/gravity-ui/page-constructor/compare/v8.14.2...v8.15.0) (2026-07-22)
 
 
