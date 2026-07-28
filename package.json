@@ -29,11 +29,6 @@
       "require": "./server/index.js",
       "import": "./server/index.js"
     },
-    "./server-context": {
-      "types": "./build/esm/server-context.d.ts",
-      "require": "./build/cjs/server-context.js",
-      "import": "./build/esm/server-context.js"
-    },
     "./models": {
       "types": "./build/esm/models/index.d.ts",
       "require": "./build/cjs/models/index.js",
@@ -96,9 +91,6 @@
       ],
       "server": [
         "./server/index.d.ts"
-      ],
-      "server-context": [
-        "./build/esm/server-context.d.ts"
       ],
       "models": [
         "./build/esm/models/index.d.ts"
