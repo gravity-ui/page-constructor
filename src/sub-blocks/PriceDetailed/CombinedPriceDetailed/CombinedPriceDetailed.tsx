@@ -1,10 +1,8 @@
-'use client';
-
 import * as React from 'react';
 
 import chunk from 'lodash/chunk';
 
-import CardBase from '../../../components/CardBase/CardBase';
+import {CardBase} from '../../../components';
 import {BREAKPOINTS} from '../../../constants';
 import {Col, Grid, GridColumnSize, Row} from '../../../grid';
 import {

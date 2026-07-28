@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import Image from '../../../components/Image/Image';
+import {Image} from '../../../components';
 import {getMediaImage} from '../../../components/Media/Image/utils';
 import RouterLink from '../../../components/RouterLink/RouterLink';
-import {useLocation} from '../../../context/locationContext';
+import {LocationContext} from '../../../context/locationContext';
 import {useTheme} from '../../../context/theme';
 import {ThemedNavigationLogoData} from '../../../models';
 import {block, getLinkProps, getThemedValue} from '../../../utils';
@@ -21,7 +21,7 @@ export type LogoProps = ThemedNavigationLogoData & {
 
 export const Logo = ({alt = i18n('image-alt'), ...restProps}: LogoProps) => {
     const props: LogoProps = {...restProps, alt};
-    const {hostname, Link} = useLocation();
+    const {hostname, Link} = React.useContext(LocationContext);
     const theme = useTheme();
     const themedLogoProps = getThemedValue(props, theme) || props;
     const imageData = getMediaImage(themedLogoProps.icon || props.icon);

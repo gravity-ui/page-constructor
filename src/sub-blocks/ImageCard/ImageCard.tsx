@@ -1,10 +1,8 @@
-'use client';
-
 import * as React from 'react';
 
 import {Link, useUniqId} from '@gravity-ui/uikit';
 
-import Image from '../../components/Image/Image';
+import {Image} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
 import {GridColumnSizesType} from '../../grid';

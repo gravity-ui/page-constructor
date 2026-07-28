@@ -1,9 +1,6 @@
-'use client';
-
 import * as React from 'react';
 
-import Foldable from '../../../components/Foldable/Foldable';
-import ToggleArrow from '../../../components/ToggleArrow/ToggleArrow';
+import {Foldable, ToggleArrow} from '../../../components';
 import {
     PriceDetailsListProps,
     PriceDetailsProps,

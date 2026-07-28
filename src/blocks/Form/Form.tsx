@@ -1,10 +1,7 @@
-'use client';
-
 import * as React from 'react';
 
-import BackgroundImage from '../../components/BackgroundImage/BackgroundImage';
+import {BackgroundImage, Title} from '../../components';
 import InnerForm from '../../components/InnerForm/InnerForm';
-import Title from '../../components/Title/Title';
 import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, GridAlignItems, GridColumnSize, Row} from '../../grid';
@@ -16,7 +13,7 @@ import {
     isHubspotDataForm,
     isYandexDataForm,
 } from '../../models';
-import Content from '../../sub-blocks/Content/Content';
+import {Content} from '../../sub-blocks';
 import {block, getThemedValue} from '../../utils';
 
 import {hasBackgroundCSS} from './utils';

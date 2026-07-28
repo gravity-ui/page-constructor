@@ -1,5 +1,7 @@
-import SliderBlock from '../../blocks/Slider/Slider';
-import {useMobile} from '../../context/mobileContext';
+import * as React from 'react';
+
+import {SliderBlock} from '../../blocks';
+import {MobileContext} from '../../context/mobileContext';
 import {HeaderSliderBlockProps, SliderType} from '../../models';
 import {block} from '../../utils';
 import Header from '../Header/Header';
@@ -9,7 +11,7 @@ import './HeaderSlider.scss';
 const b = block('header-slider-block');
 
 export const HeaderSliderBlock = ({items, arrows, ...props}: HeaderSliderBlockProps) => {
-    const isMobile = useMobile();
+    const isMobile = React.useContext(MobileContext);
     const showArrows = isMobile ? false : arrows;
 
     return (

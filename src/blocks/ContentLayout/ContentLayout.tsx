@@ -1,15 +1,12 @@
-'use client';
-
 import * as React from 'react';
 
-import BackgroundImage from '../../components/BackgroundImage/BackgroundImage';
-import FileLink from '../../components/FileLink/FileLink';
+import {BackgroundImage, FileLink} from '../../components';
 import {BREAKPOINTS} from '../../constants';
 import {useTheme} from '../../context/theme';
 import {useWindowWidth} from '../../context/windowWidthContext';
 import {Col} from '../../grid';
 import {ContentLayoutBlockProps, ContentSize, ContentTextSize} from '../../models';
-import Content from '../../sub-blocks/Content/Content';
+import {Content} from '../../sub-blocks';
 import {block, getThemedValue} from '../../utils';
 
 import './ContentLayout.scss';

@@ -1,8 +1,6 @@
-'use client';
-
 import * as React from 'react';
 
-import Image from '../../../../../components/Image/Image';
+import {Image} from '../../../../../components';
 import {ImageProps} from '../../../../../models';
 import {block} from '../../../../../utils';
 

@@ -1,10 +1,8 @@
-'use client';
-
 import * as React from 'react';
 
 import {Button, Icon} from '@gravity-ui/uikit';
 
-import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
+import {YFMWrapper} from '../../components';
 import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
 import {Facebook} from '../../icons/Facebook';

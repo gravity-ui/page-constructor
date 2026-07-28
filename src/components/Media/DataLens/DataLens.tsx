@@ -1,4 +1,6 @@
-import {useLocale} from '../../../context/localeContext';
+import * as React from 'react';
+
+import {LocaleContext} from '../../../context/localeContext';
 import {MediaComponentDataLensProps} from '../../../models';
 import {block} from '../../../utils';
 
@@ -12,7 +14,7 @@ const b = block('media-component-data-lens');
 const DataLens = (props: MediaComponentDataLensProps) => {
     const {dataLens} = props;
     const dataLensData = unifyDataLensToObject(dataLens);
-    const locale = useLocale();
+    const locale = React.useContext(LocaleContext);
 
     return dataLens ? (
         <div className={b('wrap')}>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {useLocation} from '../../context/locationContext';
+import {LocationContext} from '../../context/locationContext';
 
 export interface RouterLinkProps {
     href: string;
@@ -8,7 +8,7 @@ export interface RouterLinkProps {
 }
 
 const RouterLink = ({href, children}: React.PropsWithChildren<RouterLinkProps>) => {
-    const {Link} = useLocation();
+    const {Link} = React.useContext(LocationContext);
 
     return Link ? <Link href={href}>{children}</Link> : <React.Fragment>{children}</React.Fragment>;
 };

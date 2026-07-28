@@ -1,15 +1,11 @@
-'use client';
-
 /* eslint-disable complexity */
 import * as React from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import Button from '../../components/Button/Button';
+import {Button, Media, RouterLink} from '../../components';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 import {getMediaImage} from '../../components/Media/Image/utils';
-import Media from '../../components/Media/Media';
-import RouterLink from '../../components/RouterLink/RouterLink';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {BREAKPOINTS} from '../../constants';
 import {useTheme} from '../../context/theme';

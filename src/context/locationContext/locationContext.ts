@@ -28,10 +28,4 @@ export type LocationContextProps = {
     asPath?: string;
 };
 
-export const initialLocation: LocationContextProps = {};
-
-const isRscServer = typeof React.createContext !== 'function';
-
-export const LocationContext = (
-    isRscServer ? null : React.createContext<LocationContextProps>(initialLocation)
-) as React.Context<LocationContextProps>;
+export const LocationContext = React.createContext<LocationContextProps>({});

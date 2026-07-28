@@ -1,10 +1,8 @@
-'use client';
-
 import * as React from 'react';
 
 import {Col, Row} from '../../grid';
 import {QuestionsProps} from '../../models';
-import Content from '../../sub-blocks/Content/Content';
+import {Content} from '../../sub-blocks';
 import {block} from '../../utils';
 import {sanitizeMicrodata} from '../../utils/microdata';
 
