@@ -36,6 +36,7 @@ interface EditorSlots {
 export interface EditorProviderProps {
     initialUrl: string;
     disableUrlField?: boolean;
+    hideUrl?: boolean;
     children: React.ReactNode;
 }
 
@@ -131,9 +132,14 @@ const EditorViewInternal = ({slots = {}, content}: EditorViewProps) => {
     );
 };
 
-export const EditorProvider = ({initialUrl, disableUrlField, children}: EditorProviderProps) => {
+export const EditorProvider = ({
+    initialUrl,
+    disableUrlField,
+    hideUrl,
+    children,
+}: EditorProviderProps) => {
     return (
-        <IframeProvider initialUrl={initialUrl} disableUrlField={disableUrlField}>
+        <IframeProvider initialUrl={initialUrl} disableUrlField={disableUrlField} hideUrl={hideUrl}>
             <MainEditorStoreProvider>{children}</MainEditorStoreProvider>
         </IframeProvider>
     );
@@ -143,7 +149,11 @@ export const EditorView = (props: EditorViewProps) => <EditorViewInternal {...pr
 
 export const Editor = (props: EditorProps) => {
     return (
-        <EditorProvider initialUrl={props.initialUrl} disableUrlField={props.disableUrlField}>
+        <EditorProvider
+            initialUrl={props.initialUrl}
+            disableUrlField={props.disableUrlField}
+            hideUrl={props.hideUrl}
+        >
             <EditorView {...props} />
         </EditorProvider>
     );

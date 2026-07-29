@@ -17,4 +17,5 @@ const DefaultTemplate: StoryFn = (args) => {
 
 export const Default = DefaultTemplate.bind({});
 
-// Default.args = data.default;
+export const HideUrl = DefaultTemplate.bind({});
+HideUrl.args = {hideUrl: true};
