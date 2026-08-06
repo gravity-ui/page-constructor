@@ -13,9 +13,11 @@ $block: '.#{$ns}QuestionsBlockItem';
 
     &__title {
         @include add-specificity(&) {
-            @include heading4();
+            @include text-header-1();
             @include focusable();
 
+            color: var(--pc-text-header-color);
+            margin: 0;
             cursor: pointer;
             border-radius: var(--g-focus-border-radius);
 
