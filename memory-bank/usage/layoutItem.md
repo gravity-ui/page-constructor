@@ -208,10 +208,9 @@ The component supports two positions for controls (links and buttons):
 
 ## Linked Card
 
-When `url` is provided, the entire LayoutItem is rendered as a link. Its image or video preview
-scales to `1.05` on hover with a 300 ms ease-in-out transition. Video controls remain unchanged.
-Without `url`, the component remains a regular non-interactive layout item and its media does not
-animate.
+When `url` is provided, the entire LayoutItem is rendered as a link. Its image scales to `1.05`
+on hover with a 300 ms ease-in-out transition. Without `url`, the component remains a regular
+non-interactive layout item and the image does not animate.
 
 ## Integration with Theme System
 
