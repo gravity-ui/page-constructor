@@ -63,14 +63,18 @@ a#{$block} {
     @include reset-link-hover();
 
     #{$block}__media {
-        .#{$ns}media-component-image__item {
+        .#{$ns}media-component-image__item,
+        .#{$ns}ReactPlayer__preview-img,
+        .#{$ns}VideoBlock__image {
             transition: transform $animationDuration ease-in-out;
         }
     }
 
     &:hover {
         #{$block}__media {
-            .#{$ns}media-component-image__item {
+            .#{$ns}media-component-image__item,
+            .#{$ns}ReactPlayer__preview-img,
+            .#{$ns}VideoBlock__image {
                 transform: scale(1.05);
             }
         }
