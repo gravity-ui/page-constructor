@@ -119,9 +119,7 @@ Default.args = data.default.content as unknown as LayoutItemModel;
 
 WithUrl.args = {
     ...data.default.content,
-    url: 'https://example.com',
-    urlTitle: 'Open example',
-    target: '_blank',
+    ...data.withUrl.content,
 } as unknown as LayoutItemModel;
 
 WithContentList.args = {

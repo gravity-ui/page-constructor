@@ -5,6 +5,13 @@
       "border": true
     }
   },
+  "withUrl": {
+    "content": {
+      "url": "https://example.com",
+      "urlTitle": "Open example",
+      "target": "_blank"
+    }
+  },
   "metaInfo": {
     "content": {
       "metaInfo": ["anim id&nbsp;est", "*quis nostrud*"],
