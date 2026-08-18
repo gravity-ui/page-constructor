@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.17.0](https://github.com/gravity-ui/page-constructor/compare/v8.16.0...v8.17.0) (2026-08-18)
+
+
+### Features
+
+* **LayoutItem:** add url ([#1491](https://github.com/gravity-ui/page-constructor/issues/1491)) ([98833d4](https://github.com/gravity-ui/page-constructor/commit/98833d43cd651e85a8c3fc315ab8116922b805a1))
+
 ## [8.16.0](https://github.com/gravity-ui/page-constructor/compare/v8.15.0...v8.16.0) (2026-07-27)
 
 
