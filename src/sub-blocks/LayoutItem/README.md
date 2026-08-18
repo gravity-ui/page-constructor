@@ -26,24 +26,29 @@ Accepted as `children` by `CardLayout`, `Slider`, `SliderOld`; also used as the 
   "media": {
     "light": {"image": "/assets/light.png"},
     "dark": {"image": "/assets/dark.png"}
-  }
+  },
+  "url": "https://example.com",
+  "target": "_blank"
 }
 ```
 
 ## Properties
 
-| Property             | Type                                 | Default     | Description                                                                                   |
-| -------------------- | ------------------------------------ | ----------- | --------------------------------------------------------------------------------------------- |
-| `type` _required_    | `'layout-item'`                      | —           | Sub-block discriminator.                                                                      |
-| `when`               | `string`                             | —           | Conditional rendering expression.                                                             |
-| `content` _required_ | `object`                             | —           | Text content area. See below.                                                                 |
-| `media` _required_   | `MediaProps \| {light, dark}`        | —           | Media area (image / video / youtube / iframe / dataLens). Themed: `T \| {light: T, dark: T}`. |
-| `contentMargin`      | `'m' \| 'l'`                         | `'m'`       | Spacing between the media and the content.                                                    |
-| `metaInfo`           | `string[]`                           | —           | List of meta strings rendered under the media (YFM supported).                                |
-| `border`             | `boolean`                            | —           | Adds a border to the media.                                                                   |
-| `fullscreen`         | `boolean`                            | —           | Enables fullscreen-expandable media (icon + overlay).                                         |
-| `controlPosition`    | `'content' \| 'footer'`              | `'content'` | Where buttons/links render: inline in the content or at the card footer.                      |
-| `analyticsEvents`    | `AnalyticsEvent \| AnalyticsEvent[]` | —           | Analytics events fired on media interaction.                                                  |
+| Property             | Type                                         | Default     | Description                                                                                   |
+| -------------------- | -------------------------------------------- | ----------- | --------------------------------------------------------------------------------------------- |
+| `type` _required_    | `'layout-item'`                              | —           | Sub-block discriminator.                                                                      |
+| `when`               | `string`                                     | —           | Conditional rendering expression.                                                             |
+| `content` _required_ | `object`                                     | —           | Text content area. See below.                                                                 |
+| `media` _required_   | `MediaProps \| {light, dark}`                | —           | Media area (image / video / youtube / iframe / dataLens). Themed: `T \| {light: T, dark: T}`. |
+| `contentMargin`      | `'m' \| 'l'`                                 | `'m'`       | Spacing between the media and the content.                                                    |
+| `metaInfo`           | `string[]`                                   | —           | List of meta strings rendered under the media (YFM supported).                                |
+| `border`             | `boolean`                                    | —           | Adds a border to the media.                                                                   |
+| `fullscreen`         | `boolean`                                    | —           | Enables fullscreen-expandable media (icon + overlay).                                         |
+| `controlPosition`    | `'content' \| 'footer'`                      | `'content'` | Where buttons/links render: inline in the content or at the card footer.                      |
+| `url`                | `string`                                     | —           | Makes the entire card a link. Linked cards animate their image on hover.                      |
+| `urlTitle`           | `string`                                     | —           | Native `title` attribute for the card link.                                                   |
+| `target`             | `'_blank' \| '_parent' \| '_top' \| '_self'` | —           | Link target.                                                                                  |
+| `analyticsEvents`    | `AnalyticsEvent \| AnalyticsEvent[]`         | —           | Analytics events fired on media interaction.                                                  |
 
 ### `content` object
 

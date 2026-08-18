@@ -26,6 +26,16 @@ export const LayoutItem = {
         fullscreen: {
             type: 'boolean',
         },
+        url: {
+            type: 'string',
+        },
+        urlTitle: {
+            type: 'string',
+        },
+        target: {
+            type: 'string',
+            enum: ['_blank', '_parent', '_top', '_self'],
+        },
         analyticsEvents: {
             oneOf: [
                 {
