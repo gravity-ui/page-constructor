@@ -6,6 +6,7 @@ import {
     CardBase,
     CardLayoutProps,
     GravityIconProps,
+    linkTarget,
 } from '../../schema/validators/common';
 import {ContentBase} from '../Content/schema';
 
@@ -30,7 +31,7 @@ export const BasicCard = {
             gravityIcon: GravityIconProps,
             target: {
                 type: 'string',
-                enum: ['_blank', '_parent', '_top', '_self'],
+                enum: linkTarget,
             },
             iconPosition: {
                 type: 'string',

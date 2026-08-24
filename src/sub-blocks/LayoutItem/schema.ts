@@ -1,7 +1,7 @@
 import omit from 'lodash/omit';
 
 import metaInfo from '../../components/MetaInfo/schema';
-import {BaseProps, CardLayoutProps, MediaProps} from '../../schema/validators/common';
+import {BaseProps, CardLayoutProps, MediaProps, linkTarget} from '../../schema/validators/common';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 
@@ -34,7 +34,7 @@ export const LayoutItem = {
         },
         target: {
             type: 'string',
-            enum: ['_blank', '_parent', '_top', '_self'],
+            enum: linkTarget,
         },
         analyticsEvents: {
             oneOf: [
