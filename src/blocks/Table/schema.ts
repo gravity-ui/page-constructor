@@ -11,6 +11,7 @@ export const TableBlock = {
                 contentType: 'text',
             },
             table: {
+                type: 'object',
                 additionalProperties: false,
                 required: ['content'],
                 properties: {
