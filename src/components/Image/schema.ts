@@ -57,7 +57,8 @@ const Style = {
 export const ImageDeviceProps = {
     type: 'object',
     additionalProperties: false,
-    required: [Device.Desktop, Device.Mobile],
+    required: [Device.Desktop],
+    anyOf: [{required: [Device.Tablet]}, {required: [Device.Mobile]}],
     properties: {
         ...ImageBase,
         [Device.Desktop]: Url,
@@ -120,7 +121,6 @@ export const BackgroundImageProps = {
         },
         {
             ...ImageDeviceProps,
-            required: [Device.Desktop],
             properties: {
                 ...ImageDeviceProps.properties,
                 style: Style,
