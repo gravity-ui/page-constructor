@@ -1,7 +1,7 @@
 import omit from 'lodash/omit';
 
 import {
-    BaseProps,
+    BlockBaseProps,
     ButtonBlock,
     LinkProps,
     ThemeProps,
@@ -20,7 +20,7 @@ export const InfoBlock = {
         additionalProperties: false,
         required: ['title', 'sectionsTitle'],
         properties: {
-            ...BaseProps,
+            ...BlockBaseProps,
             title: {
                 type: 'string',
                 contentType: 'text',
