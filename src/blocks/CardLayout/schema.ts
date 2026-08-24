@@ -16,6 +16,7 @@ export const CardLayoutProps = {
         ...AnimatableProps,
         ...BlockHeaderProps,
         colSizes: containerSizesObject,
+        centered: {type: 'boolean'},
         background: {
             anyOf: [
                 {
