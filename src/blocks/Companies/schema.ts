@@ -1,11 +1,11 @@
-import {AnimatableProps, BaseProps, withTheme} from '../../schema/validators/common';
+import {AnimatableProps, BlockBaseProps, withTheme} from '../../schema/validators/common';
 
 export const CompaniesBlock = {
     'companies-block': {
         additionalProperties: false,
         required: ['title', 'images'],
         properties: {
-            ...BaseProps,
+            ...BlockBaseProps,
             ...AnimatableProps,
             title: {
                 type: 'string',
