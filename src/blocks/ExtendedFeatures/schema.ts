@@ -33,7 +33,7 @@ export const ExtendedFeaturesItem = {
 export const ExtendedFeaturesBlock = {
     'extended-features-block': {
         additionalProperties: false,
-        required: [],
+        required: ['items'],
         properties: {
             ...BlockBaseProps,
             ...AnimatableProps,
