@@ -1,4 +1,4 @@
-import {AnimatableProps, BaseProps, textSize} from '../../schema/validators/common';
+import {AnimatableProps, BaseProps, CardBase, textSize} from '../../schema/validators/common';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
 import {filteredArray} from '../../schema/validators/utils';
 
@@ -161,6 +161,7 @@ const PriceItem = {
     additionalProperties: false,
     required: ['title', 'description'],
     properties: {
+        ...CardBase,
         ...PriceDetailsProps,
         ...PriceDescriptionProps,
         analyticsEvents: {
