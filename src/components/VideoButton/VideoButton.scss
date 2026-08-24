@@ -7,7 +7,7 @@ $block: '.#{$ns}video-button';
     @include reset-button-style();
     @include focusable();
 
-    $size: 64px;
+    $size: var(--pc-video-button-size, 64px);
 
     display: flex;
     justify-content: center;
