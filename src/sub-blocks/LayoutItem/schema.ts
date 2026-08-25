@@ -87,3 +87,7 @@ export const LayoutItem = {
         },
     },
 };
+
+export const LayoutItemBlock = {
+    'layout-item': LayoutItem,
+};
