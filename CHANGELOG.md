@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.19.0](https://github.com/gravity-ui/page-constructor/compare/v8.18.0...v8.19.0) (2026-08-25)
+
+
+### Features
+
+* **Icon:** export component ([#1498](https://github.com/gravity-ui/page-constructor/issues/1498)) ([0d8958d](https://github.com/gravity-ui/page-constructor/commit/0d8958d87dc456de4e2f45eec5824d70b04473ad))
+
 ## [8.18.0](https://github.com/gravity-ui/page-constructor/compare/v8.17.0...v8.18.0) (2026-08-24)
 
 
