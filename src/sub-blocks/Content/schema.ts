@@ -14,14 +14,7 @@ import {filteredArray} from '../../schema/validators/utils';
 
 export const ContentItem = {
     additionalProperties: false,
-    oneOf: [
-        {
-            required: ['icon'],
-        },
-        {
-            required: ['gravityIcon'],
-        },
-    ],
+    required: [],
     properties: {
         title: {
             type: 'string',
