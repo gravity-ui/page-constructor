@@ -22,13 +22,14 @@ export const playIconTypes = ['default', 'text'];
 export const playIconThemes = ['blue', 'grey'];
 export const videoControlsTypes = [MediaVideoControlsType.Default, MediaVideoControlsType.Custom];
 export const fileLinkTypes = ['vertical', 'horizontal'];
-export const linkTarget = ['_self', '_blank', '_parent', '_top'];
+export const linkTargets = ['_self', '_blank', '_parent', '_top'];
 
 export const dividerEnum = {enum: ['0', 'xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl']};
 export const sizeNumber = {type: 'number', maximum: 12, minimum: 1};
 export const contentThemes = ['default', 'dark', 'light'];
 export const quoteTypes = Object.values(QuoteType);
 export const mediaView = ['fit', 'full'];
+export const mediaBorders = ['shadow', 'line', 'none'];
 export const customControlsType = [
     CustomControlsType.WithMuteButton,
     CustomControlsType.WithPlayPauseButton,
@@ -281,7 +282,7 @@ export const LinkProps = {
         },
         target: {
             type: 'string',
-            enum: linkTarget,
+            enum: linkTargets,
         },
         analyticsEvents: {
             oneOf: [
@@ -441,7 +442,7 @@ export const ButtonProps = {
     },
     target: {
         type: 'string',
-        enum: linkTarget,
+        enum: linkTargets,
     },
     width: {
         type: 'string',

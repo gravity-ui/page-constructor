@@ -4,7 +4,7 @@ import {
     BaseProps,
     CardBase,
     CardLayoutProps,
-    linkTarget,
+    linkTargets,
     withTheme,
 } from '../../schema/validators/common';
 import {ImageProps} from '../../schema/validators/components';
@@ -45,7 +45,7 @@ export const ImageCard = {
             },
             target: {
                 type: 'string',
-                enum: linkTarget,
+                enum: linkTargets,
             },
             analyticsEvents: {
                 oneOf: [

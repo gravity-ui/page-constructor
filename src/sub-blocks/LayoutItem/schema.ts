@@ -5,7 +5,7 @@ import {
     BaseProps,
     CardLayoutProps,
     MediaProps,
-    linkTarget,
+    linkTargets,
     withTheme,
 } from '../../schema/validators/common';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
@@ -70,7 +70,7 @@ export const LayoutItem = {
         },
         target: {
             type: 'string',
-            enum: linkTarget,
+            enum: linkTargets,
         },
         analyticsEvents: {
             oneOf: [

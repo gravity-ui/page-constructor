@@ -6,6 +6,7 @@ import {
     ButtonBlock,
     MediaProps,
     containerSizesObject,
+    mediaBorders,
     mediaDirection,
     withTheme,
 } from '../../schema/validators/common';
@@ -52,7 +53,7 @@ export const MediaBlockBaseProps = {
     mediaOnlyColSizes: containerSizesObject,
     border: {
         type: 'string',
-        enum: ['shadow', 'line', 'none'],
+        enum: mediaBorders,
     },
 };
 

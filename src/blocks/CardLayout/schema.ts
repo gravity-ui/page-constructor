@@ -1,11 +1,12 @@
-import {ImageBaseObjectProps, ImageDeviceProps} from '../../components/Image/schema';
+import {BackgroundImageProps} from '../../components/Image/schema';
 import {
     AnimatableProps,
     BlockBaseProps,
     BlockHeaderProps,
-    BorderProps,
     ChildrenCardsProps,
     containerSizesObject,
+    mediaBorders,
+    withTheme,
 } from '../../schema/validators/common';
 
 export const CardLayoutProps = {
@@ -17,20 +18,18 @@ export const CardLayoutProps = {
         ...BlockHeaderProps,
         colSizes: containerSizesObject,
         centered: {type: 'boolean'},
-        background: {
-            anyOf: [
-                {
-                    ...ImageBaseObjectProps,
-                    properties: {...ImageBaseObjectProps.properties, border: BorderProps},
-                    optionName: 'options',
+        background: withTheme({
+            oneOf: BackgroundImageProps.oneOf.map((branch) => ({
+                ...branch,
+                properties: {
+                    ...branch.properties,
+                    border: {
+                        type: 'string',
+                        enum: mediaBorders,
+                    },
                 },
-                {
-                    ...ImageDeviceProps,
-                    properties: {...ImageDeviceProps.properties, border: BorderProps},
-                    optionName: 'device options',
-                },
-            ],
-        },
+            })),
+        }),
         children: ChildrenCardsProps,
     },
 };

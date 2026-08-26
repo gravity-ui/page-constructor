@@ -1,7 +1,7 @@
 import omit from 'lodash/omit';
 
 import {ImageProps, imageUrlPattern} from '../components/Image/schema';
-import {ButtonProps, linkTarget} from '../schema/validators/common';
+import {ButtonProps, linkTargets} from '../schema/validators/common';
 import {filteredArray} from '../schema/validators/utils';
 
 const NavigationItemType = {
@@ -56,7 +56,7 @@ const NavigationLinkItemProps = {
         },
         target: {
             type: 'string',
-            enum: linkTarget,
+            enum: linkTargets,
         },
         arrow: {
             type: 'boolean',

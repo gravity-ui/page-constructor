@@ -6,7 +6,7 @@ import {
     CardBase,
     CardLayoutProps,
     GravityIconProps,
-    linkTarget,
+    linkTargets,
 } from '../../schema/validators/common';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
 import {ContentBase} from '../Content/schema';
@@ -32,7 +32,7 @@ export const BasicCard = {
             gravityIcon: GravityIconProps,
             target: {
                 type: 'string',
-                enum: linkTarget,
+                enum: linkTargets,
             },
             iconPosition: {
                 type: 'string',
