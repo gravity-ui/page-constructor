@@ -428,8 +428,8 @@ export interface FilterBlockProps extends Animatable {
 }
 
 export interface IconsBlockItemProps extends AnalyticsEventsBase {
-    url: string;
-    text: string;
+    url?: string;
+    text?: string;
     src: ThemeSupporting<string>;
 }
 

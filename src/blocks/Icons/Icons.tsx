@@ -25,7 +25,7 @@ const Icons = ({title, description, size = 's', colSizes = {all: 12}, items}: Ic
 
     const onClick = React.useCallback(
         ({analyticsEvents, url}: IconsBlockItemProps) => {
-            handleAnalytics(analyticsEvents, {url});
+            handleAnalytics(analyticsEvents, {url} as Record<string, string>);
         },
         [handleAnalytics],
     );
