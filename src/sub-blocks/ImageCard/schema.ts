@@ -1,6 +1,12 @@
 import omit from 'lodash/omit';
 
-import {BaseProps, CardBase, CardLayoutProps, linkTarget} from '../../schema/validators/common';
+import {
+    BaseProps,
+    CardBase,
+    CardLayoutProps,
+    linkTarget,
+    withTheme,
+} from '../../schema/validators/common';
 import {ImageProps} from '../../schema/validators/components';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
 import {ContentBase} from '../Content/schema';
@@ -16,7 +22,7 @@ export const ImageCard = {
             ...CardBase,
             ...CardLayoutProps,
             ...ImageCardBlockContentProps,
-            image: ImageProps,
+            image: withTheme(ImageProps),
             enableImageBorderRadius: {
                 type: 'boolean',
             },
