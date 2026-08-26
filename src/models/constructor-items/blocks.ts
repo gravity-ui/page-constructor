@@ -242,8 +242,11 @@ export interface HeroBlockProps
 }
 
 export interface ExtendedFeaturesItem
-    extends Omit<ContentBlockProps, 'theme' | 'centered' | 'colSizes' | 'size' | 'title'> {
-    title: string;
+    extends Omit<
+        ContentBlockProps,
+        'title' | 'theme' | 'centered' | 'colSizes' | 'size' | 'title'
+    > {
+    title?: string;
     label?: string;
     icon?: ThemedImage;
     /** @deprecated **/

@@ -1,3 +1,6 @@
+import {omit} from 'lodash';
+
+import {ImageProps} from '../../components/Image/schema';
 import {
     AnimatableProps,
     BlockBaseProps,
@@ -6,28 +9,26 @@ import {
     containerSizesObject,
     withTheme,
 } from '../../schema/validators/common';
-import {ImageProps} from '../../schema/validators/components';
 import {filteredArray} from '../../schema/validators/utils';
+import {ContentBase} from '../../sub-blocks/Content/schema';
+
+export const ExtendedFeaturesItemProps = {
+    ...omit(ContentBase, ['title', 'theme', 'centered', 'colSizes', 'size', 'title']),
+    title: {
+        type: 'string',
+        contentType: 'text',
+    },
+    label: {
+        type: 'string',
+    },
+    icon: withTheme(ImageProps),
+    link: LinkProps,
+};
 
 export const ExtendedFeaturesItem = {
     additionalProperties: false,
     required: [],
-    properties: {
-        title: {
-            type: 'string',
-            contentType: 'text',
-        },
-        text: {
-            type: 'string',
-            contentType: 'yfm',
-        },
-        label: {
-            type: 'string',
-            enum: ['New', 'Preview'],
-        },
-        link: LinkProps,
-        icon: withTheme(ImageProps),
-    },
+    properties: ExtendedFeaturesItemProps,
 };
 
 export const ExtendedFeaturesBlock = {
