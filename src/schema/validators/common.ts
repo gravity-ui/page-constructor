@@ -512,7 +512,7 @@ export function withDevice<T extends object>(value: T) {
 export const AnchorProps = {
     type: 'object',
     additionalProperties: false,
-    required: ['text', 'url'],
+    required: ['url'],
     properties: {
         text: {
             type: 'string',
