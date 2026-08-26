@@ -598,6 +598,7 @@ export const ButtonBlock = {
             theme: {
                 enum: ['app-store', 'google-play'],
             },
+            required: ['theme'],
         },
     },
     then: {

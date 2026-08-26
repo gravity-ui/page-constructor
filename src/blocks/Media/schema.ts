@@ -59,10 +59,23 @@ export const MediaBlockBaseProps = {
 export const MediaBlock = {
     'media-block': {
         additionalProperties: false,
-        required: ['title', 'media'],
         properties: {
             ...MediaBlockBaseProps,
             media: withTheme(Media),
+        },
+        if: {
+            properties: {
+                mediaOnly: {
+                    const: true,
+                },
+            },
+            required: ['mediaOnly'],
+        },
+        then: {
+            required: ['media'],
+        },
+        else: {
+            required: ['title', 'media'],
         },
     },
 };
