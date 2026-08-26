@@ -18,7 +18,7 @@ const ContentProps = {
 export const InfoBlock = {
     'info-block': {
         additionalProperties: false,
-        required: ['title', 'sectionsTitle'],
+        required: [],
         properties: {
             ...BlockBaseProps,
             title: {

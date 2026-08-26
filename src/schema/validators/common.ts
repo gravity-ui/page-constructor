@@ -284,6 +284,7 @@ export const LinkProps = {
             type: 'string',
             enum: linkTargets,
         },
+        colorTheme: ThemeProps,
         analyticsEvents: {
             oneOf: [
                 {
@@ -839,6 +840,6 @@ export const HeaderBreadcrumbsProps = {
                 },
             },
         },
-        theme: {type: 'string', enum: ['light', 'dark']},
+        theme: ThemeProps,
     },
 };
