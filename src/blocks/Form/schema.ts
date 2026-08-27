@@ -35,17 +35,19 @@ export const FormBlock = {
                 oneOf: [
                     {
                         type: 'object',
-                        optionName: 'yandex',
+                        additionalProperties: false,
                         properties: {
                             yandex: withTheme(YandexFormProps),
                         },
+                        optionName: 'yandex',
                     },
                     {
                         type: 'object',
-                        optionName: 'hubspot',
+                        additionalProperties: false,
                         properties: {
                             hubspot: withTheme(HubspotFormProps),
                         },
+                        optionName: 'hubspot',
                     },
                 ],
             },
