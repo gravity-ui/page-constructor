@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.20.0](https://github.com/gravity-ui/page-constructor/compare/v8.19.0...v8.20.0) (2026-08-28)
+
+
+### Features
+
+* schema fixes ([#1497](https://github.com/gravity-ui/page-constructor/issues/1497)) ([988027c](https://github.com/gravity-ui/page-constructor/commit/988027cfed5fa066a9f15e0e2169b5af65f722ff))
+
 ## [8.19.0](https://github.com/gravity-ui/page-constructor/compare/v8.18.0...v8.19.0) (2026-08-25)
 
 
