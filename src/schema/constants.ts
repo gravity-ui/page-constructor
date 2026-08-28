@@ -1,4 +1,4 @@
-import {BlockType} from '../models';
+import {BlockType, SubBlockType} from '../models';
 
 import {
     BannerBlock,
@@ -31,6 +31,7 @@ import {
     BasicCard,
     Divider,
     ImageCard,
+    LayoutItemBlock,
     MediaCardBlock,
     PriceCardBlock,
     PriceDetailedBlock,
@@ -42,6 +43,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ExtendedFeaturesBlock,
     ...PromoFeaturesBlock,
     ...SliderOldBlock,
+    ...SliderBlock,
     ...QuestionsBlock,
     ...FoldableListBlock,
     ...HeaderBlock,
@@ -61,7 +63,6 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ShareBlock,
     ...FilterBlock,
     ...FormBlock,
-    ...SliderBlock,
 };
 
 export const cardSchemas = {
@@ -71,51 +72,46 @@ export const cardSchemas = {
     ...BackgroundCard,
     ...Quote,
     ...BasicCard,
+    ...LayoutItemBlock,
     ...PriceCardBlock,
     ...ImageCard,
 };
 
-export const constructorBlockSchemaNames = [
-    'divider',
-    'quote',
-    'event',
-    'post',
-    'extended-features-block',
-    'promo-features-block',
-    /** @deprecated */
-    'slider-old-block',
-    'slider-block',
-    'questions-block',
-    'header-block',
-    'footer-block',
-    'banner-block',
-    'companies-block',
-    'media-block',
-    'map-block',
-    'info-block',
-    'table-block',
-    'tabs-block',
-    /** @deprecated */
-    'price-detailed',
-    'header-slider-block',
-    'cards-with-image-block',
-    'icons-block',
-    'card-layout-block',
-    'content-layout-block',
-    'share-block',
-    'filter-block',
-    'form-block',
+export const constructorBlockSchemaNames: string[] = [
+    SubBlockType.Divider,
+    BlockType.ExtendedFeaturesBlock,
+    BlockType.PromoFeaturesBlock,
+    BlockType.SliderOldBlock,
+    BlockType.SliderBlock,
+    BlockType.QuestionsBlock,
+    BlockType.FoldableListBlock,
+    BlockType.HeaderBlock,
+    BlockType.HeroBlock,
+    BlockType.FooterBlock,
+    BlockType.BannerBlock,
+    BlockType.CompaniesBlock,
+    BlockType.MediaBlock,
+    BlockType.MapBlock,
+    BlockType.InfoBlock,
+    BlockType.TableBlock,
+    BlockType.TabsBlock,
+    BlockType.HeaderSliderBlock,
+    BlockType.IconsBlock,
+    BlockType.CardLayoutBlock,
+    BlockType.ContentLayoutBlock,
+    BlockType.ShareBlock,
+    BlockType.FilterBlock,
+    BlockType.FormBlock,
 ];
 
-export const constructorCardSchemaNames = [
-    'media-card',
-    'banner-card',
-    /** @deprecated */
-    'price-detailed',
-    'background-card',
-    'quote',
-    'basic-card',
-    'layout-item',
-    'price-card',
-    'image-card',
+export const constructorCardSchemaNames: string[] = [
+    SubBlockType.MediaCard,
+    SubBlockType.BannerCard,
+    SubBlockType.PriceDetailed,
+    SubBlockType.BackgroundCard,
+    SubBlockType.Quote,
+    SubBlockType.BasicCard,
+    SubBlockType.LayoutItem,
+    SubBlockType.PriceCard,
+    SubBlockType.ImageCard,
 ];

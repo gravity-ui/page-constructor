@@ -156,7 +156,7 @@ export interface ImageObjectProps extends ImageInfoProps {
 
 export interface ImageDeviceProps extends ImageInfoProps {
     [Device.Desktop]: string;
-    [Device.Mobile]: string;
+    [Device.Mobile]?: string;
     [Device.Tablet]?: string;
 }
 

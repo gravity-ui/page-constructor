@@ -1,4 +1,5 @@
-import {ImageProps} from '../../components/Image/schema';
+import {BackgroundImageProps, ImageProps, imageUrlPattern} from '../../components/Image/schema';
+import {Theme} from '../../models';
 import {
     BlockBaseProps,
     ButtonBlock,
@@ -28,6 +29,16 @@ export const HeaderBackgroundProps = {
     required: [],
     properties: {
         ...MediaProps,
+        image: {
+            oneOf: [
+                {type: 'string', pattern: imageUrlPattern, optionName: 'url'},
+                ...BackgroundImageProps.oneOf,
+            ],
+        },
+        /** @deprecated use `image` */
+        url: {type: 'string', pattern: imageUrlPattern},
+        /** @deprecated use `image` */
+        disableCompress: {type: 'boolean'},
         fullWidth: {type: 'boolean'},
         fullWidthMedia: {type: 'boolean'},
     },
@@ -63,7 +74,7 @@ export const HeaderProperties = {
     },
     image: withTheme(ImageProps),
     video: withTheme(VideoProps),
-    videoIframe: withTheme(HeaderVideoIframeProps),
+    videoIframe: HeaderVideoIframeProps,
     mediaView: {
         type: 'string',
         enum: mediaView,
@@ -92,7 +103,12 @@ export const HeaderProperties = {
     background: withTheme(HeaderBackgroundProps),
     theme: {
         type: 'string',
-        enum: ['default', 'dark'],
+        enum: [
+            Theme.Light,
+            Theme.Dark,
+            /** @deprecated */
+            'default',
+        ],
     },
     breadcrumbs: HeaderBreadcrumbsProps,
     status: {

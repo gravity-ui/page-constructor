@@ -30,7 +30,7 @@ export const IconsProps = {
             items: {
                 type: 'object',
                 additionalProperties: false,
-                required: ['url', 'text', 'src'],
+                required: ['src'],
                 properties: {
                     url: {
                         type: 'string',

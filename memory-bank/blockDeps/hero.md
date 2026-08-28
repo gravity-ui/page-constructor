@@ -120,7 +120,11 @@ interface HeroBlockProps
   breadcrumbs?: HeaderBreadCrumbsProps;
   overtitle?: string | JSX.Element;
   buttons?: ThemeSupporting<
-    Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'extraProps'> | React.ReactNode
+    | Pick<
+        ButtonProps,
+        'url' | 'text' | 'theme' | 'primary' | 'extraProps' | 'target' | 'analyticsEvents'
+      >
+    | React.ReactNode
   >[];
   media?: ThemeSupporting<HeroBlockMedia>;
   fullWidth?: boolean;

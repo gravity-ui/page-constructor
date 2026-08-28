@@ -1,19 +1,54 @@
-import omit from 'lodash/omit';
-
+import {ImageProps} from '../../components/Image/schema';
 import metaInfo from '../../components/MetaInfo/schema';
-import {BaseProps, CardLayoutProps, MediaProps} from '../../schema/validators/common';
+import {IconPosition} from '../../models';
+import {
+    BaseProps,
+    CardLayoutProps,
+    MediaProps,
+    linkTargets,
+    withTheme,
+} from '../../schema/validators/common';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
 import {ContentBase} from '../../sub-blocks/Content/schema';
+
+const LayoutItemIconImage = {
+    oneOf: ImageProps.oneOf.filter(({type}) => type !== 'array'),
+};
+
+const LayoutItemIconPosition = [IconPosition.Top, IconPosition.Left];
+
+const LayoutItemIcon = {
+    type: 'object',
+    additionalProperties: false,
+    required: ['value'],
+    properties: {
+        value: LayoutItemIconImage,
+        position: {
+            type: 'string',
+            enum: LayoutItemIconPosition,
+        },
+    },
+};
 
 export const LayoutItem = {
     type: 'object',
     additionalProperties: false,
-    required: ['content', 'media'],
+    required: ['content'],
     properties: {
         ...BaseProps,
         ...CardLayoutProps,
-        media: MediaProps,
-        content: omit(ContentBase, ['colSize', 'centered']),
+        media: {
+            type: 'object',
+            additionalProperties: false,
+            required: [],
+            properties: MediaProps,
+        },
+        content: {
+            type: 'object',
+            additionalProperties: false,
+            required: [],
+            properties: ContentBase,
+        },
         contentMargin: {
             type: 'string',
             enum: ['m', 'l'],
@@ -26,6 +61,7 @@ export const LayoutItem = {
         fullscreen: {
             type: 'boolean',
         },
+        icon: withTheme(LayoutItemIcon),
         url: {
             type: 'string',
         },
@@ -34,7 +70,7 @@ export const LayoutItem = {
         },
         target: {
             type: 'string',
-            enum: ['_blank', '_parent', '_top', '_self'],
+            enum: linkTargets,
         },
         analyticsEvents: {
             oneOf: [
@@ -50,4 +86,8 @@ export const LayoutItem = {
             ],
         },
     },
+};
+
+export const LayoutItemBlock = {
+    'layout-item': LayoutItem,
 };

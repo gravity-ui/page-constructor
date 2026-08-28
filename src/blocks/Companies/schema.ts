@@ -1,11 +1,14 @@
-import {AnimatableProps, BaseProps, withTheme} from '../../schema/validators/common';
+import omit from 'lodash/omit';
+
+import {ImageDeviceProps} from '../../components/Image/schema';
+import {AnimatableProps, BlockBaseProps, withTheme} from '../../schema/validators/common';
 
 export const CompaniesBlock = {
     'companies-block': {
         additionalProperties: false,
         required: ['title', 'images'],
         properties: {
-            ...BaseProps,
+            ...BlockBaseProps,
             ...AnimatableProps,
             title: {
                 type: 'string',
@@ -16,25 +19,7 @@ export const CompaniesBlock = {
                 contentType: 'yfm',
                 inputType: 'textarea',
             },
-            images: withTheme({
-                type: 'object',
-                required: ['desktop', 'tablet', 'mobile'],
-                properties: {
-                    desktop: {
-                        type: 'string',
-                    },
-                    tablet: {
-                        type: 'string',
-                    },
-                    mobile: {
-                        type: 'string',
-                    },
-                    alt: {
-                        type: 'string',
-                        contentType: 'text',
-                    },
-                },
-            }),
+            images: withTheme(omit(ImageDeviceProps, ['anyOf'])),
         },
     },
 };

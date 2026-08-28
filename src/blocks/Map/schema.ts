@@ -4,7 +4,7 @@ import {MediaBlockBaseProps} from '../Media/schema';
 export const Map = {
     type: 'object',
     additionalProperties: false,
-    required: [],
+    anyOf: [{required: ['markers']}, {required: ['address']}],
     properties: MapProps,
 };
 

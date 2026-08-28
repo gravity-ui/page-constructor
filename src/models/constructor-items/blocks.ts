@@ -227,8 +227,13 @@ export interface HeroBlockProps
     breadcrumbs?: HeaderBreadCrumbsProps;
     // TODO: add overtitle to ContentProps
     overtitle?: string | JSX.Element;
+    /** Buttons are always rendered at size `xl` — a per-button `size` has no effect. */
     buttons?: ThemeSupporting<
-        Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'extraProps'> | React.ReactNode
+        | Pick<
+              ButtonProps,
+              'url' | 'text' | 'theme' | 'primary' | 'extraProps' | 'target' | 'analyticsEvents'
+          >
+        | React.ReactNode
     >[];
     media?: ThemeSupporting<HeroBlockMedia>;
     fullWidth?: boolean;
@@ -237,8 +242,11 @@ export interface HeroBlockProps
 }
 
 export interface ExtendedFeaturesItem
-    extends Omit<ContentBlockProps, 'theme' | 'centered' | 'colSizes' | 'size' | 'title'> {
-    title: string;
+    extends Omit<
+        ContentBlockProps,
+        'title' | 'theme' | 'centered' | 'colSizes' | 'size' | 'title'
+    > {
+    title?: string;
     label?: string;
     icon?: ThemedImage;
     /** @deprecated **/
@@ -423,8 +431,8 @@ export interface FilterBlockProps extends Animatable {
 }
 
 export interface IconsBlockItemProps extends AnalyticsEventsBase {
-    url: string;
-    text: string;
+    url?: string;
+    text?: string;
     src: ThemeSupporting<string>;
 }
 

@@ -5,6 +5,7 @@ import {
     contentSizes,
     contentTextWidth,
     contentThemes,
+    withTheme,
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
 import {ContentBlock} from '../../sub-blocks/Content/schema';
@@ -14,7 +15,7 @@ const ContentLayoutBlockProperties = {
         type: 'string',
         enum: contentSizes,
     },
-    background: BackgroundImageProps,
+    background: withTheme(BackgroundImageProps),
     centered: {
         type: 'boolean',
     },

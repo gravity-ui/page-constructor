@@ -43,9 +43,9 @@ Renders a responsive grid of small icon items, each consisting of an image and a
 
 | Property          | Type                                 | Default | Description                                                                  |
 | ----------------- | ------------------------------------ | ------- | ---------------------------------------------------------------------------- |
-| `url` _required_  | `string`                             | —       | If present, the item is rendered as a link wrapping the icon and text.       |
-| `text` _required_ | `string`                             | —       | Caption rendered under the icon; also used as the link `aria-label`/`title`. |
 | `src` _required_  | `string \| {light, dark}`            | —       | Icon image URL.                                                              |
+| `url`             | `string`                             | —       | If present, the item is rendered as a link wrapping the icon and text.       |
+| `text`            | `string`                             | —       | Caption rendered under the icon; also used as the link `aria-label`/`title`. |
 | `analyticsEvents` | `AnalyticsEvent \| AnalyticsEvent[]` | —       | Analytics events fired when the item link is clicked.                        |
 
 ### Common properties

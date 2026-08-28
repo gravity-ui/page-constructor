@@ -22,12 +22,14 @@ export const playIconTypes = ['default', 'text'];
 export const playIconThemes = ['blue', 'grey'];
 export const videoControlsTypes = [MediaVideoControlsType.Default, MediaVideoControlsType.Custom];
 export const fileLinkTypes = ['vertical', 'horizontal'];
+export const linkTargets = ['_self', '_blank', '_parent', '_top'];
 
 export const dividerEnum = {enum: ['0', 'xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl']};
 export const sizeNumber = {type: 'number', maximum: 12, minimum: 1};
 export const contentThemes = ['default', 'dark', 'light'];
 export const quoteTypes = Object.values(QuoteType);
 export const mediaView = ['fit', 'full'];
+export const mediaBorders = ['shadow', 'line', 'none'];
 export const customControlsType = [
     CustomControlsType.WithMuteButton,
     CustomControlsType.WithPlayPauseButton,
@@ -280,8 +282,9 @@ export const LinkProps = {
         },
         target: {
             type: 'string',
-            enum: ['_blank', '_parent', '_top', '_self'],
+            enum: linkTargets,
         },
+        colorTheme: ThemeProps,
         analyticsEvents: {
             oneOf: [
                 {
@@ -440,7 +443,7 @@ export const ButtonProps = {
     },
     target: {
         type: 'string',
-        enum: ['_self', '_blank', '_parent', '_top'],
+        enum: linkTargets,
     },
     width: {
         type: 'string',
@@ -510,7 +513,7 @@ export function withDevice<T extends object>(value: T) {
 export const AnchorProps = {
     type: 'object',
     additionalProperties: false,
-    required: ['text', 'url'],
+    required: ['url'],
     properties: {
         text: {
             type: 'string',
@@ -597,6 +600,7 @@ export const ButtonBlock = {
             theme: {
                 enum: ['app-store', 'google-play'],
             },
+            required: ['theme'],
         },
     },
     then: {
@@ -836,6 +840,6 @@ export const HeaderBreadcrumbsProps = {
                 },
             },
         },
-        theme: {type: 'string', enum: ['light', 'dark']},
+        theme: ThemeProps,
     },
 };

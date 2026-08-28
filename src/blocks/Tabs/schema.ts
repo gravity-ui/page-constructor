@@ -8,6 +8,7 @@ import {
     MediaProps,
     containerSizesArray,
     contentSizes,
+    mediaBorders,
     mediaDirection,
     sizeNumber,
     withTheme,
@@ -39,7 +40,7 @@ export const tabsItem = {
         image: withTheme(ImageProps),
         border: {
             type: 'string',
-            enum: ['shadow', 'line', 'none'],
+            enum: mediaBorders,
         },
     },
 };
