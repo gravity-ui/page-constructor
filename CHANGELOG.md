@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.20.1](https://github.com/gravity-ui/page-constructor/compare/v8.20.0...v8.20.1) (2026-08-31)
+
+
+### Bug Fixes
+
+* buttom schema ([#1501](https://github.com/gravity-ui/page-constructor/issues/1501)) ([0962489](https://github.com/gravity-ui/page-constructor/commit/0962489b877cd1d9a730dd28f96e3a7dc3d69260))
+
 ## [8.20.0](https://github.com/gravity-ui/page-constructor/compare/v8.19.0...v8.20.0) (2026-08-28)
 
 
