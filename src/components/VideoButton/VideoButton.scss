@@ -61,7 +61,10 @@ $block: '.#{$ns}video-button';
     }
 
     &__icon {
+        $size: var(--pc-video-button-icon-size, 24px);
         margin-left: 1px;
+        height: $size;
+        width: $size;
     }
 
     @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
