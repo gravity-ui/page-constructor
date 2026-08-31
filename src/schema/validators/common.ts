@@ -600,8 +600,8 @@ export const ButtonBlock = {
             theme: {
                 enum: ['app-store', 'google-play'],
             },
-            required: ['theme'],
         },
+        required: ['theme'],
     },
     then: {
         required: ['url'],
