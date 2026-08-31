@@ -85,7 +85,7 @@ const Image = (props: ImageAllProps) => {
         const parallaxLevel = 2;
         springSetScrollY.start({springScrollY: height && scrollY > height ? height : scrollY});
         parallaxInterpolate = springScrollY.to(
-            (value) => `translateY(-${Number(value) / parallaxLevel}px)`,
+            (value) => `translateY(${-Number(value) / parallaxLevel}px)`,
         );
     }
 
