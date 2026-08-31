@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.21.0](https://github.com/gravity-ui/page-constructor/compare/v8.20.1...v8.21.0) (2026-08-31)
+
+
+### Features
+
+* **VideoButton:** add css token for video button icon size ([#1505](https://github.com/gravity-ui/page-constructor/issues/1505)) ([7ff39dd](https://github.com/gravity-ui/page-constructor/commit/7ff39dd2c09d8308d1e97d2d9194744fce592051))
+
 ## [8.20.1](https://github.com/gravity-ui/page-constructor/compare/v8.20.0...v8.20.1) (2026-08-31)
 
 
