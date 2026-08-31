@@ -37,7 +37,7 @@ const VideoButton = ({
                 return text;
             case PlayButtonType.Default:
             default:
-                return <Icon className={b('icon')} data={PlayFill} size={24} />;
+                return <Icon className={b('icon')} data={PlayFill} />;
         }
     }, [text, type]);
 
