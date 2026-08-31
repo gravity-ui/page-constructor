@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.21.1](https://github.com/gravity-ui/page-constructor/compare/v8.21.0...v8.21.1) (2026-08-31)
+
+
+### Bug Fixes
+
+* **deps:** prevent nested ReactDOM 18 with React 19 ([#1503](https://github.com/gravity-ui/page-constructor/issues/1503)) ([aaab401](https://github.com/gravity-ui/page-constructor/commit/aaab4017b46f9d540372fde18a348e78697d0b6f))
+
 ## [8.21.0](https://github.com/gravity-ui/page-constructor/compare/v8.20.1...v8.21.0) (2026-08-31)
 
 
