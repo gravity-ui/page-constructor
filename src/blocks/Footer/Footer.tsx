@@ -2,7 +2,8 @@ import * as React from 'react';
 
 import {Link} from '@gravity-ui/uikit';
 
-import {BrandFooter, Image} from '../../components';
+import BrandFooter from '../../components/BrandFooter/BrandFooter';
+import Image from '../../components/Image/Image';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
 import {ClassNameProps, FooterBlockProps} from '../../models';

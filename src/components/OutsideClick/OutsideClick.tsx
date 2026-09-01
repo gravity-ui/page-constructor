@@ -1,3 +1,5 @@
+'use client';
+
 //TODO move into cloud components?
 import * as React from 'react';
 

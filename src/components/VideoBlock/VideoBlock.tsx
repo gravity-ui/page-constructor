@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {useActionHandlers, useUniqId} from '@gravity-ui/uikit';

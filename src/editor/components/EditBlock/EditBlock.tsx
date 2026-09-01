@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {ChevronDown, ChevronUp, Copy as CopyIcon, TrashBin} from '@gravity-ui/icons';

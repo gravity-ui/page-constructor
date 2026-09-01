@@ -1,4 +1,7 @@
-import {BackgroundImage, Button, RouterLink, YFMWrapper} from '../../components';
+import BackgroundImage from '../../components/BackgroundImage/BackgroundImage';
+import Button from '../../components/Button/Button';
+import RouterLink from '../../components/RouterLink/RouterLink';
+import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {useTheme} from '../../context/theme';
 import {BannerCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';

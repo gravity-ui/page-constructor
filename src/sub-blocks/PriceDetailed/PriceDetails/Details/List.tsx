@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {YFMWrapper} from '../../../../components';
+import YFMWrapper from '../../../../components/YFMWrapper/YFMWrapper';
 import {PriceDetailsListProps, TextSize} from '../../../../models';
 import {block} from '../../../../utils';
 

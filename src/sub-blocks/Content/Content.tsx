@@ -1,3 +1,5 @@
+'use client';
+
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {Buttons, ContentList, Links, Title, YFMWrapper} from '../../components';

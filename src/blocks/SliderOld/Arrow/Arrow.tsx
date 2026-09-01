@@ -1,3 +1,5 @@
+'use client';
+
 import ToggleArrow from '../../../components/ToggleArrow/ToggleArrow';
 import {ClassNameProps} from '../../../models';
 import {block} from '../../../utils';

@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {Pause, Play, VolumeFill, VolumeLow, VolumeXmark} from '@gravity-ui/icons';

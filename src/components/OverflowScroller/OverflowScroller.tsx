@@ -1,9 +1,11 @@
+'use client';
+
 import * as React from 'react';
 
 import debounce from 'lodash/debounce';
 
-import {ToggleArrow} from '..';
 import {block} from '../../utils';
+import ToggleArrow from '../ToggleArrow/ToggleArrow';
 
 import {i18n} from './i18n';
 

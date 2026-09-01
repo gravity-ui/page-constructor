@@ -1,6 +1,6 @@
 import {ClassNameProps} from '../../models';
 import {block} from '../../utils';
-import {YFMWrapper} from '../index';
+import YFMWrapper from '../YFMWrapper/YFMWrapper';
 
 import './MetaInfo.scss';
 

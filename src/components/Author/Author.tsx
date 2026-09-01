@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import {AuthorProps, AuthorType, ImageProps} from '../../models';
 import {block} from '../../utils';
+import Image from '../Image/Image';
 import {getMediaImage} from '../Media/Image/utils';
-import {Image} from '../index';
 
 import './Author.scss';
 

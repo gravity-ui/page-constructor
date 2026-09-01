@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {ButtonSize} from '@gravity-ui/uikit';
+import type {ButtonSize} from '@gravity-ui/uikit';
 
 import {GridColumnSize, GridColumnSizesType, IndentValue} from '../../grid/types';
 import {ThemeSupporting} from '../../utils';

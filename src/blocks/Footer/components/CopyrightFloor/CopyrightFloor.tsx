@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {DropdownMenu, DropdownMenuItem, Link, useResizeObserver} from '@gravity-ui/uikit';

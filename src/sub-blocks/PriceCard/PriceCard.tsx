@@ -1,6 +1,11 @@
 import {Check} from '@gravity-ui/icons';
 
-import {BackgroundImage, Buttons, CardBase, ContentList, Links, YFMWrapper} from '../../components';
+import BackgroundImage from '../../components/BackgroundImage/BackgroundImage';
+import Buttons from '../../components/Buttons/Buttons';
+import CardBase from '../../components/CardBase/CardBase';
+import ContentList from '../../components/ContentList/ContentList';
+import Links from '../../components/Links/Links';
+import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {PriceCardProps} from '../../models';
 import {block} from '../../utils';
 

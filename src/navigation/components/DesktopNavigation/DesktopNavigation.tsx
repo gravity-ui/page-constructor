@@ -1,3 +1,5 @@
+'use client';
+
 import OverflowScroller from '../../../components/OverflowScroller/OverflowScroller';
 import {block} from '../../../utils';
 import {DesktopNavigationProps, ItemColumnName, NavigationLayout} from '../../models';
