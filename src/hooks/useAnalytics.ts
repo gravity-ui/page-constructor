@@ -4,9 +4,22 @@ import {AnalyticsContext} from '../context/analyticsContext';
 import {BlockIdContext} from '../context/blockIdContext';
 import {AnalyticsEvent, AnalyticsEventsProp, PredefinedEventTypes} from '../models';
 
+const normalizeEvents = (events?: AnalyticsEventsProp | null): AnalyticsEvent[] => {
+    if (!events) {
+        return [];
+    }
+
+    if (Array.isArray(events)) {
+        return events;
+    }
+
+    return [events];
+};
+
 export const useAnalytics = (name = '', target?: string) => {
     const {sendEvents, autoEvents} = React.useContext(AnalyticsContext);
     const context = React.useContext(BlockIdContext);
+    const autoEventsConfig = typeof autoEvents === 'boolean' ? {enabled: autoEvents} : autoEvents;
     const defaultEvent = React.useMemo(
         () =>
             name
@@ -24,16 +37,36 @@ export const useAnalytics = (name = '', target?: string) => {
         return () => {};
     }
 
-    const defaultEvents = defaultEvent && autoEvents ? [defaultEvent] : [];
+    const defaultEvents = defaultEvent && autoEventsConfig?.enabled ? [defaultEvent] : [];
+    const extendedEventsConfig = autoEventsConfig?.extendedEvents;
 
-    return (e?: AnalyticsEventsProp | null, additionalContext?: Record<string, string>) => {
-        let events: AnalyticsEvent[] = defaultEvents;
+    return (
+        analyticsEvent?: AnalyticsEventsProp | null,
+        additionalContext?: Record<string, string>,
+    ) => {
+        const suppliedEvents = normalizeEvents(analyticsEvent);
+        const preparedSuppliedEvents = suppliedEvents.flatMap((event) => {
+            if (event.type !== PredefinedEventTypes.Extended) {
+                return [event];
+            }
 
-        if (e) {
-            events = Array.isArray(e) ? [...events, ...e] : [...events, e];
-        }
+            if (!extendedEventsConfig) {
+                return [];
+            }
 
-        if (!events) {
+            return [
+                {
+                    ...event,
+                    name: `${extendedEventsConfig.prefix || ''}${event.name}`,
+                    ...(extendedEventsConfig.counter
+                        ? {counters: {include: [extendedEventsConfig.counter]}}
+                        : {}),
+                },
+            ];
+        });
+        const events: AnalyticsEvent[] = [...defaultEvents, ...preparedSuppliedEvents];
+
+        if (!events.length) {
             return;
         }
 

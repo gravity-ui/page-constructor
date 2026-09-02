@@ -375,9 +375,13 @@ You can define environment variables for dev-mode in .env.development file withi
 
 #### Init
 
-To start using any analytics, pass a handler to the constructor. The handler must be created on a project side. The handler will receive the `default` and `custom` event objects. The passed handler will be fired on a button, link, navigation, and control clicks. As one handler is used for all events treatment, pay attention to how to treat different events while creating the handler. There are predefined fields that serve to help you to build complex logic.
+To start using analytics, pass a handler to the constructor. The handler must be created on the project side. It receives three classes of events:
 
-Pass `autoEvents: true` to constructor to fire automatically configured events.
+- **Default events** are generic Page Constructor events generated for button, link, navigation, and control interactions. Set `autoEvents.enabled` to `true` to emit them.
+- **Extended events** are registered events supplied by a composing library. The presence of `autoEvents.extendedEvents` enables them independently of `enabled` and optionally adds a prefix and counter.
+- **Custom events** are supplied by consumers through `analyticsEvents`. The auto-events configuration does not change them.
+
+The object form is the preferred configuration:
 
 ```ts
 function sendEvents(events: MyEventType []) {
@@ -387,11 +391,50 @@ function sendEvents(events: MyEventType []) {
 <PageConstructorProvider
     ...
 
-    analytics={{sendEvents, autoEvents: true}}
+    analytics={{
+        sendEvents,
+        autoEvents: {
+            enabled: true,
+            extendedEvents: {
+                prefix: 'LIBRARY_',
+                counter: 'secondary',
+            },
+        },
+    }}
 
     ...
 />
 ```
+
+```ts
+type ExtendedEventsConfig = {
+  prefix?: string;
+  counter?: string;
+};
+
+type AutoEventsConfig = {
+  enabled: boolean;
+  extendedEvents?: ExtendedEventsConfig;
+};
+```
+
+The legacy boolean form remains supported for backward compatibility: `true` is equivalent to `{enabled: true}`, and `false` is equivalent to `{enabled: false}`. If `autoEvents` is omitted, both default and extended events are disabled. An `extendedEvents` object enables supplied extended events even when `enabled` is `false`.
+
+Extended events must have `type: 'extended-event'`. Their prefix is concatenated exactly as configured, without changing case, separators, or whitespace. If `counter` is set, it defines `counters.include` for the extended event:
+
+```ts
+// Supplied event
+{name: 'REGISTERED_CLICK', type: 'extended-event'}
+
+// Event received by sendEvents with the configuration above
+{
+  name: 'LIBRARY_REGISTERED_CLICK',
+  type: 'extended-event',
+  counters: {include: ['secondary']},
+}
+```
+
+Events are sent in this order: the generated default event first (when enabled), followed by supplied extended and custom events in their original order. Extended events are omitted when `extendedEvents` is not configured. Any interaction-specific additional context is merged into every emitted event last.
 
 An event object has only one required field - `name`. It also has predefined fields, which serve to help manage complex logic. For example, `counter.include` can help to send event in a particular counter if several analytics systems are used in a project.
 
@@ -443,6 +486,7 @@ Several predefined event types are used to mark automatically configured events.
 ```ts
 enum PredefinedEventTypes {
   Default = 'default-event', // default events which fire on every button click
+  Extended = 'extended-event', // events supplied by a composing library
   Play = 'play', // React player event
   Stop = 'stop', // React player event
 }
