@@ -627,6 +627,10 @@ unpredictable css rules order in build */
                 &_xl {
                     margin-top: $indentXL;
                 }
+
+                &_xxl {
+                    margin-top: $indentXXL;
+                }
             }
 
             &_indentBottom {
@@ -652,6 +656,10 @@ unpredictable css rules order in build */
 
                 &_xl {
                     padding-bottom: $indentXL;
+                }
+
+                &_xxl {
+                    padding-bottom: $indentXXL;
                 }
             }
         }

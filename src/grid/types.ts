@@ -59,4 +59,4 @@ export interface GridColumnClassParams {
     reset?: boolean;
 }
 
-export type IndentValue = '0' | 'xs' | 's' | 'm' | 'l' | 'xl';
+export type IndentValue = '0' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
