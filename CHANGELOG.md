@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.21.2](https://github.com/gravity-ui/page-constructor/compare/v8.21.1...v8.21.2) (2026-09-03)
+
+
+### Bug Fixes
+
+* **Tabs:** schema ([#1508](https://github.com/gravity-ui/page-constructor/issues/1508)) ([9406a9d](https://github.com/gravity-ui/page-constructor/commit/9406a9d4c253d026baa40bf84531c5032c4fd4c4))
+
 ## [8.21.1](https://github.com/gravity-ui/page-constructor/compare/v8.21.0...v8.21.1) (2026-08-31)
 
 
