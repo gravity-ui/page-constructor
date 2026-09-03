@@ -61,7 +61,10 @@ export const TabsBlock = {
                 enum: mediaDirection,
             },
             centered: {type: 'boolean'},
-            items: filteredArray(tabsItem),
+            items: {
+                ...filteredArray(tabsItem),
+                minItems: 1,
+            },
             contentSize: {
                 type: 'string',
                 enum: contentSizes,
