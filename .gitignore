@@ -35,3 +35,5 @@ playwright-report*
 # Skill eval artifacts (workspaces are local-only test outputs)
 .agents/skills/*-workspace/
 .claude/skills/*-workspace/
+
+*.local.md
