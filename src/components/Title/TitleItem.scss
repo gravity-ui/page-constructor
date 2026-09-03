@@ -7,31 +7,49 @@ $block: '.#{$ns}title-item';
     @include justify();
     $root: &;
 
+    color: var(--pc-text-header-color);
+    margin: 0;
+
     &_size_xs {
-        @include heading5();
+        @include text-subheader-3();
     }
 
     &_size_s {
-        @include heading4();
+        @include text-header-1();
         margin-top: $indentM;
     }
 
     &_size_sm {
-        @include heading(display-1);
+        @include text-display-1();
         margin-top: $indentL;
     }
 
     &_size_m {
-        @include heading2();
+        @include text-display-2();
         margin-top: $indentL;
+
+        @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+            @include text-display-1();
+        }
     }
 
     &_size_l {
-        @include heading1();
+        @include text-display-4();
         margin-top: $indentXXL;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            @include text-display-3();
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            @include text-display-2();
+        }
     }
 
     &__arrow {
+        position: relative;
+        left: 0;
+        transition: left 0.3s $ease-out-cubic;
         margin-top: 9px;
 
         &_size_xs {
@@ -56,14 +74,14 @@ $block: '.#{$ns}title-item';
             cursor: pointer;
 
             #{$root}__arrow {
-                margin-left: 10px;
+                left: 10px;
 
                 &_size_xs {
-                    margin-left: 6px;
+                    left: 6px;
                 }
 
                 &_size_s {
-                    margin-left: 8px;
+                    left: 8px;
                 }
             }
         }
