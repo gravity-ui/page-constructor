@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.22.0](https://github.com/gravity-ui/page-constructor/compare/v8.21.2...v8.22.0) (2026-09-03)
+
+
+### Features
+
+* add extended analytics event config to provider ([#1509](https://github.com/gravity-ui/page-constructor/issues/1509)) ([e4b496b](https://github.com/gravity-ui/page-constructor/commit/e4b496b2d692546468364fd404831f0376d09c1c))
+
 ## [8.21.2](https://github.com/gravity-ui/page-constructor/compare/v8.21.1...v8.21.2) (2026-09-03)
 
 
