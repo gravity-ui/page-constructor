@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.23.0](https://github.com/gravity-ui/page-constructor/compare/v8.22.0...v8.23.0) (2026-09-04)
+
+
+### Features
+
+* add xxl indent for blocks ([#1512](https://github.com/gravity-ui/page-constructor/issues/1512)) ([180e831](https://github.com/gravity-ui/page-constructor/commit/180e8319835baa4f04fdfa49f4dc40828ba8ad4a))
+
 ## [8.22.0](https://github.com/gravity-ui/page-constructor/compare/v8.21.2...v8.22.0) (2026-09-03)
 
 
