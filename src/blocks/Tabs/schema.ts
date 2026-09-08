@@ -6,11 +6,10 @@ import {
     BlockHeaderProps,
     LinkProps,
     MediaProps,
-    containerSizesArray,
+    containerSizesObject,
     contentSizes,
     mediaBorders,
     mediaDirection,
-    sizeNumber,
     withTheme,
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
@@ -52,10 +51,7 @@ export const TabsBlock = {
         properties: {
             ...BlockBaseProps,
             ...BlockHeaderProps,
-            tabsColSizes: containerSizesArray.reduce(
-                (acc, size) => ({...acc, [size]: sizeNumber}),
-                {},
-            ),
+            tabsColSizes: containerSizesObject,
             direction: {
                 type: 'string',
                 enum: mediaDirection,
