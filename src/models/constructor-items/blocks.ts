@@ -219,11 +219,12 @@ export interface HeroBlockMedia extends Partial<MediaProps> {
     roundCorners?: boolean;
 }
 
-export interface HeroBlockProps
-    extends Pick<
-        ContentBlockProps,
-        'title' | 'text' | 'list' | 'additionalInfo' | 'links' | 'theme'
-    > {
+export interface HeroBlockContent
+    extends Pick<ContentBlockProps, 'text' | 'list' | 'additionalInfo' | 'links' | 'theme'> {
+    title: Required<ContentBlockProps>['title'];
+}
+
+export interface HeroBlockProps extends HeroBlockContent {
     breadcrumbs?: HeaderBreadCrumbsProps;
     // TODO: add overtitle to ContentProps
     overtitle?: string | JSX.Element;
