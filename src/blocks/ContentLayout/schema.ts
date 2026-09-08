@@ -36,10 +36,6 @@ export const ContentLayoutBlock = {
             ...BlockBaseProps,
             textContent: ContentBlock?.content,
             fileContent: filteredArray(FileLinkProps),
-            /**
-             * @deprecated Use params on top level instead
-             */
-            properties: ContentLayoutBlockProperties,
             ...ContentLayoutBlockProperties,
         },
     },

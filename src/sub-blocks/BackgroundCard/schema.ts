@@ -8,7 +8,7 @@ import {
     containerSizesObject,
     withTheme,
 } from '../../schema/validators/common';
-import {AnalyticsEventSchema} from '../../schema/validators/event';
+import {AnalyticsEvents} from '../../schema/validators/event';
 import {ContentBase} from '../Content/schema';
 
 const BackgroundCardContentProps = omit(ContentBase, ['controlPosition']);
@@ -36,19 +36,7 @@ export const BackgroundCard = {
                 type: 'string',
                 enum: ['s', 'm', 'l', 'xl'],
             },
-            analyticsEvents: {
-                oneOf: [
-                    {
-                        ...AnalyticsEventSchema,
-                        optionName: 'single',
-                    },
-                    {
-                        type: 'array',
-                        items: AnalyticsEventSchema,
-                        optionName: 'list',
-                    },
-                ],
-            },
+            analyticsEvents: AnalyticsEvents,
             controlPosition: {
                 type: 'string',
                 enum: ['content', 'footer'],

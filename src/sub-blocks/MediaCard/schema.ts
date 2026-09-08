@@ -1,5 +1,5 @@
 import {AnimatableProps, BaseProps, CardBase, MediaProps} from '../../schema/validators/common';
-import {AnalyticsEventSchema} from '../../schema/validators/event';
+import {AnalyticsEvents} from '../../schema/validators/event';
 
 export const MediaCardBlock = {
     'media-card': {
@@ -10,19 +10,7 @@ export const MediaCardBlock = {
             ...CardBase,
             ...MediaProps,
             ...AnimatableProps,
-            analyticsEvents: {
-                oneOf: [
-                    {
-                        ...AnalyticsEventSchema,
-                        optionName: 'single',
-                    },
-                    {
-                        type: 'array',
-                        items: AnalyticsEventSchema,
-                        optionName: 'list',
-                    },
-                ],
-            },
+            analyticsEvents: AnalyticsEvents,
         },
     },
 };
