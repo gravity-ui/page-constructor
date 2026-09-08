@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.23.1](https://github.com/gravity-ui/page-constructor/compare/v8.23.0...v8.23.1) (2026-09-08)
+
+
+### Bug Fixes
+
+* **Tabs, ContentLayout:** colSizes schema ([#1514](https://github.com/gravity-ui/page-constructor/issues/1514)) ([545d514](https://github.com/gravity-ui/page-constructor/commit/545d51471f48174be04964f88d8a946994a7b92e))
+
 ## [8.23.0](https://github.com/gravity-ui/page-constructor/compare/v8.22.0...v8.23.0) (2026-09-04)
 
 
