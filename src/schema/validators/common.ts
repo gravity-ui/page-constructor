@@ -8,7 +8,7 @@ import {
     Theme,
 } from '../../models';
 
-import {AnalyticsEventSchema} from './event';
+import {AnalyticsEvents} from './event';
 
 export const mediaDirection = ['media-content', 'content-media'];
 export const textSize = ['xs', 's', 'sm', 'm', 'l'];
@@ -285,19 +285,7 @@ export const LinkProps = {
             enum: linkTargets,
         },
         colorTheme: ThemeProps,
-        analyticsEvents: {
-            oneOf: [
-                {
-                    ...AnalyticsEventSchema,
-                    optionName: 'single',
-                },
-                {
-                    type: 'array',
-                    items: AnalyticsEventSchema,
-                    optionName: 'list',
-                },
-            ],
-        },
+        analyticsEvents: AnalyticsEvents,
     },
 };
 
@@ -435,12 +423,7 @@ export const ButtonProps = {
             },
         ],
     },
-    analyticsEvents: {
-        oneOf: [
-            {...AnalyticsEventSchema, optionName: 'single'},
-            {type: 'array', items: AnalyticsEventSchema, optionName: 'list'},
-        ],
-    },
+    analyticsEvents: AnalyticsEvents,
     target: {
         type: 'string',
         enum: linkTargets,
@@ -585,9 +568,7 @@ export const TitleProps = {
         resetMargin: {
             type: 'boolean',
         },
-        analyticsEvents: {
-            anyOf: [AnalyticsEventSchema, {type: 'array', items: AnalyticsEventSchema}],
-        },
+        analyticsEvents: AnalyticsEvents,
     },
 };
 
@@ -670,9 +651,7 @@ export const MediaProps = {
     fullscreen: {
         type: 'boolean',
     },
-    analyticsEvents: {
-        anyOf: [AnalyticsEventSchema, {type: 'array', items: AnalyticsEventSchema}],
-    },
+    analyticsEvents: AnalyticsEvents,
     ratio: {
         type: ['number', 'string'],
         pattern: '^auto$',

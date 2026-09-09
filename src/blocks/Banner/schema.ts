@@ -9,7 +9,7 @@ import {
 
 export const BannerCardProps = {
     additionalProperties: false,
-    required: ['title', 'button'],
+    required: ['title'],
     properties: {
         ...BaseProps,
         ...AnimatableProps,

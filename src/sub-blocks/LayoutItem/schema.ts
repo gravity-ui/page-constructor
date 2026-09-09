@@ -8,7 +8,7 @@ import {
     linkTargets,
     withTheme,
 } from '../../schema/validators/common';
-import {AnalyticsEventSchema} from '../../schema/validators/event';
+import {AnalyticsEvents} from '../../schema/validators/event';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 
 const LayoutItemIconImage = {
@@ -72,19 +72,7 @@ export const LayoutItem = {
             type: 'string',
             enum: linkTargets,
         },
-        analyticsEvents: {
-            oneOf: [
-                {
-                    ...AnalyticsEventSchema,
-                    optionName: 'single',
-                },
-                {
-                    type: 'array',
-                    items: AnalyticsEventSchema,
-                    optionName: 'list',
-                },
-            ],
-        },
+        analyticsEvents: AnalyticsEvents,
     },
 };
 

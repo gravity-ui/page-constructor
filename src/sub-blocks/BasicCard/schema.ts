@@ -8,7 +8,7 @@ import {
     GravityIconProps,
     linkTargets,
 } from '../../schema/validators/common';
-import {AnalyticsEventSchema} from '../../schema/validators/event';
+import {AnalyticsEvents} from '../../schema/validators/event';
 import {ContentBase} from '../Content/schema';
 
 const BasicCardContentProps = omit(ContentBase, ['theme', 'controlPosition']);
@@ -48,19 +48,7 @@ export const BasicCard = {
             hoverBackgroundColor: {
                 type: 'string',
             },
-            analyticsEvents: {
-                oneOf: [
-                    {
-                        ...AnalyticsEventSchema,
-                        optionName: 'single',
-                    },
-                    {
-                        type: 'array',
-                        items: AnalyticsEventSchema,
-                        optionName: 'list',
-                    },
-                ],
-            },
+            analyticsEvents: AnalyticsEvents,
         },
     },
 };
