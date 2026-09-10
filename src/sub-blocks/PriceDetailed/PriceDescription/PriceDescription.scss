@@ -23,7 +23,9 @@ $block: '.#{$ns}price-description';
     }
 
     &__main-title {
-        font-weight: var(--g-text-accent-font-weight);
+        @include text-header-1();
+        font-size: inherit;
+        line-height: inherit;
 
         &_color_cornflower {
             color: var(--g-color-base-brand);

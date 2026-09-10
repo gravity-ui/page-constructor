@@ -9,8 +9,6 @@
 .g-root {
     @include pc-colors-social;
 
-    --g-text-accent-font-weight: 500;
-
     // cross-browser transparent color
     --pc-transparent: rgba(255, 255, 255, 0);
     --pc-border-radius: 24px;
