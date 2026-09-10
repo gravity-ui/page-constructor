@@ -57,8 +57,7 @@ $block: '.#{$ns}footer-block';
     }
 
     &__column-title {
-        @include text-size(subheader-3);
-        font-weight: var(--g-text-accent-font-weight);
+        @include text-subheader-3();
         color: var(--g-color-text-primary);
         margin: 0;
     }
