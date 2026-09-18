@@ -8,11 +8,17 @@ $block: '.#{$ns}table-block';
 
     &__title {
         @include add-specificity(&) {
-            @include heading2();
+            @include text-display-2();
             @include top-content-offset($offset: 0px);
 
+            color: var(--pc-text-header-color);
+            margin: 0;
             position: sticky;
             margin-right: $indentM;
+
+            @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+                @include text-display-1();
+            }
         }
     }
 

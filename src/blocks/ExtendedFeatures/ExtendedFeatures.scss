@@ -26,13 +26,17 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
             margin: inherit;
             display: block;
             margin-block: 0 $indentXXXS;
-            @include heading4();
+            @include text-header-1();
+
+            color: var(--pc-text-header-color);
         }
 
         &-title {
             @include add-specificity(&) {
-                @include heading4();
+                @include text-header-1();
 
+                color: var(--pc-text-header-color);
+                margin: 0;
                 position: relative;
                 margin-bottom: $indentXXXS;
 

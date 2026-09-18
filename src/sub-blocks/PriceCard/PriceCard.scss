@@ -73,8 +73,7 @@ $block: '.#{$ns}price-card';
         margin-bottom: $indentSM;
 
         &-value {
-            @include text-size(display-1);
-            font-weight: var(--g-text-accent-font-weight);
+            @include text-display-1();
         }
 
         &-period {
