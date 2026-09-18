@@ -11,7 +11,7 @@ $block: '.#{$ns}header-breadcrumbs';
     }
 
     &__item {
-        @include text-size(body-2);
+        @include text-body-2();
         display: inline-block;
     }
 

@@ -16,12 +16,12 @@ $block: '.#{$ns}content-layout-block';
         margin-top: $indentSM;
 
         &_size_s {
-            @include text-size(body-2);
+            @include text-body-2();
         }
 
         &_size_l,
         &_size_xl {
-            @include text-size(body-3);
+            @include text-body-3();
         }
 
         &_centered {

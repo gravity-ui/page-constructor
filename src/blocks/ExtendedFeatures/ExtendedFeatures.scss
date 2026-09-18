@@ -47,7 +47,7 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
         }
 
         &-label {
-            @include text-size(caption-2);
+            @include text-caption-2();
 
             position: relative;
             top: -3px;
@@ -62,7 +62,7 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
 
         &-text,
         &-link {
-            @include text-size(body-2);
+            @include text-body-2();
         }
 
         &-text {

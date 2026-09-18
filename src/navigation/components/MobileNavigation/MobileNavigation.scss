@@ -25,7 +25,7 @@ $block: '.#{$ns}mobile-navigation';
         display: none;
     }
 
-    @include text-size(body-2);
+    @include text-body-2();
     @include mobile-tablet-only();
 
     &__wrapper {
