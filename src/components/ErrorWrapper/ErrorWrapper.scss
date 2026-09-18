@@ -4,7 +4,7 @@
 $block: '.#{$ns}ErrorWrapper';
 
 #{$block} {
-    @include text-size(body-1);
+    @include text-body-1();
 
     white-space: nowrap;
     color: var(--g-color-text-danger);

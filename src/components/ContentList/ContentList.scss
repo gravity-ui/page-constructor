@@ -30,7 +30,7 @@ $maxSizeS: 440px;
         max-width: $maxSizeL;
 
         #{$block}__title {
-            @include text-size(header-1);
+            @include text-header-1();
 
             margin: 0 0 $indentXXXS;
         }
@@ -64,10 +64,10 @@ $maxSizeS: 440px;
         }
 
         #{$block}__text {
-            @include text-size(subheader-2);
+            @include text-subheader-2();
 
             &_without-title {
-                @include text-size(subheader-3);
+                @include text-subheader-3();
             }
         }
     }
@@ -76,7 +76,7 @@ $maxSizeS: 440px;
         max-width: $maxSizeS;
 
         #{$block}__title {
-            @include text-size(subheader-3);
+            @include text-subheader-3();
 
             margin: 0 0 calc(#{$indentXXXS} / 2);
         }
@@ -109,10 +109,10 @@ $maxSizeS: 440px;
         }
 
         #{$block}__text {
-            @include text-size(body-1);
+            @include text-body-1();
 
             &_without-title {
-                @include text-size(subheader-2);
+                @include text-subheader-2();
             }
         }
     }

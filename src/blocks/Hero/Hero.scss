@@ -134,7 +134,7 @@ $intermediateBreakpoint: 993px;
 
             &,
             .yfm_constructor {
-                @include text-size(body-3);
+                @include text-body-3();
 
                 color: var(--_--overtitle-color);
             }

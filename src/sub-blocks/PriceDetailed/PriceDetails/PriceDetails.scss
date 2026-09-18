@@ -35,7 +35,7 @@ $settingsIndentBetweenTitleAndDescriptionHeight: 2px;
     }
 
     &__foldable_title {
-        @include text-size(body-2);
+        @include text-body-2();
         @include reset-button-style();
         @include focusable();
 

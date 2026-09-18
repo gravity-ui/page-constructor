@@ -9,7 +9,7 @@ $authorBorderRadius: $indentXS;
 #{$block} {
     $root: &;
 
-    @include text-size(body-3);
+    @include text-body-3();
 
     display: flex;
     flex-direction: column;
@@ -32,11 +32,11 @@ $authorBorderRadius: $indentXS;
     }
 
     &__name {
-        @include text-size(body-3);
+        @include text-body-3();
     }
 
     &__description {
-        @include text-size(body-2);
+        @include text-body-2();
 
         color: $secondary;
         padding-top: $indent4XS;

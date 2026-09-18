@@ -3,11 +3,6 @@
 
 //common
 
-@mixin text-size($name) {
-    font-size: var(--g-text-#{$name}-font-size);
-    line-height: var(--g-text-#{$name}-line-height);
-}
-
 @mixin focusable($offset: 0, $mode: 'outline') {
     @if $mode == 'outline' {
         &:focus {
@@ -151,7 +146,7 @@
 
 @mixin label($size: m) {
     @if $size == m {
-        @include text-size(body-1);
+        @include text-body-1();
 
         $label-height: 20px;
 
@@ -163,7 +158,7 @@
     }
 
     @if $size == s {
-        @include text-size(caption-2);
+        @include text-caption-2();
 
         $label-height: 16px;
 

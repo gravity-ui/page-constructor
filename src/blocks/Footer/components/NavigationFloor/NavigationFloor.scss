@@ -77,7 +77,7 @@ $block: '.#{$ns}footer-block';
     }
 
     &__link {
-        @include text-size(body-2);
+        @include text-body-2();
         @include link();
         color: var(--g-color-text-primary);
         text-decoration: none;

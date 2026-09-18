@@ -25,7 +25,7 @@ $block: '.#{$ns}tab-content';
     }
 
     &__caption {
-        @include text-size(body-2);
+        @include text-body-2();
 
         margin: $indentXXS 0 0;
 

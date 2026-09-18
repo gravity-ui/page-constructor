@@ -59,7 +59,7 @@ $block: '.#{$ns}PromoFeaturesBlock';
         }
 
         &-text {
-            @include text-size(body-2);
+            @include text-body-2();
         }
 
         &-media {
