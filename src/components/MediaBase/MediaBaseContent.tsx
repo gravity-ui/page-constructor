@@ -1,7 +1,7 @@
 import {ButtonSize} from '@gravity-ui/uikit';
 
 import {MediaContentProps} from '../../models';
-import {Content} from '../../sub-blocks';
+import Content from '../../sub-blocks/Content/Content';
 import {block} from '../../utils';
 
 import './MediaBaseContent.scss';

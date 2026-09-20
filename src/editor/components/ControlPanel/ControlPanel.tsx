@@ -1,3 +1,5 @@
+'use client';
+
 import {Code, Display, Eye, Smartphone, SquareDashedText} from '@gravity-ui/icons';
 import {SegmentedRadioGroup, Select} from '@gravity-ui/uikit';
 

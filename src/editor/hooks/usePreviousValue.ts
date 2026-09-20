@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 export default function usePreviousValue<T>(value: T) {

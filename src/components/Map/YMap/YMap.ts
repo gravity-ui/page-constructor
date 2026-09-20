@@ -1,3 +1,5 @@
+'use client';
+
 import {YMapMarkerLabelPrivate, YMapMarkerPrivate, YMapProps} from '../../../models';
 import {Coordinate} from '../../../models/constructor-items/common';
 

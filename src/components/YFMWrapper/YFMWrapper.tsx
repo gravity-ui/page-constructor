@@ -4,11 +4,10 @@ import * as React from 'react';
 
 import toSnakeCase from 'snakecase-keys';
 
-import {HTML} from '../../components';
 import {ClassNameProps, Modifiers} from '../../models';
 import {QAProps} from '../../models/common';
 import {cn} from '../../utils';
-import {HTMLExtraProps} from '../HTML/HTML';
+import HTML, {HTMLExtraProps} from '../HTML/HTML';
 
 const yfm = cn('yfm');
 

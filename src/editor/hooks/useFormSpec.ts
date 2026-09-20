@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {JSONSchema4} from 'json-schema';

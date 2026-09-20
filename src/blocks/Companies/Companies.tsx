@@ -1,5 +1,6 @@
-import {Image, Title} from '../../components';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
+import Image from '../../components/Image/Image';
+import Title from '../../components/Title/Title';
 import {useTheme} from '../../context/theme';
 import {CompaniesBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';

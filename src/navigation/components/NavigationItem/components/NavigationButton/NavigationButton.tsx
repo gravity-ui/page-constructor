@@ -1,3 +1,5 @@
+'use client';
+
 import {Button, RouterLink} from '../../../../../components';
 import {BlockIdContext} from '../../../../../context/blockIdContext';
 import {ButtonProps} from '../../../../../models';

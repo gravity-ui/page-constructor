@@ -1,6 +1,6 @@
 import {Col} from '../../../grid';
 import {ImageDeviceProps, ImageObjectProps, TabsBlockItem, TabsBlockProps} from '../../../models';
-import {Content} from '../../../sub-blocks';
+import Content from '../../../sub-blocks/Content/Content';
 import {block} from '../../../utils';
 
 import './TabsTextContent.scss';
