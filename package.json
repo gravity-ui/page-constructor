@@ -29,6 +29,16 @@
       "require": "./server/index.js",
       "import": "./server/index.js"
     },
+    "./schema": {
+      "import": {
+        "types": "./build/esm/schema/index.d.ts",
+        "default": "./build/esm/schema/index.js"
+      },
+      "require": {
+        "types": "./build/cjs/schema/index.d.ts",
+        "default": "./build/cjs/schema/index.js"
+      }
+    },
     "./styles/*": "./styles/*",
     "./widget/*": "./widget/*",
     "./schema/*": "./schema/*"
@@ -46,6 +56,9 @@
       ],
       "server": [
         "./server/index.d.ts"
+      ],
+      "schema": [
+        "./build/esm/schema/index.d.ts"
       ]
     }
   },
