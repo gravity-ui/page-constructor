@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.23.3](https://github.com/gravity-ui/page-constructor/compare/v8.23.2...v8.23.3) (2026-09-22)
+
+
+### Bug Fixes
+
+* **styles:** use semantic shadow token for card shadows ([#1518](https://github.com/gravity-ui/page-constructor/issues/1518)) ([e52b9ed](https://github.com/gravity-ui/page-constructor/commit/e52b9edcf35c1c8f3b2fba675881f8fdff2d1349))
+
 ## [8.23.2](https://github.com/gravity-ui/page-constructor/compare/v8.23.1...v8.23.2) (2026-09-09)
 
 
