@@ -51,8 +51,7 @@ $block: '.#{$ns}footer-block';
     }
 
     &__social-floor-title {
-        @include text-size(body-3);
-        font-weight: var(--g-text-accent-font-weight);
+        @include text-subheader-3();
         margin: 0;
         color: var(--g-color-text-primary);
     }

@@ -26,10 +26,16 @@
         padding: 24px 48px;
 
         &-title {
-            @include heading2();
+            @include text-display-2();
 
+            color: var(--pc-text-header-color);
+            margin: 0;
             width: fit-content;
             margin-bottom: 24px;
+
+            @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+                @include text-display-1();
+            }
         }
 
         &-content {
