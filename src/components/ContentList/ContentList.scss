@@ -64,10 +64,10 @@ $maxSizeS: 440px;
         }
 
         #{$block}__text {
-            @include text-subheader-2();
+            @include text-body-2();
 
             &_without-title {
-                @include text-subheader-3();
+                @include text-body-3();
             }
         }
     }
