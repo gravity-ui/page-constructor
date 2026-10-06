@@ -112,7 +112,7 @@ $maxSizeS: 440px;
             @include text-body-1();
 
             &_without-title {
-                @include text-subheader-2();
+                @include text-body-2();
             }
         }
     }
