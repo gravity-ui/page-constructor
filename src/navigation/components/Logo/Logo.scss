@@ -16,8 +16,9 @@ $block: '.#{$ns}logo';
     }
 
     &__text {
-        @include heading4();
+        @include text-header-1();
 
+        color: var(--pc-text-header-color);
         white-space: nowrap;
     }
 }

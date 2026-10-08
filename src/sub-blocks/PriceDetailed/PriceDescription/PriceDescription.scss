@@ -10,20 +10,22 @@ $block: '.#{$ns}price-description';
     &__description,
     &__detailed-title {
         &_size_l {
-            @include text-size(header-1);
+            @include text-header-1();
         }
 
         &_size_m {
-            @include text-size(body-2);
+            @include text-body-2();
         }
 
         &_size_s {
-            @include text-size(body-1);
+            @include text-body-1();
         }
     }
 
     &__main-title {
-        font-weight: var(--g-text-accent-font-weight);
+        @include text-header-1();
+        font-size: inherit;
+        line-height: inherit;
 
         &_color_cornflower {
             color: var(--g-color-base-brand);
@@ -50,11 +52,11 @@ $block: '.#{$ns}price-description';
 
     &__label {
         &_size_s {
-            @include text-size(body-2);
+            @include text-body-2();
         }
 
         &_size_xs {
-            @include text-size(body-1);
+            @include text-body-1();
         }
     }
 

@@ -6,10 +6,11 @@ $block: '.#{$ns}share-block';
 #{$block} {
     &__title {
         @include add-specificity(&) {
-            @include heading5();
+            @include text-body-3();
 
+            color: var(--pc-text-header-color);
+            margin: 0;
             text-align: center;
-            font-weight: normal;
         }
     }
 

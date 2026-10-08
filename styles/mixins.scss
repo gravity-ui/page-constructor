@@ -3,11 +3,6 @@
 
 //common
 
-@mixin text-size($name) {
-    font-size: var(--g-text-#{$name}-font-size);
-    line-height: var(--g-text-#{$name}-line-height);
-}
-
 @mixin focusable($offset: 0, $mode: 'outline') {
     @if $mode == 'outline' {
         &:focus {
@@ -151,7 +146,7 @@
 
 @mixin label($size: m) {
     @if $size == m {
-        @include text-size(body-1);
+        @include text-body-1();
 
         $label-height: 20px;
 
@@ -163,7 +158,7 @@
     }
 
     @if $size == s {
-        @include text-size(caption-2);
+        @include text-caption-2();
 
         $label-height: 16px;
 
@@ -412,54 +407,6 @@
     @media (min-width: map-get($gridBreakpoints, 'sm')) {
         display: none;
     }
-}
-
-//typografy
-%heading-margin-reset {
-    margin: 0;
-}
-
-@mixin heading($name) {
-    @include text-size($name);
-    color: var(--pc-text-header-color);
-    @extend %heading-margin-reset;
-    @include text-accent();
-}
-
-@mixin heading1 {
-    @include heading(display-4);
-
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
-        @include text-size(display-3);
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        @include text-size(display-2);
-    }
-}
-
-@mixin heading2 {
-    @include heading(display-2);
-
-    @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
-        @include text-size(display-1);
-    }
-}
-
-@mixin heading3 {
-    @include heading(header-2);
-}
-
-@mixin heading4 {
-    @include heading(header-1);
-}
-
-@mixin heading5 {
-    @include heading(body-3);
-}
-
-@mixin heading6 {
-    @include heading(body-3);
 }
 
 @mixin paragraph {

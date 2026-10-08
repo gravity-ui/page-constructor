@@ -92,9 +92,19 @@ $backgroundWidth: 1440px;
 
     &__title {
         @include add-specificity(&) {
-            @include heading1();
+            @include text-display-4();
 
+            color: var(--pc-text-header-color);
+            margin: 0;
             position: relative;
+
+            @media (max-width: map-get($gridBreakpoints, 'md')) {
+                @include text-display-3();
+            }
+
+            @media (max-width: map-get($gridBreakpoints, 'sm')) {
+                @include text-display-2();
+            }
 
             a {
                 @include link();
@@ -110,7 +120,7 @@ $backgroundWidth: 1440px;
         margin-top: $indentXS;
 
         .yfm {
-            @include text-size(body-3);
+            @include text-body-3();
             color: var(--g-color-text-primary);
         }
     }
@@ -119,7 +129,7 @@ $backgroundWidth: 1440px;
         margin-top: $indentXS;
 
         .yfm p {
-            @include text-size(body-2);
+            @include text-body-2();
             color: var(
                 --g-color-text-secondary
             ) !important; /* stylelint-disable-line declaration-no-important */ // the selector that interrupts this color is too big
@@ -239,7 +249,7 @@ $backgroundWidth: 1440px;
     }
 
     &__overtitle {
-        @include text-size(body-3);
+        @include text-body-3();
 
         margin-bottom: $indentXXXS;
 
