@@ -43,14 +43,14 @@ $block: '.#{$ns}file-link';
         &_l,
         &_m {
             #{$root}__file-label {
-                @include text-size(body-2);
+                @include text-body-2();
             }
         }
 
         &_xs,
         &_s {
             #{$root}__file-label {
-                @include text-size(body-1);
+                @include text-body-1();
             }
         }
     }

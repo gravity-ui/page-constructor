@@ -7,7 +7,7 @@ $block: '.#{$ns}unpublished-label';
     background-color: var(--g-color-base-danger-heavy);
 
     &_type_line {
-        @include text-size(body-3);
+        @include text-body-3();
         padding: 15px;
     }
 

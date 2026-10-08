@@ -6,7 +6,7 @@ $block: '.#{$ns}title';
 #{$block} {
     &__description {
         .yfm {
-            @include text-size(body-3);
+            @include text-body-3();
         }
 
         margin-top: $indentXXS;
@@ -16,7 +16,7 @@ $block: '.#{$ns}title';
             margin-top: $indentXXXS;
 
             .yfm {
-                @include text-size(body-2);
+                @include text-body-2();
             }
         }
     }

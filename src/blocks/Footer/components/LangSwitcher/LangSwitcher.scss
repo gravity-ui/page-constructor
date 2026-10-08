@@ -7,7 +7,7 @@
     cursor: pointer;
 
     .pc-content-wrapper__text {
-        @include text-size(body-2);
+        @include text-body-2();
     }
 
     &:hover .pc-content-wrapper__text {
