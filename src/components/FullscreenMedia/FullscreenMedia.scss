@@ -70,7 +70,7 @@ $modalYoutubeWidth: min(65vw, #{$newContentWidth});
         top: $indentXS;
         width: $closeButtonSize;
         height: $closeButtonSize;
-        border-radius: 8px;
+        border-radius: var(--g-border-radius-l);
         background-color: var(--g-color-base-simple-hover-solid);
         cursor: pointer;
         z-index: 10;

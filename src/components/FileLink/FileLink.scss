@@ -30,9 +30,12 @@ $block: '.#{$ns}file-link';
     }
 
     &__link > a {
-        color: var(--g-color-text-primary);
-        border-radius: var(--g-focus-border-radius);
         @include focusable();
+
+        color: var(--g-color-text-primary);
+
+        // The focus token is used because this radius shapes the focus ring.
+        border-radius: var(--g-focus-border-radius);
     }
 
     &__link > a:hover {
