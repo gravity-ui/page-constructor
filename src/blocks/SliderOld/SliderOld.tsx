@@ -468,7 +468,7 @@ function getSlideId(sliderId: string, index: number) {
     return `slider-${sliderId}-child-${index}`;
 }
 
-// TODO remove this and rework PriceDetailed CLOUDFRONT-12230
+// TODO remove this CLOUDFRONT-12230
 function discloseAllNestedChildren(
     children: React.ReactElement[],
     sliderId: string,
