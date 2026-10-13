@@ -31,7 +31,7 @@ export enum PlayButtonType {
 }
 
 export enum PlayButtonThemes {
-    Blue = 'blue',
+    Orange = 'orange',
     Grey = 'grey',
 }
 
