@@ -20,7 +20,7 @@ $block: '.#{$ns}navigation-popup';
         height: 36px;
         line-height: 20px;
 
-        border-radius: 8px;
+        border-radius: var(--g-border-radius-l);
 
         &:hover {
             color: var(--g-color-text-primary);

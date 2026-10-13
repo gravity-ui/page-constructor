@@ -30,7 +30,7 @@ $block: '.#{$ns}share-block';
             height: 48px;
             // redefine highly specific rule for button with icon from uikit
             /* stylelint-disable-next-line declaration-no-important */
-            border-radius: 100% !important;
+            border-radius: var(--pc-border-radius-full) !important;
 
             &_type_vk {
                 background-color: var(--pc-color-vk);
@@ -58,7 +58,7 @@ $block: '.#{$ns}share-block';
 
             @include add-specificity(&) {
                 &:before {
-                    border-radius: 100%;
+                    border-radius: var(--pc-border-radius-full);
                 }
             }
 
@@ -67,7 +67,7 @@ $block: '.#{$ns}share-block';
                     //redefine component style
                     /* stylelint-disable-next-line declaration-no-important */
                     background-color: var(--g-color-base-generic) !important;
-                    border-radius: 100%;
+                    border-radius: var(--pc-border-radius-full);
                 }
             }
 

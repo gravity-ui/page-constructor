@@ -53,7 +53,7 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
 
             color: var(--g-color-base-background);
             background-color: var(--g-color-base-brand);
-            border-radius: 4px;
+            border-radius: var(--g-border-radius-s);
         }
 
         &-text,

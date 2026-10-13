@@ -50,7 +50,8 @@ $intermediateBreakpoint: 993px;
         bottom: 0;
         left: 50%;
         width: min($backgroundMaxWidth, 100%);
-        border-radius: var(--pc-border-radius);
+        // Preserve external overrides of the legacy token, falling back to the radius scale.
+        border-radius: var(--pc-border-radius, var(--pc-border-radius-l));
         transform: translateX(-50%);
 
         &_full-width {
@@ -161,7 +162,8 @@ $intermediateBreakpoint: 993px;
                 }
 
                 &_round-corners {
-                    border-radius: var(--pc-border-radius);
+                    // Preserve external overrides of the legacy token, falling back to the radius scale.
+                    border-radius: var(--pc-border-radius, var(--pc-border-radius-l));
                 }
 
                 .pc-ReactPlayer__player {

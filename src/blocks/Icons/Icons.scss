@@ -50,6 +50,8 @@ $block: '.#{$ns}icons-block';
     }
     a#{$block}__item {
         @include focusable();
+
+        // The focus token is used because this radius shapes the focus ring.
         border-radius: var(--g-focus-border-radius);
     }
 

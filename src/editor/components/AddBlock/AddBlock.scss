@@ -24,7 +24,7 @@ $block: '.#{$ns}add-block';
 
         color: var(--pc-editor-control-icon-color);
         background-color: var(--pc-editor-base-color);
-        border-radius: $editorControlBorderRadius;
+        border-radius: var(--g-border-radius-l);
     }
 
     &__icon {

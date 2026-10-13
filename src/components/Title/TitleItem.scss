@@ -50,6 +50,8 @@ $block: '.#{$ns}title-item';
         @include focusable();
 
         padding-right: 8px;
+
+        // The focus token is used because this radius shapes the focus ring.
         border-radius: var(--g-focus-border-radius);
 
         &:hover {

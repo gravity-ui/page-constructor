@@ -43,6 +43,8 @@ $settingsIndentBetweenTitleAndDescriptionHeight: 2px;
         display: flex;
         align-items: center;
         font-weight: 400;
+
+        // The focus token is used because this radius shapes the focus ring.
         border-radius: var(--g-focus-border-radius);
 
         &_color_cornflower {
