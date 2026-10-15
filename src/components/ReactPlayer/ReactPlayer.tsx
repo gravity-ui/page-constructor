@@ -229,7 +229,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             return (
                 <VideoButton
                     {...playButton}
-                    theme={theme || PlayButtonThemes.Blue}
+                    theme={theme || PlayButtonThemes.Brand}
                     type={type || PlayButtonType.Default}
                 />
             );
