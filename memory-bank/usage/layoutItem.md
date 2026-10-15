@@ -14,7 +14,6 @@ The LayoutItem sub-block is a versatile component that combines media content wi
 - **Description**: Displays content with media, metadata, and optional controls like links and buttons.
 - **Props**:
   - `content`: Content block properties including title, text, links, buttons, etc.
-  - `contentMargin`: Margin around the content ('s', 'm', 'l', 'xl')
   - `media`: Media properties with theme support
   - `metaInfo`: Array of metadata strings
   - `border`: Boolean to enable/disable border around media
@@ -111,7 +110,7 @@ The LayoutItem component is composed of several key parts:
 <div className={b(null, className)}>
   {renderMedia()}
   {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
-  <div className={b('content', {'no-media': !media, margin: contentMargin})}>
+  <div className={b('content', {'no-media': !media})}>
     <IconWrapper icon={themedIcon} className={b('wrapper')}>
       <Content {...contentProps} titleId={titleId} />
     </IconWrapper>
