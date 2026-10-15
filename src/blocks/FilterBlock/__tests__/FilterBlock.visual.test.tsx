@@ -114,12 +114,11 @@ for (const width of [1280, 375]) {
 }
 
 for (const [width, count] of [
-    [1081, 9],
-    [1080, 8],
-    [769, 8],
-    [768, 3],
-    [577, 3],
-    [576, 3],
+    [1400, 8],
+    [1100, 9],
+    [1000, 8],
+    [800, 8],
+    [600, 3],
 ]) {
     test(`FilterBlock breakpoint appearance at ${width}px`, async ({
         mount,
