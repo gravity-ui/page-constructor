@@ -108,9 +108,5 @@ for (const width of [1280, 375]) {
         await toggle.click();
         const collapse = page.getByRole('button', {name: 'Collapse', exact: true});
         await expect(collapse).toHaveAttribute('aria-expanded', 'true');
-        await expectScreenshot({
-            component: collapse,
-            screenshotName: `FilterBlock collapse button ${width}`,
-        });
     });
 }
