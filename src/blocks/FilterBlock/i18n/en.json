@@ -1,3 +1,5 @@
 {
-  "label-all-tag": "All"
+  "label-all-tag": "All",
+  "label-expand": "Show all",
+  "label-collapse": "Show less"
 }

@@ -25,6 +25,11 @@ $innerBlock: '.#{$ns}block-base';
         width: 100%;
     }
 
+    &__toggle {
+        margin-top: $indentSM;
+        padding-inline: $indentSM;
+    }
+
     // @deprecated
     --pc-first-block-indent: 0;
     --pc-first-block-mobile-indent: 0;
