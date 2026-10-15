@@ -79,7 +79,6 @@ export type ContentTextSize = 's' | 'm' | 'l';
 export type ContentTheme = 'default' | 'dark' | 'light';
 export type FileLinkType = 'vertical' | 'horizontal';
 export type ImageCardMargins = 's' | 'm';
-export type LayoutItemContentMargin = 'm' | 'l';
 export type GravityIconProps = string | {name: keyof typeof icons; color: 'brand' | 'text-color'};
 
 // modifiers
