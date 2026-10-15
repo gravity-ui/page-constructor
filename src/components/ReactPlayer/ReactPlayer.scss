@@ -40,7 +40,7 @@ $block: '.#{$ns}ReactPlayer';
 
         border-radius: 166px;
 
-        &_theme_blue {
+        &_theme_brand {
             color: var(--g-color-base-background);
             background-color: var(--g-color-base-brand);
         }
@@ -53,8 +53,7 @@ $block: '.#{$ns}ReactPlayer';
         &_text {
             padding: 16px 32px;
             font-weight: 400;
-            font-size: 24px;
-            line-height: 32px;
+            @include text-size(header-2);
 
             width: auto;
             height: auto;
@@ -88,8 +87,7 @@ $block: '.#{$ns}ReactPlayer';
 
     @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
         &__button_text {
-            font-size: 20px;
-            line-height: 24px;
+            @include text-size(header-1);
         }
     }
 }

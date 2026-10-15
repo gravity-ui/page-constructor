@@ -91,7 +91,7 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
 
         const {
             type = PlayButtonType.Default,
-            theme = PlayButtonThemes.Blue,
+            theme = PlayButtonThemes.Brand,
             text,
             className: buttonClassName,
         } = playButton || ({} as PlayButtonProps);
