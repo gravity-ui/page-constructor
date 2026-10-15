@@ -82,3 +82,41 @@ it('recalculates on resize with inherited breakpoint values', () => {
     );
     expect(screen.getAllByText(/^Card /)).toHaveLength(2);
 });
+
+it('filters cards before applying the row limit', () => {
+    renderBlock({
+        ...props,
+        tags: props.tags.map((tag) => ({...tag, collapsible: true})),
+        items: props.items.map((item, index) => ({
+            ...item,
+            tags: [index % 2 === 0 ? 'one' : 'two'],
+        })),
+    });
+    expect(screen.getAllByText(/^Card /).map((card) => card.textContent)).toEqual([
+        'Card 0',
+        'Card 2',
+        'Card 4',
+    ]);
+    fireEvent.click(screen.getByRole('button', {name: 'Expand'}));
+    expect(screen.getAllByText(/^Card /).map((card) => card.textContent)).toEqual([
+        'Card 0',
+        'Card 2',
+        'Card 4',
+        'Card 6',
+        'Card 8',
+    ]);
+    fireEvent.click(screen.getByText('Two'));
+    expect(screen.getAllByText(/^Card /).map((card) => card.textContent)).toEqual([
+        'Card 1',
+        'Card 3',
+        'Card 5',
+    ]);
+    fireEvent.click(screen.getByRole('button', {name: 'Expand'}));
+    expect(screen.getAllByText(/^Card /).map((card) => card.textContent)).toEqual([
+        'Card 1',
+        'Card 3',
+        'Card 5',
+        'Card 7',
+        'Card 9',
+    ]);
+});
