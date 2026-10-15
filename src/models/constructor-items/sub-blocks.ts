@@ -18,7 +18,6 @@ import {
     ImageCardMargins,
     ImageObjectProps,
     ImageProps,
-    LayoutItemContentMargin,
     LinkProps,
     MediaProps,
     MediaView,
@@ -200,7 +199,6 @@ export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, '
 
 export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, AnalyticsEventsBase {
     content: Omit<ContentBlockProps, 'colSizes' | 'centered'>;
-    contentMargin?: LayoutItemContentMargin;
     media?: ThemeSupporting<MediaProps>;
     metaInfo?: string[];
     border?: boolean;
