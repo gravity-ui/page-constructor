@@ -72,6 +72,8 @@ test('FilterBlock shows 8, 9 and 8 cards across breakpoints', async ({mount, pag
         [1080, 8],
         [769, 8],
         [768, 3],
+        [577, 3],
+        [576, 3],
     ]) {
         await page.setViewportSize({width, height: 900});
         await expect(cards).toHaveCount(count);
@@ -108,5 +110,31 @@ for (const width of [1280, 375]) {
         await toggle.click();
         const collapse = page.getByRole('button', {name: 'Collapse', exact: true});
         await expect(collapse).toHaveAttribute('aria-expanded', 'true');
+    });
+}
+
+for (const [width, count] of [
+    [1081, 9],
+    [1080, 8],
+    [769, 8],
+    [768, 3],
+    [577, 3],
+    [576, 3],
+]) {
+    test(`FilterBlock breakpoint appearance at ${width}px`, async ({
+        mount,
+        page,
+        expectScreenshot,
+        defaultDelay,
+    }) => {
+        await page.setViewportSize({width, height: 900});
+        const component = await mount(
+            <div style={{width: width - 40}}>
+                <CollapsibleResponsiveRows />
+            </div>,
+        );
+        await expect(component.locator('.pc-card-layout-block__item')).toHaveCount(count);
+        await defaultDelay();
+        await expectScreenshot({screenshotName: `FilterBlock breakpoint ${width}`});
     });
 }
