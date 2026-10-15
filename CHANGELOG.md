@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.23.5](https://github.com/gravity-ui/page-constructor/compare/v8.23.4...v8.23.5) (2026-10-05)
+
+
+### Bug Fixes
+
+* **FilterBlock:** remount video correctly ([#1526](https://github.com/gravity-ui/page-constructor/issues/1526)) ([df7f4c1](https://github.com/gravity-ui/page-constructor/commit/df7f4c1198e2d74b06381db7ae0549984f1ddabc))
+
 ## [8.23.4](https://github.com/gravity-ui/page-constructor/compare/v8.23.3...v8.23.4) (2026-09-22)
 
 
