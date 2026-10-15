@@ -10,7 +10,7 @@ import {block, getThemedValue} from '../../utils';
 
 import './CardLayout.scss';
 
-const DEFAULT_SIZES: GridColumnSizesType = {
+export const DEFAULT_SIZES: GridColumnSizesType = {
     all: 12,
     sm: 6,
     md: 4,

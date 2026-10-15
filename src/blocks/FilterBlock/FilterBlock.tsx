@@ -1,19 +1,45 @@
 import * as React from 'react';
 
-import {CardLayoutBlock} from '..';
+import {Button} from '@gravity-ui/uikit';
+
 import {AnimateBlock, Title} from '../../components';
 import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/ButtonTabs';
+import {BREAKPOINTS} from '../../constants';
 import {ConstructorItem} from '../../containers/PageConstructor/components/ConstructorItem';
+import {useWindowWidth} from '../../context/windowWidthContext';
 import {Col, Row} from '../../grid';
+import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
 import {useAnalytics} from '../../hooks';
 import {FilterBlockProps} from '../../models';
 import {block, getBlockKey} from '../../utils';
+import CardLayoutBlock, {DEFAULT_SIZES} from '../CardLayout/CardLayout';
 
 import {i18n} from './i18n';
 
 import './FilterBlock.scss';
 
 const b = block('filter-block');
+
+const GRID_COLUMN_SIZES = [
+    GridColumnSize.Sm,
+    GridColumnSize.Md,
+    GridColumnSize.Lg,
+    GridColumnSize.Xl,
+] as const;
+
+function responsiveValue(values: GridColumnSizesType, width: number, fallback: number) {
+    let result = values.all ?? fallback;
+
+    for (const size of GRID_COLUMN_SIZES) {
+        const value = values[size];
+
+        if (width >= BREAKPOINTS[size] && value !== undefined) {
+            result = value;
+        }
+    }
+
+    return result;
+}
 
 const FilterBlock = ({
     title,
@@ -22,11 +48,16 @@ const FilterBlock = ({
     tagButtonSize,
     allTag,
     items,
-    colSizes,
+    colSizes = DEFAULT_SIZES,
+    visibleRowsCount,
+    expandButtonText,
+    collapseButtonText,
     centered,
     animated,
 }: FilterBlockProps) => {
     const handleAnalytics = useAnalytics();
+    const width = useWindowWidth();
+    const [expanded, setExpanded] = React.useState(false);
     const tabButtons = React.useMemo(() => {
         let allButton: ButtonTabsItemProps | undefined;
         if (allTag) {
@@ -68,6 +99,10 @@ const FilterBlock = ({
             : selectedTag;
     }, [tabButtons, selectedTag]);
 
+    React.useEffect(() => {
+        setExpanded(false);
+    }, [actualTag]);
+
     const cards = React.useMemo(() => {
         const itemsWithKeys = items.map((item, index) => ({
             ...item,
@@ -78,6 +113,14 @@ const FilterBlock = ({
             ? itemsWithKeys.filter((item) => item.tags.includes(actualTag))
             : itemsWithKeys;
     }, [actualTag, items]);
+
+    const allTagConfig = typeof allTag === 'object' ? allTag : undefined;
+    const activeTag = actualTag === null ? allTagConfig : tags?.find((tag) => tag.id === actualTag);
+    const rows = responsiveValue(visibleRowsCount ?? {}, width, Infinity);
+    const columns = Math.max(1, Math.floor(12 / responsiveValue(colSizes, width, 12)));
+    const limit = rows > 0 ? Math.floor(rows) * columns : Infinity;
+    const canCollapse = Boolean(activeTag?.collapsible && cards.length > limit);
+    const visibleCards = canCollapse && !expanded ? cards.slice(0, limit) : cards;
 
     const handleSelectTab = React.useCallback(
         (tabId: string | null) => {
@@ -106,7 +149,7 @@ const FilterBlock = ({
                         <ButtonTabs
                             className={b('tabs', {centered: centered})}
                             items={tabButtons}
-                            activeTab={selectedTag}
+                            activeTab={actualTag}
                             onSelectTab={handleSelectTab}
                             tabSize={tagButtonSize}
                         />
@@ -115,11 +158,25 @@ const FilterBlock = ({
             )}
             <Row className={b('block-container')}>
                 <CardLayoutBlock title="" colSizes={colSizes} className={b('cards-container')}>
-                    {cards.map(({card, key}) => (
+                    {visibleCards.map(({card, key}) => (
                         <ConstructorItem data={card} blockKey={key} key={key} />
                     ))}
                 </CardLayoutBlock>
             </Row>
+            {canCollapse && (
+                <Button
+                    className={b('toggle')}
+                    view="normal"
+                    size="xl"
+                    width="max"
+                    aria-expanded={expanded}
+                    onClick={() => setExpanded((value) => !value)}
+                >
+                    {expanded
+                        ? (collapseButtonText ?? i18n('label-collapse'))
+                        : (expandButtonText ?? i18n('label-expand'))}
+                </Button>
+            )}
         </AnimateBlock>
     );
 };

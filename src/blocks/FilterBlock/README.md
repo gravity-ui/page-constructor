@@ -110,3 +110,38 @@ No dedicated themed props on the block itself; individual card `media`/`backgrou
 ## Storybook
 
 [FilterBlock](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-filterblock--docs)
+
+## Collapsible lists
+
+Set `collapsible: true` on each tag that should initially show a limited number of
+rows, including the object form of `allTag`. This is disabled by default.
+`visibleRowsCount` sets the shared row limit for these tabs, using the same
+breakpoints as `colSizes`. Each value applies until the next configured breakpoint.
+Without a matching row limit, the list remains unlimited.
+
+```yaml
+allTag:
+  id: all
+  label: All services
+  collapsible: true
+tags:
+  - id: infrastructure
+    label: Infrastructure
+    collapsible: true
+colSizes:
+  all: 12
+  md: 6
+  lg: 3
+visibleRowsCount:
+  all: 3
+  md: 2
+  lg: 2
+expandButtonText: Show all
+collapseButtonText: Show less
+```
+
+Row counts must be positive integers. The number of visible cards is the row count
+multiplied by the number of cards that fit in the current 12-column grid. The last
+row can be incomplete when there are fewer cards remaining. The full-width normal
+button appears only when the selected tab has more cards than its limit. Its labels
+default to localized “Show all” / “Show less”. Changing tabs resets the expanded state.
