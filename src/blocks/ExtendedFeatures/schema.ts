@@ -1,4 +1,4 @@
-import {omit} from 'lodash';
+import omit from 'lodash/omit';
 
 import {ImageProps} from '../../components/Image/schema';
 import {

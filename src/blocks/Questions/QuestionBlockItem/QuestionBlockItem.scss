@@ -19,6 +19,8 @@ $block: '.#{$ns}QuestionsBlockItem';
             color: var(--pc-text-header-color);
             margin: 0;
             cursor: pointer;
+
+            // The focus token is used because this radius shapes the focus ring.
             border-radius: var(--g-focus-border-radius);
 
             a {
@@ -35,7 +37,6 @@ $block: '.#{$ns}QuestionsBlockItem';
         padding-right: $indentSM;
         text-align: start;
         cursor: pointer;
-        border-radius: var(--g-focus-border-radius);
 
         a {
             @include link();
@@ -56,11 +57,11 @@ $block: '.#{$ns}QuestionsBlockItem';
 
         @include add-specificity(&) {
             a {
-                outline-offset: -2px; // as part of outline is hidden due to overflow: hidden from parent
-                border-radius: calc(
-                    var(--g-focus-border-radius) + 2px
-                ); // as outline-offset is -2px
                 display: inline-block; //fixes the Link to be clickable in entire row width
+
+                outline-offset: -2px; // as part of outline is hidden due to overflow: hidden from parent
+                // The focus token is used because this radius shapes the focus ring.
+                border-radius: calc(var(--g-focus-border-radius) + 2px);
             }
         }
     }

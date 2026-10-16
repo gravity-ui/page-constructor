@@ -3,8 +3,6 @@
 
 $block: '.#{$ns}card-layout-block';
 
-$largeBorderRadius: 32px;
-
 #{$block} {
     &__item {
         margin-top: $indentSM;
@@ -34,7 +32,7 @@ $largeBorderRadius: 32px;
         left: 0;
         width: 100%;
         height: 100%;
-        border-radius: $largeBorderRadius;
+        border-radius: var(--pc-border-radius-xl);
 
         img {
             object-fit: cover;

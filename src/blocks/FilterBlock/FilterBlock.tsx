@@ -6,7 +6,7 @@ import ButtonTabs, {ButtonTabsItemProps} from '../../components/ButtonTabs/Butto
 import {ConstructorItem} from '../../containers/PageConstructor/components/ConstructorItem';
 import {Col, Row} from '../../grid';
 import {useAnalytics} from '../../hooks';
-import {FilterBlockProps, FilterItem} from '../../models';
+import {FilterBlockProps} from '../../models';
 import {block, getBlockKey} from '../../utils';
 
 import {i18n} from './i18n';
@@ -69,11 +69,14 @@ const FilterBlock = ({
     }, [tabButtons, selectedTag]);
 
     const cards = React.useMemo(() => {
-        const itemsToShow: FilterItem[] = actualTag
-            ? items.filter((item) => item.tags.includes(actualTag))
-            : items;
+        const itemsWithKeys = items.map((item, index) => ({
+            ...item,
+            key: getBlockKey(item.card, index),
+        }));
 
-        return itemsToShow.map((item) => item.card);
+        return actualTag
+            ? itemsWithKeys.filter((item) => item.tags.includes(actualTag))
+            : itemsWithKeys;
     }, [actualTag, items]);
 
     const handleSelectTab = React.useCallback(
@@ -112,11 +115,9 @@ const FilterBlock = ({
             )}
             <Row className={b('block-container')}>
                 <CardLayoutBlock title="" colSizes={colSizes} className={b('cards-container')}>
-                    {cards.map((card, index) => {
-                        const key = getBlockKey(card, index);
-
-                        return <ConstructorItem data={card} blockKey={key} key={key} />;
-                    })}
+                    {cards.map(({card, key}) => (
+                        <ConstructorItem data={card} blockKey={key} key={key} />
+                    ))}
                 </CardLayoutBlock>
             </Row>
         </AnimateBlock>

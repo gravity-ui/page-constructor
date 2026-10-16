@@ -46,7 +46,7 @@ $block: '.#{$ns}overflow-scroller';
         cursor: pointer;
 
         color: var(--g-color-text-secondary);
-        border-radius: var(--g-focus-border-radius);
+        border-radius: var(--g-border-radius-xs);
 
         &_type_left {
             left: 0;

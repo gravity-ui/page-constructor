@@ -1,7 +1,8 @@
 //common
 
 $ns: 'pc-';
-$borderRadius: var(--pc-border-radius);
+// Preserve external overrides of the legacy token, falling back to the radius scale.
+$borderRadius: var(--pc-border-radius, var(--pc-border-radius-l));
 $imagePadding: var(--pc-image-padding);
 
 //indents
