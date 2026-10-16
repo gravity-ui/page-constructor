@@ -4,13 +4,13 @@
 
 .yfm_constructor {
     $block: &;
-    font-family: var(--g-font-family-sans);
+    font-family: var(--g-text-body-font-family);
     color: var(--g-color-text-primary);
 
     code,
     kbd,
     pre {
-        font-family: var(--g-font-family-monospace);
+        font-family: var(--g-text-code-font-family);
         color: var(--g-color-text-primary);
     }
 
@@ -37,7 +37,7 @@
         &_meta_info {
             p {
                 color: var(--pc-media-card-meta-info-color);
-                font-weight: var(--g-text-accent-font-weight);
+                font-weight: var(--g-text-subheader-font-weight);
             }
         }
 

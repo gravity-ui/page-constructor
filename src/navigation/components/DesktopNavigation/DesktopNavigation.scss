@@ -64,7 +64,7 @@ $block: '.#{$ns}desktop-navigation';
     &__right {
         justify-content: flex-end;
 
-        @include text-size(body-2);
+        @include text-body-2();
 
         @media (max-width: map-get($gridBreakpoints,'md') - 1) {
             flex: 3 0 0;
@@ -127,7 +127,7 @@ $block: '.#{$ns}desktop-navigation';
     &__links {
         position: relative;
 
-        @include text-size(body-2);
+        @include text-body-2();
     }
 
     &__item {

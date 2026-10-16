@@ -4,7 +4,7 @@
 $block: '.#{$ns}not-found-block';
 
 #{$block} {
-    @include text-size(display-1);
+    @include text-display-1();
     @include shadow();
 
     display: flex;

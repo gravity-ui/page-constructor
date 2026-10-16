@@ -5,7 +5,7 @@ $block: '.#{$ns}table';
 
 #{$block} {
     $root: &;
-    @include text-size(body-2);
+    @include text-body-2();
 
     &__table {
         width: 100%;
@@ -15,7 +15,7 @@ $block: '.#{$ns}table';
     &__row {
         display: flex;
         &:first-child {
-            font-weight: var(--g-text-accent-font-weight);
+            @include text-header-2();
 
             #{$root}__cell {
                 border-bottom-color: var(--g-color-line-generic-active);

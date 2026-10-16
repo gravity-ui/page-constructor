@@ -59,11 +59,11 @@ $block: '.#{$ns}link-block';
 
     &_size {
         &_l {
-            @include text-size(body-3);
+            @include text-body-3();
         }
 
         &_m {
-            @include text-size(body-2);
+            @include text-body-2();
 
             #{$root}__arrow {
                 top: 1px;
@@ -71,7 +71,7 @@ $block: '.#{$ns}link-block';
         }
 
         &_s {
-            @include text-size(body-1);
+            @include text-body-1();
         }
     }
 }

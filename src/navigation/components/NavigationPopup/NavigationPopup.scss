@@ -10,7 +10,7 @@ $block: '.#{$ns}navigation-popup';
     margin-top: $offset;
 
     @include navigation-popup();
-    @include text-size(body-2);
+    @include text-body-2();
 
     &__list {
         @include reset-list-style();

@@ -79,7 +79,7 @@ $block: '.#{$ns}add-block';
     }
 
     #{$block}__title {
-        @include text-size(body-2);
+        @include text-body-2();
     }
 
     #{$block}__title,

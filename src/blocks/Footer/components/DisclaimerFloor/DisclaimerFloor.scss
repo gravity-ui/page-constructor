@@ -5,7 +5,7 @@ $block: '.#{$ns}footer-block';
 
 #{$block} {
     &__disclaimer-floor-content {
-        @include text-size(body-2);
+        @include text-body-2();
         color: var(--g-color-text-secondary);
 
         .yfm {

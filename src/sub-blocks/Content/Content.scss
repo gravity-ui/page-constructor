@@ -102,7 +102,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
             }
 
             #{$block}__notice .yfm {
-                @include text-size(body-1);
+                @include text-body-1();
             }
         }
 
@@ -119,15 +119,15 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
             #{$block}__text .yfm,
             #{$block}__notice .yfm {
-                @extend %heading-margin-reset;
-                @include text-size(body-3);
+                margin: 0;
+                @include text-body-3();
             }
             #{$block}__text .yfm {
-                @include text-size(body-3);
+                @include text-body-3();
             }
             #{$block}__notice .yfm {
-                @extend %heading-margin-reset;
-                @include text-size(body-2);
+                margin: 0;
+                @include text-body-2();
             }
 
             #{$block}__list,
@@ -154,16 +154,16 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
             #{$block}__text .yfm,
             #{$block}__notice .yfm {
-                @extend %heading-margin-reset;
-                @include text-size(body-3);
+                margin: 0;
+                @include text-body-3();
             }
             #{$block}__text .yfm {
-                @include text-size(body-3);
+                @include text-body-3();
             }
 
             #{$block}__notice .yfm {
-                @extend %heading-margin-reset;
-                @include text-size(body-2);
+                margin: 0;
+                @include text-body-2();
             }
 
             #{$block}__list,
@@ -190,16 +190,16 @@ $darkSecondary: var(--g-color-text-dark-secondary);
 
             #{$block}__text .yfm,
             #{$block}__notice .yfm {
-                @extend %heading-margin-reset;
-                @include text-size(body-3);
+                margin: 0;
+                @include text-body-3();
             }
             #{$block}__text .yfm {
-                @include text-size(body-3);
+                @include text-body-3();
             }
 
             #{$block}__notice .yfm {
-                @extend %heading-margin-reset;
-                @include text-size(body-2);
+                margin: 0;
+                @include text-body-2();
             }
 
             #{$block}__list,

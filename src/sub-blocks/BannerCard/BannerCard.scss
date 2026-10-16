@@ -3,11 +3,6 @@
 
 $block: '.#{$ns}banner-card';
 
-@mixin subtitle {
-    @include heading5();
-    font-weight: normal;
-}
-
 #{$block} {
     $class: &;
     $borderRadius: $borderRadius;
@@ -33,7 +28,13 @@ $block: '.#{$ns}banner-card';
 
     &__title {
         @include add-specificity(&) {
-            @include heading2();
+            @include text-display-2();
+
+            margin: 0;
+
+            @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+                @include text-display-1();
+            }
 
             a {
                 @include link();
@@ -65,12 +66,14 @@ $block: '.#{$ns}banner-card';
 
     &__subtitle {
         @include add-specificity(&) {
+            @include text-body-3();
+
             display: inline-block;
             margin-top: $indentXXXS;
-            @include subtitle();
 
             & p {
-                @include subtitle();
+                @include text-body-3();
+                margin: 0;
             }
         }
     }

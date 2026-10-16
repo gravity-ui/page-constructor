@@ -64,7 +64,7 @@ $block: '.#{$ns}price-card';
 
     &__title {
         @include add-specificity(&) {
-            @include text-size(subheader-3);
+            @include text-subheader-3();
             margin-bottom: $indentSM;
         }
     }
@@ -73,8 +73,7 @@ $block: '.#{$ns}price-card';
         margin-bottom: $indentSM;
 
         &-value {
-            @include text-size(display-1);
-            font-weight: var(--g-text-accent-font-weight);
+            @include text-display-1();
         }
 
         &-period {
@@ -82,7 +81,7 @@ $block: '.#{$ns}price-card';
         }
 
         &-details {
-            @include text-size(body-2);
+            @include text-body-2();
             white-space: pre-wrap;
         }
     }

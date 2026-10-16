@@ -9,15 +9,15 @@ $block: '.#{$ns}settings-list';
         font-weight: 400;
 
         &_size_l {
-            @include text-size(header-1);
+            @include text-header-1();
         }
 
         &_size_m {
-            @include text-size(body-2);
+            @include text-body-2();
         }
 
         &_size_s {
-            @include text-size(body-1);
+            @include text-body-1();
         }
     }
 
