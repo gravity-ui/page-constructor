@@ -32,7 +32,6 @@ import {
     ImageCard,
     MediaCardBlock,
     PriceCardBlock,
-    PriceDetailedBlock,
     Quote,
 } from './validators/sub-blocks';
 
@@ -65,7 +64,6 @@ export const blockSchemas: Record<BlockType, object> = {
 export const cardSchemas = {
     ...MediaCardBlock,
     ...BannerCard,
-    ...PriceDetailedBlock,
     ...BackgroundCard,
     ...Quote,
     ...BasicCard,
@@ -92,8 +90,6 @@ export const constructorBlockSchemaNames = [
     'info-block',
     'table-block',
     'tabs-block',
-    /** @deprecated */
-    'price-detailed',
     'header-slider-block',
     'cards-with-image-block',
     'icons-block',
@@ -107,8 +103,6 @@ export const constructorBlockSchemaNames = [
 export const constructorCardSchemaNames = [
     'media-card',
     'banner-card',
-    /** @deprecated */
-    'price-detailed',
     'background-card',
     'quote',
     'basic-card',

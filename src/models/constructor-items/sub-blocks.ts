@@ -21,7 +21,6 @@ import {
     LinkProps,
     MediaProps,
     MediaView,
-    PriceDetailedProps,
     TextTheme,
     Themable,
     ThemedImage,
@@ -30,10 +29,6 @@ import {
 export enum SubBlockType {
     Divider = 'divider',
     Quote = 'quote',
-    /**
-     * @deprecated Will be removed
-     */
-    PriceDetailed = 'price-detailed',
     MediaCard = 'media-card',
     BannerCard = 'banner-card',
     LayoutItem = 'layout-item',
@@ -237,11 +232,6 @@ export type BackgroundCardModel = {
     type: SubBlockType.BackgroundCard;
 } & BackgroundCardProps;
 
-/** @deprecated */
-export type PriceDetailedModel = {
-    type: SubBlockType.PriceDetailed;
-} & PriceDetailedProps;
-
 export type MediaCardModel = {
     type: SubBlockType.MediaCard;
 } & MediaCardProps;
@@ -269,7 +259,6 @@ export type ImageCardModel = {
 export type SubBlockModels =
     | DividerModel
     | QuoteModel
-    | PriceDetailedModel
     | MediaCardModel
     | BackgroundCardModel
     | HubspotFormModel

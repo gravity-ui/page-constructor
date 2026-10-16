@@ -86,8 +86,7 @@ The following sub-blocks in the src/sub-blocks directory have Storybook stories:
 7. **LayoutItem**: A sub-block for creating layout structures. ✅ [Usage documented](usage/layoutItem.md)
 8. **MediaCard**: A sub-block for displaying media content in a card format. ✅ [Usage documented](usage/mediaCard.md)
 9. **PriceCard**: A sub-block for displaying pricing information. ✅ [Usage documented](usage/priceCard.md)
-10. **PriceDetailed**: A sub-block for displaying detailed pricing information (deprecated). ✅ [Usage documented](usage/priceDetailed.md)
-11. **Quote**: A sub-block for displaying quotations. ✅ [Usage documented](usage/quote.md)
+10. **Quote**: A sub-block for displaying quotations. ✅ [Usage documented](usage/quote.md)
 
 ### Containers
 

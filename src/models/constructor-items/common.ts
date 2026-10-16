@@ -12,19 +12,6 @@ export enum AuthorType {
     Line = 'line',
 }
 
-export enum PriceDetailsType {
-    MARKED_LIST = 'marked-list',
-    SETTINGS = 'settings',
-}
-
-export enum PriceLabelColor {
-    BLUE = 'blue',
-    GREEN = 'green',
-    YELLOW = 'yellow',
-    PURPLE = 'purple',
-    RED = 'red',
-}
-
 export enum PlayButtonType {
     Default = 'default',
     Text = 'text',
@@ -73,7 +60,6 @@ export type ColumnsCount = 1 | 2 | 3 | 4;
 export type LegendTableMarkerType = 'disk' | 'tick';
 export type LinkTheme = 'file-link' | 'normal' | 'back' | 'underline';
 export type MediaDirection = 'media-content' | 'content-media';
-export type PriceDescriptionColor = 'cornflower' | 'black';
 export type ContentSize = 's' | 'm' | 'l' | 'xl';
 export type ContentTextSize = 's' | 'm' | 'l';
 export type ContentTheme = 'default' | 'dark' | 'light';
@@ -447,62 +433,6 @@ export interface CardBaseProps {
 export type CardLayoutProps = {
     controlPosition?: ControlPosition;
 };
-
-//price
-export interface PriceDescriptionProps {
-    title: string;
-    detailedTitle?: string;
-    description: string;
-    label?: {
-        color: PriceLabelColor;
-        text?: string;
-        size?: TextSize;
-    };
-}
-
-export interface PriceDetailsSettingsProps {
-    title: string;
-    description: string;
-}
-
-export interface PriceDetailsListProps {
-    text: string;
-}
-
-export interface PriceDetailsProps {
-    items?: PriceDetailsSettingsProps[] | PriceDetailsListProps[];
-}
-
-export interface PriceItemProps
-    extends PriceDetailsProps,
-        PriceDescriptionProps,
-        AnalyticsEventsBase {}
-
-export interface PriceFoldableDetailsProps {
-    title: string;
-    size?: TextSize;
-    titleColor?: PriceDescriptionColor;
-}
-
-/** @deprecated */
-export interface PriceDetailedProps extends CardBaseProps {
-    items: PriceItemProps[];
-    description?: {
-        titleSize?: TextSize;
-        descriptionSize?: TextSize;
-        titleColor?: PriceDescriptionColor;
-    };
-    details?: {
-        titleSize?: TextSize;
-        descriptionSize?: TextSize;
-    };
-    priceType?: PriceDetailsType;
-    numberGroupItems?: 3 | 4 | 5;
-    isCombined?: boolean;
-    useMixedView?: boolean;
-    foldable?: PriceFoldableDetailsProps;
-    labelsDefaultText?: Record<PriceLabelColor, string>;
-}
 
 export interface AuthorProps extends QAProps {
     author: AuthorItem;
