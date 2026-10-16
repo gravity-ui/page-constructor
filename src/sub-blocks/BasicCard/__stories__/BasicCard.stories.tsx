@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import {Meta, StoryFn} from '@storybook/react';
 
 import {blockListTransform, blockTransform} from '../../../../.storybook/utils';
@@ -262,3 +264,54 @@ HoverEffects.parameters = {
         include: Object.keys(HoverEffects.args),
     },
 };
+
+// CSS variables belong to the site/section wrapper, not the card's JSON model.
+export const ColorTokens: StoryFn = () => (
+    <div
+        style={
+            {
+                display: 'grid',
+                gridTemplateColumns: 'repeat(3, minmax(240px, 1fr))',
+                gap: 24,
+                padding: 32,
+                background: 'var(--g-color-base-background)',
+                '--pc-card-background-color': 'var(--g-color-base-generic)',
+                '--pc-card-background-color-hover': 'var(--g-color-base-generic-hover)',
+                '--pc-card-outlined-background-color': 'transparent',
+                '--pc-card-outlined-background-color-hover': 'var(--g-color-base-selection)',
+                '--pc-card-border-color': 'var(--g-color-line-generic)',
+                '--pc-card-border-color-hover': 'var(--g-color-line-brand)',
+            } as React.CSSProperties
+        }
+    >
+        {(['shadow', 'line', 'none'] as const).map((border) => (
+            <BasicCard key={border} title={border} border={border} url="#colors" />
+        ))}
+        <div style={{'--pc-card-background-color': '#EAF1FF'} as React.CSSProperties}>
+            <BasicCard title="Local HEX, inherited hover" border="none" url="#colors" />
+        </div>
+        <div
+            style={
+                {
+                    '--pc-card-background-color': '#EAF1FF',
+                    '--pc-card-background-color-hover': '#DCE7FF',
+                } as React.CSSProperties
+            }
+        >
+            <BasicCard title="Local HEX and hover" border="shadow" url="#colors" />
+        </div>
+        <BasicCard title="Non-interactive" border="line" url="" />
+    </div>
+);
+
+export const NestedColorFallbacks: StoryFn = () => (
+    <div style={{'--pc-card-background-color': '#F5F6F7', padding: 32} as React.CSSProperties}>
+        <div style={{'--pc-card-background-color': '#EAF1FF'} as React.CSSProperties}>
+            <BasicCard
+                title="Outlined inherits the nested background, including hover"
+                border="line"
+                url="#colors"
+            />
+        </div>
+    </div>
+);

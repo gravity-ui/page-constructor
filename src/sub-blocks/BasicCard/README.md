@@ -58,3 +58,83 @@ Accepted as a child of: `card-layout-block`, `slider-block`, `slider-old-block`.
 ## Storybook
 
 [BasicCard](https://preview.gravity-ui.com/page-constructor/?path=/docs/components-cards-basiccard--docs)
+
+## Card colors
+
+Set these public CSS variables on the site root, a section, or an individual card wrapper.
+They apply to BasicCard, BackgroundCard, MediaCard, PriceCard, both PriceDetailed layouts,
+ImageCard and Quote. They are CSS settings, not React props or JSON/editor fields.
+
+| Variable                                    | Purpose                                                |
+| ------------------------------------------- | ------------------------------------------------------ |
+| `--pc-card-background-color`                | Background of `shadow` and `none`; fallback for `line` |
+| `--pc-card-background-color-hover`          | Interactive `shadow` and `none` background on hover    |
+| `--pc-card-outlined-background-color`       | Background of `line`                                   |
+| `--pc-card-outlined-background-color-hover` | Interactive `line` background on hover                 |
+| `--pc-card-border-color`                    | Border color of `line`                                 |
+| `--pc-card-border-color-hover`              | Interactive `line` border color on hover               |
+
+Fallbacks are resolved on the card (first defined value wins):
+
+| State             | Fallback order                                                                                                                              |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `shadow` / `none` | `--pc-card-background-color` → `--g-color-base-float`                                                                                       |
+| `line`            | `--pc-card-outlined-background-color` → `--pc-card-background-color` → `--g-color-base-float`                                               |
+| `shadow` hover    | `--pc-card-background-color-hover` → `--pc-card-background-color` → `--pc-color-base-float-hover`                                           |
+| `none` hover      | `--pc-card-background-color-hover` → `--pc-card-background-color` → `--g-color-base-float`                                                  |
+| `line` hover      | `--pc-card-outlined-background-color-hover` → `--pc-card-outlined-background-color` → `--pc-card-background-color` → `--g-color-base-float` |
+| Border            | `--pc-card-border-color` → `--g-color-line-generic`                                                                                         |
+| Border hover      | `--pc-card-border-color-hover` → `--pc-card-border-color` → `--g-color-line-generic`                                                        |
+
+Without these variables the existing light/dark appearance remains unchanged, including
+`--pc-color-base-float-hover`. `none` removes the border and shadow, not the background.
+Only existing card links gain hover colors; Quote and other non-interactive cards do not.
+The outlined variant does not inherit the general hover color.
+
+Values may be CSS colors (HEX, rgb/hsl, `transparent`) or `var(...)`, but not gradients.
+Existing individual styling retains priority: ImageCard's `backgroundColor`, Quote's `color`,
+BackgroundCard's theme and background layer, PriceCard's background layer, and BasicCard's
+legacy `hoverBackgroundColor` gradient overlay retain their behavior. CardLayout's image
+container and navigation/UIKit surfaces are outside this API.
+
+### Yandex Cloud example
+
+Place `site-theme` on the same element as `g-root` and the active UIKit theme class.
+
+```css
+.site-theme {
+  --pc-card-background-color: var(--g-color-base-float);
+  --pc-card-background-color-hover: var(--g-color-base-float);
+  --pc-card-outlined-background-color: transparent;
+  --pc-card-outlined-background-color-hover: transparent;
+  --pc-card-border-color: var(--g-color-line-generic);
+  --pc-card-border-color-hover: var(--g-color-line-generic);
+}
+
+.site-theme.g-root_theme_dark {
+  --pc-card-background-color-hover: var(--g-color-base-float-hover);
+}
+```
+
+This preserves the old `shadow` hover in both themes and makes `line` transparent.
+Interactive `none` now also uses the general hover color in dark mode intentionally.
+
+### DataLens and local overrides
+
+For a light DataLens theme, set both general background variables to `#F5F6F7`.
+Keep the outlined variables transparent. Provide a separately approved HEX for the dark
+class: HEX colors do not change automatically with the theme. A value such as `#25282D`
+is only a placeholder, not an approved DataLens dark color.
+
+```css
+.special-card-scope {
+  --pc-card-background-color: #eaf1ff;
+  --pc-card-background-color-hover: #dce7ff;
+}
+```
+
+A new background stays unchanged on hover if no corresponding hover variable exists
+on the card or its ancestors. An inherited hover variable still wins over a locally
+changed background; override both to customize both states. Likewise, an inherited
+outlined background takes priority over a local general background.
+See the **ColorTokens** and **NestedColorFallbacks** stories for examples.

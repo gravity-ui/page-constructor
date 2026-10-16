@@ -1,4 +1,4 @@
-import {Meta} from '@storybook/blocks';
+import {Canvas, Meta} from '@storybook/blocks';
 
 import {Readme} from '../../../../.storybook/readme';
 
@@ -11,3 +11,8 @@ import readme from '../README.md';
 <StoryTemplate>
 <Readme>{readme}</Readme>
 </StoryTemplate>
+
+## Color examples
+
+<Canvas of={BasicCardStories.ColorTokens} />
+<Canvas of={BasicCardStories.NestedColorFallbacks} />

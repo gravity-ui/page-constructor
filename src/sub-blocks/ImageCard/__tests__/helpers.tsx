@@ -14,3 +14,5 @@ export const {
     ControlPosition,
     Size,
 } = composeStories(ImageCardStories);
+
+export {default as ImageCard} from '../ImageCard';

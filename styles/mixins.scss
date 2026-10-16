@@ -298,15 +298,59 @@
     }
 }
 
+// Resolve fallbacks on the card so nested scopes can override inherited theme colors.
+// Keep these colors separate from card-border(), also used by CardLayout's image container.
+
+@mixin card-colors($hover: false) {
+    background-color: var(--pc-card-background-color, var(--g-color-base-float));
+
+    &_border_line {
+        background-color: var(
+            --pc-card-outlined-background-color,
+            var(--pc-card-background-color, var(--g-color-base-float))
+        );
+        border-color: var(--pc-card-border-color, var(--g-color-line-generic));
+    }
+
+    @if $hover {
+        &_border_shadow:hover {
+            background-color: var(
+                --pc-card-background-color-hover,
+                var(--pc-card-background-color, var(--pc-color-base-float-hover))
+            );
+        }
+
+        &_border_none:hover {
+            background-color: var(
+                --pc-card-background-color-hover,
+                var(--pc-card-background-color, var(--g-color-base-float))
+            );
+        }
+
+        &_border_line:hover {
+            background-color: var(
+                --pc-card-outlined-background-color-hover,
+                var(
+                    --pc-card-outlined-background-color,
+                    var(--pc-card-background-color, var(--g-color-base-float))
+                )
+            );
+            border-color: var(
+                --pc-card-border-color-hover,
+                var(--pc-card-border-color, var(--g-color-line-generic))
+            );
+        }
+    }
+}
+
 @mixin card($hover: false) {
     min-height: 248px;
     height: 100%;
     overflow-x: hidden;
     border-radius: $borderRadius;
-    background-color: var(--g-color-base-float);
-
     transition: box-shadow 0.3s $ease-out-cubic;
     @include card-border($hover);
+    @include card-colors($hover);
 }
 
 @mixin card-image {

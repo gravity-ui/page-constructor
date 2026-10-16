@@ -1,4 +1,6 @@
-import {test} from '../../../../playwright/core/index';
+import * as React from 'react';
+
+import {expect, test} from '../../../../playwright/core/index';
 
 import {
     BackgroundColor,
@@ -8,6 +10,7 @@ import {
     ControlPosition,
     Default,
     DirectionReverse,
+    ImageCard,
     Margins,
     Size,
     WithUrl,
@@ -74,3 +77,34 @@ test.describe('ImageCard', () => {
         await expectScreenshot({skipTheme: 'dark'});
     });
 });
+
+for (const colorScheme of ['light', 'dark'] as const) {
+    test.describe(`card color compatibility ${colorScheme}`, () => {
+        test.use({colorScheme});
+        test('individual background and hover', async ({mount, page}) => {
+            await mount(
+                <div
+                    style={
+                        {
+                            '--pc-card-background-color': '#123456',
+                            '--pc-card-background-color-hover': '#234567',
+                        } as React.CSSProperties
+                    }
+                >
+                    <ImageCard
+                        title="Image"
+                        image="/story-assets/icon_1_light.svg"
+                        url="#card"
+                        backgroundColor="#abcdef"
+                    />
+                </div>,
+            );
+            const card = page.locator('.pc-image-card');
+            await expect(card).toHaveCSS('background-color', 'rgb(171, 205, 239)');
+            await card.hover();
+            await expect(card).toHaveCSS('background-color', 'rgb(171, 205, 239)');
+            await card.evaluate((el) => el.style.removeProperty('background-color'));
+            await expect(card).toHaveCSS('background-color', 'rgb(35, 69, 103)');
+        });
+    });
+}

@@ -12,3 +12,5 @@ export const {
     WithUrl,
     ControlPosition,
 } = composeStories(BackgroundCardStories);
+
+export {default as BackgroundCard} from '../BackgroundCard';
