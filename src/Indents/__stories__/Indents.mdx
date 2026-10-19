@@ -19,6 +19,33 @@ import * as IndentsStories from './Indents.stories.tsx';
 
 `xxl` - 96px
 
+# Overriding indents
+
+All indents are based on the scale of CSS variables. Set the public `--pc-indent-*` tokens to override the default values without changing the page config:
+
+```css
+.g-root {
+    --pc-indent-l: 40px;
+}
+```
+
+| Token              | Default | Block indent |
+| ------------------ | ------- | ------------ |
+| `--pc-indent-4xs`  | 4px     |              |
+| `--pc-indent-xxxs` | 8px     |              |
+| `--pc-indent-xxs`  | 12px    |              |
+| `--pc-indent-xs`   | 16px    | `xs`         |
+| `--pc-indent-s`    | 20px    |              |
+| `--pc-indent-sm`   | 24px    | `s`          |
+| `--pc-indent-m`    | 32px    | `m`          |
+| `--pc-indent-l`    | 48px    | `l`          |
+| `--pc-indent-xl`   | 64px    | `xl`         |
+| `--pc-indent-xxl`  | 96px    | `xxl`        |
+| `--pc-indent-xxxl` | 128px   |              |
+| `--pc-indent-4xl`  | 160px   |              |
+
+The tokens also affect the inner indents of blocks.
+
 <Story of={IndentsStories.L} />
 <Controls />
 <Stories />

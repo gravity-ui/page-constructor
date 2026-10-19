@@ -5,18 +5,18 @@ $borderRadius: var(--pc-border-radius);
 $imagePadding: var(--pc-image-padding);
 
 //indents
-$indent4XS: 4px;
-$indentXXXS: 8px;
-$indentXXS: 12px;
-$indentXS: 16px;
-$indentS: 20px;
-$indentSM: 24px;
-$indentM: 32px;
-$indentL: 48px;
-$indentXL: 64px;
-$indentXXL: 96px;
-$indentXXXL: 128px;
-$indent4XL: 160px;
+$indent4XS: var(--pc-indent-4xs, var(--pc-indent-private-4xs));
+$indentXXXS: var(--pc-indent-xxxs, var(--pc-indent-private-xxxs));
+$indentXXS: var(--pc-indent-xxs, var(--pc-indent-private-xxs));
+$indentXS: var(--pc-indent-xs, var(--pc-indent-private-xs));
+$indentS: var(--pc-indent-s, var(--pc-indent-private-s));
+$indentSM: var(--pc-indent-sm, var(--pc-indent-private-sm));
+$indentM: var(--pc-indent-m, var(--pc-indent-private-m));
+$indentL: var(--pc-indent-l, var(--pc-indent-private-l));
+$indentXL: var(--pc-indent-xl, var(--pc-indent-private-xl));
+$indentXXL: var(--pc-indent-xxl, var(--pc-indent-private-xxl));
+$indentXXXL: var(--pc-indent-xxxl, var(--pc-indent-private-xxxl));
+$indent4XL: var(--pc-indent-4xl, var(--pc-indent-private-4xl));
 $normalOffset: 20px;
 $contentMargin: $indentM;
 

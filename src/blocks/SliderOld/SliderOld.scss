@@ -116,7 +116,7 @@ $block: '.#{$ns}SliderOldBlock';
         }
 
         & + & {
-            margin-left: 16px;
+            margin-left: $indentXS;
         }
 
         &_active {
@@ -187,7 +187,7 @@ $block: '.#{$ns}SliderOldBlock';
 
         #{$root}__dots {
             position: absolute;
-            bottom: 24px;
+            bottom: $indentSM;
             left: 0;
             width: 100%;
         }
@@ -241,7 +241,7 @@ $block: '.#{$ns}SliderOldBlock';
 
         #{$root}__dots {
             position: absolute;
-            bottom: 16px;
+            bottom: $indentXS;
             left: 50%;
             transform: translateX(-50%);
             z-index: 100;

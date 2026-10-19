@@ -8,7 +8,7 @@ $block: '.#{$ns}marked-list';
     }
 
     &__text {
-        margin-left: 8px;
+        margin-left: $indentXXXS;
     }
 
     &__img {

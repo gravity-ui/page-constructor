@@ -55,7 +55,7 @@ $block: '.#{$ns}header-slider-block';
             }
 
             .#{$ns}header-block__container-fluid {
-                padding-left: $indentXS + $indentXXXS;
+                padding-left: calc(#{$indentXS} + #{$indentXXXS});
             }
         }
     }
