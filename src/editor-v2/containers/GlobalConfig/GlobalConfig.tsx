@@ -1,10 +1,5 @@
 import FormGenerator from '../../../form-generator-v2/FormGenerator';
 import {useMainEditorStore} from '../../hooks/useMainEditorStore';
-import {editorCn} from '../../utils/cn';
-
-import './GlobalConfig.scss';
-
-const b = editorCn('global-config');
 
 export interface GlobalConfigProps {
     className?: string;
@@ -18,8 +13,7 @@ const GlobalConfig = ({className}: GlobalConfigProps) => {
     };
 
     return (
-        <div className={b(null, className)}>
-            <div className={b('title')}>Global Config</div>
+        <div className={className}>
             <FormGenerator contentConfig={content} blockConfig={global} onUpdateByKey={onUpdate} />
         </div>
     );
