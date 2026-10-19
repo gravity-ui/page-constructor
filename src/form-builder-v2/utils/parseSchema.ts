@@ -2,6 +2,7 @@ import type {FormField} from '../types';
 
 const VALID_TYPES = new Set([
     'textInput',
+    'textListInput',
     'textArea',
     'select',
     'segmentedRadioGroup',
@@ -16,6 +17,7 @@ export type ParseSchemaResult = {ok: true; fields: FormField[]} | {ok: false; er
 
 const TYPES_REQUIRING_NAME = new Set([
     'textInput',
+    'textListInput',
     'textArea',
     'select',
     'segmentedRadioGroup',
@@ -45,6 +47,22 @@ const validateField = (obj: Record<string, unknown>, here: string): void => {
                 throw new Error(`${here}.options[${i}]: "value" and "content" must be strings`);
             }
         });
+    }
+
+    if (type === 'select' && obj.multiple !== undefined && typeof obj.multiple !== 'boolean') {
+        throw new Error(`${here}: "multiple" must be a boolean`);
+    }
+    if (obj.defaultValue !== undefined) {
+        if (type === 'textListInput' || (type === 'select' && obj.multiple === true)) {
+            if (
+                !Array.isArray(obj.defaultValue) ||
+                !obj.defaultValue.every((value) => typeof value === 'string')
+            ) {
+                throw new Error(`${here}: "defaultValue" must be an array of strings`);
+            }
+        } else if (type === 'select' && typeof obj.defaultValue !== 'string') {
+            throw new Error(`${here}: "defaultValue" must be a string`);
+        }
     }
 
     if (type === 'text' && typeof obj.text !== 'string') {
