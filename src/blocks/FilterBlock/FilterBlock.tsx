@@ -12,7 +12,7 @@ import {GridColumnSize, GridColumnSizesType} from '../../grid/types';
 import {useAnalytics} from '../../hooks';
 import {FilterBlockProps} from '../../models';
 import {block, getBlockKey} from '../../utils';
-import CardLayoutBlock, {DEFAULT_SIZES} from '../CardLayout/CardLayout';
+import CardLayoutBlock, {CARD_LAYOUT_DEFAULT_SIZES} from '../CardLayout/CardLayout';
 
 import {i18n} from './i18n';
 
@@ -27,7 +27,13 @@ const GRID_COLUMN_SIZES = [
     GridColumnSize.Xl,
 ] as const;
 
-function responsiveValue(values: GridColumnSizesType, width: number, fallback: number) {
+type ResponsiveValueParams = {
+    values: GridColumnSizesType;
+    width: number;
+    fallback: number;
+};
+
+function responsiveValue({values, width, fallback}: ResponsiveValueParams) {
     let result = values.all ?? fallback;
 
     for (const size of GRID_COLUMN_SIZES) {
@@ -48,7 +54,7 @@ const FilterBlock = ({
     tagButtonSize,
     allTag,
     items,
-    colSizes = DEFAULT_SIZES,
+    colSizes,
     visibleRowsCount,
     expandButtonText,
     collapseButtonText,
@@ -114,10 +120,21 @@ const FilterBlock = ({
             : itemsWithKeys;
     }, [actualTag, items]);
 
+    // Only the active tab's configuration determines whether its cards can be collapsed.
     const allTagConfig = typeof allTag === 'object' ? allTag : undefined;
     const activeTag = actualTag === null ? allTagConfig : tags?.find((tag) => tag.id === actualTag);
-    const rows = responsiveValue(visibleRowsCount ?? {}, width, Infinity);
-    const columns = Math.max(1, Math.floor(12 / responsiveValue(colSizes, width, 12)));
+    const rows = responsiveValue({values: visibleRowsCount ?? {}, width, fallback: Infinity});
+    const columns = Math.max(
+        1,
+        Math.floor(
+            12 /
+                responsiveValue({
+                    values: colSizes ?? CARD_LAYOUT_DEFAULT_SIZES,
+                    width,
+                    fallback: 12,
+                }),
+        ),
+    );
     const limit = rows > 0 ? Math.floor(rows) * columns : Infinity;
     const canCollapse = Boolean(activeTag?.collapsible && cards.length > limit);
     const visibleCards = canCollapse && !expanded ? cards.slice(0, limit) : cards;
@@ -157,7 +174,12 @@ const FilterBlock = ({
                 </Row>
             )}
             <Row className={b('block-container')}>
-                <CardLayoutBlock title="" colSizes={colSizes} className={b('cards-container')}>
+                <CardLayoutBlock
+                    title=""
+                    colSizes={colSizes}
+                    className={b('cards-container')}
+                    animated={animated}
+                >
                     {visibleCards.map(({card, key}) => (
                         <ConstructorItem data={card} blockKey={key} key={key} />
                     ))}
@@ -166,6 +188,7 @@ const FilterBlock = ({
             {canCollapse && (
                 <Button
                     className={b('toggle')}
+                    style={{transitionDelay: `${Math.min(visibleCards.length, 99) * 0.1}s`}}
                     view="normal"
                     size="xl"
                     width="max"

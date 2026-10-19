@@ -126,3 +126,8 @@ mobile-first inheritance. Missing applicable limits leave the list unlimited.
 `expandButtonText` / `collapseButtonText` override localized labels. Limits use the
 same column defaults as CardLayout and the WindowWidthContext. Switching tabs
 collapses the list; a toggle is rendered only when there is overflow.
+
+The column fallback is `CARD_LAYOUT_DEFAULT_SIZES`; explicit `colSizes` objects
+(including empty or partial ones) replace those defaults rather than merging them.
+The collapse toggle slides in with the same delay as the last animated card,
+so it stays below the cards during their entrance animation. Both respect `animated`.

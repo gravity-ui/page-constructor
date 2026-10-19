@@ -30,6 +30,8 @@ $innerBlock: '.#{$ns}block-base';
         padding-inline: $indentSM;
     }
 
+    @include animate(#{$block}__toggle);
+
     // @deprecated
     --pc-first-block-indent: 0;
     --pc-first-block-mobile-indent: 0;
