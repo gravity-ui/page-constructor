@@ -10,6 +10,7 @@ export interface IframeContextProps {
     url: string;
     setUrl: (url: string) => void;
     disableUrlField?: boolean;
+    hideUrl?: boolean;
 }
 
 export const IframeContext = React.createContext<IframeContextProps>({
