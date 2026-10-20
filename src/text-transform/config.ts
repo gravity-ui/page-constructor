@@ -6,9 +6,6 @@ import {
     ContentBlockProps,
     ExtendedFeaturesItem,
     FooterDisclaimerFloor,
-    PriceDetailedProps,
-    PriceDetailsListProps,
-    PriceDetailsSettingsProps,
     PromoFeaturesItem,
     SubBlockType,
     TableProps,
@@ -81,36 +78,6 @@ const parseItemsTitle = (transformer: Transformer, items: ExtendedFeaturesItem[]
         title: title && parseTitle(transformer, title),
         ...rest,
     }));
-
-function parsePriceDetailedBlock(transformer: Transformer, block: PriceDetailedProps) {
-    const {priceType} = block;
-
-    /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
-    block.items = block.items.map((item) => {
-        const {description, items: details = []} = item;
-
-        if (priceType === 'marked-list') {
-            item.items = (details as PriceDetailsListProps[]).map((detail) => {
-                detail.text = detail.text && transformer(detail.text);
-
-                return detail;
-            });
-        } else {
-            item.items = (details as PriceDetailsSettingsProps[]).map((detail) => {
-                detail.description = detail.description && transformer(detail.description);
-
-                return detail;
-            });
-        }
-
-        item.description = transformer(description);
-
-        return item;
-    });
-    /* eslint-enable no-not-accumulator-reassign/no-not-accumulator-reassign */
-
-    return block;
-}
 
 const parseContentLayout = (transformer: Transformer, content: ContentBlockProps) => {
     if (content) {
@@ -391,12 +358,6 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
             parser: createItemsParser(['title', 'overtitle', 'description']),
             renderInline: true,
-        },
-    ],
-    [SubBlockType.PriceDetailed]: [
-        {
-            transformer: yfmTransformer,
-            parser: parsePriceDetailedBlock,
         },
     ],
     [BlockType.HeaderBlock]: [

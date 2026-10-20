@@ -90,7 +90,7 @@ export const SliderOldBlock = (props: React.PropsWithChildren<SliderOldProps>) =
     const [breakpoint, setBreakpoint] = React.useState<number>(BREAKPOINTS.xl);
     const sliderId = useUniqId();
     const disclosedChildren = React.useMemo<React.ReactElement[]>(
-        () => discloseAllNestedChildren(children as React.ReactElement[], sliderId),
+        () => wrapChildren(children as React.ReactElement[], sliderId),
         [children, sliderId],
     );
     const childrenCount = disclosedChildren.length;
@@ -468,11 +468,7 @@ function getSlideId(sliderId: string, index: number) {
     return `slider-${sliderId}-child-${index}`;
 }
 
-// TODO remove this and rework PriceDetailed CLOUDFRONT-12230
-function discloseAllNestedChildren(
-    children: React.ReactElement[],
-    sliderId: string,
-): React.ReactElement[] {
+function wrapChildren(children: React.ReactElement[], sliderId: string): React.ReactElement[] {
     if (!children) {
         return [];
     }
@@ -488,26 +484,7 @@ function discloseAllNestedChildren(
         );
     };
 
-    return React.Children.map(children, (child) => {
-        if (child) {
-            // TODO: if child has 'items' then 'items' determinate like nested children for Slider.
-            const nestedChildren = child.props.data?.items;
-
-            if (nestedChildren) {
-                return nestedChildren.map((nestedChild: React.ReactElement) => {
-                    return wrapped(
-                        React.cloneElement(child, {
-                            data: {
-                                ...child.props.data,
-                                items: [nestedChild],
-                            },
-                        }),
-                    );
-                });
-            }
-        }
-        return child && wrapped(child);
-    }).filter(Boolean);
+    return React.Children.map(children, (child) => child && wrapped(child)).filter(Boolean);
 }
 
 export default SliderOldBlock;
