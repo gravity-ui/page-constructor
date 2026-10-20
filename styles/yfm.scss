@@ -87,7 +87,7 @@
         li:before {
             content: '\2014';
             position: absolute;
-            margin-left: -$indentS;
+            margin-left: calc(-1 * #{$indentS});
         }
     }
 
