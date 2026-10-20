@@ -307,8 +307,40 @@ function convertArray(
     const itemsType = (items as Record<string, unknown>)['type'] as string | undefined;
     const itemsEnum = (items as Record<string, unknown>)['enum'] as unknown[] | undefined;
 
+    if (
+        itemsType === 'string' ||
+        (itemsEnum && itemsEnum.every((value) => typeof value === 'string'))
+    ) {
+        const defaultValue = (schema as Record<string, unknown>)['default'];
+        const defaults =
+            Array.isArray(defaultValue) && defaultValue.every((value) => typeof value === 'string')
+                ? (defaultValue as string[])
+                : undefined;
+        if (itemsEnum) {
+            return [
+                withWhen(
+                    {
+                        type: 'select',
+                        name: fieldPath,
+                        title,
+                        multiple: true,
+                        options: itemsEnum.map((value) => ({
+                            value: String(value),
+                            content: String(value),
+                        })),
+                        defaultValue: defaults,
+                    },
+                    when,
+                ),
+            ];
+        }
+        return [
+            withWhen({type: 'textListInput', name: fieldPath, title, defaultValue: defaults}, when),
+        ];
+    }
+
     let innerFields: Fields;
-    if (itemsType === 'string' || itemsEnum) {
+    if (itemsEnum) {
         innerFields = [{type: 'textInput', name: itemPath, title}];
     } else if (itemsType === 'object') {
         const itemProps = (items as Record<string, unknown>)['properties'] as

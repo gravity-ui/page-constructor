@@ -14,6 +14,7 @@ import {Row} from './fields/Row';
 import {SectionSettings} from './fields/SectionSettings';
 import {SwitchSettings} from './fields/SwitchSettings';
 import {TextFieldSettings} from './fields/TextFieldSettings';
+import {TextListSettings} from './fields/TextListSettings';
 import {TextSettings} from './fields/TextSettings';
 
 import './FieldSettings.scss';
@@ -89,6 +90,17 @@ export const FieldSettings = ({field}: FieldSettingsProps) => {
     if (field.type === 'textInput' || field.type === 'textArea') {
         return (
             <TextFieldSettings
+                field={field}
+                updateField={updateField}
+                commonRows={commonRows}
+                whenEditorSection={whenEditorSection}
+            />
+        );
+    }
+
+    if (field.type === 'textListInput') {
+        return (
+            <TextListSettings
                 field={field}
                 updateField={updateField}
                 commonRows={commonRows}

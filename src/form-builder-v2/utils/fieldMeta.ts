@@ -15,6 +15,7 @@ import type {BuilderFieldType} from '../types';
 
 export const TYPE_LABELS: Record<BuilderFieldType, string> = {
     textInput: 'Text input',
+    textListInput: 'Text list',
     textArea: 'Text area',
     select: 'Select',
     segmentedRadioGroup: 'Segmented radio',
@@ -27,6 +28,7 @@ export const TYPE_LABELS: Record<BuilderFieldType, string> = {
 
 export const PALETTE_LABELS: Record<BuilderFieldType, string> = {
     textInput: 'Text',
+    textListInput: 'Text list',
     textArea: 'Text area',
     select: 'Select',
     segmentedRadioGroup: 'Radio',
@@ -39,6 +41,7 @@ export const PALETTE_LABELS: Record<BuilderFieldType, string> = {
 
 export const TYPE_ICONS: Record<BuilderFieldType, IconData> = {
     textInput: FontCursor,
+    textListInput: ListCheck,
     textArea: TextAlignLeft,
     select: ChevronsExpandVertical,
     segmentedRadioGroup: ListCheck,
@@ -51,6 +54,7 @@ export const TYPE_ICONS: Record<BuilderFieldType, IconData> = {
 
 export const FIELD_TYPES: BuilderFieldType[] = [
     'textInput',
+    'textListInput',
     'textArea',
     'select',
     'segmentedRadioGroup',

@@ -7,6 +7,7 @@ import Switch from './Switch/Switch';
 import Text from './Text/Text';
 import TextArea from './TextArea/TextArea';
 import TextInput from './TextInput/TextInput';
+import TextListInput from './TextListInput/TextListInput';
 
 export const componentMap = {
     section: Section,
@@ -18,4 +19,5 @@ export const componentMap = {
     divider: Divider,
     textArea: TextArea,
     switch: Switch,
+    textListInput: TextListInput,
 };

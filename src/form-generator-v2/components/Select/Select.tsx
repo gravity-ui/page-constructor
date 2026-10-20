@@ -21,13 +21,15 @@ const Select = ({
     hasClear,
     defaultValue,
     placeholder,
+    multiple,
 }: SelectProps) => {
-    const stored = getValueByPath(content, name);
-    const hasStored =
-        stored !== undefined &&
-        stored !== null &&
-        (typeof stored !== 'string' || stored.length > 0);
-    const value = hasStored ? [String(stored as string | number | boolean)] : [];
+    const stored = getValueByPath(content, name) ?? defaultValue;
+    let value: string[] = [];
+    if (multiple) {
+        value = Array.isArray(stored) ? stored : [];
+    } else if (stored !== undefined && stored !== null && stored !== '') {
+        value = [String(stored)];
+    }
 
     return (
         <Base
@@ -40,16 +42,21 @@ const Select = ({
             <BaseInput title={title}>
                 <SelectUIKIT
                     name={name}
+                    multiple={multiple}
                     options={options.map((option) => ({
                         value: option.value,
                         content: option.content || option.value,
                     }))}
                     placeholder={placeholder || 'Not selected'}
-                    onUpdate={(v) =>
-                        v.length > 0
-                            ? onUpdate(name, v[0] as string)
-                            : onUpdate(name, undefined, {unset: true})
-                    }
+                    onUpdate={(v) => {
+                        if (multiple) {
+                            onUpdate(name, v);
+                        } else if (v.length > 0) {
+                            onUpdate(name, v[0]);
+                        } else {
+                            onUpdate(name, '');
+                        }
+                    }}
                     value={value}
                     hasClear={hasClear}
                     className={b()}

@@ -27,12 +27,24 @@ export type SectionField = {
     itemView?: 'card' | 'clear'; // card = Card with borders/padding; clear = flat div
 };
 
-export type SelectField = {
+export type SelectField = SelectBaseField &
+    ({multiple?: false; defaultValue?: string} | {multiple: true; defaultValue?: string[]});
+
+export type TextListField = {
+    type: 'textListInput';
+    addButtonText?: string;
+    name: string;
+    title: string;
+    defaultValue?: string[];
+    placeholder?: string;
+    when?: When;
+};
+
+export type SelectBaseField = {
     type: 'select';
     name: string;
     title: string;
     options: Option[];
-    defaultValue?: string;
     when?: When;
     hasClear?: boolean;
     placeholder?: string;
@@ -99,6 +111,7 @@ export type ColorField = {
 export type Fields = (
     | SectionField
     | SelectField
+    | TextListField
     | TextField
     | SegmentedRadioGroupField
     | Text

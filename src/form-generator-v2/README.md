@@ -91,19 +91,107 @@ Multi-line text.
 
 ---
 
+## `textListInput`
+
+Editable list of strings. Each row contains a text input and a remove button;
+the add button appends an empty string. Values are stored as `string[]`, preserving
+empty strings, duplicates, and order. Removing the final row stores `[]`.
+
+| Property        | Type              | Required | Description                                |
+| --------------- | ----------------- | -------- | ------------------------------------------ |
+| `type`          | `'textListInput'` | yes      | Discriminator.                             |
+| `name`          | `string`          | yes      | Path to the string array in `content`.     |
+| `title`         | `string`          | yes      | Heading above the list.                    |
+| `defaultValue`  | `string[]`        | no       | Initial values when the path is undefined. |
+| `placeholder`   | `string`          | no       | Placeholder for each row's input.          |
+| `addButtonText` | `string`          | no       | Add button label. Defaults to `Add item`.  |
+| `when`          | `When`            | no       | Visibility.                                |
+
+```tsx
+const fields: Fields = [
+  {
+    type: 'textListInput',
+    name: 'items',
+    title: 'Items',
+    placeholder: 'Enter a string',
+    addButtonText: 'Add string',
+    defaultValue: ['First', 'Second'],
+  },
+];
+```
+
+Resulting content:
+
+```json
+{
+  "items": ["First", "Second"]
+}
+```
+
+Use a repeating `section` for arrays of objects with several fields per item.
+
+---
+
 ## `select`
 
-Dropdown (single value).
+Dropdown with single or multiple selection. Omit `multiple` (or set it to `false`)
+to store a string; set `multiple: true` to store a `string[]` of option values.
 
-| Property       | Type                                         | Required | Description                                                 |
-| -------------- | -------------------------------------------- | -------- | ----------------------------------------------------------- |
-| `type`         | `'select'`                                   | yes      | Discriminator.                                              |
-| `name`         | `string`                                     | yes      | Path in `content`.                                          |
-| `title`        | `string`                                     | yes      | Label.                                                      |
-| `options`      | `Array<{ value: string; content?: string }>` | yes      | Options; `content` is the visible label, `value` is stored. |
-| `defaultValue` | `string`                                     | no       | Pre-selected value on mount if the path is empty.           |
-| `hasClear`     | `boolean`                                    | no       | Allow clearing the selection.                               |
-| `when`         | `When`                                       | no       | Visibility.                                                 |
+| Property       | Type                                       | Required | Description                                                         |
+| -------------- | ------------------------------------------ | -------- | ------------------------------------------------------------------- |
+| `type`         | `'select'`                                 | yes      | Discriminator.                                                      |
+| `name`         | `string`                                   | yes      | Path in `content`.                                                  |
+| `title`        | `string`                                   | yes      | Label.                                                              |
+| `options`      | `Array<{value: string; content?: string}>` | yes      | `value` is stored; `content` is displayed, falling back to `value`. |
+| `multiple`     | `boolean`                                  | no       | Enable multiple selection. Defaults to `false`.                     |
+| `defaultValue` | `string` or `string[]`                     | no       | String for single selection; string array when `multiple: true`.    |
+| `hasClear`     | `boolean`                                  | no       | Show a clear button.                                                |
+| `placeholder`  | `string`                                   | no       | Placeholder. Defaults to `Not selected`.                            |
+| `when`         | `When`                                     | no       | Visibility.                                                         |
+
+`SelectField` combines common `SelectBaseField` properties with a discriminated
+union: TypeScript checks that `defaultValue` matches `multiple`.
+
+```tsx
+const fields: Fields = [
+  {
+    type: 'select',
+    name: 'layout',
+    title: 'Layout',
+    options: [
+      {value: 'default', content: 'Default'},
+      {value: 'wide', content: 'Wide'},
+    ],
+    defaultValue: 'default',
+  },
+  {
+    type: 'select',
+    name: 'layouts',
+    title: 'Layouts',
+    multiple: true,
+    hasClear: true,
+    options: [
+      {value: 'default', content: 'Default'},
+      {value: 'wide', content: 'Wide'},
+    ],
+    defaultValue: ['default', 'wide'],
+  },
+];
+```
+
+Resulting content:
+
+```json
+{
+  "layout": "default",
+  "layouts": ["default", "wide"]
+}
+```
+
+Clearing a single select stores `''`; clearing a multiple select stores `[]`.
+These explicit empty values take precedence over `defaultValue`. If a value is
+missing or `null`, the select displays its default without overwriting existing
+user input when that default changes.
 
 ---
 
@@ -172,5 +260,3 @@ Static hint text — no value stored in `content`.
 | `level`  | `'danger' \| 'info'` | no       | Applies a coloured background banner style.                            |
 | `color`  | `TextColor`          | no       | Gravity UI text color token (`'primary'`, `'hint'`, `'danger'`, etc.). |
 | `when`   | `When`               | no       | Visibility.                                                            |
-
----

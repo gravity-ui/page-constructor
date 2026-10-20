@@ -2,6 +2,8 @@ import {BuilderFieldType, FormField} from '../types';
 
 export const createDefaultField = (type: BuilderFieldType, name: string, id: string): FormField => {
     switch (type) {
+        case 'textListInput':
+            return {type, name, title: 'Text list', id};
         case 'textInput':
             return {type, name, title: 'Text input', id};
         case 'textArea':
