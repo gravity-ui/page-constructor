@@ -94,6 +94,8 @@
     a {
         @include link();
         @include focusable(0, 'box-shadow');
+
+        // The focus token is used because this radius shapes the focus ring.
         border-radius: var(--g-focus-border-radius);
     }
 

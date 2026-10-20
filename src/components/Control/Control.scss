@@ -17,7 +17,7 @@ $block: '.#{$ns}control';
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: var(--g-focus-border-radius);
+    border-radius: var(--g-border-radius-xs);
     transition: color $transitionTime;
 
     @include reset-button-style();

@@ -6,12 +6,11 @@ $block: '.#{$ns}form-block';
 $textPadding: 10px;
 $maxLargeWidth: 609px;
 $yandexFormDesktopMinWidth: 475px;
-$largeBorderRadius: 32px;
 
 #{$block} {
     $root: &;
 
-    border-radius: $largeBorderRadius;
+    border-radius: var(--pc-border-radius-xl);
     position: relative;
 
     &__additional-content {
@@ -42,7 +41,7 @@ $largeBorderRadius: 32px;
     &__media {
         position: absolute;
         inset: 0;
-        border-radius: $largeBorderRadius;
+        border-radius: var(--pc-border-radius-xl);
     }
 
     &__image {
