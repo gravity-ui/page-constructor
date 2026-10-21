@@ -68,25 +68,29 @@ Renders a set of cards grouped by tags, with a row of toggle buttons that lets t
 
 ## Properties
 
-| Property           | Type                                              | Default                   | Description                                                                                                                      |
-| ------------------ | ------------------------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `title`            | `string \| TitleProps`                            | —                         | Block heading (string or [Title](?path=/docs/documentation-types--docs#title-block-title) options).                              |
-| `description`      | `string`                                          | —                         | YFM subtitle shown under the title.                                                                                              |
-| `tags` _required_  | `FilterTag[]`                                     | —                         | Tag definitions used as filter toggles (see below).                                                                              |
-| `items` _required_ | `FilterItem[]`                                    | —                         | Cards to filter (see below).                                                                                                     |
-| `allTag`           | `boolean \| string \| FilterTag`                  | —                         | Adds an "All" toggle. `true` uses the default label; a string overrides the label; an object supplies `{label, analyticsEvent}`. |
-| `tagButtonSize`    | `'s' \| 'm' \| 'l' \| 'xl'`                       | —                         | Size of the filter tag buttons.                                                                                                  |
-| `centered`         | `boolean`                                         | `false`                   | Centers the header and the tag button row.                                                                                       |
-| `colSizes`         | `{all?, sm?, md?, lg?, xl?}` (each `number` 1–12) | `{all: 12, sm: 6, md: 4}` | Column width per breakpoint for a single card.                                                                                   |
-| `animated`         | `boolean`                                         | —                         | Enables entrance animation for the block.                                                                                        |
+| Property             | Type                                              | Default                   | Description                                                                                                                      |
+| -------------------- | ------------------------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `title`              | `string \| TitleProps`                            | —                         | Block heading (string or [Title](?path=/docs/documentation-types--docs#title-block-title) options).                              |
+| `description`        | `string`                                          | —                         | YFM subtitle shown under the title.                                                                                              |
+| `tags` _required_    | `FilterTag[]`                                     | —                         | Tag definitions used as filter toggles (see below).                                                                              |
+| `items` _required_   | `FilterItem[]`                                    | —                         | Cards to filter (see below).                                                                                                     |
+| `allTag`             | `boolean \| string \| FilterTag`                  | —                         | Adds an "All" toggle. `true` uses the default label; a string overrides the label; an object supplies `{label, analyticsEvent}`. |
+| `tagButtonSize`      | `'s' \| 'm' \| 'l' \| 'xl'`                       | —                         | Size of the filter tag buttons.                                                                                                  |
+| `centered`           | `boolean`                                         | `false`                   | Centers the header and the tag button row.                                                                                       |
+| `colSizes`           | `{all?, sm?, md?, lg?, xl?}` (each `number` 1–12) | `{all: 12, sm: 6, md: 4}` | Column width per breakpoint for a single card.                                                                                   |
+| `animated`           | `boolean`                                         | —                         | Enables entrance animation for the block.                                                                                        |
+| `visibleRowsCount`   | `{all?, sm?, md?, lg?, xl?}` (positive integers)  | Unlimited                 | Shared collapsed row limits for opted-in tabs; values inherit from smaller breakpoints.                                          |
+| `expandButtonText`   | `string`                                          | Localized “Show all”      | Expand button label.                                                                                                             |
+| `collapseButtonText` | `string`                                          | Localized “Show less”     | Collapse button label.                                                                                                           |
 
 ### `FilterTag`
 
-| Property           | Type                   | Default | Description                                                        |
-| ------------------ | ---------------------- | ------- | ------------------------------------------------------------------ |
-| `id` _required_    | `string`               | —       | Tag identifier. Must match at least one value in an item's `tags`. |
-| `label` _required_ | `string`               | —       | Tag button label.                                                  |
-| `analyticsEvent`   | `AnalyticsEventSchema` | —       | Analytics event fired when the tag is selected.                    |
+| Property           | Type                   | Default | Description                                                                                                                     |
+| ------------------ | ---------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `id` _required_    | `string`               | —       | Tag identifier. Must match at least one value in an item's `tags`.                                                              |
+| `label` _required_ | `string`               | —       | Tag button label.                                                                                                               |
+| `analyticsEvent`   | `AnalyticsEventSchema` | —       | Analytics event fired when the tag is selected.                                                                                 |
+| `collapsible`      | `boolean`              | `false` | Enables collapsing for this tab when a matching `visibleRowsCount` limit exists. Also supported by the object form of `allTag`. |
 
 ### `FilterItem`
 
@@ -110,3 +114,59 @@ No dedicated themed props on the block itself; individual card `media`/`backgrou
 ## Storybook
 
 [FilterBlock](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-filterblock--docs)
+
+## Collapsible lists
+
+Set `collapsible: true` on each tag that should initially show a limited number of
+rows, including the object form of `allTag`. This is disabled by default.
+`visibleRowsCount` sets the shared row limit for these tabs, using the same
+breakpoints as `colSizes`. Each value applies until the next configured breakpoint.
+Without a matching row limit, the list remains unlimited.
+
+```yaml
+allTag:
+  id: all
+  label: All services
+  collapsible: true
+tags:
+  - id: infrastructure
+    label: Infrastructure
+    collapsible: true
+colSizes:
+  all: 12
+  md: 6
+  lg: 3
+visibleRowsCount:
+  all: 3
+  md: 2
+  lg: 2
+expandButtonText: Show all
+collapseButtonText: Show less
+```
+
+Row counts must be positive integers. The number of visible cards is the row count
+multiplied by the number of cards that fit in the current 12-column grid. The last
+row can be incomplete when there are fewer cards remaining. The full-width normal
+button appears only when the selected tab has more cards than its limit. Its labels
+default to localized “Show all” / “Show less”. Changing tabs resets the expanded state.
+
+### Showing 8 / 9 / 8 cards
+
+Configure row counts separately to keep complete rows as the column count changes:
+
+```yaml
+colSizes: {all: 12, md: 6, lg: 4, xl: 3}
+visibleRowsCount: {all: 3, md: 4, lg: 3, xl: 2}
+```
+
+| Viewport width   | Cards per row | Visible rows | Visible cards |
+| ---------------- | ------------- | ------------ | ------------- |
+| 1185px and wider | 4             | 2            | 8             |
+| 1081–1184px      | 3             | 3            | 9             |
+| 769–1080px       | 2             | 4            | 8             |
+| Below 769px      | 1             | 3            | 3             |
+
+These limits apply only to tags with `collapsible: true`. They configure rows,
+not automatic rounding of a requested card count. Fewer matching cards are all
+shown without a toggle. See the `CollapsibleResponsiveRows` and
+`CollapsibleWithFewCards` Storybook examples.

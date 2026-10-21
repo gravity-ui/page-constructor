@@ -117,3 +117,17 @@ tags:
 - Tags are mapped to `ButtonTabsItemProps[]` via `useMemo` — both `allTag` (all three forms) and `tags` are unified into one array passed to `ButtonTabs`
 - `selectedTag === null` means "show all"; any other value filters `items` by `item.tags.includes(selectedTag)`
 - `actualTag` memoization handles the case where `selectedTag` no longer exists in `tabButtons` (e.g., after prop change) — falls back to first tab
+
+## Collapsible rows
+
+`FilterTag.collapsible` opts each tab (including the object `allTag`) into collapsing.
+`visibleRowsCount` supplies shared positive integer limits by grid breakpoint, with
+mobile-first inheritance. Missing applicable limits leave the list unlimited.
+`expandButtonText` / `collapseButtonText` override localized labels. Limits use the
+same column defaults as CardLayout and the WindowWidthContext. Switching tabs
+collapses the list; a toggle is rendered only when there is overflow.
+
+The column fallback is `CARD_LAYOUT_DEFAULT_SIZES`; explicit `colSizes` objects
+(including empty or partial ones) replace those defaults rather than merging them.
+The collapse toggle slides in with the same delay as the last animated card,
+so it stays below the cards during their entrance animation. Both respect `animated`.

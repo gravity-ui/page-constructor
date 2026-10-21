@@ -410,6 +410,7 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
 }
 
 export type FilterTag = {
+    collapsible?: boolean;
     id: string;
     label: string;
     analyticsEvent?: AnalyticsEventsProp;
@@ -421,6 +422,9 @@ export type FilterItem = {
 };
 
 export interface FilterBlockProps extends Animatable {
+    visibleRowsCount?: Partial<Record<GridColumnSize, number>>;
+    expandButtonText?: string;
+    collapseButtonText?: string;
     tags: FilterTag[];
     items: FilterItem[];
     title?: TitleItemProps | string;
