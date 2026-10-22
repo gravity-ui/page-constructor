@@ -5,6 +5,7 @@ import _ReactPlayer from 'react-player';
 import type {ReactPlayerProps} from 'react-player';
 
 import {MobileContext} from '../../context/mobileContext';
+import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {VideoContext} from '../../context/videoContext';
 import {useAnalytics, useImageSize, useMount} from '../../hooks';
 import {
@@ -63,6 +64,7 @@ interface PlayerPropgress {
 export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactPlayerBlockProps>(
     (props, originRef) => {
         const isMobile = React.useContext(MobileContext);
+        const {defaultVideoButtonSettings} = React.useContext(ProjectSettingsContext);
         const {
             src,
             previewImgUrl,
@@ -229,11 +231,11 @@ export const ReactPlayerBlock = React.forwardRef<ReactPlayerBlockHandler, ReactP
             return (
                 <VideoButton
                     {...playButton}
-                    theme={theme || PlayButtonThemes.Brand}
+                    theme={theme || defaultVideoButtonSettings?.theme || PlayButtonThemes.Brand}
                     type={type || PlayButtonType.Default}
                 />
             );
-        }, [playButton]);
+        }, [defaultVideoButtonSettings?.theme, playButton]);
 
         const changeMute = React.useCallback(
             (isMuted: boolean) => {

@@ -1,0 +1,103 @@
+{
+  "content": {
+    "animated": false,
+    "blocks": [
+      {
+        "type": "media-block",
+        "title": "HTML5 video",
+        "description": "The default video renderer does not have a preview play button, so the project-level video button settings do not affect it.",
+        "media": {
+          "light": {
+            "video": {
+              "src": [
+                "/story-assets/video_8-12_light.webm",
+                "/story-assets/video_8-12_light.mp4",
+                "/story-assets/video_8-12_light.png"
+              ],
+              "loop": {
+                "start": 0
+              },
+              "ariaLabel": "HTML5 video player"
+            }
+          },
+          "dark": {
+            "video": {
+              "src": [
+                "/story-assets/video_8-12_dark.webm",
+                "/story-assets/video_8-12_dark.mp4",
+                "/story-assets/video_8-12_dark.png"
+              ],
+              "loop": {
+                "start": 0
+              },
+              "ariaLabel": "HTML5 video player"
+            }
+          }
+        }
+      },
+      {
+        "type": "media-block",
+        "title": "ReactPlayer with a local video",
+        "description": "No local playButton theme is set. The button uses defaultVideoButtonSettings from PageConstructorProvider.",
+        "media": {
+          "light": {
+            "previewImg": "/story-assets/video_8-12_light.png",
+            "video": {
+              "type": "player",
+              "src": [
+                "/story-assets/video_8-12_light.webm",
+                "/story-assets/video_8-12_light.mp4",
+                "/story-assets/video_8-12_light.png"
+              ],
+              "autoplay": false,
+              "ariaLabel": "ReactPlayer with a local video"
+            }
+          },
+          "dark": {
+            "previewImg": "/story-assets/video_8-12_dark.png",
+            "video": {
+              "type": "player",
+              "src": [
+                "/story-assets/video_8-12_dark.webm",
+                "/story-assets/video_8-12_dark.mp4",
+                "/story-assets/video_8-12_dark.png"
+              ],
+              "autoplay": false,
+              "ariaLabel": "ReactPlayer with a local video"
+            }
+          }
+        }
+      },
+      {
+        "type": "media-block",
+        "title": "YouTube player",
+        "description": "The hosted video preview uses the same project-level play button colors through VideoBlock.",
+        "media": {
+          "light": {
+            "youtube": "https://youtu.be/0Qd3T6skprA",
+            "previewImg": "/story-assets/video_8-12_light.png"
+          },
+          "dark": {
+            "youtube": "https://youtu.be/0Qd3T6skprA",
+            "previewImg": "/story-assets/video_8-12_dark.png"
+          }
+        }
+      },
+      {
+        "type": "media-block",
+        "title": "Custom iframe player",
+        "description": "A custom video iframe also renders its preview control through VideoBlock and inherits the project settings.",
+        "media": {
+          "light": {
+            "videoIframe": "https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y",
+            "previewImg": "/story-assets/video_8-12_light.png"
+          },
+          "dark": {
+            "videoIframe": "https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y",
+            "previewImg": "/story-assets/video_8-12_dark.png"
+          }
+        }
+      }
+    ]
+  }
+}
