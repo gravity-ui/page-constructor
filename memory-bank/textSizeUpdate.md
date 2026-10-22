@@ -83,7 +83,6 @@ The `textSize` property is used across multiple components:
 4. **Block Components**:
    - Various blocks that use text sizing inherit the new options
    - Slider blocks (`src/blocks/Slider/schema.ts`, `src/blocks/SliderOld/schema.ts`)
-   - PriceDetailed block (`src/sub-blocks/PriceDetailed/schema.ts`)
 
 ### Schema Validation
 

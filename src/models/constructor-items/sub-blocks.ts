@@ -18,11 +18,9 @@ import {
     ImageCardMargins,
     ImageObjectProps,
     ImageProps,
-    LayoutItemContentMargin,
     LinkProps,
     MediaProps,
     MediaView,
-    PriceDetailedProps,
     TextTheme,
     Themable,
     ThemedImage,
@@ -31,10 +29,6 @@ import {
 export enum SubBlockType {
     Divider = 'divider',
     Quote = 'quote',
-    /**
-     * @deprecated Will be removed
-     */
-    PriceDetailed = 'price-detailed',
     MediaCard = 'media-card',
     BannerCard = 'banner-card',
     LayoutItem = 'layout-item',
@@ -200,7 +194,6 @@ export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, '
 
 export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, AnalyticsEventsBase {
     content: Omit<ContentBlockProps, 'colSizes' | 'centered'>;
-    contentMargin?: LayoutItemContentMargin;
     media?: ThemeSupporting<MediaProps>;
     metaInfo?: string[];
     border?: boolean;
@@ -243,11 +236,6 @@ export type BackgroundCardModel = {
     type: SubBlockType.BackgroundCard;
 } & BackgroundCardProps;
 
-/** @deprecated */
-export type PriceDetailedModel = {
-    type: SubBlockType.PriceDetailed;
-} & PriceDetailedProps;
-
 export type MediaCardModel = {
     type: SubBlockType.MediaCard;
 } & MediaCardProps;
@@ -275,7 +263,6 @@ export type ImageCardModel = {
 export type SubBlockModels =
     | DividerModel
     | QuoteModel
-    | PriceDetailedModel
     | MediaCardModel
     | BackgroundCardModel
     | HubspotFormModel

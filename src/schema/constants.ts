@@ -34,7 +34,6 @@ import {
     LayoutItemBlock,
     MediaCardBlock,
     PriceCardBlock,
-    PriceDetailedBlock,
     Quote,
 } from './validators/sub-blocks';
 
@@ -68,7 +67,6 @@ export const blockSchemas: Record<BlockType, object> = {
 export const cardSchemas = {
     ...MediaCardBlock,
     ...BannerCard,
-    ...PriceDetailedBlock,
     ...BackgroundCard,
     ...Quote,
     ...BasicCard,
@@ -107,7 +105,6 @@ export const constructorBlockSchemaNames: string[] = [
 export const constructorCardSchemaNames: string[] = [
     SubBlockType.MediaCard,
     SubBlockType.BannerCard,
-    SubBlockType.PriceDetailed,
     SubBlockType.BackgroundCard,
     SubBlockType.Quote,
     SubBlockType.BasicCard,
