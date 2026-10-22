@@ -12,16 +12,6 @@ test.describe('PageConstructor', () => {
         await mount(<WithProjectVideoButtonSettings />);
         await defaultDelay();
 
-        await page.locator('video').evaluateAll((videos) => {
-            videos.forEach((video) => {
-                const videoElement = video as HTMLVideoElement;
-
-                videoElement.pause();
-                videoElement.currentTime = 0;
-            });
-        });
-        await defaultDelay();
-
         await expectScreenshot({
             component: page.locator('.pc-page-constructor'),
         });
