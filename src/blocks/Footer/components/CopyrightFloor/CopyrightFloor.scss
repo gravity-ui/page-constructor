@@ -99,7 +99,6 @@ $links-floor-center-width: 480px;
         &_wrap {
             flex-wrap: wrap;
         }
-
     }
 
     @include add-specificity(#{$block}) {
