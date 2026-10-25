@@ -100,7 +100,10 @@ $links-floor-center-width: 480px;
             flex-wrap: wrap;
         }
 
-        a {
+    }
+
+    @include add-specificity(#{$block}) {
+        #{$block}__links-floor-list a {
             display: inline-block;
             text-decoration: none;
             color: var(--g-color-text-primary);
