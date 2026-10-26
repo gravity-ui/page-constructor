@@ -13,7 +13,7 @@ Directory map of `src/` and built artefacts. Use this to locate the right place 
 
 ## `src/blocks/`
 
-Full-width page sections rendered by `PageConstructor`. Each block is a directory: `BlockName/BlockName.tsx` + schema + stories.
+Full-width page sections rendered by `PageConstructor`. Each new block is a directory with its React implementation, editor config/form and stories.
 
 | Block                | Description                    |
 | -------------------- | ------------------------------ |
@@ -129,9 +129,9 @@ Optional live-editing overlay (separate package entry `./editor`).
 
 `analytics.ts`, `blocks.ts`, `breakpoint.ts`, `cn.ts` (BEM helper), `common.ts`, `imageCompress.ts`, `microdata.ts`, `theme.ts`, `url.ts`, `svg.ts`, `icons.ts`
 
-## `src/schema/`
+## `src/gravity-blocks/schema/`
 
-JSON Schema definitions for every block and sub-block. Used by `build:schema` (standalone bundle at `schema/`) and by the editor for validation.
+Legacy AJV schemas and registries used by the old editor and `build:schema` (standalone bundle at `schema/`).
 
 ## `styles/`
 
