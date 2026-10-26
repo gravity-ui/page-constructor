@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.24.0](https://github.com/gravity-ui/page-constructor/compare/v8.23.5...v8.24.0) (2026-10-21)
+
+
+### Features
+
+* **FilterBlock:** add optional collapsible card lists ([#1533](https://github.com/gravity-ui/page-constructor/issues/1533)) ([f0bc903](https://github.com/gravity-ui/page-constructor/commit/f0bc903bdc92c4a0d13d1a56a002b3c3ad0a0238))
+
 ## [8.23.5](https://github.com/gravity-ui/page-constructor/compare/v8.23.4...v8.23.5) (2026-10-05)
 
 
