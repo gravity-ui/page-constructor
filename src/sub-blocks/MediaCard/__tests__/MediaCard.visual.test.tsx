@@ -1,4 +1,7 @@
-import {test} from '../../../../playwright/core/index';
+import * as React from 'react';
+
+import {expect, test} from '../../../../playwright/core/index';
+import MediaCard from '../MediaCard';
 
 import {DataLens, Image, ImageSlider, Video, Youtube} from './helpers';
 
@@ -37,3 +40,27 @@ test.describe('MediaCard', () => {
         await expectScreenshot({skipTheme: 'dark'});
     });
 });
+
+for (const colorScheme of ['light', 'dark'] as const) {
+    test.describe(`card color compatibility ${colorScheme}`, () => {
+        test.use({colorScheme});
+        test('shared surface inherits card colors', async ({mount, page}) => {
+            await mount(
+                <div
+                    style={
+                        {
+                            '--pc-card-outlined-background-color': 'rgb(18, 52, 86)',
+                            '--pc-card-border-color': 'rgb(69, 103, 137)',
+                        } as React.CSSProperties
+                    }
+                >
+                    <MediaCard border="line" />
+                </div>,
+            );
+            const cards = page.locator('.pc-card-base-block');
+            await expect(cards).toHaveCount(1);
+            await expect(cards).toHaveCSS('background-color', 'rgb(18, 52, 86)');
+            await expect(cards).toHaveCSS('border-top-color', 'rgb(69, 103, 137)');
+        });
+    });
+}

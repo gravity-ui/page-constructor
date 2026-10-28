@@ -1,0 +1,71 @@
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}basic-card-colors-story';
+
+#{$block}__site {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+#{$block}__heading {
+    margin: 0 0 24px;
+}
+
+#{$block}__row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    gap: 24px;
+    overflow-x: auto;
+    padding: 12px;
+    margin: -12px;
+}
+
+#{$block}__section {
+    margin-top: 40px;
+    padding: 24px;
+    background-color: var(--g-color-base-generic);
+    border-radius: 16px;
+}
+
+.g-root_theme_light {
+    #{$block}__card_custom,
+    #{$block}__site {
+        --pc-card-background-color: #eaf1ff;
+        --pc-card-background-color-hover: #dce7ff;
+        --pc-card-outlined-background-color: #eaf1ff;
+        --pc-card-outlined-background-color-hover: #dce7ff;
+        --pc-card-border-color: #527ed1;
+        --pc-card-border-color-hover: #2457b8;
+    }
+
+    #{$block}__section {
+        --pc-card-background-color: #e5f5ec;
+        --pc-card-background-color-hover: #ccebdc;
+        --pc-card-outlined-background-color: #f1faf5;
+        --pc-card-outlined-background-color-hover: #def3e7;
+        --pc-card-border-color: #38865d;
+        --pc-card-border-color-hover: #236241;
+    }
+}
+
+.g-root_theme_dark {
+    #{$block}__card_custom,
+    #{$block}__site {
+        --pc-card-background-color: #263449;
+        --pc-card-background-color-hover: #344762;
+        --pc-card-outlined-background-color: #263449;
+        --pc-card-outlined-background-color-hover: #344762;
+        --pc-card-border-color: #90b5ff;
+        --pc-card-border-color-hover: #b8d0ff;
+    }
+
+    #{$block}__section {
+        --pc-card-background-color: #203c30;
+        --pc-card-background-color-hover: #2b5140;
+        --pc-card-outlined-background-color: #1c3027;
+        --pc-card-outlined-background-color-hover: #284737;
+        --pc-card-border-color: #77c69c;
+        --pc-card-border-color-hover: #a3dfbd;
+    }
+}
