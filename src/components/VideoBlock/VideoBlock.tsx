@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import {useActionHandlers, useUniqId} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
-import {v4 as uuidv4} from 'uuid';
 
 import {useAnalytics} from '../../hooks/useAnalytics';
 import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
@@ -105,7 +104,8 @@ const VideoBlock = (props: VideoBlockProps) => {
     const ref = React.useRef<HTMLDivElement>(null);
     const [hidePreview, setHidePreview] = React.useState(false);
     const [currentHeight, setCurrentHeight] = React.useState(height || undefined);
-    const fullId = React.useMemo(() => id || uuidv4(), [id]);
+    const generatedId = useUniqId();
+    const fullId = id || generatedId;
     const buttonId = useUniqId();
 
     const [isPlaying, setIsPlaying] = React.useState(!previewImg);
