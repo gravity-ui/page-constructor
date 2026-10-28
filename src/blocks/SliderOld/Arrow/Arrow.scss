@@ -23,7 +23,7 @@ $block: '.#{$ns}slider-old-block-arrow';
         #{$root}__icon-wrapper {
             transform: rotate(180deg);
         }
-        margin-right: 16px;
+        margin-right: $indentXS;
     }
 
     &__button {

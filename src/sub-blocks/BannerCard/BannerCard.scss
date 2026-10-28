@@ -56,7 +56,7 @@ $block: '.#{$ns}banner-card';
     }
 
     &__info {
-        padding: 32px;
+        padding: $indentM;
         display: flex;
         justify-content: space-between;
         flex-direction: column;

@@ -45,7 +45,7 @@
 }
 
 @mixin mobile-scrollable($offset: $normalOffset) {
-    margin-left: -$offset;
+    margin-left: calc(-1 * #{$offset});
     padding-left: $offset;
     padding-right: $offset;
     width: calc(100% + #{$offset} * 2);
@@ -531,15 +531,15 @@ unpredictable css rules order in build */
         justify-content: flex-start;
         overflow: auto;
 
-        margin-left: -$indentL;
-        margin-right: -$indentL;
+        margin-left: calc(-1 * #{$indentL});
+        margin-right: calc(-1 * #{$indentL});
         padding-left: $indentL;
-        padding-right: $indentL - $indentXXXS;
+        padding-right: calc(#{$indentL} - #{$indentXXXS});
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        margin-left: -$indentSM;
-        margin-right: -$indentSM;
+        margin-left: calc(-1 * #{$indentSM});
+        margin-right: calc(-1 * #{$indentSM});
         padding-left: $indentSM;
         padding-right: $indentXS;
     }
