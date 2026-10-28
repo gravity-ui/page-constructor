@@ -184,7 +184,7 @@ $block: '.#{$ns}hubspot-form';
                     height: $checkbox;
                     width: $checkbox;
                     background-color: transparent;
-                    border-radius: 4px;
+                    border-radius: var(--g-border-radius-s);
                     border: 1px solid var(--g-color-line-generic-accent);
                     transition: background-color 0.1s linear;
                 }
@@ -421,6 +421,7 @@ $block: '.#{$ns}hubspot-form';
         @include focusable(0, 'box-shadow');
         &:focus {
             outline: 0;
+            // The focus token is used because this radius shapes the focus ring.
             border-radius: var(--g-focus-border-radius);
         }
     }

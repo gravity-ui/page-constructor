@@ -13,6 +13,8 @@ $block: '.#{$ns}link-block';
 
         display: flex;
         align-items: center;
+
+        // The focus token is used because this radius shapes the focus ring.
         border-radius: var(--g-focus-border-radius);
 
         &_theme_dark {

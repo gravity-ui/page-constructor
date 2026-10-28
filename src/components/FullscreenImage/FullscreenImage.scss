@@ -13,7 +13,7 @@ $closeButtonSize: 36px;
     justify-content: center;
     width: $closeButtonSize;
     height: $closeButtonSize;
-    border-radius: 8px;
+    border-radius: var(--g-border-radius-l);
     background-color: var(--g-color-base-simple-hover-solid);
     cursor: pointer;
     opacity: 0;

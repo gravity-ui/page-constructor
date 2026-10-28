@@ -53,7 +53,7 @@ $withMuteControlWidth: 32px;
 
         &_type {
             &_with-mute-button {
-                border-radius: 50%;
+                border-radius: var(--pc-border-radius-full);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -76,7 +76,7 @@ $withMuteControlWidth: 32px;
             &_with-play-pause-button {
                 width: $withPlayPauseControlSize;
                 height: $withPlayPauseControlSize;
-                border-radius: 50%;
+                border-radius: var(--pc-border-radius-full);
                 background: var(--g-color-base-background);
                 @include shadow();
                 @include focusable();

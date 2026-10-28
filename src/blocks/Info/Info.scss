@@ -7,7 +7,8 @@ $block: '.#{$ns}info-block';
     &__container {
         background-color: var(--g-color-base-brand);
         padding: $indentXXL $indentXL;
-        border-radius: var(--pc-border-radius);
+        // Preserve external overrides of the legacy token, falling back to the radius scale.
+        border-radius: var(--pc-border-radius, var(--pc-border-radius-l));
     }
 
     &__left,
