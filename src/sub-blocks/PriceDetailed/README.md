@@ -72,3 +72,7 @@ This sub-block does not consume themed media; sizing/color controls above are ex
 ## Storybook
 
 [PriceDetailed](https://preview.gravity-ui.com/page-constructor/?path=/docs/components-cards-pricedetailed-deprecated--docs)
+
+## Card colors
+
+The standard card surface supports the six shared [card color CSS variables](../BasicCard/README.md#card-colors). Existing individual backgrounds retain their priority; hover colors apply only to card links.

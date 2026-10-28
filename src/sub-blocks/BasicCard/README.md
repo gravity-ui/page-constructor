@@ -58,3 +58,69 @@ Accepted as a child of: `card-layout-block`, `slider-block`, `slider-old-block`.
 ## Storybook
 
 [BasicCard](https://preview.gravity-ui.com/page-constructor/?path=/docs/components-cards-basiccard--docs)
+
+## Card colors
+
+Set CSS variables on the site, section, or card wrapper. Supported by BasicCard,
+BackgroundCard, MediaCard, PriceCard, both PriceDetailed layouts, ImageCard and Quote.
+
+| Variable                                    | Purpose                                                |
+| ------------------------------------------- | ------------------------------------------------------ |
+| `--pc-card-background-color`                | Background of `shadow` and `none`; fallback for `line` |
+| `--pc-card-background-color-hover`          | Interactive `shadow` and `none` background on hover    |
+| `--pc-card-outlined-background-color`       | Background of `line`                                   |
+| `--pc-card-outlined-background-color-hover` | Interactive `line` background on hover                 |
+| `--pc-card-border-color`                    | Border color of `line`                                 |
+| `--pc-card-border-color-hover`              | Interactive `line` border color on hover               |
+
+Fallback order (first defined value wins):
+
+| State             | Fallback order                                                                                                                              |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `shadow` / `none` | `--pc-card-background-color` → `--g-color-base-float`                                                                                       |
+| `line`            | `--pc-card-outlined-background-color` → `--pc-card-background-color` → `--g-color-base-float`                                               |
+| `shadow` hover    | `--pc-card-background-color-hover` → `--pc-card-background-color` → `--pc-color-base-float-hover`                                           |
+| `none` hover      | `--pc-card-background-color-hover` → `--pc-card-background-color` → `--g-color-base-float`                                                  |
+| `line` hover      | `--pc-card-outlined-background-color-hover` → `--pc-card-outlined-background-color` → `--pc-card-background-color` → `--g-color-base-float` |
+| Border            | `--pc-card-border-color` → `--g-color-line-generic`                                                                                         |
+| Border hover      | `--pc-card-border-color-hover` → `--pc-card-border-color` → `--g-color-line-generic`                                                        |
+
+Without overrides, both themes keep their existing appearance. Hover applies only to
+card links. `none` does not imply transparency; `line` uses its own hover variables.
+
+### Transparent outlines with the existing hover
+
+Place `site-theme` on the same element as `g-root` and the active UIKit theme class.
+
+```css
+.site-theme {
+  --pc-card-background-color: var(--g-color-base-float);
+  --pc-card-background-color-hover: var(--g-color-base-float);
+  --pc-card-outlined-background-color: transparent;
+  --pc-card-outlined-background-color-hover: transparent;
+  --pc-card-border-color: var(--g-color-line-generic);
+  --pc-card-border-color-hover: var(--g-color-line-generic);
+}
+
+.site-theme.g-root_theme_dark {
+  --pc-card-background-color-hover: var(--g-color-base-float-hover);
+}
+```
+
+This preserves the old `shadow` hover in both themes and makes `line` transparent.
+Interactive `none` now also uses the general hover color in dark mode intentionally.
+
+### Custom colors and local overrides
+
+Override background and hover together; use the same value to keep the color on hover.
+Choose HEX colors separately for each theme.
+
+```css
+.special-card-scope {
+  --pc-card-background-color: #eaf1ff;
+  --pc-card-background-color-hover: #dce7ff;
+}
+```
+
+Inherited hover and outlined variables take priority over a local general background.
+See **ColorTokens** for color overrides and **ColorTokensOverrides** for a custom section.
