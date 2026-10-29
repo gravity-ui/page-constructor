@@ -1,5 +1,13 @@
 # Changelog
 
+## [8.24.1](https://github.com/gravity-ui/page-constructor/compare/v8.24.0...v8.24.1) (2026-10-28)
+
+
+### Bug Fixes
+
+* **FullscreenImage:** avoid stretching single-image modals ([#1524](https://github.com/gravity-ui/page-constructor/issues/1524)) ([c81107b](https://github.com/gravity-ui/page-constructor/commit/c81107bf8dd669203c21b38ddddc52dfe7c06b78))
+* repair React warnings in Media and VideoBlock ([#1545](https://github.com/gravity-ui/page-constructor/issues/1545)) ([a763e41](https://github.com/gravity-ui/page-constructor/commit/a763e414b7d91551063dddf1dd92f9f092671f18))
+
 ## [8.24.0](https://github.com/gravity-ui/page-constructor/compare/v8.23.5...v8.24.0) (2026-10-21)
 
 
