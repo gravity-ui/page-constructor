@@ -40,7 +40,6 @@ Accepted as `children` by `CardLayout`, `Slider`, `SliderOld`; also used as the 
 | `when`               | `string`                                     | —           | Conditional rendering expression.                                                             |
 | `content` _required_ | `object`                                     | —           | Text content area. See below.                                                                 |
 | `media` _required_   | `MediaProps \| {light, dark}`                | —           | Media area (image / video / youtube / iframe / dataLens). Themed: `T \| {light: T, dark: T}`. |
-| `contentMargin`      | `'m' \| 'l'`                                 | `'m'`       | Spacing between the media and the content.                                                    |
 | `metaInfo`           | `string[]`                                   | —           | List of meta strings rendered under the media (YFM supported).                                |
 | `border`             | `boolean`                                    | —           | Adds a border to the media.                                                                   |
 | `fullscreen`         | `boolean`                                    | —           | Enables fullscreen-expandable media (icon + overlay).                                         |
