@@ -37,7 +37,7 @@
         &_meta_info {
             p {
                 color: var(--pc-media-card-meta-info-color);
-                font-weight: var(--g-text-subheader-font-weight);
+                @include text-size(body-2);
             }
         }
 
