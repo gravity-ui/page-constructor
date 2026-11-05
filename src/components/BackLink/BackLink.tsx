@@ -59,8 +59,10 @@ export default function BackLink(props: BackLinkProps) {
     }, [handleAnalytics, history, onClick, url]);
 
     const buttonProps = {
-        ...extraProps,
         href: shouldHandleBackAction ? undefined : url,
+        onClick: shouldHandleBackAction ? backActionHandler : undefined,
+        ...extraProps,
+        tabIndex: tabIndex ?? extraProps?.tabIndex,
     } as UIKitButtonProps;
 
     return (
@@ -69,8 +71,6 @@ export default function BackLink(props: BackLinkProps) {
             className={b({theme}, className)}
             view={theme === 'special' ? 'flat' : 'flat-secondary'}
             size={size}
-            onClick={shouldHandleBackAction ? backActionHandler : undefined}
-            tabIndex={tabIndex}
         >
             <Icon data={ArrowLeft} size={20} />
             <span>{title}</span>

@@ -6,7 +6,7 @@
     --g-button-border-color: var(--g-color-line-light);
     --g-button-focus-outline-color: var(--g-color-line-light);
 
-    &:disabled {
+    &.g-button_disabled:not(.g-button_loading) {
         --g-button-text-color: var(--g-color-text-light-secondary);
         --g-button-text-color-hover: var(--g-color-text-light-secondary);
         --g-button-background-color: var(--g-color-base-contrast-light-simple-hover);

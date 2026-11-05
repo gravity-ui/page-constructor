@@ -82,10 +82,11 @@ const Button = (props: ButtonProps) => {
         : b({...buttonModifiers}, className);
 
     const buttonProps = {
-        ...extraProps,
         ...rest,
         href: url ? setUrlTld(url, tld) : undefined,
         onClick,
+        title: urlTitle,
+        ...extraProps,
     };
 
     if (theme === 'app-store' || theme === 'google-play') {
@@ -142,7 +143,6 @@ const Button = (props: ButtonProps) => {
             className={buttonClass}
             view={toCommonView(buttonTheme as OldButtonTheme)}
             size={toCommonSize(size as OldButtonSize)}
-            title={urlTitle}
             width={width}
         >
             {icon && position === 'left' ? icon : null}

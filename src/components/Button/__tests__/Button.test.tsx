@@ -1,5 +1,5 @@
 import {ButtonSize} from '@gravity-ui/uikit';
-import {render, screen} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 
 import {testCustomClassName, testOnClick} from '../../../../test-utils/shared/common';
 import {ButtonImagePosition, ButtonTheme} from '../../../models';
@@ -82,6 +82,24 @@ describe('Button', () => {
         const button = screen.getByTestId(qa);
 
         expect(button).toHaveClass(`pc-button-block_theme_${theme}`);
+    });
+
+    test('should preserve the native click handler and title from extraProps', () => {
+        const rootClick = jest.fn();
+        const nativeClick = jest.fn();
+        render(
+            <Button
+                text="Native"
+                onClick={rootClick}
+                urlTitle="Root"
+                extraProps={{onClick: nativeClick, title: 'Native'}}
+            />,
+        );
+        const button = screen.getByRole('button');
+        fireEvent.click(button);
+        expect(nativeClick).toHaveBeenCalledTimes(1);
+        expect(rootClick).not.toHaveBeenCalled();
+        expect(button).toHaveAttribute('title', 'Native');
     });
 
     test('add className', () => {
