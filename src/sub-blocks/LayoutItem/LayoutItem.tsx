@@ -102,11 +102,8 @@ const LayoutItem = ({
                     className={b(null, className)}
                     title={urlTitle}
                     onClick={() => handleAnalytics(analyticsEvents)}
-                    extraProps={{
-                        draggable: false,
-                        onDragStart: (event: React.DragEvent<HTMLAnchorElement>) =>
-                            event.preventDefault(),
-                    }}
+                    draggable={false}
+                    onDragStart={(event) => event.preventDefault()}
                 >
                     {cardContent}
                 </Link>

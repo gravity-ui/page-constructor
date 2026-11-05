@@ -1,8 +1,8 @@
-import * as icons from '@gravity-ui/icons';
 import {Icon as UiKitIcon} from '@gravity-ui/uikit';
 
 import {GravityIconProps, ImageProps, QAProps} from '../../models';
 import {block} from '../../utils';
+import {getGravityIcon} from '../../utils/icons';
 import Image, {ImageProps as ImageComponentProps} from '../Image/Image';
 import {getMediaImage} from '../Media/Image/utils';
 
@@ -19,14 +19,15 @@ type Props = {
 
 const Icon = ({icon, className, gravityIcon, containerClassName, qa}: Props) => {
     if (gravityIcon) {
-        const data = (
-            typeof gravityIcon === 'string' ? gravityIcon : gravityIcon.name
-        ) as keyof typeof icons;
+        const data = getGravityIcon(
+            typeof gravityIcon === 'string' ? gravityIcon : gravityIcon.name,
+        );
+        if (!data) return null;
         const color = typeof gravityIcon === 'string' ? 'brand' : gravityIcon.color;
 
         return (
             <div className={b({color})}>
-                <UiKitIcon data={icons[data]} className={className} qa={qa} />
+                <UiKitIcon data={data} className={className} qa={qa} />
             </div>
         );
     }
