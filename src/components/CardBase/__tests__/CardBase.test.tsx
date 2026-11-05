@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {render, screen} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {TARGETS} from '../../../../test-utils/constants';
@@ -19,6 +19,26 @@ const url = '#';
 const borders: CardBorder[] = ['shadow', 'line', 'none'];
 
 describe('CardBase', () => {
+    test('should preserve native link handlers and attributes from extraProps', () => {
+        const onClick = jest.fn((event) => event.preventDefault());
+        render(
+            <CardBase
+                url="#"
+                urlTitle="Root"
+                qa={qaId}
+                extraProps={{onClick, title: 'Native', draggable: true}}
+            >
+                <CardBase.Content>Content</CardBase.Content>
+            </CardBase>,
+        );
+        const link = screen.getByRole('link');
+        fireEvent.click(link);
+        expect(onClick).toHaveBeenCalledTimes(1);
+        expect(link).toHaveAttribute('title', 'Native');
+        expect(link).toHaveAttribute('draggable', 'true');
+        expect(link).toHaveAttribute('data-qa', qaId);
+    });
+
     test('render CardBase by default', async () => {
         render(
             <CardBase qa={qaId}>
