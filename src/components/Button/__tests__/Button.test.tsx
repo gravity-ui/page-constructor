@@ -30,6 +30,10 @@ const buttonViews: ButtonTheme[] = [
     'flat-info',
     'flat-danger',
     'flat-secondary',
+    'contrast',
+    'contrast-inverted',
+    'contrast-light',
+    'contrast-dark',
     'normal-contrast',
     'outlined-contrast',
     'flat-contrast',
@@ -105,5 +109,27 @@ describe('Button', () => {
 
         expect(iconComponent).toBeVisible();
         expect(button).toContainElement(iconComponent);
+    });
+
+    test.each([
+        ['normal-contrast', 'contrast-light'],
+        ['outlined-contrast', 'outlined'],
+        ['flat-contrast', 'flat'],
+    ] as const)('should preserve the legacy %s theme with UIkit view %s', (theme, view) => {
+        render(<Button text="Legacy theme" theme={theme} qa={qa} />);
+        expect(screen.getByTestId(qa)).toHaveClass(`g-button_view_${view}`);
+        expect(screen.getByTestId(qa)).toHaveClass(`pc-button-block_theme_${theme}`);
+    });
+
+    test('should forward native attributes from extraProps', () => {
+        render(
+            <Button
+                text="Tab"
+                extraProps={{role: 'tab', 'aria-selected': true, 'aria-controls': 'panel'}}
+            />,
+        );
+        const tab = screen.getByRole('tab');
+        expect(tab).toHaveAttribute('aria-selected', 'true');
+        expect(tab).toHaveAttribute('aria-controls', 'panel');
     });
 });

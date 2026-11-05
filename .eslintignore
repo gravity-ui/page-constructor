@@ -10,3 +10,7 @@ node_modules
 
 /playwright/playwright/.cache/
 playwright
+
+.cache*/
+/playwright-report*/
+/test-results/

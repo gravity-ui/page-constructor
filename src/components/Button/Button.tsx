@@ -45,6 +45,7 @@ const Button = (props: ButtonProps) => {
         onClick: onClickOrigin,
         text,
         width,
+        extraProps,
         ...rest
     } = props;
     const defaultImgPosition = 'left';
@@ -81,6 +82,7 @@ const Button = (props: ButtonProps) => {
         : b({...buttonModifiers}, className);
 
     const buttonProps = {
+        ...extraProps,
         ...rest,
         href: url ? setUrlTld(url, tld) : undefined,
         onClick,
@@ -136,12 +138,12 @@ const Button = (props: ButtonProps) => {
 
     return (
         <CommonButton
+            {...(buttonProps as UIKitButtonProps)}
             className={buttonClass}
             view={toCommonView(buttonTheme as OldButtonTheme)}
             size={toCommonSize(size as OldButtonSize)}
             title={urlTitle}
             width={width}
-            {...(buttonProps as UIKitButtonProps)}
         >
             {icon && position === 'left' ? icon : null}
             <span className={b('content')}>

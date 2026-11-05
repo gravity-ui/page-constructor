@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import {DropdownMenuItem, useResizeObserver} from '@gravity-ui/uikit';
+import {useResizeObserver} from '@gravity-ui/uikit';
+import {DropdownMenuItem} from '@gravity-ui/uikit/legacy';
 import throttleFn from 'lodash/throttle';
 
 import {LinkProps} from '../../../models';
