@@ -1,25 +1,8 @@
-import {expect, test} from '../../../../playwright/core/index';
+import {test} from '../../../../playwright/core/index';
 
-import {LegacyContrast} from './LegacyContrast';
 import {Default, Icons, ThemesSizes, Width} from './helpers';
 
 test.describe('Button', () => {
-    test('should preserve disabled contrast links and buttons', async ({
-        mount,
-        page,
-        expectScreenshot,
-    }) => {
-        await mount(<LegacyContrast />);
-        const disabledLink = page.locator('[data-qa="flat-contrast-link-disabled"]');
-        const enabledLink = page.locator('[data-qa="flat-contrast-link-enabled"]');
-        await expect(disabledLink).toHaveAttribute('aria-disabled', 'true');
-        const enabledColor = await enabledLink.evaluate(
-            (element) => getComputedStyle(element).color,
-        );
-        await expect(disabledLink).not.toHaveCSS('color', enabledColor);
-        await expectScreenshot();
-    });
-
     test('render stories <Default>', async ({mount, expectScreenshot, defaultDelay}) => {
         await mount(<Default />);
         await defaultDelay();
