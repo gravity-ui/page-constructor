@@ -1,0 +1,12 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/contrast-button.scss';
+
+.#{$ns}back-link_theme_special {
+    @include contrast-button();
+
+    &:disabled {
+        --g-button-text-color: var(--g-color-text-light-hint);
+        --g-button-background-color: transparent;
+        --g-button-background-color-hover: transparent;
+    }
+}

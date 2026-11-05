@@ -1,5 +1,6 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
+@import '../../../styles/contrast-button.scss';
 
 $block: '.#{$ns}button-block';
 
@@ -14,6 +15,21 @@ $block: '.#{$ns}button-block';
     }
 
     &_theme {
+        &_outlined-contrast,
+        &_normal-dark,
+        &_pseudo-special,
+        &_flat-contrast,
+        &_flat-special {
+            @include contrast-button();
+        }
+
+        &_flat-contrast:disabled,
+        &_flat-special:disabled {
+            --g-button-text-color: var(--g-color-text-light-hint);
+            --g-button-background-color: transparent;
+            --g-button-background-color-hover: transparent;
+        }
+
         &_github {
             &#{&} {
                 @include monochrome-button();

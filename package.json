@@ -112,10 +112,11 @@
   },
   "dependencies": {
     "@bem-react/classname": "^1.6.0",
-    "@gravity-ui/components": "^4.0.1",
-    "@gravity-ui/dynamic-forms": "^5.0.0",
+    "@gravity-ui/components": "^5.0.0",
+    "@gravity-ui/dynamic-forms": "^5.39.0",
     "@gravity-ui/i18n": "^1.7.0",
     "@gravity-ui/icons": "^2.18.0",
+    "@hello-pangea/dnd": "^18.0.1",
     "@react-spring/web": "^10.1.2",
     "ajv": "^8.12.0",
     "ajv-keywords": "^5.1.0",
@@ -129,7 +130,9 @@
     "react-player": "^2.9.0",
     "react-slick": "^0.31.0",
     "react-transition-group": "^4.4.2",
+    "react-virtualized-auto-sizer": "^1.0.26",
     "react-waypoint": "^10.1.0",
+    "react-window": "^1.8.11",
     "sanitize-html": "2.12.1",
     "snakecase-keys": "^5.1.0",
     "swiper": "^12.2.0",
@@ -139,8 +142,9 @@
   },
   "peerDependencies": {
     "@diplodoc/transform": "^4.28.2",
-    "@gravity-ui/uikit": "^7.1.1",
-    "react": "^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+    "@gravity-ui/uikit": "^8.0.0",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.8",
@@ -156,7 +160,7 @@
     "@gravity-ui/readme-validator": "^1.3.0",
     "@gravity-ui/stylelint-config": "^4.0.1",
     "@gravity-ui/tsconfig": "^1.0.0",
-    "@gravity-ui/uikit": "^7.13.1",
+    "@gravity-ui/uikit": "^8.0.0",
     "@playwright/experimental-ct-react": "^1.45.3",
     "@playwright/test": "^1.45.3",
     "@storybook/addon-actions": "^8.6.11",
