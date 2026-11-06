@@ -198,351 +198,186 @@
           "gap": 44,
           "pauseOnHover": true,
           "duration": 40,
-          "children": [
+          "images": [
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_1_light.svg",
-                  "alt": "Circle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_1_dark.svg",
-                  "alt": "Circle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_2_light.svg",
-                  "alt": "Square",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_2_light.svg",
+                  "alt": "Square"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_2_dark.svg",
-                  "alt": "Square",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_3_light.svg",
-                  "alt": "Triangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_3_dark.svg",
-                  "alt": "Triangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/strip_rectangle_long_light.svg",
-                  "alt": "Long rectangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_rectangle_long_light.svg",
+                  "alt": "Long rectangle"
                 },
                 "dark": {
-                  "src": "/story-assets/strip_rectangle_long_dark.svg",
-                  "alt": "Long rectangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_rectangle_long_dark.svg",
+                  "alt": "Long rectangle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/strip_parallelogram_light.svg",
-                  "alt": "Parallelogram",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_parallelogram_light.svg",
+                  "alt": "Parallelogram"
                 },
                 "dark": {
-                  "src": "/story-assets/strip_parallelogram_dark.svg",
-                  "alt": "Parallelogram",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_parallelogram_dark.svg",
+                  "alt": "Parallelogram"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_1_light.svg",
-                  "alt": "Circle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_1_dark.svg",
-                  "alt": "Circle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_2_light.svg",
-                  "alt": "Square",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_2_light.svg",
+                  "alt": "Square"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_2_dark.svg",
-                  "alt": "Square",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_3_light.svg",
-                  "alt": "Triangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_3_dark.svg",
-                  "alt": "Triangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/strip_rectangle_long_light.svg",
-                  "alt": "Long rectangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_rectangle_long_light.svg",
+                  "alt": "Long rectangle"
                 },
                 "dark": {
-                  "src": "/story-assets/strip_rectangle_long_dark.svg",
-                  "alt": "Long rectangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_rectangle_long_dark.svg",
+                  "alt": "Long rectangle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/strip_parallelogram_light.svg",
-                  "alt": "Parallelogram",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_parallelogram_light.svg",
+                  "alt": "Parallelogram"
                 },
                 "dark": {
-                  "src": "/story-assets/strip_parallelogram_dark.svg",
-                  "alt": "Parallelogram",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_parallelogram_dark.svg",
+                  "alt": "Parallelogram"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_1_light.svg",
-                  "alt": "Circle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_1_dark.svg",
-                  "alt": "Circle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_2_light.svg",
-                  "alt": "Square",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_2_light.svg",
+                  "alt": "Square"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_2_dark.svg",
-                  "alt": "Square",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_3_light.svg",
-                  "alt": "Triangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_3_dark.svg",
-                  "alt": "Triangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/strip_rectangle_long_light.svg",
-                  "alt": "Long rectangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_rectangle_long_light.svg",
+                  "alt": "Long rectangle"
                 },
                 "dark": {
-                  "src": "/story-assets/strip_rectangle_long_dark.svg",
-                  "alt": "Long rectangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_rectangle_long_dark.svg",
+                  "alt": "Long rectangle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/strip_parallelogram_light.svg",
-                  "alt": "Parallelogram",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_parallelogram_light.svg",
+                  "alt": "Parallelogram"
                 },
                 "dark": {
-                  "src": "/story-assets/strip_parallelogram_dark.svg",
-                  "alt": "Parallelogram",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_parallelogram_dark.svg",
+                  "alt": "Parallelogram"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             }
           ]
         },
@@ -552,374 +387,198 @@
           "description": "Cards stay static and wrap onto additional rows when there is not enough space.",
           "layout": "wrap",
           "gap": 32,
-          "children": [
+          "images": [
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_1_light.svg",
-                  "alt": "Circle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_1_dark.svg",
-                  "alt": "Circle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_2_light.svg",
-                  "alt": "Square",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_2_light.svg",
+                  "alt": "Square"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_2_dark.svg",
-                  "alt": "Square",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_3_light.svg",
-                  "alt": "Triangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_3_dark.svg",
-                  "alt": "Triangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/strip_rectangle_long_light.svg",
-                  "alt": "Long rectangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_rectangle_long_light.svg",
+                  "alt": "Long rectangle"
                 },
                 "dark": {
-                  "src": "/story-assets/strip_rectangle_long_dark.svg",
-                  "alt": "Long rectangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_rectangle_long_dark.svg",
+                  "alt": "Long rectangle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/strip_parallelogram_light.svg",
-                  "alt": "Parallelogram",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_parallelogram_light.svg",
+                  "alt": "Parallelogram"
                 },
                 "dark": {
-                  "src": "/story-assets/strip_parallelogram_dark.svg",
-                  "alt": "Parallelogram",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_parallelogram_dark.svg",
+                  "alt": "Parallelogram"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_1_light.svg",
-                  "alt": "Circle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_1_dark.svg",
-                  "alt": "Circle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_2_light.svg",
-                  "alt": "Square",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_2_light.svg",
+                  "alt": "Square"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_2_dark.svg",
-                  "alt": "Square",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_3_light.svg",
-                  "alt": "Triangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_3_dark.svg",
-                  "alt": "Triangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_1_light.svg",
-                  "alt": "Circle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_1_dark.svg",
-                  "alt": "Circle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_2_light.svg",
-                  "alt": "Square",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_2_light.svg",
+                  "alt": "Square"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_2_dark.svg",
-                  "alt": "Square",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_3_light.svg",
-                  "alt": "Triangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_3_dark.svg",
-                  "alt": "Triangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/strip_rectangle_long_light.svg",
-                  "alt": "Long rectangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_rectangle_long_light.svg",
+                  "alt": "Long rectangle"
                 },
                 "dark": {
-                  "src": "/story-assets/strip_rectangle_long_dark.svg",
-                  "alt": "Long rectangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_rectangle_long_dark.svg",
+                  "alt": "Long rectangle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/strip_parallelogram_light.svg",
-                  "alt": "Parallelogram",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_parallelogram_light.svg",
+                  "alt": "Parallelogram"
                 },
                 "dark": {
-                  "src": "/story-assets/strip_parallelogram_dark.svg",
-                  "alt": "Parallelogram",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/strip_parallelogram_dark.svg",
+                  "alt": "Parallelogram"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_1_light.svg",
-                  "alt": "Circle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_1_dark.svg",
-                  "alt": "Circle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_2_light.svg",
-                  "alt": "Square",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_2_light.svg",
+                  "alt": "Square"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_2_dark.svg",
-                  "alt": "Square",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             },
             {
-              "type": "image-card",
               "image": {
                 "light": {
-                  "src": "/story-assets/icon_3_light.svg",
-                  "alt": "Triangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle"
                 },
                 "dark": {
-                  "src": "/story-assets/icon_3_dark.svg",
-                  "alt": "Triangle",
-                  "style": {
-                    "width": "auto",
-                    "height": 48
-                  }
+                  "desktop": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle"
                 }
-              },
-              "margins": "s",
-              "border": "none"
+              }
             }
           ]
         }

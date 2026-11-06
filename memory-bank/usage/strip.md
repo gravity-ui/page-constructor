@@ -48,6 +48,18 @@ Exactly one of `children` and `images` is required. Image mode renders the commo
 directly without an `ImageCard` wrapper. `getImageItems` normalizes a Companies image object into
 a single list item; the schema reuses the Companies image schema. The `One Image` story demonstrates
 the Companies format, and the other image stories retain the array format.
+The `Cards` story renders BasicCard, BackgroundCard, LayoutItem, PriceCard, and ImageCard strips
+together from `args.blocks`, with Controls restricted to `blocks` so the controls and YAML reflect
+the same page configuration. All five card types reuse the CardLayout story data without numbering;
+PriceCard includes outlined, action, and monochrome button variants. Each strip contains six items
+so it overflows and demonstrates the marquee.
+LayoutItem copies must have separate nested `content` objects: the YFM parsers mutate those fields,
+and transforming several items sharing one object repeatedly escapes the generated HTML.
+Image stories render Strip directly with 48px padding, following CardLayout/Slider conventions.
+The `Cards` story must retain PageConstructor: its grid styles give BackgroundCard content columns
+relative positioning, keeping the content above the absolutely positioned background image.
+Removing PageConstructor without providing those styles hides card content behind the background.
+PageConstructor page stories use `images` for both moving and static image strips.
 A block with `color: 'text-color'` keeps the intrinsic
 dimensions and accessible image metadata but visually renders all its images as responsive
 monochrome masks filled with `var(--g-color-text-primary)`.
@@ -66,3 +78,10 @@ content grid.
 
 The optional title and description are centered and occupy 10 grid columns on desktop and all 12
 columns on mobile.
+
+## Visual Tests
+
+`src/blocks/Strip/__tests__/Strip.visual.test.tsx` uses composed Storybook stories and the shared
+Playwright screenshot fixture. Coverage is limited to the Default story at 1280px and the `md`
+breakpoint (`BREAKPOINTS.md`, 769px), in light and dark themes for Chromium and WebKit: eight
+baseline images in total. The shared screenshot fixture disables animations when capturing images.
