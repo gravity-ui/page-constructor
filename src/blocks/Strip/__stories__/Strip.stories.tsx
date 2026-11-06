@@ -88,7 +88,10 @@ Cards.args = {
         {
             ...cardStripSettings,
             title: 'Basic Card',
-            children: Array.from({length: 6}, () => ({...cardLayoutData.cards.basicCard})),
+            children: Array.from({length: 6}, () => ({
+                ...cardLayoutData.cards.basicCard,
+                url: '#',
+            })),
         },
         {
             ...cardStripSettings,
