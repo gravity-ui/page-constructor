@@ -21,15 +21,15 @@ $additionalOffset: $indentL;
 
 @mixin pseudoTop($size, $textSize) {
     &::before {
-        @include pseudo('top #{$textSize} (#{$size})');
-        top: -$size;
+        @include pseudo('top #{$textSize}');
+        top: calc(-1 * #{$size});
         height: $size;
     }
 }
 
 @mixin pseudoBottom($size, $textSize) {
     &::after {
-        @include pseudo('bottom #{$textSize} (#{$size})');
+        @include pseudo('bottom #{$textSize}');
         bottom: 0;
         height: $size;
     }

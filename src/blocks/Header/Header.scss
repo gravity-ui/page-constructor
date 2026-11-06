@@ -309,7 +309,7 @@ $backgroundWidth: 1440px;
 
         #{$block}__content_offset_large {
             padding: calc(#{$indentXXL} - #{$indentXS}) 0 $indentXS;
-            margin-bottom: -$indentM;
+            margin-bottom: calc(-1 * #{$indentM});
         }
     }
 

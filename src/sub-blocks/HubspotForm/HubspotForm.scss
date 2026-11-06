@@ -19,7 +19,7 @@ $block: '.#{$ns}hubspot-form';
     }
 
     .hs-form-field {
-        margin-bottom: 16px;
+        margin-bottom: $indentXS;
         padding-left: $requiredWidth;
 
         // field name

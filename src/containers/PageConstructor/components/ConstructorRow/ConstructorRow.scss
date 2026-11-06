@@ -4,12 +4,12 @@ $block: '.#{$ns}constructor-row';
 
 #{$block} {
     &:last-child {
-        margin-bottom: -$contentLiftIndent;
+        margin-bottom: calc(-1 * #{$contentLiftIndent});
     }
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         &:last-child {
-            margin-bottom: -$contentLiftIndentMobile;
+            margin-bottom: calc(-1 * #{$contentLiftIndentMobile});
         }
     }
 }

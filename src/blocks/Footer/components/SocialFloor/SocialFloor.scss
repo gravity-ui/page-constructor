@@ -70,7 +70,7 @@ $block: '.#{$ns}footer-block';
         transition: transform 200ms ease-in-out;
 
         &:hover {
-            transform: translateY(-$indent4XS);
+            transform: translateY(calc(-1 * #{$indent4XS}));
         }
     }
 

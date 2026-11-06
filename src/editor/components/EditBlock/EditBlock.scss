@@ -27,8 +27,8 @@ $block: '.#{$ns}edit-block';
         position: absolute;
         width: calc(100% + $blockIndent * 2);
         height: calc(100% + $blockIndent);
-        top: -#{$blockIndent};
-        left: -#{$blockIndent};
+        top: calc(-1 * #{$blockIndent});
+        left: calc(-1 * #{$blockIndent});
         border-radius: $borderRadius;
         // controls should be above the block to prevent block's interactions on click in edinting mode
         z-index: $zIndex;

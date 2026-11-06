@@ -22,7 +22,7 @@ $contentMarginL: 80px;
     }
 
     &__meta-info {
-        margin: $indentXS 0 -#{$indentXXXS} 0;
+        margin: $indentXS 0 calc(-1 * #{$indentXXXS}) 0;
     }
 
     &__content {
