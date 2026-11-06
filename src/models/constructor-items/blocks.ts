@@ -55,6 +55,7 @@ export enum BlockType {
     FoldableListBlock = 'foldable-list-block',
     BannerBlock = 'banner-block',
     CompaniesBlock = 'companies-block',
+    StripBlock = 'strip-block',
     MediaBlock = 'media-block',
     InfoBlock = 'info-block',
     TableBlock = 'table-block',
@@ -316,6 +317,29 @@ export interface CompaniesBlockProps extends Animatable {
     title: string;
     description?: string;
     images: ThemeSupporting<ImageDeviceProps>;
+}
+
+export type StripLayout = 'wrap' | 'marquee';
+export type StripColor = 'text-color';
+
+export interface StripImageProps {
+    image: ThemeSupporting<ImageDeviceProps>;
+    url?: string;
+    urlTitle?: string;
+    target?: string;
+}
+
+export interface StripBlockProps extends Childable, Animatable, BlockBaseProps {
+    title?: string;
+    description?: string;
+    images?: CompaniesBlockProps['images'] | StripImageProps[];
+    color?: StripColor;
+    layout?: StripLayout;
+    colSizes?: GridColumnSizesType;
+    itemHeight?: number | 'auto';
+    gap?: number;
+    pauseOnHover?: boolean;
+    duration?: number;
 }
 
 export interface MediaBaseBlockProps extends Animatable, MediaContentProps {
@@ -659,6 +683,10 @@ export type CompaniesBlockModel = {
     type: BlockType.CompaniesBlock;
 } & CompaniesBlockProps;
 
+export type StripBlockModel = {
+    type: BlockType.StripBlock;
+} & StripBlockProps;
+
 export type MediaBlockModel = {
     type: BlockType.MediaBlock;
 } & MediaBlockProps;
@@ -724,6 +752,7 @@ type BlockModels =
     | FoldableListBlockModel
     | BannerBlockModel
     | CompaniesBlockModel
+    | StripBlockModel
     | MediaBlockModel
     | MapBlockModel
     | InfoBlockModel

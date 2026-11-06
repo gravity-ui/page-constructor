@@ -189,6 +189,739 @@
             "text": "Learn more",
             "url": "https://example.com"
           }
+        },
+        {
+          "type": "strip-block",
+          "title": "Moving card strip",
+          "description": "Cards move continuously when the row is wider than the available space.",
+          "layout": "marquee",
+          "gap": 44,
+          "pauseOnHover": true,
+          "duration": 40,
+          "children": [
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_2_light.svg",
+                  "alt": "Square",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/strip_rectangle_long_light.svg",
+                  "alt": "Long rectangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/strip_rectangle_long_dark.svg",
+                  "alt": "Long rectangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/strip_parallelogram_light.svg",
+                  "alt": "Parallelogram",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/strip_parallelogram_dark.svg",
+                  "alt": "Parallelogram",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_2_light.svg",
+                  "alt": "Square",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/strip_rectangle_long_light.svg",
+                  "alt": "Long rectangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/strip_rectangle_long_dark.svg",
+                  "alt": "Long rectangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/strip_parallelogram_light.svg",
+                  "alt": "Parallelogram",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/strip_parallelogram_dark.svg",
+                  "alt": "Parallelogram",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_2_light.svg",
+                  "alt": "Square",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/strip_rectangle_long_light.svg",
+                  "alt": "Long rectangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/strip_rectangle_long_dark.svg",
+                  "alt": "Long rectangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/strip_parallelogram_light.svg",
+                  "alt": "Parallelogram",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/strip_parallelogram_dark.svg",
+                  "alt": "Parallelogram",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            }
+          ]
+        },
+        {
+          "type": "strip-block",
+          "title": "Static card strip",
+          "description": "Cards stay static and wrap onto additional rows when there is not enough space.",
+          "layout": "wrap",
+          "gap": 32,
+          "children": [
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_2_light.svg",
+                  "alt": "Square",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/strip_rectangle_long_light.svg",
+                  "alt": "Long rectangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/strip_rectangle_long_dark.svg",
+                  "alt": "Long rectangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/strip_parallelogram_light.svg",
+                  "alt": "Parallelogram",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/strip_parallelogram_dark.svg",
+                  "alt": "Parallelogram",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_2_light.svg",
+                  "alt": "Square",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_2_light.svg",
+                  "alt": "Square",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/strip_rectangle_long_light.svg",
+                  "alt": "Long rectangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/strip_rectangle_long_dark.svg",
+                  "alt": "Long rectangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/strip_parallelogram_light.svg",
+                  "alt": "Parallelogram",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/strip_parallelogram_dark.svg",
+                  "alt": "Parallelogram",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_2_light.svg",
+                  "alt": "Square",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            },
+            {
+              "type": "image-card",
+              "image": {
+                "light": {
+                  "src": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                },
+                "dark": {
+                  "src": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle",
+                  "style": {
+                    "width": "auto",
+                    "height": 48
+                  }
+                }
+              },
+              "margins": "s",
+              "border": "none"
+            }
+          ]
         }
       ]
     }

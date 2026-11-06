@@ -1,0 +1,256 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}strip-block';
+
+#{$block} {
+    $class: &;
+
+    --pc-strip-gap: 48px;
+    --pc-strip-half-gap: 22px;
+    --pc-strip-duration: 60s;
+    --pc-strip-viewport-width: 0px;
+    --pc-strip-item-height: 48px;
+
+    &__header {
+        margin-bottom: $indentM;
+        text-align: center;
+
+        > .col {
+            margin-inline: auto;
+        }
+    }
+
+    &__viewport {
+        overflow: clip visible;
+    }
+
+    &__track {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    &__list {
+        display: flex;
+        align-items: stretch;
+        gap: $indentS var(--pc-strip-gap);
+        width: max-content;
+    }
+
+    &__item {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+        height: var(--pc-strip-item-height);
+
+        > * {
+            height: 100%;
+        }
+    }
+
+    &__image-container {
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+    }
+
+    &__image-link {
+        display: flex;
+        max-width: 100%;
+    }
+
+    &__image {
+        display: block;
+        width: auto;
+        max-width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    &__colorized-image {
+        position: relative;
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+        height: 100%;
+
+        &::after {
+            position: absolute;
+            inset: 0;
+            background-color: var(--g-color-text-primary);
+            content: '';
+            pointer-events: none;
+            mask-image: var(--pc-strip-image-mask-desktop);
+            mask-position: center;
+            mask-repeat: no-repeat;
+            mask-size: contain;
+        }
+
+        #{$class}__image-container {
+            height: 100%;
+            opacity: 0;
+        }
+    }
+
+    &_with-col-sizes {
+        #{$class}__list {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: max(
+                0px,
+                calc((var(--pc-strip-viewport-width) - 11 * var(--pc-strip-gap)) / 12)
+            );
+            grid-template-rows: minmax(0, auto);
+        }
+
+        #{$class}__item {
+            grid-column: span var(--pc-strip-col-size-all);
+            width: 100%;
+
+            > * {
+                width: 100%;
+            }
+        }
+    }
+
+    &_layout_wrap {
+        #{$class}__list {
+            flex-wrap: wrap;
+            justify-content: center;
+            width: auto;
+        }
+
+        &#{$class}_with-col-sizes #{$class}__list {
+            grid-auto-flow: row;
+            grid-auto-columns: initial;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            grid-template-rows: initial;
+            width: 100%;
+        }
+    }
+
+    &_marquee-active {
+        #{$class}__viewport {
+            margin-block: -$indentSM;
+            padding-block: $indentSM;
+            mask-image: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0) 0,
+                rgba(0, 0, 0, 1) $indentXL,
+                rgba(0, 0, 0, 1) calc(100% - #{$indentXL}),
+                rgba(0, 0, 0, 0) 100%
+            );
+        }
+
+        #{$class}__track {
+            justify-content: flex-start;
+            gap: var(--pc-strip-gap);
+            width: max-content;
+            animation: pc-strip-scroll var(--pc-strip-duration) linear infinite;
+        }
+
+        #{$class}__list {
+            flex-shrink: 0;
+        }
+    }
+
+    &_pause-on-hover {
+        #{$class}__viewport:hover #{$class}__track {
+            animation-play-state: paused;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &__colorized-image::after {
+            mask-image: var(--pc-strip-image-mask-tablet);
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md') - 1) {
+        &_marquee-active {
+            #{$class}__viewport {
+                width: 100vw;
+                margin-inline: calc(50% - 50vw);
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__colorized-image::after {
+            mask-image: var(--pc-strip-image-mask-mobile);
+        }
+    }
+
+    @media (min-width: map-get($gridBreakpoints, 'sm')) {
+        &_with-col-sizes #{$class}__item {
+            grid-column: span var(--pc-strip-col-size-sm);
+        }
+    }
+
+    @media (min-width: map-get($gridBreakpoints, 'md')) {
+        &_with-col-sizes #{$class}__item {
+            grid-column: span var(--pc-strip-col-size-md);
+        }
+    }
+
+    @media (min-width: map-get($gridBreakpoints, 'lg')) {
+        &_with-col-sizes #{$class}__item {
+            grid-column: span var(--pc-strip-col-size-lg);
+        }
+    }
+
+    @media (min-width: map-get($gridBreakpoints, 'xl')) {
+        &_with-col-sizes #{$class}__item {
+            grid-column: span var(--pc-strip-col-size-xl);
+        }
+    }
+
+    @include animate-fade(#{$class}__content);
+
+    @media (prefers-reduced-motion: reduce) {
+        &_layout_marquee {
+            #{$class}__viewport {
+                overflow: visible;
+                mask-image: none;
+            }
+
+            #{$class}__track {
+                justify-content: center;
+                gap: 0;
+                width: 100%;
+                animation: none;
+            }
+
+            #{$class}__list {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: auto;
+            }
+
+            &#{$class}_with-col-sizes #{$class}__list {
+                grid-auto-flow: row;
+                grid-auto-columns: initial;
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+                grid-template-rows: initial;
+                width: 100%;
+            }
+
+            #{$class}__list_duplicate {
+                display: none;
+            }
+        }
+    }
+}
+
+@keyframes pc-strip-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50% - var(--pc-strip-half-gap)));
+    }
+}

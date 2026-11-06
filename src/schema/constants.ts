@@ -23,6 +23,7 @@ import {
     ShareBlock,
     SliderBlock,
     SliderOldBlock,
+    StripBlock,
     TableBlock,
     TabsBlock,
 } from './validators/blocks';
@@ -51,6 +52,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...FooterBlock,
     ...BannerBlock,
     ...CompaniesBlock,
+    ...StripBlock,
     ...MediaBlock,
     ...MapBlock,
     ...InfoBlock,
@@ -90,6 +92,7 @@ export const constructorBlockSchemaNames: string[] = [
     BlockType.FooterBlock,
     BlockType.BannerBlock,
     BlockType.CompaniesBlock,
+    BlockType.StripBlock,
     BlockType.MediaBlock,
     BlockType.MapBlock,
     BlockType.InfoBlock,
