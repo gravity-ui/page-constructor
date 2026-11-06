@@ -134,15 +134,31 @@ $block: '.#{$ns}strip-block';
 
     &_marquee-active {
         #{$class}__viewport {
+            position: relative;
+            isolation: isolate;
             margin-block: -$indentSM;
             padding-block: $indentSM;
-            mask-image: linear-gradient(
-                to right,
-                rgba(0, 0, 0, 0) 0,
-                rgba(0, 0, 0, 1) $indentXL,
-                rgba(0, 0, 0, 1) calc(100% - #{$indentXL}),
-                rgba(0, 0, 0, 0) 100%
-            );
+
+            &::before,
+            &::after {
+                position: absolute;
+                z-index: 1;
+                top: 0;
+                bottom: 0;
+                width: $indentXL;
+                content: '';
+                pointer-events: none;
+            }
+
+            &::before {
+                left: 0;
+                background: linear-gradient(to right, var(--g-color-base-background), transparent);
+            }
+
+            &::after {
+                right: 0;
+                background: linear-gradient(to left, var(--g-color-base-background), transparent);
+            }
         }
 
         #{$class}__track {
@@ -214,7 +230,11 @@ $block: '.#{$ns}strip-block';
         &_layout_marquee {
             #{$class}__viewport {
                 overflow: visible;
-                mask-image: none;
+
+                &::before,
+                &::after {
+                    display: none;
+                }
             }
 
             #{$class}__track {

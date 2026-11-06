@@ -70,8 +70,11 @@ The marquee measures the original item list and starts only when it overflows th
 list stays static and centered. An active marquee duplicates its visual list with `aria-hidden` and
 removes the duplicate controls from sequential keyboard navigation while keeping them clickable
 with a pointer. It then accounts for the gap between copies in its animation offset, so every loop
-is seamless without duplicating keyboard focus targets. Its masked viewport has vertical breathing
-room so card hover transforms and shadows are not clipped. It becomes a static wrapping list when
+is seamless without duplicating keyboard focus targets. Its viewport has vertical breathing
+room so card hover transforms and shadows are not clipped. Active marquees have 64px edge overlays
+fading from `var(--g-color-base-background)` to transparent, with `pointer-events: none` so links
+remain clickable. These overlays are absent for static strips and reduced motion.
+It becomes a static wrapping list when
 the operating system requests reduced motion. At 768px and below, the moving viewport spans the
 full screen width; on desktop, it remains in the content grid. The heading always remains in the
 content grid.
