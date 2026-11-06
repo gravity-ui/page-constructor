@@ -64,8 +64,9 @@ The following blocks in the src/blocks directory have Storybook stories:
 15. **Share**: Provides social media sharing functionality.
 16. **Slider**: Creates a carousel/slider for content.
 17. **SliderNew**: An updated version of the Slider block.
-18. **Table**: Displays tabular data in a block format.
-19. **Tabs**: Provides tabbed navigation for content.
+18. **Strip**: Displays child cards or a themed responsive image strip in adaptive wrap or marquee layouts. ✅ [Usage documented](usage/strip.md) | [Dependencies](blockDeps/strip.md)
+19. **Table**: Displays tabular data in a block format.
+20. **Tabs**: Provides tabbed navigation for content.
 
 ### Indents
 
