@@ -146,18 +146,19 @@ $block: '.#{$ns}strip-block';
                 top: 0;
                 bottom: 0;
                 width: $indentXL;
+                background-color: var(--g-color-base-background);
                 content: '';
                 pointer-events: none;
             }
 
             &::before {
                 left: 0;
-                background: linear-gradient(to right, var(--g-color-base-background), transparent);
+                mask-image: linear-gradient(to right, #000, transparent);
             }
 
             &::after {
                 right: 0;
-                background: linear-gradient(to left, var(--g-color-base-background), transparent);
+                mask-image: linear-gradient(to left, #000, transparent);
             }
         }
 
