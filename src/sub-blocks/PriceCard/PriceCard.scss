@@ -34,11 +34,13 @@ $block: '.#{$ns}price-card';
                     color: var(--g-color-text-light-primary);
                 }
 
-                #{$block}__info a {
-                    text-decoration: underline;
+                @include add-specificity(&) {
+                    #{$block}__info a {
+                        text-decoration: underline;
 
-                    &:hover {
-                        color: var(--g-color-text-light-secondary);
+                        &:hover {
+                            color: var(--g-color-text-light-secondary);
+                        }
                     }
                 }
             }
@@ -51,11 +53,13 @@ $block: '.#{$ns}price-card';
                     color: var(--g-color-text-dark-primary);
                 }
 
-                #{$block}__info a {
-                    text-decoration: underline;
+                @include add-specificity(&) {
+                    #{$block}__info a {
+                        text-decoration: underline;
 
-                    &:hover {
-                        color: var(--g-color-text-dark-secondary);
+                        &:hover {
+                            color: var(--g-color-text-dark-secondary);
+                        }
                     }
                 }
             }
