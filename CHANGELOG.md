@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.24.2](https://github.com/gravity-ui/page-constructor/compare/v8.24.1...v8.24.2) (2026-11-10)
+
+
+### Bug Fixes
+
+* YFM styles specificity ([#1528](https://github.com/gravity-ui/page-constructor/issues/1528)) ([#1544](https://github.com/gravity-ui/page-constructor/issues/1544)) ([c788978](https://github.com/gravity-ui/page-constructor/commit/c788978f2259afb59f94d0789afcc6f107a7bcbb))
+
 ## [8.24.1](https://github.com/gravity-ui/page-constructor/compare/v8.24.0...v8.24.1) (2026-10-28)
 
 
