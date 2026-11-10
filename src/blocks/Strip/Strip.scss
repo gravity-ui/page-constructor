@@ -145,7 +145,7 @@ $block: '.#{$ns}strip-block';
                 z-index: 1;
                 top: 0;
                 bottom: 0;
-                width: $indentXL;
+                width: 74px;
                 background-color: var(--g-color-base-background);
                 content: '';
                 pointer-events: none;
@@ -167,6 +167,10 @@ $block: '.#{$ns}strip-block';
             gap: var(--pc-strip-gap);
             width: max-content;
             animation: pc-strip-scroll var(--pc-strip-duration) linear infinite;
+
+            &:focus-within {
+                animation-play-state: paused;
+            }
         }
 
         #{$class}__list {

@@ -70,8 +70,9 @@ The marquee measures the original item list and starts only when it overflows th
 list stays static and centered. An active marquee duplicates its visual list with `aria-hidden` and
 removes the duplicate controls from sequential keyboard navigation while keeping them clickable
 with a pointer. It then accounts for the gap between copies in its animation offset, so every loop
-is seamless without duplicating keyboard focus targets. Its viewport has vertical breathing
-room so card hover transforms and shadows are not clipped. Active marquees have 64px edge overlays
+is seamless without duplicating keyboard focus targets. The animation pauses while focus is inside
+the track, regardless of `pauseOnHover`. Its viewport has vertical breathing
+room so card hover transforms and shadows are not clipped. Active marquees have 74px edge overlays
 filled with `background-color: var(--g-color-base-background)` and faded using alpha gradient masks.
 Keeping the color separate from the mask avoids gray interpolation artifacts in Linux WebKit.
 They use `pointer-events: none` so links remain clickable and are absent for static strips and reduced motion.
@@ -80,8 +81,8 @@ the operating system requests reduced motion. At 768px and below, the moving vie
 full screen width; on desktop, it remains in the content grid. The heading always remains in the
 content grid.
 
-The optional title and description are centered and occupy 10 grid columns on desktop and all 12
-columns on mobile.
+The optional title and description are centered and occupy 8 grid columns from the `sm` breakpoint
+and all 12 columns below it.
 
 ## Visual Tests
 

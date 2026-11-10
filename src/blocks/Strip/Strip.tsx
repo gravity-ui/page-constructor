@@ -224,7 +224,7 @@ export const StripBlock = ({
                             : undefined
                     }
                     subtitle={description}
-                    colSizes={{all: 12, sm: 10}}
+                    colSizes={{all: 12, sm: 8}}
                 />
             )}
             <div className={b('content')}>

@@ -192,7 +192,7 @@
         },
         {
           "type": "strip-block",
-          "title": "Moving card strip",
+          "title": "Moving strip",
           "description": "Cards move continuously when the row is wider than the available space.",
           "layout": "marquee",
           "gap": 44,
