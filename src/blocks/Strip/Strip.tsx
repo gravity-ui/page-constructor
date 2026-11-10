@@ -8,10 +8,11 @@ import {useTheme} from '../../context/theme';
 import {block, getQaAttrubutes, getThemedValue} from '../../utils';
 
 import {
+    DEFAULT_COLUMN_GAP,
     DEFAULT_COLUMN_SIZE,
     DEFAULT_DURATION,
-    DEFAULT_GAP,
     DEFAULT_ITEM_HEIGHT,
+    DEFAULT_ROW_GAP,
     FOCUSABLE_SELECTOR,
 } from './constants';
 import {StripBlockProps, StripItemStyle, StripStyle} from './types';
@@ -31,7 +32,8 @@ export const StripBlock = ({
     layout = 'wrap',
     colSizes,
     itemHeight = DEFAULT_ITEM_HEIGHT,
-    gap = DEFAULT_GAP,
+    rowGap = DEFAULT_ROW_GAP,
+    columnGap = DEFAULT_COLUMN_GAP,
     pauseOnHover = true,
     duration = DEFAULT_DURATION,
     animated,
@@ -143,15 +145,15 @@ export const StripBlock = ({
         window.addEventListener('resize', updateMarqueeState);
 
         return () => window.removeEventListener('resize', updateMarqueeState);
-    }, [children, gap, images, theme, viewportWidth, updateMarqueeState]);
+    }, [children, columnGap, images, theme, viewportWidth, updateMarqueeState]);
 
     if (!React.Children.count(content)) {
         return null;
     }
 
     const style: StripStyle = {
-        '--pc-strip-gap': `${gap}px`,
-        '--pc-strip-half-gap': `${gap / 2}px`,
+        '--pc-strip-row-gap': `${rowGap}px`,
+        '--pc-strip-column-gap': `${columnGap}px`,
         '--pc-strip-duration': `${duration}s`,
         '--pc-strip-viewport-width': `${viewportWidth}px`,
         '--pc-strip-item-height': typeof itemHeight === 'number' ? `${itemHeight}px` : itemHeight,

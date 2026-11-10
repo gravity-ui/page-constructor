@@ -413,7 +413,8 @@
     "content": {
       "type": "strip-block",
       "layout": "wrap",
-      "gap": 8,
+      "rowGap": 12,
+      "columnGap": 8,
       "itemHeight": 64,
       "images": [
         {

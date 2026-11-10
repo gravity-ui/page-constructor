@@ -17,7 +17,7 @@ the same themed desktop/tablet/mobile image contract as `Companies`.
   "layout": "marquee",
   "colSizes": {"all": 12, "sm": 6, "md": 4},
   "itemHeight": 160,
-  "gap": 32,
+  "columnGap": 32,
   "children": [
     {
       "type": "image-card",
@@ -95,7 +95,8 @@ For multiple images or clickable images, use the array format:
 | `layout`       | `'wrap' \| 'marquee'`                                | `'wrap'` | Adaptive multi-row or auto-moving presentation.  |
 | `colSizes`     | `GridColumnSizesType`                                | —        | Card width in columns for each breakpoint.       |
 | `itemHeight`   | `number \| 'auto'`                                   | `48`     | Shared height in pixels or intrinsic height.     |
-| `gap`          | `number`                                             | `44`     | Horizontal and vertical gap in pixels.           |
+| `rowGap`       | `number`                                             | `20`     | Vertical spacing between wrapped rows in pixels. |
+| `columnGap`    | `number`                                             | `48`     | Horizontal spacing between items in pixels.      |
 | `pauseOnHover` | `boolean`                                            | `true`   | Pauses the marquee while the pointer is over it. |
 | `duration`     | `number`                                             | `60`     | Duration of one marquee cycle in seconds.        |
 | `animated`     | `boolean`                                            | —        | Enables the block entrance animation.            |

@@ -1,4 +1,5 @@
-export const DEFAULT_GAP = 48;
+export const DEFAULT_ROW_GAP = 20;
+export const DEFAULT_COLUMN_GAP = 48;
 export const DEFAULT_DURATION = 60;
 export const DEFAULT_COLUMN_SIZE = 12;
 export const DEFAULT_ITEM_HEIGHT = 48;

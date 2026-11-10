@@ -6,8 +6,8 @@ $block: '.#{$ns}strip-block';
 #{$block} {
     $class: &;
 
-    --pc-strip-gap: 48px;
-    --pc-strip-half-gap: 22px;
+    --pc-strip-row-gap: #{$indentS};
+    --pc-strip-column-gap: 48px;
     --pc-strip-duration: 60s;
     --pc-strip-viewport-width: 0px;
     --pc-strip-item-height: 48px;
@@ -34,7 +34,7 @@ $block: '.#{$ns}strip-block';
     &__list {
         display: flex;
         align-items: stretch;
-        gap: $indentS var(--pc-strip-gap);
+        gap: var(--pc-strip-row-gap) var(--pc-strip-column-gap);
         width: max-content;
     }
 
@@ -101,7 +101,7 @@ $block: '.#{$ns}strip-block';
             grid-auto-flow: column;
             grid-auto-columns: max(
                 0px,
-                calc((var(--pc-strip-viewport-width) - 11 * var(--pc-strip-gap)) / 12)
+                calc((var(--pc-strip-viewport-width) - 11 * var(--pc-strip-column-gap)) / 12)
             );
             grid-template-rows: minmax(0, auto);
         }
@@ -145,7 +145,7 @@ $block: '.#{$ns}strip-block';
                 z-index: 1;
                 top: 0;
                 bottom: 0;
-                width: 74px;
+                width: $indentXL;
                 background-color: var(--g-color-base-background);
                 content: '';
                 pointer-events: none;
@@ -164,7 +164,7 @@ $block: '.#{$ns}strip-block';
 
         #{$class}__track {
             justify-content: flex-start;
-            gap: var(--pc-strip-gap);
+            gap: var(--pc-strip-column-gap);
             width: max-content;
             animation: pc-strip-scroll var(--pc-strip-duration) linear infinite;
 
@@ -276,6 +276,6 @@ $block: '.#{$ns}strip-block';
     }
 
     to {
-        transform: translateX(calc(-50% - var(--pc-strip-half-gap)));
+        transform: translateX(calc(-50% - var(--pc-strip-column-gap) / 2));
     }
 }

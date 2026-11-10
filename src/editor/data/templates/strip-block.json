@@ -3,7 +3,6 @@
     "type": "strip-block",
     "title": "Strip",
     "layout": "wrap",
-    "gap": 32,
     "children": [
       {
         "type": "image-card",

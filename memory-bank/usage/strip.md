@@ -38,7 +38,8 @@ graph TD
   - `layout`: `wrap` by default or `marquee` for continuous movement.
   - `colSizes`: Optional responsive card width using the same 12-column contract as `CardLayout`.
   - `itemHeight`: Shared height for every item in pixels or `auto`; defaults to `48px`.
-  - `gap`: Horizontal and vertical spacing in pixels.
+  - `rowGap`: Vertical spacing between wrapped rows in pixels. Defaults to `20`.
+  - `columnGap`: Horizontal spacing between items in pixels. Defaults to `48`.
   - `duration`: Marquee cycle duration in seconds.
   - `pauseOnHover`: Pauses marquee movement on pointer hover.
   - `title` and `description`: Optional block heading.
@@ -72,7 +73,7 @@ removes the duplicate controls from sequential keyboard navigation while keeping
 with a pointer. It then accounts for the gap between copies in its animation offset, so every loop
 is seamless without duplicating keyboard focus targets. The animation pauses while focus is inside
 the track, regardless of `pauseOnHover`. Its viewport has vertical breathing
-room so card hover transforms and shadows are not clipped. Active marquees have 74px edge overlays
+room so card hover transforms and shadows are not clipped. Active marquees have 64px edge overlays
 filled with `background-color: var(--g-color-base-background)` and faded using alpha gradient masks.
 Keeping the color separate from the mask avoids gray interpolation artifacts in Linux WebKit.
 They use `pointer-events: none` so links remain clickable and are absent for static strips and reduced motion.

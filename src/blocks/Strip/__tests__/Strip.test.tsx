@@ -38,7 +38,8 @@ describe('Strip', () => {
         render(
             <Strip
                 title="Card strip"
-                gap={24}
+                rowGap={0}
+                columnGap={24}
                 itemHeight={160}
                 colSizes={{all: 12, sm: 6, md: 4}}
                 qa={qa}
@@ -57,7 +58,8 @@ describe('Strip', () => {
             'pc-strip-block_with-col-sizes',
         );
         expect(screen.getByTestId(qa)).toHaveStyle({
-            '--pc-strip-gap': '24px',
+            '--pc-strip-row-gap': '0px',
+            '--pc-strip-column-gap': '24px',
             '--pc-strip-item-height': '160px',
         });
         expect(screen.getByRole('listitem')).toHaveStyle({

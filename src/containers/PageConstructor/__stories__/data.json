@@ -193,9 +193,8 @@
         {
           "type": "strip-block",
           "title": "Moving strip",
-          "description": "Cards move continuously when the row is wider than the available space.",
+          "description": "Items move continuously when the row is wider than the available space.",
           "layout": "marquee",
-          "gap": 44,
           "pauseOnHover": true,
           "duration": 40,
           "images": [
@@ -384,9 +383,8 @@
         {
           "type": "strip-block",
           "title": "Static card strip",
-          "description": "Cards stay static and wrap onto additional rows when there is not enough space.",
+          "description": "Items stay static and wrap onto additional rows when there is not enough space.",
           "layout": "wrap",
-          "gap": 32,
           "images": [
             {
               "image": {

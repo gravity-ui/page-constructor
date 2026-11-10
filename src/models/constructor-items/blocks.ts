@@ -337,7 +337,8 @@ export interface StripBlockProps extends Childable, Animatable, BlockBaseProps {
     layout?: StripLayout;
     colSizes?: GridColumnSizesType;
     itemHeight?: number | 'auto';
-    gap?: number;
+    rowGap?: number;
+    columnGap?: number;
     pauseOnHover?: boolean;
     duration?: number;
 }

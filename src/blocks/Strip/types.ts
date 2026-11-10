@@ -5,8 +5,8 @@ import {StripBlockProps as StripBlockParams} from '../../models';
 export type StripBlockProps = React.PropsWithChildren<Omit<StripBlockParams, 'children'>>;
 
 export type StripStyle = React.CSSProperties & {
-    '--pc-strip-gap': string;
-    '--pc-strip-half-gap': string;
+    '--pc-strip-row-gap': string;
+    '--pc-strip-column-gap': string;
     '--pc-strip-duration': string;
     '--pc-strip-viewport-width': string;
     '--pc-strip-item-height': string;

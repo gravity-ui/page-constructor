@@ -11,6 +11,8 @@ import {
 } from '../../schema/validators/common';
 import {CompaniesBlock} from '../Companies/schema';
 
+import {DEFAULT_COLUMN_GAP, DEFAULT_ROW_GAP} from './constants';
+
 const StripImage = {
     type: 'object',
     additionalProperties: false,
@@ -83,10 +85,15 @@ export const StripBlock = {
                 ],
                 default: 48,
             },
-            gap: {
+            rowGap: {
                 type: 'number',
                 minimum: 0,
-                default: 44,
+                default: DEFAULT_ROW_GAP,
+            },
+            columnGap: {
+                type: 'number',
+                minimum: 0,
+                default: DEFAULT_COLUMN_GAP,
             },
             pauseOnHover: {
                 type: 'boolean',
