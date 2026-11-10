@@ -7,9 +7,14 @@ import {ConstructorRow} from '../../../containers/PageConstructor/components/Con
 import {Grid} from '../../../grid';
 import {BasicCardModel, BasicCardProps, CardLayoutBlockModel} from '../../../models';
 import {IconPosition} from '../../../models/constructor-items/sub-blocks';
+import {block} from '../../../utils/cn';
 import BasicCard from '../BasicCard';
 
 import data from './data.json';
+
+import './colors.scss';
+
+const colors = block('basic-card-colors-story');
 
 const getCardWithBorderTitle = (border: string) =>
     data.withBorder.title.replace('{{border}}', border);
@@ -260,5 +265,109 @@ HoverEffects.args = data.hoverEffects as BasicCardModel[];
 HoverEffects.parameters = {
     controls: {
         include: Object.keys(HoverEffects.args),
+    },
+};
+
+// CSS variables belong to the site/section wrapper, not the card's JSON model.
+export const ColorTokens: StoryFn = () => {
+    const rows = [
+        {title: 'Default colors', text: 'No hover.', custom: false, interactive: false},
+        {
+            title: 'Custom background + border',
+            text: 'No hover.',
+            custom: true,
+            interactive: false,
+        },
+        {title: 'Default colors', text: 'Hover enabled.', custom: false, interactive: true},
+        {
+            title: 'Custom background + border',
+            text: 'Hover enabled.',
+            custom: true,
+            interactive: true,
+        },
+    ];
+
+    return (
+        <div style={{overflowX: 'auto'}}>
+            <div
+                style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, minmax(240px, 1fr))',
+                    maxWidth: 1200,
+                    minWidth: 800,
+                    margin: '0 auto',
+                    gap: 24,
+                    padding: 32,
+                    background: 'var(--g-color-base-background)',
+                }}
+            >
+                {(['shadow', 'line', 'none'] as const).map((border) => (
+                    <section
+                        key={border}
+                        aria-label={border}
+                        style={{display: 'grid', gap: 24, gridTemplateRows: 'auto repeat(4, 1fr)'}}
+                    >
+                        <h3 style={{margin: 0}}>{border}</h3>
+                        {rows.map(({title, text, custom, interactive}, index) => (
+                            <div key={index} className={colors('card', {custom})}>
+                                <BasicCard
+                                    title={title}
+                                    text={text}
+                                    border={border}
+                                    url={interactive ? '#colors' : ''}
+                                />
+                            </div>
+                        ))}
+                    </section>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+ColorTokens.parameters = {
+    docs: {
+        description: {
+            story: 'Columns: shadow, line, none. Default and custom colors without hover, then with hover. Border colors only affect line cards.',
+        },
+    },
+};
+
+export const ColorTokensOverrides: StoryFn = () => (
+    <div className={colors('site')}>
+        <h3 className={colors('heading')}>Shared card colors</h3>
+        <div className={colors('row')} data-qa="site-colors">
+            {(['shadow', 'line'] as const).map((border) => (
+                <BasicCard
+                    key={border}
+                    title={border}
+                    text="Colors inherited from the story."
+                    border={border}
+                    url="#colors"
+                />
+            ))}
+        </div>
+        <section className={colors('section')}>
+            <h3 className={colors('heading')}>Custom card colors</h3>
+            <div className={colors('row')} data-qa="section-colors">
+                {(['shadow', 'line'] as const).map((border) => (
+                    <BasicCard
+                        key={border}
+                        title={border}
+                        text="All colors overridden in this section."
+                        border={border}
+                        url="#colors"
+                    />
+                ))}
+            </div>
+        </section>
+    </div>
+);
+
+ColorTokensOverrides.parameters = {
+    docs: {
+        description: {
+            story: 'The story sets all six color variables. The nested section overrides them for its cards. Hover to compare states.',
+        },
     },
 };
