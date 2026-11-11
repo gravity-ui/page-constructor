@@ -1,0 +1,13 @@
+import {Meta} from '@storybook/blocks';
+
+import {Readme} from '../../../../.storybook/readme';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as StripStories from './Strip.stories.tsx';
+import readme from '../README.md';
+
+<Meta of={StripStories} />
+
+<StoryTemplate>
+<Readme>{readme}</Readme>
+</StoryTemplate>

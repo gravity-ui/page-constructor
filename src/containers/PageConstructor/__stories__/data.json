@@ -189,6 +189,396 @@
             "text": "Learn more",
             "url": "https://example.com"
           }
+        },
+        {
+          "type": "strip-block",
+          "title": "Moving strip",
+          "description": "Items move continuously when the row is wider than the available space.",
+          "layout": "marquee",
+          "pauseOnHover": true,
+          "duration": 40,
+          "images": [
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_2_light.svg",
+                  "alt": "Square"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/strip_rectangle_long_light.svg",
+                  "alt": "Long rectangle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/strip_rectangle_long_dark.svg",
+                  "alt": "Long rectangle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/strip_parallelogram_light.svg",
+                  "alt": "Parallelogram"
+                },
+                "dark": {
+                  "desktop": "/story-assets/strip_parallelogram_dark.svg",
+                  "alt": "Parallelogram"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_2_light.svg",
+                  "alt": "Square"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/strip_rectangle_long_light.svg",
+                  "alt": "Long rectangle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/strip_rectangle_long_dark.svg",
+                  "alt": "Long rectangle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/strip_parallelogram_light.svg",
+                  "alt": "Parallelogram"
+                },
+                "dark": {
+                  "desktop": "/story-assets/strip_parallelogram_dark.svg",
+                  "alt": "Parallelogram"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_2_light.svg",
+                  "alt": "Square"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/strip_rectangle_long_light.svg",
+                  "alt": "Long rectangle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/strip_rectangle_long_dark.svg",
+                  "alt": "Long rectangle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/strip_parallelogram_light.svg",
+                  "alt": "Parallelogram"
+                },
+                "dark": {
+                  "desktop": "/story-assets/strip_parallelogram_dark.svg",
+                  "alt": "Parallelogram"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "strip-block",
+          "title": "Static card strip",
+          "description": "Items stay static and wrap onto additional rows when there is not enough space.",
+          "layout": "wrap",
+          "images": [
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_2_light.svg",
+                  "alt": "Square"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/strip_rectangle_long_light.svg",
+                  "alt": "Long rectangle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/strip_rectangle_long_dark.svg",
+                  "alt": "Long rectangle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/strip_parallelogram_light.svg",
+                  "alt": "Parallelogram"
+                },
+                "dark": {
+                  "desktop": "/story-assets/strip_parallelogram_dark.svg",
+                  "alt": "Parallelogram"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_2_light.svg",
+                  "alt": "Square"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_2_light.svg",
+                  "alt": "Square"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/strip_rectangle_long_light.svg",
+                  "alt": "Long rectangle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/strip_rectangle_long_dark.svg",
+                  "alt": "Long rectangle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/strip_parallelogram_light.svg",
+                  "alt": "Parallelogram"
+                },
+                "dark": {
+                  "desktop": "/story-assets/strip_parallelogram_dark.svg",
+                  "alt": "Parallelogram"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_1_light.svg",
+                  "alt": "Circle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_1_dark.svg",
+                  "alt": "Circle"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_2_light.svg",
+                  "alt": "Square"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_2_dark.svg",
+                  "alt": "Square"
+                }
+              }
+            },
+            {
+              "image": {
+                "light": {
+                  "desktop": "/story-assets/icon_3_light.svg",
+                  "alt": "Triangle"
+                },
+                "dark": {
+                  "desktop": "/story-assets/icon_3_dark.svg",
+                  "alt": "Triangle"
+                }
+              }
+            }
+          ]
         }
       ]
     }

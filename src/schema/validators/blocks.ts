@@ -1,5 +1,6 @@
 export * from '../../blocks/Banner/schema';
 export * from '../../blocks/Companies/schema';
+export * from '../../blocks/Strip/schema';
 export * from '../../blocks/ExtendedFeatures/schema';
 export * from '../../blocks/PromoFeaturesBlock/schema';
 export * from '../../blocks/Header/schema';

@@ -268,6 +268,7 @@ export const config: BlocksConfig = {
     [BlockType.SliderOldBlock]: blockHeaderTransformer,
     [BlockType.SliderBlock]: blockHeaderTransformer,
     [BlockType.CompaniesBlock]: blockHeaderTransformer,
+    [BlockType.StripBlock]: blockHeaderTransformer,
     [BlockType.QuestionsBlock]: [
         {
             fields: ['title', 'text', 'additionalInfo'],

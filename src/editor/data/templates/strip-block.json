@@ -1,0 +1,78 @@
+{
+  "template": {
+    "type": "strip-block",
+    "title": "Strip",
+    "layout": "wrap",
+    "children": [
+      {
+        "type": "image-card",
+        "image": {
+          "light": {
+            "src": "/story-assets/icon_1_light.svg",
+            "alt": "Circle",
+            "style": {
+              "width": "auto",
+              "height": 48
+            }
+          },
+          "dark": {
+            "src": "/story-assets/icon_1_dark.svg",
+            "alt": "Circle",
+            "style": {
+              "width": "auto",
+              "height": 48
+            }
+          }
+        },
+        "margins": "s",
+        "border": "none"
+      },
+      {
+        "type": "image-card",
+        "image": {
+          "light": {
+            "src": "/story-assets/icon_2_light.svg",
+            "alt": "Square",
+            "style": {
+              "width": "auto",
+              "height": 48
+            }
+          },
+          "dark": {
+            "src": "/story-assets/icon_2_dark.svg",
+            "alt": "Square",
+            "style": {
+              "width": "auto",
+              "height": 48
+            }
+          }
+        },
+        "margins": "s",
+        "border": "none"
+      },
+      {
+        "type": "image-card",
+        "image": {
+          "light": {
+            "src": "/story-assets/icon_3_light.svg",
+            "alt": "Triangle",
+            "style": {
+              "width": "auto",
+              "height": 48
+            }
+          },
+          "dark": {
+            "src": "/story-assets/icon_3_dark.svg",
+            "alt": "Triangle",
+            "style": {
+              "width": "auto",
+              "height": 48
+            }
+          }
+        },
+        "margins": "s",
+        "border": "none"
+      }
+    ]
+  }
+}
