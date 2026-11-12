@@ -9,7 +9,7 @@ export const {
     Image,
     VerticalOffset,
     Background,
-    FullWithBackground,
+    FullWidthBackground,
     FullWidthMediaBackground,
     DarkTheme,
     Breadcrumbs,

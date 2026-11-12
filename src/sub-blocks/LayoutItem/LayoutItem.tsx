@@ -18,7 +18,6 @@ const b = block('layout-item');
 
 const LayoutItem = ({
     content: {links, ...content},
-    contentMargin = 'm',
     metaInfo,
     media,
     border,
@@ -84,7 +83,7 @@ const LayoutItem = ({
         <React.Fragment>
             {renderMedia()}
             {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
-            <div className={b('content', {'no-media': !media, margin: contentMargin})}>
+            <div className={b('content', {'no-media': !media})}>
                 <IconWrapper icon={themedIcon} className={b('wrapper')} size={contentProps.size}>
                     <Content {...contentProps} titleId={titleId} />
                 </IconWrapper>

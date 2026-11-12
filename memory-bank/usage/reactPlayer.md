@@ -499,7 +499,7 @@ const videoSrc = React.useMemo(() => checkYoutubeVideos(src), [src]);
   playButton={{
     type: PlayButtonType.Text,
     text: 'Watch Video',
-    theme: PlayButtonThemes.Blue,
+    theme: PlayButtonThemes.Brand,
   }}
 />
 ```

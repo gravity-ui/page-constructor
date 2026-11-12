@@ -66,7 +66,6 @@ graph TD
   ```tsx
   const LayoutItem = ({
     content: {links, ...content},
-    contentMargin = 'm',
     metaInfo,
     media,
     border,
@@ -82,7 +81,7 @@ graph TD
       <div className={b(null, className)}>
         {renderMedia()}
         {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
-        <div className={b('content', {'no-media': !media, margin: contentMargin})}>
+        <div className={b('content', {'no-media': !media})}>
           <IconWrapper icon={themedIcon} className={b('wrapper')}>
             <Content {...contentProps} titleId={titleId} />
           </IconWrapper>

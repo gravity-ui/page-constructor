@@ -20,7 +20,7 @@ $block: '.#{$ns}video-button';
         color 0.4s,
         background-color 0.4s;
 
-    &_theme_blue {
+    &_theme_brand {
         color: var(--g-color-base-background);
         background-color: var(--g-color-base-brand);
 
@@ -53,8 +53,7 @@ $block: '.#{$ns}video-button';
     &_text {
         padding: $indentXS $indentM;
         font-weight: 400;
-        font-size: 24px;
-        line-height: 32px;
+        @include text-size(header-2);
 
         width: auto;
         height: auto;
@@ -69,8 +68,7 @@ $block: '.#{$ns}video-button';
 
     @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
         &_text {
-            font-size: 20px;
-            line-height: 24px;
+            @include text-size(header-1);
         }
     }
 }

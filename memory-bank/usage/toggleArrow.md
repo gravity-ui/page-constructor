@@ -17,9 +17,6 @@ graph TD
     OverflowScroller[OverflowScroller Component]
     Title[Title Component]
 
-    %% Sub-blocks
-    PriceDetailed[PriceDetailed Sub-block]
-
     %% Blocks
     Questions[Questions Block]
     FoldableList[FoldableList Block]
@@ -32,7 +29,6 @@ graph TD
     %% Usage relationships
     OverflowScroller --> ToggleArrow
     Title --> ToggleArrow
-    PriceDetailed --> ToggleArrow
     Questions --> ToggleArrow
     FoldableList --> ToggleArrow
     Slider --> ToggleArrow
@@ -45,9 +41,6 @@ graph TD
     %% Component styles
     style OverflowScroller fill:#a8d5ba,stroke:#1a936f,stroke-width:1px,color:#000
     style Title fill:#a8d5ba,stroke:#1a936f,stroke-width:1px,color:#000
-
-    %% Sub-block styles
-    style PriceDetailed fill:#e8c5e5,stroke:#8e44ad,stroke-width:1px,color:#000
 
     %% Block styles
     style Questions fill:#c6def1,stroke:#2274a5,stroke-width:1px,color:#000
@@ -107,20 +100,6 @@ graph TD
 - **Implementation**:
   ```tsx
   <ToggleArrow className={b('arrow', {size: textSize})} open={isOpened} type="vertical" size={16} />
-  ```
-
-### In Sub-blocks
-
-#### PriceDetailed Sub-block
-
-- **File**: `src/sub-blocks/PriceDetailed/PriceDetails/PriceDetails.tsx`
-- **Usage**: Toggle arrow for expandable price details.
-- **Implementation**:
-  ```tsx
-  <button className={b('button')} onClick={() => setIsOpened(!isOpened)}>
-    {foldableTitle}
-    <ToggleArrow open={isOpened} size={14} type={'vertical'} className={b('arrow')} />
-  </button>
   ```
 
 ### In Blocks

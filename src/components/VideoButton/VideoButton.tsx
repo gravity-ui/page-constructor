@@ -41,7 +41,7 @@ const VideoButton = ({
         }
     }, [text, type]);
 
-    const theme = initialTheme || defaultVideoButtonSettings?.theme || PlayButtonThemes.Blue;
+    const theme = initialTheme || defaultVideoButtonSettings?.theme || PlayButtonThemes.Brand;
 
     const style = React.useMemo(() => {
         if (theme !== PlayButtonThemes.Custom) {
