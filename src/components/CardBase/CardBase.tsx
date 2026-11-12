@@ -121,17 +121,15 @@ export const Layout = (props: CardBasePropsType) => {
     return url ? (
         <RouterLink href={url}>
             <Link
-                href={url}
                 target={target}
                 rel={target === '_blank' ? 'noopener noreferrer' : undefined}
-                className={fullClassName}
                 onClick={onClick}
                 title={urlTitle}
-                extraProps={{
-                    draggable: false,
-                    onDragStart: (e: React.DragEvent<HTMLAnchorElement>) => e.preventDefault(),
-                    ...extraProps,
-                }}
+                draggable={false}
+                onDragStart={(e) => e.preventDefault()}
+                {...extraProps}
+                href={url}
+                className={fullClassName}
                 qa={qa}
             >
                 {cardContent}

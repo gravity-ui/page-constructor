@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {DynamicField, SimpleVerticalAccordeon, Spec} from '@gravity-ui/dynamic-forms';
+import {DynamicField, SimpleVerticalAccordeon, Spec} from '@gravity-ui/dynamic-forms/deprecated';
 import isEqual from 'lodash/isEqual';
 import noop from 'lodash/noop';
 import {Form as FinalForm, FormSpy} from 'react-final-form';

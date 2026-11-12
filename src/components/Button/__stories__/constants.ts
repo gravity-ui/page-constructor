@@ -15,6 +15,10 @@ export const THEMES = [
     'flat-info',
     'flat-danger',
     'flat-secondary',
+    'contrast',
+    'contrast-inverted',
+    'contrast-light',
+    'contrast-dark',
     'normal-contrast',
 ] as const;
 export const CONTRAST_THEMES = ['outlined-contrast', 'flat-contrast'] as const;
