@@ -5,7 +5,7 @@ import {
     ObjectIndependentInputProps,
     Spec,
     SpecTypes,
-} from '@gravity-ui/dynamic-forms';
+} from '@gravity-ui/dynamic-forms/deprecated';
 import {SegmentedRadioGroup, Select} from '@gravity-ui/uikit';
 import isObjectLike from 'lodash/isObjectLike';
 import some from 'lodash/some';
@@ -121,7 +121,9 @@ export const useOneOf = ({props, onTogglerChange}: UseOneOfParams) => {
 
     const toggler = React.useMemo(() => {
         if (Layout) {
-            return <Layout {...props}>{togglerInput}</Layout>;
+            const LayoutComponent = Layout as React.ComponentType<Parameters<typeof Layout>[0]>;
+
+            return <LayoutComponent {...props}>{togglerInput}</LayoutComponent>;
         }
 
         return togglerInput;

@@ -113,7 +113,7 @@
   "dependencies": {
     "@bem-react/classname": "^1.6.0",
     "@gravity-ui/components": "^5.0.0",
-    "@gravity-ui/dynamic-forms": "^5.39.0",
+    "@gravity-ui/dynamic-forms": "^6.0.0",
     "@gravity-ui/i18n": "^1.7.0",
     "@gravity-ui/icons": "^2.18.0",
     "@hello-pangea/dnd": "^18.0.1",
@@ -144,7 +144,8 @@
     "@diplodoc/transform": "^4.28.2",
     "@gravity-ui/uikit": "^8.0.0",
     "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "react-is": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.8",
@@ -226,6 +227,7 @@
     "react": "^18.3.1",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.3.1",
+    "react-is": "^18.3.1",
     "resolve-url-loader": "^3.1.5",
     "rimraf": "^6.0.1",
     "sass": "^1.63.6",

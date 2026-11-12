@@ -10,7 +10,7 @@ import {
     SpecTypes,
     ValidateError,
     transformArrOut,
-} from '@gravity-ui/dynamic-forms';
+} from '@gravity-ui/dynamic-forms/deprecated';
 import Ajv from 'ajv';
 import isEmpty from 'lodash/isEmpty';
 
