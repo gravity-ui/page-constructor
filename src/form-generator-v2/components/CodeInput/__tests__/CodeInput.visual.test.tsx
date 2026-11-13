@@ -6,6 +6,8 @@ import {expect, test} from '../../../../../playwright/core';
 import {
     CodeLanguageSettings,
     JsonDiagnosticInputs,
+    SwitchingCodeInput,
+    ThemedCodeInputs,
     ValidatedCodeInput,
     YamlDiagnosticInputs,
 } from './helpers';
@@ -21,6 +23,50 @@ const pressEditorShortcut = async (page: Page, command: 'selectAll' | 'documentE
 };
 
 test.describe('CodeInput', () => {
+    for (const switchBlock of [false, true]) {
+        test(`writes to the current ${switchBlock ? 'block' : 'field'} after switching`, async ({
+            mount,
+            page,
+        }) => {
+            await mount(<SwitchingCodeInput switchBlock={switchBlock} />);
+            const savedContent = page.getByTestId('saved-content');
+
+            await page.locator('.view-lines').click();
+            await pressEditorShortcut(page, 'selectAll');
+            await page.keyboard.insertText('first edit');
+            await expect(savedContent).toHaveText(
+                JSON.stringify({first: 'first edit', second: 'second value'}),
+            );
+
+            await page.getByRole('button', {name: 'Switch target'}).click();
+            await expect(page.locator('.view-lines')).toContainText('second value');
+            await page.locator('.view-lines').click();
+            await pressEditorShortcut(page, 'selectAll');
+            await page.keyboard.insertText('second edit');
+            await expect(savedContent).toHaveText(
+                JSON.stringify({first: 'first edit', second: 'second edit'}),
+            );
+        });
+    }
+
+    test('keeps editors in sync with the application theme when mounted and switched', async ({
+        mount,
+        page,
+    }) => {
+        await mount(<ThemedCodeInputs />);
+        await expect(page.locator('.monaco-editor.vs-dark')).toHaveCount(1);
+
+        await page.getByRole('button', {name: 'Add editor'}).click();
+        await expect(page.locator('.monaco-editor.vs-dark')).toHaveCount(2);
+
+        await page.getByRole('button', {name: 'Switch theme'}).click();
+        await expect(page.locator('.monaco-editor.vs')).toHaveCount(2);
+        await expect(page.locator('.monaco-editor.vs-dark')).toHaveCount(0);
+
+        await page.getByRole('button', {name: 'Switch theme'}).click();
+        await expect(page.locator('.monaco-editor.vs-dark')).toHaveCount(2);
+    });
+
     test('validates YAML by default and clears markers when fixed or switched to another language', async ({
         mount,
         page,

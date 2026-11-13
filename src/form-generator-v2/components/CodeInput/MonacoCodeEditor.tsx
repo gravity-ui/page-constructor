@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import {ThemeContext, getThemeType} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 import MonacoEditor, {monaco} from 'react-monaco-editor';
 
@@ -37,10 +38,18 @@ const MonacoCodeEditor = ({
     onChange,
     onValidate,
 }: MonacoCodeEditorProps) => {
+    const themeContext = React.useContext(ThemeContext);
+    const theme = getThemeType(themeContext?.themeValue ?? 'light');
     const [instance, setInstance] = React.useState<EditorInstance>();
     const onChangeDebounced = React.useMemo(() => debounce(onChange, 200), [onChange]);
+    const onChangeRef = React.useRef(onChangeDebounced);
+    onChangeRef.current = onChangeDebounced;
 
-    React.useEffect(() => () => onChangeDebounced.cancel(), [onChangeDebounced]);
+    // react-monaco-editor subscribes once, so keep its handler stable and read the
+    // current debounced callback when typing. Pending edits keep their original callback.
+    const handleChange = React.useCallback((nextValue: string) => {
+        onChangeRef.current(nextValue);
+    }, []);
 
     const handleEditorDidMount = React.useCallback(
         (editor: monaco.editor.IStandaloneCodeEditor, monacoInstance: typeof monaco) => {
@@ -129,9 +138,9 @@ const MonacoCodeEditor = ({
             value={value}
             language={language}
             options={monacoOptions}
-            onChange={onChangeDebounced}
+            onChange={handleChange}
             editorDidMount={handleEditorDidMount}
-            theme="vs"
+            theme={theme === 'dark' ? 'vs-dark' : 'vs'}
             width="100%"
             height={height}
         />

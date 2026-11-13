@@ -124,3 +124,87 @@ describe('MonacoCodeEditor diagnostics', () => {
         expect(disposeModel).toHaveBeenCalledTimes(1);
     });
 });
+
+describe('MonacoCodeEditor changes', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+        jest.useFakeTimers();
+    });
+
+    afterEach(() => jest.useRealTimers());
+
+    test('uses the current callback through the handler captured on mount', () => {
+        const firstOnChange = jest.fn();
+        const secondOnChange = jest.fn();
+        const props = {
+            value: '{}',
+            language: 'json' as const,
+            height: 220,
+            onValidate: jest.fn(),
+        };
+        const view = render(<MonacoCodeEditor {...props} onChange={firstOnChange} />);
+        const initialHandler = jest.mocked(MonacoEditor).mock.calls[0][0].onChange;
+
+        view.rerender(<MonacoCodeEditor {...props} onChange={secondOnChange} />);
+        const calls = jest.mocked(MonacoEditor).mock.calls;
+        expect(calls[calls.length - 1][0].onChange).toBe(initialHandler);
+
+        act(() => initialHandler?.('current field', {} as monaco.editor.IModelContentChangedEvent));
+        expect(secondOnChange).not.toHaveBeenCalled();
+        act(() => jest.advanceTimersByTime(200));
+        expect(secondOnChange).toHaveBeenCalledWith('current field');
+        expect(firstOnChange).not.toHaveBeenCalled();
+    });
+
+    test('keeps pending edits bound to their original callback across switching and unmounting', () => {
+        const firstOnChange = jest.fn();
+        const secondOnChange = jest.fn();
+        const props = {
+            value: '{}',
+            language: 'json' as const,
+            height: 220,
+            onValidate: jest.fn(),
+        };
+        const view = render(<MonacoCodeEditor {...props} onChange={firstOnChange} />);
+        const initialHandler = jest.mocked(MonacoEditor).mock.calls[0][0].onChange;
+
+        act(() => initialHandler?.('first edit', {} as monaco.editor.IModelContentChangedEvent));
+        expect(firstOnChange).not.toHaveBeenCalled();
+
+        view.rerender(<MonacoCodeEditor {...props} onChange={secondOnChange} />);
+        expect(secondOnChange).not.toHaveBeenCalled();
+        act(() => initialHandler?.('last edit', {} as monaco.editor.IModelContentChangedEvent));
+        view.unmount();
+        act(() => jest.advanceTimersByTime(200));
+        expect(firstOnChange).toHaveBeenCalledWith('first edit');
+        expect(secondOnChange).toHaveBeenCalledWith('last edit');
+        expect(firstOnChange).toHaveBeenCalledTimes(1);
+        expect(secondOnChange).toHaveBeenCalledTimes(1);
+    });
+
+    test('delivers only the latest edit after 200ms without changes', () => {
+        const onChange = jest.fn();
+        render(
+            <MonacoCodeEditor
+                value="{}"
+                language="json"
+                height={220}
+                onChange={onChange}
+                onValidate={jest.fn()}
+            />,
+        );
+        const handler = jest.mocked(MonacoEditor).mock.calls[0][0].onChange;
+        const event = {} as monaco.editor.IModelContentChangedEvent;
+
+        act(() => handler?.('first edit', event));
+        act(() => jest.advanceTimersByTime(199));
+        expect(onChange).not.toHaveBeenCalled();
+
+        act(() => handler?.('latest edit', event));
+        act(() => jest.advanceTimersByTime(199));
+        expect(onChange).not.toHaveBeenCalled();
+        act(() => jest.advanceTimersByTime(1));
+        expect(onChange).toHaveBeenCalledTimes(1);
+        expect(onChange).toHaveBeenCalledWith('latest edit');
+    });
+});
