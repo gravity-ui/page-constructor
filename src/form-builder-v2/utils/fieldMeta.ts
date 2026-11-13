@@ -1,6 +1,7 @@
 import {
     ChevronsExpandVertical,
     CircleInfo,
+    Code,
     Cubes3,
     Droplet,
     FontCursor,
@@ -23,6 +24,7 @@ export const TYPE_LABELS: Record<BuilderFieldType, string> = {
     text: 'Static text',
     divider: 'Divider',
     section: 'Section',
+    codeInput: 'Code editor',
 };
 
 export const PALETTE_LABELS: Record<BuilderFieldType, string> = {
@@ -35,6 +37,7 @@ export const PALETTE_LABELS: Record<BuilderFieldType, string> = {
     text: 'Hint',
     divider: 'Divider',
     section: 'Section',
+    codeInput: 'Code',
 };
 
 export const TYPE_ICONS: Record<BuilderFieldType, IconData> = {
@@ -47,11 +50,13 @@ export const TYPE_ICONS: Record<BuilderFieldType, IconData> = {
     text: CircleInfo,
     divider: Minus,
     section: Cubes3,
+    codeInput: Code,
 };
 
 export const FIELD_TYPES: BuilderFieldType[] = [
     'textInput',
     'textArea',
+    'codeInput',
     'select',
     'segmentedRadioGroup',
     'switch',

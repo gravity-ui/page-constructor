@@ -47,6 +47,22 @@ export type TextField = {
     placeholder?: string;
 };
 
+export type CodeLanguage = 'yaml' | 'json';
+
+export type CodeValidator = (code: string) => string | undefined;
+
+export type CodeField = {
+    type: 'codeInput';
+    name: string;
+    title: string;
+    defaultValue?: string;
+    when?: When;
+    placeholder?: string;
+    language?: CodeLanguage;
+    height?: number;
+    validate?: CodeValidator;
+};
+
 export type SegmentedRadioGroupField = {
     type: 'segmentedRadioGroup';
     name: string;
@@ -105,6 +121,7 @@ export type Fields = (
     | DividerField
     | SwitchField
     | ColorField
+    | CodeField
 )[];
 
 export type OnUpdate = (

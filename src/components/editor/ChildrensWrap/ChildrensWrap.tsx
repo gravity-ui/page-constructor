@@ -3,7 +3,7 @@ import * as React from 'react';
 import _ from 'lodash';
 
 import {BlockIdContext} from '../../../context/blockIdContext';
-import {generateChildrenPathFromArray} from '../../../editor-v2';
+import {generateChildrenPathFromArray} from '../../../editor-v2/utils';
 import {usePCEditorBlockRegister} from '../../../hooks/usePCEditorBlockRegister';
 import {usePCEditorStore} from '../../../hooks/usePCEditorStore';
 import {block} from '../../../utils';
