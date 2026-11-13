@@ -1,4 +1,5 @@
 import type {
+    CodeField,
     ColorField,
     DividerField,
     SectionField,
@@ -18,7 +19,8 @@ type LeafField =
     | Text
     | DividerField
     | SwitchField
-    | ColorField;
+    | ColorField
+    | CodeField;
 
 export type BuilderLeafField = LeafField & {id: string};
 export type BuilderSectionField = Omit<SectionField, 'fields'> & {

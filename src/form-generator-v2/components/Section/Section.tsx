@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import {EllipsisVertical, Plus, TrashBin} from '@gravity-ui/icons';
 import {ArrowToggle, Button, Card, Dialog, DropdownMenu, Icon, Text} from '@gravity-ui/uikit';
+import cloneDeepWith from 'lodash/cloneDeepWith';
 
 import {ClassNameProps} from '../../../models/common';
 import {CommonProps, SectionField} from '../../types';
@@ -110,7 +111,9 @@ const Section = ({
     }, [content, arrayPath, nameWithIndexName, valuesInside, valuesInsideLength, isGroupMode]);
 
     const replaceIndex = (i: number) =>
-        fields ? JSON.parse(JSON.stringify(fields).replaceAll(`{{${index}}}`, String(i))) : fields;
+        cloneDeepWith(fields, (value) =>
+            typeof value === 'string' ? value.replaceAll(`{{${index}}}`, String(i)) : undefined,
+        );
 
     const handleAdd = () => {
         if (arrayPath && onUpdate) {

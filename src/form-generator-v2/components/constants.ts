@@ -1,3 +1,4 @@
+import CodeInput from './CodeInput/CodeInput';
 import ColorInput from './ColorInput/ColorInput';
 import Divider from './Divider/Divider';
 import Section from './Section/Section';
@@ -20,4 +21,5 @@ export const componentMap = {
     textArea: TextArea,
     switch: Switch,
     textListInput: TextListInput,
+    codeInput: CodeInput,
 };

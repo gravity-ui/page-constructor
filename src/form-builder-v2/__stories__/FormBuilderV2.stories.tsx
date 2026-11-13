@@ -106,3 +106,8 @@ Empty.args = {
     initialFields: [],
     density: 'full',
 };
+
+export const CodeFields = Template.bind({});
+CodeFields.args = {
+    initialFields: [{id: 'fb2_1', type: 'codeInput', name: 'config', title: 'Config'}],
+};

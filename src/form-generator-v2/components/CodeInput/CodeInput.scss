@@ -1,0 +1,38 @@
+.pc-fg-code-input {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--g-color-line-generic);
+    border-radius: var(--g-border-radius-m, 4px);
+
+    &__loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--g-color-text-secondary);
+    }
+
+    &__footer {
+        min-height: 32px;
+        border-top: 1px solid var(--g-color-line-generic);
+        background: var(--g-color-base-background);
+    }
+
+    &__validation-message {
+        max-height: 140px;
+        padding: 12px;
+        overflow-y: auto;
+        overflow-wrap: anywhere;
+        font-family: Menlo, Monaco, 'Courier New', monospace;
+        white-space: pre-wrap;
+    }
+
+    &__message {
+        &_status_error {
+            color: var(--g-color-text-danger);
+        }
+
+        &_status_warning {
+            color: var(--g-color-text-warning-heavy);
+        }
+    }
+}

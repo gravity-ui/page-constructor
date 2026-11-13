@@ -91,6 +91,61 @@ Multi-line text.
 
 ---
 
+## `codeInput`
+
+Monaco-based code editor. Values are stored as strings, including while invalid.
+
+| Property       | Type                                    | Required | Description                                                           |
+| -------------- | --------------------------------------- | -------- | --------------------------------------------------------------------- |
+| `type`         | `'codeInput'`                           | yes      | Discriminator.                                                        |
+| `name`         | `string`                                | yes      | Path in `content`.                                                    |
+| `title`        | `string`                                | yes      | Label.                                                                |
+| `defaultValue` | `string`                                | no       | Initial value when the field becomes visible and its path is empty.   |
+| `when`         | `When`                                  | no       | Visibility.                                                           |
+| `language`     | `CodeLanguage`                          | no       | Either `'yaml'` (default) or `'json'`.                                |
+| `height`       | `number`                                | no       | Editor height in pixels. Defaults to `220`.                           |
+| `validate`     | `(code: string) => string \| undefined` | no       | Synchronous custom validator. Return an error message or `undefined`. |
+
+`validate` runs for the initial value and whenever the value or validator changes.
+Its message is displayed in a separate footer below the editor; it does not block
+content updates. The footer reserves space even without errors. Messages use a
+monospace font and scroll vertically when their height exceeds 140 px.
+Monaco's built-in errors and warnings are also shown there, with their line and
+column numbers. Diagnostics are scoped to the field's current document and
+disappear when the issue is fixed. YAML syntax is checked automatically with
+`js-yaml`, including when no YAML language service is configured. These errors
+are also added to the document's Monaco markers. Diagnostics for other languages
+depend on the language services configured by the host application.
+No page-constructor JSON Schema validation is applied automatically.
+
+```tsx
+const fields: Fields = [
+  {
+    type: 'codeInput',
+    name: 'config',
+    title: 'Config',
+    language: 'json',
+    validate: (code) => {
+      try {
+        JSON.parse(code);
+        return undefined;
+      } catch {
+        return 'Enter valid JSON.';
+      }
+    },
+  },
+];
+```
+
+Validator functions must be supplied programmatically: JSON serialization does
+not preserve them. Attach them again after loading a saved form configuration.
+
+`CodeInput` and the `FormBuilderV2` language selector support YAML and JSON.
+New code fields use YAML. Choose JSON with `language: 'json'` or the builder's
+language selector.
+
+---
+
 ## `textListInput`
 
 Editable list of strings. Each row contains a text input and a remove button;
