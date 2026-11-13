@@ -4,7 +4,7 @@ A **component** is a shared UI primitive (e.g. Button, Title, Image, BackgroundM
 
 ## Decide if you actually need a new component
 
-Before writing one, check if `@gravity-ui/uikit` already has it (the project leans heavily on uikit). The project's CLAUDE.md is explicit: search the existing UI kit before creating new components. Common cases that are already handled:
+Before writing one, check if `@gravity-ui/uikit` already has it (the project leans heavily on uikit). Search the existing UI kit before creating new components. Common cases that are already handled:
 
 - Buttons → `@gravity-ui/uikit` `Button` (the project's `Button` is a wrapper that adds analytics + locale-aware tld handling)
 - Layout primitives → uikit `Flex`
@@ -64,7 +64,7 @@ The project's AGENTS.md is explicit: **no `index.ts` barrel re-exports for new c
 
 ## Storybook story
 
-The story works the same way as for blocks/sub-blocks, but typically **without** `blockTransform` — components don't go through the YFM content transformer because they don't take YFM strings (the parent block does).
+The story works the same way as for blocks/sub-blocks, but typically **without** `blockTransform`: shared components receive their props directly. Check whether each text prop expects raw YFM or already transformed HTML.
 
 ```tsx
 import {Meta, StoryFn} from '@storybook/react';
@@ -85,7 +85,7 @@ export const Default = DefaultTemplate.bind({});
 Default.args = data.default as <ComponentName>Props;
 ```
 
-If the component renders YFM content directly (rare — typically only `YFMWrapper`, `Title`, `Content`), keep `blockTransform`.
+For YFM-capable props, mirror the actual component story: Title uses `yfmTransform` for its subtitle, while YFMWrapper's story receives pre-rendered HTML directly. Use `blockTransform` only for a complete registered block/sub-block config with a discriminator and the required text parsers. Content is a sub-block; follow its own story rather than treating it as a plain component.
 
 ## `data.json`
 
@@ -104,11 +104,11 @@ Same template as for blocks/sub-blocks. Document each prop in the `## Parameters
 
 ## Wiring checklist
 
-| #   | File                     | Change                                                                                                                                                                                                                                                                 |
-| --- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | (component file)         | Define `<ComponentName>Props` interface (in component file or `src/models/constructor-items/common.ts` if shared)                                                                                                                                                      |
-| 2   | Importers                | Direct import: `import <ComponentName> from '../../components/<ComponentName>/<ComponentName>';`                                                                                                                                                                       |
-| 3   | `memory-bank/` (3 files) | Create `memory-bank/usage/<componentCamelCase>.md` (Overview + Component Details, empty Usage Graph — template: `memory-bank/usage/button.md` or `memory-bank/usage/title.md`). Append entry to `activeContext.md` and `storybookComponents.md`. No `blockDeps/` file. |
+| #   | File                     | Change                                                                                                                                                                                                                                                                                                                             |
+| --- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | (component file)         | Define `<ComponentName>Props` interface (in component file or `src/models/constructor-items/common.ts` if shared)                                                                                                                                                                                                                  |
+| 2   | Importers                | Direct import: `import <ComponentName> from '../../components/<ComponentName>/<ComponentName>';`                                                                                                                                                                                                                                   |
+| 3   | `memory-bank/` (3 files) | Create `memory-bank/usage/<componentCamelCase>.md` (Overview + Component Details + Usage Graph with known consumers or an explicit note that there are none yet — template: `memory-bank/usage/button.md` or `memory-bank/usage/title.md`). Append entry to `activeContext.md` and `storybookComponents.md`. No `blockDeps/` file. |
 
 No `blockMap`, no schema, no `BlockType`. Components are just code — but they still need a `memory-bank/usage/` entry to be discoverable.
 
@@ -117,5 +117,5 @@ No `blockMap`, no schema, no `BlockType`. Components are just code — but they 
 - **Adding the component to a barrel `index.ts`.** AGENTS.md forbids this for new components.
 - **Putting the story under `Components/<ComponentName>` when it should be under a subfolder** like `Links and buttons/` or `Pics, video, DataLens/`. Check `references/storybook-routing.md` and existing siblings.
 - **Recreating something uikit already has.** Always look at `@gravity-ui/uikit` exports first.
-- **Skipping the SCSS file** when the component renders DOM. Even tiny visual components have `.scss` files in this project for consistency and theme integration.
+- **Skipping styles when custom styling is needed.** Use SCSS and shared tokens; a pure composition of existing primitives may need no new stylesheet.
 - **Defining `Props` in the component file when other internal code already needs them.** If `Props` are referenced from `models/`, move them to `src/models/constructor-items/common.ts`.

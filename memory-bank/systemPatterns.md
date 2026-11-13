@@ -246,12 +246,11 @@ A comprehensive type system using TypeScript ensures:
 
 ### Schema Validation
 
-JSON Schema validation ensures data integrity:
+Existing JSON Schemas preserve legacy content validation and standalone schema consumers:
 
-- Each block has a schema definition
-- Schemas validate required and optional properties
-- Schemas support theming with `withTheme` wrapper
-- Validation occurs in the editor and at runtime
+- New blocks and sub-blocks do not require `schema.ts` or AJV registration.
+- Preserve existing schemas, required/optional properties, themed `withTheme` fields and legacy discriminators when maintaining old contracts.
+- New editor configs retain their `schema` metadata and `schema.inputs` form descriptors; editor-v2 does not directly run AJV validation.
 
 ## Key Implementation Paths
 
@@ -269,7 +268,6 @@ JSON Schema validation ensures data integrity:
 2. Block is registered in custom blocks configuration
 3. Custom block types are added to available block types
 4. Custom block component is added to item map
-5. Custom block schema is added to validators
 
 ### Theming
 

@@ -1,6 +1,6 @@
 # Storybook title routing
 
-The `title` field in `default export = { title: '...' } as Meta` controls where the story appears in Storybook's left sidebar. The routing is **not** a direct mirror of the filesystem — it uses semantic categories and doesn't always match the directory name.
+The `title` field in `export default { title: '...' } as Meta` controls where the story appears in Storybook's left sidebar. The routing is **not** a direct mirror of the filesystem — it uses semantic categories and doesn't always match the directory name.
 
 Get this right before writing the story file. Wrong routing means the user can't find the new entity in the sidebar.
 
@@ -21,7 +21,7 @@ Examples observed in repo:
 - `Blocks/Form`
 - `Blocks/SliderOld (deprecated)` — when deprecating an old block, append ` (deprecated)` to the title (not the directory).
 
-The `<Name>` matches the React component / directory PascalCase name, not the kebab-case schema type.
+The `<Name>` follows the directory/display name in PascalCase (e.g. `Banner`); the exported React component may be named `BannerBlock`. Do not use the content discriminator as the story title.
 
 ### Sub-blocks (`src/sub-blocks/<Name>/`)
 
@@ -56,7 +56,7 @@ When unsure, ask — getting this wrong creates a sidebar entry the team has to 
 
 ### Components (`src/components/<Name>/`)
 
-Components are split across **three sub-categories** in the sidebar based on theme:
+Components are split across **three sub-categories** in the sidebar by purpose:
 
 | Category        | Title prefix                              | Members                                                                                                                                                                                                                                  |
 | --------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

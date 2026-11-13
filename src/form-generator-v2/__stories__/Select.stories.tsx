@@ -22,6 +22,7 @@ const Template: StoryFn<{blockConfig: Fields}> = ({blockConfig}) => {
                 contentConfig={content}
                 onUpdate={setContent}
             />
+            <pre>{JSON.stringify(content, null, 2)}</pre>
         </div>
     );
 };
@@ -54,6 +55,21 @@ WithClear.args = {
             title: 'Layout (with clear button)',
             hasClear: true,
             options: layoutOptions,
+        },
+    ] as Fields,
+};
+
+export const Multiple = Template.bind({});
+Multiple.args = {
+    blockConfig: [
+        {
+            type: 'select',
+            name: 'layouts',
+            title: 'Layouts (multiple selection)',
+            multiple: true,
+            hasClear: true,
+            options: layoutOptions,
+            defaultValue: ['default', 'wide'],
         },
     ] as Fields,
 };

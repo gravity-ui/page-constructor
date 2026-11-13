@@ -24,6 +24,7 @@ export const OptionsSettings = ({
     whenEditorSection,
 }: OptionsSettingsProps) => {
     const options = field.options ?? [];
+    const multiple = field.type === 'select' && field.multiple === true;
 
     const updateOption = (index: number, key: 'value' | 'content', value: string) => {
         const next = options.map((opt, i) => (i === index ? {...opt, [key]: value} : opt));
@@ -50,12 +51,38 @@ export const OptionsSettings = ({
     return (
         <React.Fragment>
             {commonRows}
+            {field.type === 'select' && (
+                <Row label="Multiple">
+                    <Checkbox
+                        checked={multiple}
+                        onUpdate={(value) =>
+                            updateField(
+                                field.id,
+                                value
+                                    ? {multiple: true, defaultValue: []}
+                                    : {multiple: false, defaultValue: undefined},
+                            )
+                        }
+                    >
+                        Allow multiple selection
+                    </Checkbox>
+                </Row>
+            )}
             <Row label="Default">
                 <Select
                     size="m"
-                    value={[field.defaultValue ?? '']}
-                    options={defaultValueOptions}
+                    multiple={multiple}
+                    value={
+                        Array.isArray(field.defaultValue)
+                            ? field.defaultValue
+                            : [field.defaultValue ?? '']
+                    }
+                    options={multiple ? options : defaultValueOptions}
                     onUpdate={(next) => {
+                        if (multiple) {
+                            updateField(field.id, {multiple: true, defaultValue: next});
+                            return;
+                        }
                         const value = next[0];
                         updateField(field.id, {defaultValue: value || undefined});
                     }}

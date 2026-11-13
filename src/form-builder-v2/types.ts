@@ -8,11 +8,13 @@ import type {
     SwitchField,
     Text,
     TextField,
+    TextListField,
 } from '../form-generator-v2/types';
 
 type LeafField =
     | TextField
     | SelectField
+    | TextListField
     | SegmentedRadioGroupField
     | Text
     | DividerField

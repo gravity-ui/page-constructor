@@ -17,7 +17,7 @@ Trivial cases (typos, one-line lookups) may skip the gate but must state so expl
 ## Root Context
 
 **Package**: `@gravity-ui/page-constructor` v8.7.1  
-**Purpose**: React library for rendering web pages from JSON/YAML data. A page is assembled from typed blocks placed in any order; each block declares its schema, types, and visual component.  
+**Purpose**: React library for rendering web pages from JSON/YAML data. A page is assembled from typed blocks placed in any order; each block declares its editor configuration, types, and visual component.  
 **Peer deps**: `react ^16–19`, `@gravity-ui/uikit ^7`, `@diplodoc/transform ^4`  
 **Key exports**: main (CJS/ESM), `./editor`, `./server`, `./styles/*`, `./widget/*`, `./schema/*`
 
@@ -54,7 +54,7 @@ Trivial cases (typos, one-line lookups) may skip the gate but must state so expl
 
 ### Architecture invariants
 
-Block-first, themed values, BEM, contexts-over-props, schema-per-block, no barrels → see `.agents/docs/architecture.md` for the full list and the _why_ behind each rule. **READ before** any structural change.
+Block-first, themed values, BEM, contexts-over-props, no barrels → see `.agents/docs/architecture.md` for the full list and the _why_ behind each rule. **READ before** any structural change.
 
 ---
 

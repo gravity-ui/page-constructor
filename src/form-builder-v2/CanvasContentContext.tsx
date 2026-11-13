@@ -2,6 +2,9 @@ import * as React from 'react';
 
 import type {Content} from '../form-generator-v2/types';
 
+import {useFormContext} from './hooks/FormContext';
+import {pruneContent} from './utils/pruneContent';
+
 interface CanvasContentContextType {
     content: Content;
     setContent: React.Dispatch<React.SetStateAction<Content>>;
@@ -26,6 +29,13 @@ export const CanvasContentProvider = ({
     setTemplateContent,
     children,
 }: CanvasContentProviderProps) => {
+    const {formFields} = useFormContext();
+
+    React.useEffect(() => {
+        setContent((previous) => pruneContent(previous, formFields));
+        setTemplateContent((previous) => pruneContent(previous, formFields));
+    }, [formFields, setContent, setTemplateContent]);
+
     const value = React.useMemo<CanvasContentContextType>(
         () => ({content, setContent, templateContent, setTemplateContent}),
         [content, setContent, templateContent, setTemplateContent],
