@@ -87,7 +87,11 @@ export const FieldSettings = ({field}: FieldSettingsProps) => {
         return whenEditorSection;
     }
 
-    if (field.type === 'textInput' || field.type === 'textArea') {
+    if (
+        field.type === 'textInput' ||
+        field.type === 'textArea' ||
+        field.type === 'markdownEditor'
+    ) {
         return (
             <TextFieldSettings
                 field={field}

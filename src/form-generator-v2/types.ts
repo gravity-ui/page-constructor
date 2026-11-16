@@ -59,6 +59,15 @@ export type TextField = {
     placeholder?: string;
 };
 
+export type MarkdownEditorField = {
+    type: 'markdownEditor';
+    name: string;
+    title: string;
+    defaultValue?: string;
+    placeholder?: string;
+    when?: When;
+};
+
 export type SegmentedRadioGroupField = {
     type: 'segmentedRadioGroup';
     name: string;
@@ -113,6 +122,7 @@ export type Fields = (
     | SelectField
     | TextListField
     | TextField
+    | MarkdownEditorField
     | SegmentedRadioGroupField
     | Text
     | DividerField

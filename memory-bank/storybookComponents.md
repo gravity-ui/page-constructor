@@ -95,6 +95,12 @@ The following containers in the src/containers directory have Storybook stories:
 
 1. **PageConstructor**: The main container component that renders the page based on the provided content configuration. The stories demonstrate custom blocks integration, custom navigation items, custom loadable components, and custom decorators.
 
+### Form Generation and Building
+
+The following internal form components have Storybook stories:
+
+1. **MarkdownEditor**: Markdown string editing through FormGenerator v2. The `Default` story demonstrates two independent fields with default content and a placeholder. Storybook title: `FormGenerator/MarkdownEditor`; source: `src/form-generator-v2/__stories__/MarkdownEditor.stories.tsx`. ✅ [Usage documented](usage/markdownEditor.md)
+
 ### Editor
 
 The following components in the src/editor directory have Storybook stories:

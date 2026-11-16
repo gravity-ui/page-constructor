@@ -1,6 +1,7 @@
 import type {
     ColorField,
     DividerField,
+    MarkdownEditorField,
     SectionField,
     SegmentedRadioGroupField,
     SelectField,
@@ -12,6 +13,7 @@ import type {
 
 type LeafField =
     | TextField
+    | MarkdownEditorField
     | SelectField
     | TextListField
     | SegmentedRadioGroupField
