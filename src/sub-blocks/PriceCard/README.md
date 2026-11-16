@@ -58,3 +58,7 @@ Accepted as `children` by `CardLayout`, `Slider`, `SliderOld`; also usable as a 
 ## Storybook
 
 [PriceCard](https://preview.gravity-ui.com/page-constructor/?path=/docs/components-cards-pricecard--docs)
+
+## Card colors
+
+The standard card surface supports the six shared [card color CSS variables](../BasicCard/README.md#card-colors). Existing individual backgrounds retain their priority; hover colors apply only to card links.

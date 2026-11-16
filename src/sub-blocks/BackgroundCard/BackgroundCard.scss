@@ -6,11 +6,17 @@ $block: '.#{$ns}background-card';
 @mixin theme() {
     &_theme {
         &_light {
-            background-color: var(--pc-color-base-silver);
+            &,
+            &:hover {
+                background-color: var(--pc-color-base-silver);
+            }
         }
 
         &_dark {
-            background-color: var(--pc-color-base-asphalt);
+            &,
+            &:hover {
+                background-color: var(--pc-color-base-asphalt);
+            }
         }
     }
 }
