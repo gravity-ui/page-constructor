@@ -1,0 +1,28 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as MarkdownEditorInputStories from './MarkdownEditorInput.stories.tsx';
+
+<Meta of={MarkdownEditorInputStories} />
+<StoryTemplate>
+
+## Usage
+
+Controlled Markdown/YFM input with visual and source modes. Values are serialized
+as Markdown strings. Import the component directly from its implementation file.
+It supplies its own toaster context, uses the UIKit theme and follows
+`LocaleContext.lang`, falling back to Russian when the locale has no language.
+
+## Parameters
+
+`value: string` — Current Markdown value.
+
+`onUpdate: (value: string) => void` — Called when the user changes the value.
+
+`placeholder?: string` — Placeholder in both editing modes.
+
+`className?: string` — Additional class for the input wrapper.
+
+`qa?: string` — Test identifier for the editor view.
+
+</StoryTemplate>

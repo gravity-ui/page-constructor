@@ -34,7 +34,11 @@ module.exports = {
                 test: /\.(scss|css)$/,
                 include: [
                     path.resolve(NODE_MODULES_PATH, '@diplodoc/transform'),
+                    path.resolve(NODE_MODULES_PATH, '@diplodoc/cut-extension'),
+                    path.resolve(NODE_MODULES_PATH, '@diplodoc/file-extension'),
+                    path.resolve(NODE_MODULES_PATH, '@diplodoc/tabs-extension'),
                     path.resolve(NODE_MODULES_PATH, '@gravity-ui/components'),
+                    path.resolve(NODE_MODULES_PATH, '@gravity-ui/markdown-editor'),
                     path.resolve(NODE_MODULES_PATH, '@gravity-ui/uikit'),
                     path.resolve(NODE_MODULES_PATH, 'swiper'),
                     path.resolve(__dirname, 'styles'),
@@ -68,6 +72,7 @@ module.exports = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
+        fallback: {fs: false, path: false},
     },
     plugins: [
         {

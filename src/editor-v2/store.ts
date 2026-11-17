@@ -20,7 +20,12 @@ import {
 const MAX_EDITOR_HISTORY = 50;
 const HISTORY_DEBOUNCE_MS = 500;
 
-/** After unsetting a leaf, remove empty `{}` parents (e.g. `seo` after `seo.slug` is removed). */
+/**
+ * After unsetting a leaf, remove empty `{}` parents (e.g. `seo` after `seo.slug` is removed).
+ * @param {object} root Content object to update.
+ * @param {string} unsetPath Path of the removed leaf.
+ * @returns {void} Nothing.
+ */
 function pruneEmptyObjectAncestors(root: object, unsetPath: string) {
     const segments = _.toPath(unsetPath);
     for (let depth = segments.length - 1; depth >= 1; depth--) {

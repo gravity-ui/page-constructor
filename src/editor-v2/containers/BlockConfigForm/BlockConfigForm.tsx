@@ -57,6 +57,7 @@ const BlockConfigForm = ({className}: BlockConfigFormProps) => {
             <div className={b('form')}>
                 {currentSchema.schema.inputs && (
                     <FormGenerator
+                        key={currentBlockPath}
                         contentConfig={currentConfig}
                         blockConfig={currentSchema.schema.inputs}
                         onUpdateByKey={onUpdateByKey}

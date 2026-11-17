@@ -4,6 +4,7 @@ const VALID_TYPES = new Set([
     'textInput',
     'textListInput',
     'textArea',
+    'markdownEditor',
     'select',
     'segmentedRadioGroup',
     'switch',
@@ -19,6 +20,7 @@ const TYPES_REQUIRING_NAME = new Set([
     'textInput',
     'textListInput',
     'textArea',
+    'markdownEditor',
     'select',
     'segmentedRadioGroup',
     'switch',
@@ -27,11 +29,26 @@ const TYPES_REQUIRING_NAME = new Set([
 
 const TYPES_WITH_OPTIONS = new Set(['select', 'segmentedRadioGroup']);
 
+const validateMarkdownField = (obj: Record<string, unknown>, here: string): void => {
+    if (typeof obj.title !== 'string') {
+        throw new Error(`${here}: field of type "markdownEditor" requires "title"`);
+    }
+    for (const key of ['defaultValue', 'placeholder']) {
+        if (obj[key] !== undefined && typeof obj[key] !== 'string') {
+            throw new Error(`${here}: "${key}" must be a string`);
+        }
+    }
+};
+
 const validateField = (obj: Record<string, unknown>, here: string): void => {
     const type = obj.type as string;
 
     if (TYPES_REQUIRING_NAME.has(type) && typeof obj.name !== 'string') {
         throw new Error(`${here}: field of type "${type}" requires "name"`);
+    }
+
+    if (type === 'markdownEditor') {
+        validateMarkdownField(obj, here);
     }
 
     if (TYPES_WITH_OPTIONS.has(type)) {

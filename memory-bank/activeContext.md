@@ -11,6 +11,9 @@ The Page Constructor library is currently focused on providing a comprehensive s
 
 ## Recent Changes
 
+Added `MarkdownEditorInput` and the `markdownEditor` field for FormGenerator v2 and
+FormBuilder v2, including visual/source editing, inspector defaults and schema import/export.
+
 Recent development has focused on:
 
 1. **FilterBlock Analytics Enhancement** (Branch `filter_block_analytics`, commits bf0ca3da → db2bc170 → 14b950e3):

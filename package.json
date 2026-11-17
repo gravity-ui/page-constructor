@@ -145,11 +145,15 @@
   },
   "dependencies": {
     "@bem-react/classname": "^1.6.0",
+    "@diplodoc/cut-extension": "^0.7.4",
+    "@diplodoc/file-extension": "^0.2.1",
+    "@diplodoc/tabs-extension": "^3.7.2",
     "@dnd-kit/helpers": "^0.3.2",
     "@dnd-kit/react": "^0.3.2",
-    "@gravity-ui/components": "^4.0.1",
+    "@gravity-ui/components": "^4.10.0",
     "@gravity-ui/dynamic-forms": "^5.0.0",
     "@gravity-ui/i18n": "^1.7.0",
+    "@gravity-ui/markdown-editor": "15.47.0",
     "@gravity-ui/navigation": "^3.11.1",
     "@gravity-ui/icons": "^2.18.0",
     "@react-spring/web": "^9.7.3",
@@ -158,9 +162,13 @@
     "deep-object-diff": "^1.1.9",
     "final-form": "^4.20.9",
     "github-buttons": "2.23.0",
+    "highlight.js": "^11.8.0",
     "immutable": "^4.3.7",
     "js-yaml-source-map": "^0.2.2",
+    "katex": "^0.16.9",
     "lodash": "^4.17.21",
+    "lowlight": "^3.0.0",
+    "markdown-it": "^13.0.2",
     "monaco-editor": "^0.52.2",
     "react-final-form": "^6.5.9",
     "react-monaco-editor": "^0.53.0",
@@ -178,9 +186,10 @@
     "zustand": "^4.5.2"
   },
   "peerDependencies": {
-    "@diplodoc/transform": "^4.28.2",
+    "@diplodoc/transform": "^4.43.0",
     "@gravity-ui/uikit": "^7.1.1",
-    "react": "^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-dom": "^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.8",

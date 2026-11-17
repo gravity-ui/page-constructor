@@ -1,0 +1,7 @@
+{
+  "default": {
+    "value": "## Mission notes\n\nWrite **Markdown** or switch to the source editor.\n\n- Check the route\n- [Read the guide](https://gravity-ui.com)",
+    "placeholder": "Write Markdown"
+  },
+  "empty": {"value": "", "placeholder": "Write Markdown"}
+}

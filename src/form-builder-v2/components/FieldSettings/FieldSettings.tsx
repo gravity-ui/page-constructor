@@ -9,6 +9,7 @@ import {collectNames} from '../../utils/fieldNames';
 import {WhenEditor} from '../WhenEditor/WhenEditor';
 
 import {ColorInputSettings} from './fields/ColorInputSettings';
+import {MarkdownEditorSettings} from './fields/MarkdownEditorSettings';
 import {OptionsSettings} from './fields/OptionsSettings';
 import {Row} from './fields/Row';
 import {SectionSettings} from './fields/SectionSettings';
@@ -90,6 +91,18 @@ export const FieldSettings = ({field}: FieldSettingsProps) => {
     if (field.type === 'textInput' || field.type === 'textArea') {
         return (
             <TextFieldSettings
+                field={field}
+                updateField={updateField}
+                commonRows={commonRows}
+                whenEditorSection={whenEditorSection}
+            />
+        );
+    }
+
+    if (field.type === 'markdownEditor') {
+        return (
+            <MarkdownEditorSettings
+                key={field.id}
                 field={field}
                 updateField={updateField}
                 commonRows={commonRows}

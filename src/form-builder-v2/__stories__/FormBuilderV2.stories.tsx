@@ -106,3 +106,18 @@ Empty.args = {
     initialFields: [],
     density: 'full',
 };
+
+export const Markdown = Template.bind({});
+Markdown.args = {
+    initialFields: [
+        {
+            id: 'fb2_1',
+            type: 'markdownEditor',
+            name: 'description',
+            title: 'Description',
+            defaultValue: '## Mission\n\nDescribe the **mission**.',
+            placeholder: 'Write Markdown',
+        },
+    ],
+    density: 'compact',
+};

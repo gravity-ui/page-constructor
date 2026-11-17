@@ -5,9 +5,13 @@ $block: '.#{$ns-form-builder-v2}field-settings';
 #{$block} {
     &__row {
         display: grid;
-        grid-template-columns: 100px 1fr;
+        grid-template-columns: 100px minmax(0, 1fr);
         align-items: start;
         gap: var(--g-spacing-2);
+
+        &_full-width {
+            grid-template-columns: minmax(0, 1fr);
+        }
     }
 
     &__row-label {

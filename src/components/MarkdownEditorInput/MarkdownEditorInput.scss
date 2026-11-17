@@ -1,0 +1,26 @@
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}markdown-editor-input';
+
+#{$block} {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--g-color-line-generic);
+    border-radius: var(--g-border-radius-m);
+
+    --g-md-editor-padding: var(--g-spacing-2);
+    --g-md-toolbar-padding: var(--g-spacing-1);
+
+    .g-md-wysiwyg-editor__editor,
+    .g-md-markup-editor__editor {
+        cursor: text;
+    }
+
+    .ProseMirror,
+    .cm-editor {
+        min-height: 140px;
+        max-height: 400px;
+        overflow: auto;
+    }
+}

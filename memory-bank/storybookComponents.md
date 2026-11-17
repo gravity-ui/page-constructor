@@ -10,6 +10,10 @@ Storybook is used in the Page Constructor project for component documentation an
 
 ### Base Components
 
+`Components/MarkdownEditorInput` provides controlled Markdown/YFM editing in visual
+and source modes, including dark and narrow examples. [Usage](usage/markdownEditorInput.md).
+Form integration examples: `FormGenerator/MarkdownEditor` and `FormBuilder/v2/Markdown`.
+
 The following components in the src/components directory have Storybook stories:
 
 1. **AnimateBlock**: Provides animation capabilities when elements enter the viewport. ✅ [Usage documented](usage/animateBlock.md)

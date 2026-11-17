@@ -8,6 +8,8 @@ export const createDefaultField = (type: BuilderFieldType, name: string, id: str
             return {type, name, title: 'Text input', id};
         case 'textArea':
             return {type, name, title: 'Text area', id};
+        case 'markdownEditor':
+            return {type, name, title: 'Markdown', id};
         case 'switch':
             return {type, name, title: 'Switch', id};
         case 'colorInput':

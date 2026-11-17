@@ -31,6 +31,7 @@ Covered: `animateBlock`, `author`, `backgroundCard`, `backgroundImage`, `backgro
 
 ## When to consult
 
+- Markdown editing and the v2 form field: `usage/markdownEditorInput.md`.
 - **Before adding** a block/component — check `usage/` for an existing similar component to reuse instead of duplicating.
 - **Before modifying** an existing component — read its `usage/<component>.md` to understand all consumers and avoid breaking dependent blocks.
 - **Working on `Banner` or `Hero`** — read the corresponding file in `blockDeps/`.

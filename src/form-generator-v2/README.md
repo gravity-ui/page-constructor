@@ -91,6 +91,44 @@ Multi-line text.
 
 ---
 
+## `markdownEditor`
+
+Markdown/YFM input powered by `@gravity-ui/markdown-editor`. Opens in visual mode;
+the settings menu switches between visual editing and Markdown source.
+
+| Property       | Type               | Required | Description                                                   |
+| -------------- | ------------------ | -------- | ------------------------------------------------------------- |
+| `type`         | `'markdownEditor'` | yes      | Discriminator.                                                |
+| `name`         | `string`           | yes      | Path in `content`, including nested and array paths.          |
+| `title`        | `string`           | yes      | Label.                                                        |
+| `defaultValue` | `string`           | no       | Markdown used when the field becomes visible without a value. |
+| `placeholder`  | `string`           | no       | Placeholder in both editing modes.                            |
+| `when`         | `When`             | no       | Visibility conditions.                                        |
+
+Changes are stored as Markdown strings. Clearing stores `''`, which takes
+precedence over `defaultValue`. External content updates are applied without
+emitting another update. Hiding the field clears its value using the same rules
+as other inputs. The input supplies its own toaster context, uses UIKit's theme
+and follows `LocaleContext.lang` (Russian by default). Raw HTML and local file uploads are disabled.
+
+```tsx
+const fields: Fields = [
+  {
+    type: 'markdownEditor',
+    name: 'page.description',
+    title: 'Description',
+    defaultValue: '## About\n\nDescribe the **page**.',
+    placeholder: 'Write Markdown',
+  },
+];
+```
+
+The builder palette exposes this field as **Markdown**. Its inspector edits the
+label, name, placeholder, default Markdown and visibility conditions. Existing
+`textArea` fields and AJV conversion retain their behavior.
+
+---
+
 ## `textListInput`
 
 Editable list of strings. Each row contains a text input and a remove button;
