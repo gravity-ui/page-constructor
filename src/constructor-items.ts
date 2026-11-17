@@ -20,6 +20,7 @@ import {
     ShareBlock,
     SliderBlock,
     SliderOldBlock,
+    StripBlock,
     TableBlock,
     TabsBlock,
 } from './blocks';
@@ -53,6 +54,7 @@ export const blockMap = {
     [BlockType.FoldableListBlock]: FoldableListBlock,
     [BlockType.BannerBlock]: BannerBlock,
     [BlockType.CompaniesBlock]: CompaniesBlock,
+    [BlockType.StripBlock]: StripBlock,
     [BlockType.MediaBlock]: MediaBlock,
     [BlockType.InfoBlock]: InfoBlock,
     [BlockType.TableBlock]: TableBlock,

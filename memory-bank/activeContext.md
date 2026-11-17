@@ -13,6 +13,8 @@ The Page Constructor library is currently focused on providing a comprehensive s
 
 Recent development has focused on:
 
+- **Strip Block**: Added a collection with alternative Slider-style `children` and Companies-style themed responsive `images` contracts, adaptive wrap and accessible marquee layouts, responsive 12-column card sizing, shared item height, configurable spacing, and Storybook coverage.
+
 1. **Shared Themed Video Button** (Branch `aeksandla/new-video-btn-theme`, commits a066eee3 → c6dfebd4 → b224747d → 035e726a):
 
    - **Shared Renderer**: Added internal `VideoButton`; `ReactPlayer` and `VideoBlock` no longer own duplicate play-button markup and styles
