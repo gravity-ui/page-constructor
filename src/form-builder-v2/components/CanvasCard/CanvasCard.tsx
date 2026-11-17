@@ -69,7 +69,7 @@ export const CanvasCard = ({field, index, group}: CanvasCardProps) => {
     };
 
     const handleKeyDown = (event: React.KeyboardEvent) => {
-        if (event.key === 'Enter' || event.key === ' ') {
+        if (event.target === event.currentTarget && (event.key === 'Enter' || event.key === ' ')) {
             event.preventDefault();
             event.stopPropagation();
             selectField(field.id);

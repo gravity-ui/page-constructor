@@ -1,5 +1,6 @@
 import ColorInput from './ColorInput/ColorInput';
 import Divider from './Divider/Divider';
+import MarkdownEditor from './MarkdownEditor/MarkdownEditor';
 import Section from './Section/Section';
 import SegmentedRadioGroup from './SegmentedRadioGroup/SegmentedRadioGroup';
 import Select from './Select/Select';
@@ -18,6 +19,7 @@ export const componentMap = {
     text: Text,
     divider: Divider,
     textArea: TextArea,
+    markdownEditor: MarkdownEditor,
     switch: Switch,
     textListInput: TextListInput,
 };

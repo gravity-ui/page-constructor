@@ -1,6 +1,12 @@
 import type {JSONSchemaType} from 'ajv';
 
-import type {Fields, SectionField, SegmentedRadioGroupField, When} from '../types';
+import type {
+    Fields,
+    MarkdownEditorField,
+    SectionField,
+    SegmentedRadioGroupField,
+    When,
+} from '../types';
 
 export type GenerateFormFieldsFromAjvSchemaOptions = {
     arrayIndexPlaceholder?: (arrayDepth: number) => string;
@@ -174,6 +180,29 @@ function isTextArea(schema: JSONSchemaType<{}>): boolean {
 
 // ─── Converters ───────────────────────────────────────────────────────────────
 
+function convertString(
+    fieldPath: string,
+    schema: JSONSchemaType<{}>,
+    title: string,
+    when: When | undefined,
+): Fields {
+    const s = schema as Record<string, unknown>;
+
+    if (s['inputType'] === 'markdownEditor') {
+        const field: MarkdownEditorField = {type: 'markdownEditor', name: fieldPath, title};
+        if (typeof s['default'] === 'string') {
+            field.defaultValue = s['default'];
+        }
+        if (typeof s['placeholder'] === 'string') {
+            field.placeholder = s['placeholder'];
+        }
+        return [withWhen(field, when)];
+    }
+
+    const type = isTextArea(schema) ? 'textArea' : 'textInput';
+    return [withWhen({type, name: fieldPath, title}, when)];
+}
+
 function convertScalar(
     fieldPath: string,
     schema: JSONSchemaType<{}>,
@@ -203,10 +232,7 @@ function convertScalar(
     }
 
     if (type === 'string') {
-        if (isTextArea(schema)) {
-            return [withWhen({type: 'textArea' as const, name: fieldPath, title}, when)];
-        }
-        return [withWhen({type: 'textInput' as const, name: fieldPath, title}, when)];
+        return convertString(fieldPath, schema, title, when);
     }
 
     if (type === 'number' || type === 'integer') {
@@ -442,10 +468,7 @@ function convertProperty(
                     ),
                 ];
             }
-            if (isTextArea(schema)) {
-                return [withWhen({type: 'textArea' as const, name: fieldPath, title}, when)];
-            }
-            return [withWhen({type: 'textInput' as const, name: fieldPath, title}, when)];
+            return convertString(fieldPath, schema, title, when);
         }
 
         case 'number':

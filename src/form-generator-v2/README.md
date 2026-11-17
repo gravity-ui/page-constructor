@@ -91,6 +91,79 @@ Multi-line text.
 
 ---
 
+## `markdownEditor`
+
+Rich text field powered by `@gravity-ui/markdown-editor`. Its `wysiwyg` mode
+provides visual editing; `markup` mode edits the Markdown source. Both modes
+read and write a **Markdown/YFM string** at `name`, using the same content object
+and update callbacks as other fields.
+
+| Property       | Type               | Required | Description                                                       |
+| -------------- | ------------------ | -------- | ----------------------------------------------------------------- |
+| `type`         | `'markdownEditor'` | yes      | Discriminator; rich text editing is explicitly enabled per field. |
+| `name`         | `string`           | yes      | Path to the Markdown/YFM string in `content`.                     |
+| `title`        | `string`           | yes      | Label.                                                            |
+| `defaultValue` | `string`           | no       | Initial value when the field becomes visible and is undefined.    |
+| `placeholder`  | `string`           | no       | Hint displayed in an empty editor.                                |
+| `when`         | `When`             | no       | Visibility, with the same clearing rules as other input fields.   |
+
+```tsx
+const fields: Fields = [
+  {
+    type: 'markdownEditor',
+    name: 'description',
+    title: 'Description',
+    placeholder: 'Describe the page',
+  },
+  {
+    type: 'markdownEditor',
+    name: 'details.body',
+    title: 'Details',
+    defaultValue: '## Learn more\n\nRead the [documentation](/docs).',
+  },
+];
+
+const initialContent: Content = {
+  description: 'A **formatted** description.',
+  details: {body: 'Existing content takes precedence over the default.'},
+};
+```
+
+Editors are independent, including in nested and repeating `section` fields.
+An explicit empty string remains empty instead of restoring `defaultValue`.
+Loading existing content does not save a newly serialized value. Visual edits
+can normalize Markdown syntax and whitespace; preservation of the original
+source formatting after an edit is not guaranteed. Use `markup` mode for
+source-level changes, particularly with YFM constructs that have no visual
+editing representation.
+
+If the visual editor would serialize the loaded string differently, the field
+automatically stays in `markup` mode and displays a hint. This conservative
+fallback also applies to harmless changes in whitespace or Markdown spelling.
+The original string remains intact; selecting WYSIWYG does not force a conversion
+of source that fails this check.
+
+When generating fields from JSON Schema, opt in with `inputType: 'markdownEditor'`:
+
+```ts
+{
+  type: 'string',
+  inputType: 'markdownEditor',
+  contentType: 'yfm',
+  title: 'Description',
+  default: '**Default description**',
+  placeholder: 'Describe the page',
+}
+```
+
+String `default` and `placeholder` become the corresponding field settings.
+Existing `inputType: 'textarea'` and `contentType: 'yfm'` schemas still generate
+`textArea`; string enums retain their `select` control. Existing configurations
+therefore keep their current controls unless rich text editing is explicitly
+requested.
+
+---
+
 ## `textListInput`
 
 Editable list of strings. Each row contains a text input and a remove button;
