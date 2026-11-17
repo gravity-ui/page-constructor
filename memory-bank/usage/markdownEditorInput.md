@@ -66,7 +66,7 @@ Existing text fields and AJV conversion are unchanged.
 ## Storybook
 
 - `Components/MarkdownEditorInput`: default, empty, dark and narrow variants.
-- `FormGenerator/MarkdownEditor`: default, conditional and repeating section.
+- `FormGenerator/MarkdownEditor`: default and repeating section.
 - `FormBuilder/v2/Markdown`: palette, inspector default editor and canvas editing.
 - The global `withLang` decorator configures UIKit and remounts the story on
   language changes. It does not pass the selected language to `LocaleContext`.

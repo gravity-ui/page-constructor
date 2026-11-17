@@ -36,20 +36,6 @@ Default.args = {
     ],
 };
 
-export const Conditional = Template.bind({});
-Conditional.args = {
-    blockConfig: [
-        {type: 'switch', name: 'showNotes', title: 'Show notes', defaultValue: true},
-        {
-            type: 'markdownEditor',
-            name: 'notes',
-            title: 'Notes',
-            defaultValue: '**Visible** when enabled.',
-            when: [{field: 'showNotes', operator: '===', value: true}],
-        },
-    ],
-};
-
 export const RepeatingSection = Template.bind({});
 RepeatingSection.args = {
     blockConfig: [
