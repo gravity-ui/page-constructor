@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.25.0](https://github.com/gravity-ui/page-constructor/compare/v8.24.2...v8.25.0) (2026-11-17)
+
+
+### Features
+
+* **Strip:** add new block ([#1552](https://github.com/gravity-ui/page-constructor/issues/1552)) ([0c6ed39](https://github.com/gravity-ui/page-constructor/commit/0c6ed39e02a603223f6d173d265db6d61604cfc6))
+
 ## [8.24.2](https://github.com/gravity-ui/page-constructor/compare/v8.24.1...v8.24.2) (2026-11-10)
 
 
