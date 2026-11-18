@@ -72,6 +72,9 @@ module.exports = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
+        extensionAlias: {
+            '.js': ['.js', '.ts', '.tsx'],
+        },
         // Only unused CSS source map support in @diplodoc/transform needs these Node modules.
         fallback: {
             fs: false,

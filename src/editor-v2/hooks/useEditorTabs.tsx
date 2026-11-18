@@ -14,7 +14,7 @@ export const useEditorTabs = ({
     leftTabs?: TabItemProps[];
     rightTabs?: TabItemProps[];
 }) => {
-    const tabs = React.useMemo(
+    const tabs = React.useMemo<{left: TabItemProps[]; right: TabItemProps[]}>(
         () => ({
             left: [
                 {

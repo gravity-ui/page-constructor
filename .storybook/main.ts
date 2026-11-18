@@ -54,6 +54,11 @@ const config = {
             ...customAlias,
         };
 
+        storybookBaseConfig.resolve.extensionAlias = {
+            ...(storybookBaseConfig.resolve?.extensionAlias || {}),
+            '.js': ['.js', '.ts', '.tsx'],
+        };
+
         // main and branch storybook previews are deployed in subfolders
         // so we need to add subfolder prefix to stories asset static path:
         if (PREVIEW_DEST_PATH) {
