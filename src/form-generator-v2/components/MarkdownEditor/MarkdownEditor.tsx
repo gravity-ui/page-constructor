@@ -12,7 +12,7 @@ import './MarkdownEditor.scss';
 
 const b = formGeneratorCn('markdown-editor');
 const MarkdownEditorControl = React.lazy(() =>
-    import('./MarkdownEditorControl').then((module) => ({
+    import('./MarkdownEditorControl.js').then((module) => ({
         default: module.MarkdownEditorControl,
     })),
 );

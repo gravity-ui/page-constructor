@@ -98,6 +98,8 @@ Canvas keyboard handling in `CanvasCard.tsx` applies Enter/Space selection only 
 
 `React.lazy` loads the rich editor module when the field is rendered. `Suspense` displays a plain `TextArea` while loading; an error boundary retains the text control if loading or rendering fails. Both controls use the same string value and update callback. The field has no separate SSR guard.
 
+Keep the `.js` extension in the dynamic import of `MarkdownEditorControl`: the CJS build uses `NodeNext` resolution, which requires explicit extensions for `import()`. Both Storybook and widget Webpack configs use `resolve.extensionAlias` to map that emitted path to the source `.tsx` file. Verify `npm run build` as well as typecheck; the latter uses bundler resolution and does not check declaration emission.
+
 `MarkdownEditor.scss` uses the form-generator BEM helper and Gravity theme variables. Verify both light and dark themes and narrow builder layouts when changing the editor toolbar or popups.
 
 ## Storybook and Verification
