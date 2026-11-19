@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {DynamicField, Spec} from '@gravity-ui/dynamic-forms';

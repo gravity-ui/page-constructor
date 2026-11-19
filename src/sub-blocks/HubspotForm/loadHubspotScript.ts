@@ -1,3 +1,5 @@
+'use client';
+
 let scriptPromise: Promise<unknown>;
 
 const loadHubspotScript = async () => {

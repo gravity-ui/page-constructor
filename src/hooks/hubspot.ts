@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {HubspotEventHandlers, handleHubspotEvents, loopBackHabspotEvents} from '../utils/hubspot';

@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {ClassNameProps, QAProps, TagName} from '../../models/common';

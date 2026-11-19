@@ -2,7 +2,9 @@ import * as React from 'react';
 
 import isEmpty from 'lodash/isEmpty';
 
-import {AnimateBlock, BackgroundImage, Title} from '../../components';
+import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
+import BackgroundImage from '../../components/BackgroundImage/BackgroundImage';
+import Title from '../../components/Title/Title';
 import {useTheme} from '../../context/theme';
 import {Col, GridColumnSizesType, GridJustifyContent, Row} from '../../grid';
 import {CardLayoutBlockProps as CardLayoutBlockParams, ClassNameProps} from '../../models';
