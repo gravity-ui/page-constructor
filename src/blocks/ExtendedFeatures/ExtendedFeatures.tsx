@@ -1,3 +1,5 @@
+'use client';
+
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import Image from '../../components/Image/Image';
 import {getMediaImage} from '../../components/Media/Image/utils';

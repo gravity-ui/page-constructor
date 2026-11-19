@@ -73,6 +73,7 @@
       "types": "./build/esm/navigation/*.d.ts",
       "require": "./build/cjs/navigation/*.js",
       "import": "./build/esm/navigation/*.js"
+    },
     "./schema": {
       "import": {
         "types": "./build/esm/schema/index.d.ts",
@@ -112,6 +113,7 @@
       ],
       "components": [
         "./build/esm/components/index.d.ts"
+      ],
       "schema": [
         "./build/esm/schema/index.d.ts"
       ]
