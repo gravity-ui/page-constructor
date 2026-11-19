@@ -64,6 +64,7 @@ export const Image = DefaultTemplate.bind({});
 export const ImageSlider = DefaultTemplate.bind({});
 export const Video = VideoTemplate.bind({});
 export const Youtube = DefaultTemplate.bind({});
+export const VideoIframe = DefaultTemplate.bind({});
 export const DataLens = DefaultTemplate.bind({});
 export const DataLensDarkTheme = DefaultTemplate.bind({});
 export const Iframe = IframeTemplate.bind({});
@@ -83,6 +84,8 @@ ImageSlider.args = data.imageSlider.content as MediaAllProps;
 Video.args = data.video.content as MediaAllProps;
 
 Youtube.args = data.youtube.content as MediaAllProps;
+
+VideoIframe.args = data.videoIframe.content as MediaAllProps;
 
 DataLens.args = data.dataLens.content as MediaAllProps;
 

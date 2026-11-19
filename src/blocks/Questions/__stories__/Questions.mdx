@@ -1,29 +1,13 @@
 import {Meta} from '@storybook/blocks';
 
+import {Readme} from '../../../../.storybook/readme';
+
 import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
 import * as QuestionsStories from './Questions.stories.tsx';
+import readme from '../README.md';
 
 <Meta of={QuestionsStories} />
+
 <StoryTemplate>
-## Parameters
-
-`type: 'questions-block'`
-
-`title?: Title | string` — Block title (on the left)
-
-`text?: string` — Text (with YFM support)
-
-`additionalInfo?: string` — Gray text (with YFM support)
-
-`links?: Link[]` — An array with link objects (see [Content-blocks](?path=/docs/documentation-types--docs#link))
-
-`buttons?: Button[]` — An array with button objects (see [Content-blocks](?path=/docs/documentation-types--docs#button))
-
-`items: QuestionItem[]`
-
-- `title: string` — Question title (on the right)
-- `text: string` — Question text
-- `link?: Link` — Link below the text (see [Link](?path=/docs/documentation-types--docs#link))
-- `listStyle?: 'dash' | 'disk'` — If the text contains a list, it may be either with a dash (dash) or with dots (disk).
+<Readme>{readme}</Readme>
 </StoryTemplate>
-

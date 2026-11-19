@@ -55,7 +55,7 @@ The HeroBlock is a prominent page section component designed for hero-style layo
 
 - **`theme` prop**: Accepts `'default'` (inherits from context), `'light'`, or `'dark'`.
 - **`ThemeSupporting<T>`**: The `buttons`, `media`, and `background` props all accept themed variants that resolve based on the active theme via `getThemedValue()`.
-- Buttons are resolved per-theme and default to `size: 'xl'`.
+- Buttons are resolved per-theme. `Content` passes `size="xl"` down to `Buttons`, which applies it **after** spreading each button, so a per-button `size` never reaches `Button` — every hero button renders at `xl`. `size` is therefore absent from the type, but still allowed by the schema for backward compatibility.
 
 ### Responsive Design
 
@@ -160,21 +160,21 @@ The HeroBlock is a prominent page section component designed for hero-style layo
 
 ## Props Reference
 
-| Prop             | Type                                          | Default     | Description                                |
-| ---------------- | --------------------------------------------- | ----------- | ------------------------------------------ |
-| `title`          | `TitleItemBaseProps \| string`                | —           | Main title                                 |
-| `text`           | `string`                                      | —           | Body text (YFM)                            |
-| `list`           | `ContentItemProps[]`                          | —           | Content list items                         |
-| `additionalInfo` | `string`                                      | —           | Additional info below text                 |
-| `links`          | `LinkProps[]`                                 | —           | Links rendered below content               |
-| `theme`          | `ContentTheme`                                | `'default'` | Theme override                             |
-| `breadcrumbs`    | `HeaderBreadCrumbsProps`                      | —           | Breadcrumb navigation                      |
-| `overtitle`      | `string \| JSX.Element`                       | —           | Content above the title                    |
-| `buttons`        | `ThemeSupporting<ButtonProps \| ReactNode>[]` | —           | CTA buttons (themed, default `size: 'xl'`) |
-| `media`          | `ThemeSupporting<HeroBlockMedia>`             | —           | Right-side media                           |
-| `fullWidth`      | `boolean`                                     | —           | Full-width background flag                 |
-| `verticalOffset` | `'s' \| 'm' \| 'l' \| 'xl'`                   | `'m'`       | Vertical spacing                           |
-| `background`     | `ThemeSupporting<HeroBlockBackground>`        | —           | Background media/color                     |
+| Prop             | Type                                          | Default     | Description                                           |
+| ---------------- | --------------------------------------------- | ----------- | ----------------------------------------------------- |
+| `title`          | `TitleItemBaseProps \| string`                | —           | Main title                                            |
+| `text`           | `string`                                      | —           | Body text (YFM)                                       |
+| `list`           | `ContentItemProps[]`                          | —           | Content list items                                    |
+| `additionalInfo` | `string`                                      | —           | Additional info below text                            |
+| `links`          | `LinkProps[]`                                 | —           | Links rendered below content                          |
+| `theme`          | `ContentTheme`                                | `'default'` | Theme override                                        |
+| `breadcrumbs`    | `HeaderBreadCrumbsProps`                      | —           | Breadcrumb navigation                                 |
+| `overtitle`      | `string \| JSX.Element`                       | —           | Content above the title                               |
+| `buttons`        | `ThemeSupporting<ButtonProps \| ReactNode>[]` | —           | CTA buttons (themed, always rendered at `size: 'xl'`) |
+| `media`          | `ThemeSupporting<HeroBlockMedia>`             | —           | Right-side media                                      |
+| `fullWidth`      | `boolean`                                     | —           | Full-width background flag                            |
+| `verticalOffset` | `'s' \| 'm' \| 'l' \| 'xl'`                   | `'m'`       | Vertical spacing                                      |
+| `background`     | `ThemeSupporting<HeroBlockBackground>`        | —           | Background media/color                                |
 
 ## Best Practices
 

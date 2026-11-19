@@ -55,6 +55,7 @@ export enum BlockType {
     FoldableListBlock = 'foldable-list-block',
     BannerBlock = 'banner-block',
     CompaniesBlock = 'companies-block',
+    StripBlock = 'strip-block',
     MediaBlock = 'media-block',
     InfoBlock = 'info-block',
     TableBlock = 'table-block',
@@ -219,16 +220,22 @@ export interface HeroBlockMedia extends Partial<MediaProps> {
     roundCorners?: boolean;
 }
 
-export interface HeroBlockProps
-    extends Pick<
-        ContentBlockProps,
-        'title' | 'text' | 'list' | 'additionalInfo' | 'links' | 'theme'
-    > {
+export interface HeroBlockContent
+    extends Pick<ContentBlockProps, 'text' | 'list' | 'additionalInfo' | 'links' | 'theme'> {
+    title: Required<ContentBlockProps>['title'];
+}
+
+export interface HeroBlockProps extends HeroBlockContent {
     breadcrumbs?: HeaderBreadCrumbsProps;
     // TODO: add overtitle to ContentProps
     overtitle?: string | JSX.Element;
+    /** Buttons are always rendered at size `xl` — a per-button `size` has no effect. */
     buttons?: ThemeSupporting<
-        Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'extraProps'> | React.ReactNode
+        | Pick<
+              ButtonProps,
+              'url' | 'text' | 'theme' | 'primary' | 'extraProps' | 'target' | 'analyticsEvents'
+          >
+        | React.ReactNode
     >[];
     media?: ThemeSupporting<HeroBlockMedia>;
     fullWidth?: boolean;
@@ -237,8 +244,11 @@ export interface HeroBlockProps
 }
 
 export interface ExtendedFeaturesItem
-    extends Omit<ContentBlockProps, 'theme' | 'centered' | 'colSizes' | 'size' | 'title'> {
-    title: string;
+    extends Omit<
+        ContentBlockProps,
+        'title' | 'theme' | 'centered' | 'colSizes' | 'size' | 'title'
+    > {
+    title?: string;
     label?: string;
     icon?: ThemedImage;
     /** @deprecated **/
@@ -307,6 +317,30 @@ export interface CompaniesBlockProps extends Animatable {
     title: string;
     description?: string;
     images: ThemeSupporting<ImageDeviceProps>;
+}
+
+export type StripLayout = 'wrap' | 'marquee';
+export type StripColor = 'text-color';
+
+export interface StripImageProps {
+    image: ThemeSupporting<ImageDeviceProps>;
+    url?: string;
+    urlTitle?: string;
+    target?: string;
+}
+
+export interface StripBlockProps extends Childable, Animatable, BlockBaseProps {
+    title?: string;
+    description?: string;
+    images?: CompaniesBlockProps['images'] | StripImageProps[];
+    color?: StripColor;
+    layout?: StripLayout;
+    colSizes?: GridColumnSizesType;
+    itemHeight?: number | 'auto';
+    rowGap?: number;
+    columnGap?: number;
+    pauseOnHover?: boolean;
+    duration?: number;
 }
 
 export interface MediaBaseBlockProps extends Animatable, MediaContentProps {
@@ -401,6 +435,7 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
 }
 
 export type FilterTag = {
+    collapsible?: boolean;
     id: string;
     label: string;
     analyticsEvent?: AnalyticsEventsProp;
@@ -412,6 +447,9 @@ export type FilterItem = {
 };
 
 export interface FilterBlockProps extends Animatable {
+    visibleRowsCount?: Partial<Record<GridColumnSize, number>>;
+    expandButtonText?: string;
+    collapseButtonText?: string;
     tags: FilterTag[];
     items: FilterItem[];
     title?: TitleItemProps | string;
@@ -423,8 +461,8 @@ export interface FilterBlockProps extends Animatable {
 }
 
 export interface IconsBlockItemProps extends AnalyticsEventsBase {
-    url: string;
-    text: string;
+    url?: string;
+    text?: string;
     src: ThemeSupporting<string>;
 }
 
@@ -646,6 +684,10 @@ export type CompaniesBlockModel = {
     type: BlockType.CompaniesBlock;
 } & CompaniesBlockProps;
 
+export type StripBlockModel = {
+    type: BlockType.StripBlock;
+} & StripBlockProps;
+
 export type MediaBlockModel = {
     type: BlockType.MediaBlock;
 } & MediaBlockProps;
@@ -711,6 +753,7 @@ type BlockModels =
     | FoldableListBlockModel
     | BannerBlockModel
     | CompaniesBlockModel
+    | StripBlockModel
     | MediaBlockModel
     | MapBlockModel
     | InfoBlockModel

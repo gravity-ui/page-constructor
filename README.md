@@ -287,6 +287,16 @@ type FetchLoadableData<TData = any> = (blockKey: string) => Promise<TData>;
 
 The page constructor uses the `bootstrap` grid and its implementation based on React components that you can use in your own project (including separately from the constructor).
 
+The grid expects the host application to set a global `box-sizing: border-box` reset (most app scaffolds do). The package does not ship one, so with the browser default `content-box` the container padding is added to its `width: 100%` and the page overflows horizontally:
+
+```css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+```
+
 Usage example:
 
 ```jsx
@@ -375,9 +385,13 @@ You can define environment variables for dev-mode in .env.development file withi
 
 #### Init
 
-To start using any analytics, pass a handler to the constructor. The handler must be created on a project side. The handler will receive the `default` and `custom` event objects. The passed handler will be fired on a button, link, navigation, and control clicks. As one handler is used for all events treatment, pay attention to how to treat different events while creating the handler. There are predefined fields that serve to help you to build complex logic.
+To start using analytics, pass a handler to the constructor. The handler must be created on the project side. It receives three classes of events:
 
-Pass `autoEvents: true` to constructor to fire automatically configured events.
+- **Default events** are generic Page Constructor events generated for button, link, navigation, and control interactions. Set `autoEvents.enabled` to `true` to emit them.
+- **Extended events** are registered events supplied by a composing library. The presence of `autoEvents.extendedEvents` enables them independently of `enabled` and optionally adds a prefix and counter.
+- **Custom events** are supplied by consumers through `analyticsEvents`. The auto-events configuration does not change them.
+
+The object form is the preferred configuration:
 
 ```ts
 function sendEvents(events: MyEventType []) {
@@ -387,11 +401,50 @@ function sendEvents(events: MyEventType []) {
 <PageConstructorProvider
     ...
 
-    analytics={{sendEvents, autoEvents: true}}
+    analytics={{
+        sendEvents,
+        autoEvents: {
+            enabled: true,
+            extendedEvents: {
+                prefix: 'LIBRARY_',
+                counter: 'secondary',
+            },
+        },
+    }}
 
     ...
 />
 ```
+
+```ts
+type ExtendedEventsConfig = {
+  prefix?: string;
+  counter?: string;
+};
+
+type AutoEventsConfig = {
+  enabled: boolean;
+  extendedEvents?: ExtendedEventsConfig;
+};
+```
+
+The legacy boolean form remains supported for backward compatibility: `true` is equivalent to `{enabled: true}`, and `false` is equivalent to `{enabled: false}`. If `autoEvents` is omitted, both default and extended events are disabled. An `extendedEvents` object enables supplied extended events even when `enabled` is `false`.
+
+Extended events must have `type: 'extended-event'`. Their prefix is concatenated exactly as configured, without changing case, separators, or whitespace. If `counter` is set, it defines `counters.include` for the extended event:
+
+```ts
+// Supplied event
+{name: 'REGISTERED_CLICK', type: 'extended-event'}
+
+// Event received by sendEvents with the configuration above
+{
+  name: 'LIBRARY_REGISTERED_CLICK',
+  type: 'extended-event',
+  counters: {include: ['secondary']},
+}
+```
+
+Events are sent in this order: the generated default event first (when enabled), followed by supplied extended and custom events in their original order. Extended events are omitted when `extendedEvents` is not configured. Any interaction-specific additional context is merged into every emitted event last.
 
 An event object has only one required field - `name`. It also has predefined fields, which serve to help manage complex logic. For example, `counter.include` can help to send event in a particular counter if several analytics systems are used in a project.
 
@@ -443,6 +496,7 @@ Several predefined event types are used to mark automatically configured events.
 ```ts
 enum PredefinedEventTypes {
   Default = 'default-event', // default events which fire on every button click
+  Extended = 'extended-event', // events supplied by a composing library
   Play = 'play', // React player event
   Stop = 'stop', // React player event
 }
@@ -582,17 +636,40 @@ The Memory Bank is located in the `memory-bank/` directory and consists of regul
 - `usage/` - Component-specific usage documentation
 - `storybookComponents.md` - Storybook integration details
 
-### For AI Agents
-
-When working with AI agents on this project, the Memory Bank serves as a comprehensive knowledge base that helps agents understand:
-
-- Project structure and patterns
-- Component APIs and usage examples
-- Development workflows and best practices
-- Current implementation status and next steps
-
-AI agents can read these files to quickly get up to speed with the project context and make more informed decisions about code changes and implementations.
-
 ## Tests
 
 Comprehensive documentation is available at the provided [link](./test-utils/docs/README.md).
+
+## License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for details.
+
+## For AI agents
+
+A library for rendering whole web pages or page sections from declarative JSON/YAML config, using a set of ready-made, orderable blocks — reach for it to build marketing/landing pages, not general application UI.
+
+### When to use
+
+- Data-driven pages: render a `content` config of typed blocks with `PageConstructor` wrapped in `PageConstructorProvider`.
+- Marketing, landing, and documentation pages assembled from prebuilt blocks (headers, media, cards, etc.).
+- Server-side YFM processing of block text via the `@gravity-ui/page-constructor/server` utilities (`contentTransformer`, `fullTransform`).
+- Reusing just the responsive grid (`Grid`/`Row`/`Col`) or `Navigation` component standalone.
+
+### When not to use
+
+- General application UI (buttons, forms, modals) — use [`@gravity-ui/uikit`](https://github.com/gravity-ui/uikit).
+- Editing Markdown/YFM content — use [`@gravity-ui/markdown-editor`](https://github.com/gravity-ui/markdown-editor).
+- App navigation shells (aside header) — use [`@gravity-ui/navigation`](https://github.com/gravity-ui/navigation); this package's `Navigation` is a page-level top nav.
+
+### Common pitfalls
+
+- **`PageConstructor` must be wrapped in `PageConstructorProvider`.** Rendering it bare breaks context (locale, theme, SSR, analytics).
+- **The content prop is `content`, shaped `{blocks: [...]}`.** Each block object needs a `type` matching a known block plus its data fields; there is no `data`/`config` prop.
+- **YFM in block text needs server processing.** Markdown-like fields render as plain text unless you run content through `contentTransformer`/`fullTransform` from `@gravity-ui/page-constructor/server`; `@diplodoc/transform` is a required peer dependency.
+- **Import the SCSS styles.** Add `@gravity-ui/page-constructor/styles/styles.scss` (SCSS, not CSS); custom blocks import the same file to reuse mixins/variables.
+- **Vite needs `vite-plugin-dynamic-import`.** Dynamic block imports fail under Vite without it.
+- **The grid needs a global `box-sizing: border-box` reset.** The package does not ship one; without it the container padding overflows the viewport horizontally while typecheck and build stay green. Add `*, *::before, *::after { box-sizing: border-box; }` to the host app styles.
+
+## Documentation for AI agents
+
+Agent-readable documentation for the installed version is located in `node_modules/@gravity-ui/page-constructor/build/docs/INDEX.md`.

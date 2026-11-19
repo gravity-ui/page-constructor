@@ -33,3 +33,17 @@ export const AnalyticsEventSchema = {
         },
     },
 };
+
+export const AnalyticsEvents = {
+    oneOf: [
+        {
+            ...AnalyticsEventSchema,
+            optionName: 'single',
+        },
+        {
+            type: 'array',
+            items: AnalyticsEventSchema,
+            optionName: 'list',
+        },
+    ],
+};

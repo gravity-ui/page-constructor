@@ -4,7 +4,7 @@ This document outlines how the ReactPlayer component is used across blocks, sub-
 
 ## Overview
 
-The ReactPlayer component is a wrapper around the react-player library that provides video playback functionality with custom controls, preview images, and analytics support. It supports various video sources including YouTube, Vimeo, and direct video files. The component offers customizable play buttons, mute controls, and progress tracking.
+The ReactPlayer component is a wrapper around the react-player library that provides video playback functionality with custom controls, preview images, and analytics support. It supports various video sources including YouTube, Vimeo, and direct video files. Preview-button markup and styles are delegated to the shared internal `VideoButton` component.
 
 ## Usage Graph
 
@@ -12,6 +12,7 @@ The ReactPlayer component is a wrapper around the react-player library that prov
 graph TD
     %% Main Component
     ReactPlayer[ReactPlayer Component]
+    VideoButton[VideoButton Component]
 
     %% Components that use ReactPlayer
     Video[Video Component]
@@ -29,6 +30,7 @@ graph TD
 
     %% Usage relationships
     Video --> ReactPlayer
+    ReactPlayer --> VideoButton
     Media --> Video
 
     %% Block usage through Media component
@@ -43,6 +45,7 @@ graph TD
 
     %% Style classes
     style ReactPlayer fill:#f9d77e,stroke:#f9bc02,stroke-width:2px,color:#000
+    style VideoButton fill:#a8d5ba,stroke:#1a936f,stroke-width:1px,color:#000
 
     %% Component styles
     style Video fill:#a8d5ba,stroke:#1a936f,stroke-width:1px,color:#000
@@ -73,7 +76,7 @@ graph TD
   - `customControlsOptions`: Configuration for custom controls
   - `muted`: Boolean to start video muted (defaults to false)
   - `elapsedTime`: Time in seconds to start playback from
-  - `playButton`: Configuration for the play button
+  - `playButton`: `PlayButtonProps` configuration for the shared play button
   - `className`: Optional CSS class name
   - `customBarControlsClassName`: CSS class for custom control bar
   - `showPreview`: Boolean to show preview image
@@ -389,8 +392,10 @@ The component supports different play button types:
 ### Play Button Themes
 
 - **Blue**: Default blue theme
-- **Light**: Light theme for dark backgrounds
-- **Dark**: Dark theme for light backgrounds
+- **Grey**: Neutral grey theme
+- **Custom**: Uses `projectSettings.defaultVideoButtonSettings.colors`, including optional light/dark variants and hover colors
+
+`ReactPlayer` explicitly substitutes `blue` when `playButton.theme` is absent. Therefore a provider-level default theme does not replace that fallback in the current implementation. To use the project custom palette, pass `theme: PlayButtonThemes.Custom` in `playButton`. See `usage/videoButton.md` for the complete resolution rules and schema boundary.
 
 ## Analytics Integration
 
@@ -542,9 +547,8 @@ The component uses BEM methodology for CSS classes:
 - `.ReactPlayer_controls_custom` - Custom controls modifier
 - `.ReactPlayer_contain` - Object-fit contain modifier
 - `.ReactPlayer__player` - react-player wrapper
-- `.ReactPlayer__button` - Play button
-- `.ReactPlayer__button_theme_{theme}` - Play button theme modifier
-- `.ReactPlayer__icon` - Play button icon
+
+Play-button selectors were removed from `ReactPlayer.scss`; the shared control uses `.pc-video-button` selectors documented in `usage/videoButton.md`.
 
 ## Integration with Context Systems
 
@@ -553,4 +557,5 @@ The ReactPlayer component integrates with several page-constructor context syste
 1. **MobileContext**: Detects mobile devices for optimizations
 2. **VideoContext**: Manages multiple video instances and muting
 3. **Analytics Context**: Handles event tracking
-4. **Theme Context**: Supports theming for play buttons and controls
+4. **Theme Context**: Selects themed custom play-button colors
+5. **ProjectSettingsContext**: Supplies `defaultVideoButtonSettings.colors`; the local `playButton.theme` must be `custom` for `ReactPlayer` to consume them

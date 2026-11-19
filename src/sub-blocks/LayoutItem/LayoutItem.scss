@@ -57,3 +57,22 @@ $contentMarginL: 80px;
         }
     }
 }
+
+a#{$block} {
+    @include reset-link-style();
+    @include reset-link-hover();
+
+    #{$block}__media {
+        .#{$ns}media-component-image__item {
+            transition: transform $animationDuration ease-in-out;
+        }
+    }
+
+    &:hover {
+        #{$block}__media {
+            .#{$ns}media-component-image__item {
+                transform: scale(1.05);
+            }
+        }
+    }
+}

@@ -6,13 +6,12 @@ import {CustomConfig, NavigationData, PageContent} from '../models';
 
 import bannerData from '../blocks/Banner/__stories__/data.json';
 import companiesData from '../blocks/Companies/__stories__/data.json';
-import headerData from '../blocks/Header/__stories__/data.json';
 import infoData from '../blocks/Info/__stories__/data.json';
 import mediaData from '../blocks/Media/__stories__/data.json';
 import navData from '../navigation/__stories__/data.json';
 
 export default {
-    title: 'Lab/Tokenization/Blocks/HeroAndMedia',
+    title: 'Lab/Tokenization/Blocks/MediaAndPromo',
     component: PageConstructor,
 } as Meta;
 
@@ -26,17 +25,6 @@ const Template: StoryFn<{navigation: NavigationData; custom?: CustomConfig}> = (
         content={
             {
                 blocks: [
-                    // header-block: default with action buttons
-                    blockTransform(headerData.default),
-                    // header-block: with breadcrumbs + light background
-                    blockTransform(headerData.breadcrumbs[0]),
-                    // header-block: with breadcrumbs + dark theme
-                    blockTransform(headerData.breadcrumbs[1]),
-                    // header-block: with image
-                    blockTransform(headerData.image),
-                    // header-block: with background image and color (media variant)
-                    blockTransform({type: 'header-block', ...headerData.media.image}),
-
                     // banner-block: light theme with themed image
                     blockTransform(bannerData.default.content),
                     // banner-block: forced dark theme

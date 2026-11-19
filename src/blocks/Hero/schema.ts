@@ -7,14 +7,23 @@ import {
     MediaProps,
     withTheme,
 } from '../../schema/validators/common';
+import {filteredItem} from '../../schema/validators/utils';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 
-export const HeroBlockButton = {
+export const HeroBlockButton = filteredItem({
     type: 'object',
     additionalProperties: false,
     required: ['text', 'url'],
-    properties: pick(ButtonProps, ['text', 'url', 'theme', 'primary', 'size', 'extraProps']),
-};
+    properties: pick(ButtonProps, [
+        'text',
+        'url',
+        'theme',
+        'primary',
+        'size', // ignored at runtime — hero buttons always render at `xl`; kept for backward compatibility
+        'target',
+        'analyticsEvents',
+    ]),
+});
 
 export const HeroBlockBackground = {
     type: 'object',

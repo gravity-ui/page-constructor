@@ -19,6 +19,7 @@ export const FilterTagProps = {
             type: 'string',
         },
         analyticsEvent: AnalyticsEventSchema,
+        collapsible: {type: 'boolean'},
     },
 };
 
@@ -59,6 +60,18 @@ export const FilterProps = {
             ],
         },
         colSizes: containerSizesObject,
+        visibleRowsCount: {
+            type: 'object',
+            additionalProperties: false,
+            properties: Object.fromEntries(
+                ['all', 'sm', 'md', 'lg', 'xl'].map((size) => [
+                    size,
+                    {type: 'integer', minimum: 1},
+                ]),
+            ),
+        },
+        expandButtonText: {type: 'string'},
+        collapseButtonText: {type: 'string'},
         tags: filteredArray(FilterTagProps),
         items: filteredArray(FilterItemProps),
         tagButtonSize: {

@@ -57,6 +57,10 @@ $additionalOffset: $indentL;
             &_xl {
                 @include pseudoTop($indentXL, 'XL');
             }
+
+            &_xxl {
+                @include pseudoTop($indentXXL, 'XXL');
+            }
         }
 
         &_indentBottom {
@@ -78,6 +82,10 @@ $additionalOffset: $indentL;
 
             &_xl {
                 @include pseudoBottom($indentXL, 'XL');
+            }
+
+            &_xxl {
+                @include pseudoBottom($indentXXL, 'XXL');
             }
         }
     }

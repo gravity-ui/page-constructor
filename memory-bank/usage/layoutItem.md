@@ -23,6 +23,9 @@ The LayoutItem sub-block is a versatile component that combines media content wi
   - `className`: Optional CSS class name
   - `analyticsEvents`: Analytics events to track
   - `controlPosition`: Position of controls (links and buttons) - 'content' or 'footer'
+  - `url`: Makes the entire card a link
+  - `urlTitle`: Native title for the card link
+  - `target`: Link target
 
 ## Usage Patterns
 
@@ -202,6 +205,12 @@ The component supports two positions for controls (links and buttons):
 
 - `content`: Controls are placed within the content area (default)
 - `footer`: Controls are placed at the bottom of the layout item
+
+## Linked Card
+
+When `url` is provided, the entire LayoutItem is rendered as a link. Its image scales to `1.05`
+on hover with a 300 ms ease-in-out transition. Without `url`, the component remains a regular
+non-interactive layout item and the image does not animate.
 
 ## Integration with Theme System
 

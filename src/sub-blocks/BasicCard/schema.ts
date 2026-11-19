@@ -6,7 +6,9 @@ import {
     CardBase,
     CardLayoutProps,
     GravityIconProps,
+    linkTargets,
 } from '../../schema/validators/common';
+import {AnalyticsEvents} from '../../schema/validators/event';
 import {ContentBase} from '../Content/schema';
 
 const BasicCardContentProps = omit(ContentBase, ['theme', 'controlPosition']);
@@ -30,7 +32,7 @@ export const BasicCard = {
             gravityIcon: GravityIconProps,
             target: {
                 type: 'string',
-                enum: ['_blank', '_parent', '_top', '_self'],
+                enum: linkTargets,
             },
             iconPosition: {
                 type: 'string',
@@ -46,6 +48,7 @@ export const BasicCard = {
             hoverBackgroundColor: {
                 type: 'string',
             },
+            analyticsEvents: AnalyticsEvents,
         },
     },
 };

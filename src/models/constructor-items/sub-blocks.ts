@@ -206,6 +206,9 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
     border?: boolean;
     fullscreen?: boolean;
     icon?: ThemeSupporting<PositionedIcon>;
+    url?: string;
+    urlTitle?: string;
+    target?: string;
 }
 
 export interface ImageCardProps

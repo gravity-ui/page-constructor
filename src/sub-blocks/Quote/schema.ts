@@ -1,6 +1,8 @@
 import {ImageProps} from '../../components/Image/schema';
 import {
     BaseProps,
+    ButtonBlock,
+    CardBase,
     ThemeProps,
     authorItem,
     quoteTypes,
@@ -13,6 +15,7 @@ export const Quote = {
         required: ['image', 'logo'],
         properties: {
             ...BaseProps,
+            ...CardBase,
             text: {
                 type: 'string',
                 contentType: 'text',
@@ -35,6 +38,7 @@ export const Quote = {
             buttonText: {
                 type: 'string',
             },
+            button: ButtonBlock,
             theme: ThemeProps,
             author: authorItem,
             quoteType: {

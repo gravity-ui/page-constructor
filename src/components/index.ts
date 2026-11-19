@@ -21,6 +21,7 @@ export {default as FullWidthBackground} from './FullWidthBackground/FullWidthBac
 export {default as HeaderBreadcrumbs} from './HeaderBreadcrumbs/HeaderBreadcrumbs';
 export {default as HTML} from './HTML/HTML';
 export {default as IconWrapper} from './IconWrapper/IconWrapper';
+export {default as Icon} from './Icon/Icon';
 export {default as Image} from './Image/Image';
 export {default as ImageBase} from './ImageBase/ImageBase';
 export {default as InnerForm} from './InnerForm/InnerForm';

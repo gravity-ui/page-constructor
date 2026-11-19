@@ -1,8 +1,14 @@
 import omit from 'lodash/omit';
 
-import {BaseProps, CardBase, CardLayoutProps} from '../../schema/validators/common';
+import {
+    BaseProps,
+    CardBase,
+    CardLayoutProps,
+    linkTargets,
+    withTheme,
+} from '../../schema/validators/common';
 import {ImageProps} from '../../schema/validators/components';
-import {AnalyticsEventSchema} from '../../schema/validators/event';
+import {AnalyticsEvents} from '../../schema/validators/event';
 import {ContentBase} from '../Content/schema';
 
 const ImageCardBlockContentProps = omit(ContentBase, ['centered', 'colSizes', 'controlPosition']);
@@ -16,7 +22,10 @@ export const ImageCard = {
             ...CardBase,
             ...CardLayoutProps,
             ...ImageCardBlockContentProps,
-            image: ImageProps,
+            image: withTheme(ImageProps),
+            enableImageBorderRadius: {
+                type: 'boolean',
+            },
             direction: {
                 type: 'string',
                 enum: ['direct', 'reverse'],
@@ -34,19 +43,11 @@ export const ImageCard = {
             urlTitle: {
                 type: 'string',
             },
-            analyticsEvents: {
-                oneOf: [
-                    {
-                        ...AnalyticsEventSchema,
-                        optionName: 'single',
-                    },
-                    {
-                        type: 'array',
-                        items: AnalyticsEventSchema,
-                        optionName: 'list',
-                    },
-                ],
+            target: {
+                type: 'string',
+                enum: linkTargets,
             },
+            analyticsEvents: AnalyticsEvents,
         },
     },
 };

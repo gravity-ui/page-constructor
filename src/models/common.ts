@@ -26,6 +26,7 @@ export type Timeout = ReturnType<typeof setTimeout> | undefined;
 
 export enum PredefinedEventTypes {
     Default = 'default-event',
+    Extended = 'extended-event',
     Play = 'play',
     Stop = 'stop',
 }

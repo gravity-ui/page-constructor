@@ -26,9 +26,9 @@ For a detailed usage guide of the VideoBlock component, see [VideoBlock Usage](h
 
 `previewImg?: string` — Preview image URL shown before video plays
 
-`playButton?: React.ReactNode` — Custom play button component
+`playButton?: React.ReactNode | VideoButtonProps` — Custom play button node or shared button configuration. Without a local theme, the button uses `projectSettings.defaultVideoButtonSettings`, then falls back to blue.
 
-`playButtonId?: string` — ID for the play button element
+`playButtonId?: string` — ID referenced by the preview's `aria-labelledby` when `playButton` is a custom React node
 
 `height?: number` — Fixed height for the video container
 

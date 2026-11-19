@@ -106,6 +106,7 @@ const ControlPositionTemplate: StoryFn<Record<string, LayoutItemModel>> = (args)
 };
 
 export const Default = DefaultTemplate.bind({});
+export const WithUrl = DefaultTemplate.bind({});
 export const WithContentList = DefaultTemplate.bind({});
 export const Fullscreen = DefaultTemplate.bind({});
 export const MetaInfo = DefaultTemplate.bind({});
@@ -115,6 +116,11 @@ export const ControlPosition = ControlPositionTemplate.bind({});
 export const Sizes = VariousContentTemplate.bind({});
 
 Default.args = data.default.content as unknown as LayoutItemModel;
+
+WithUrl.args = {
+    ...data.default.content,
+    ...data.withUrl.content,
+} as unknown as LayoutItemModel;
 
 WithContentList.args = {
     ...data.default.content,

@@ -32,6 +32,12 @@
       "previewImg": "/story-assets/video_8-12_dark.png"
     }
   },
+  "videoIframe": {
+    "content": {
+      "videoIframe": "https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y",
+      "previewImg": "/story-assets/video_8-12_dark.png"
+    }
+  },
   "imageSlider": {
     "content": {
       "image": [

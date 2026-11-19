@@ -1,7 +1,13 @@
+import {Device} from '../../models';
 import {filteredItem} from '../../schema/validators/utils';
 
 export const imageUrlPattern =
     '^((http[s]?|ftp):\\/)?\\/?([^:\\/\\s]+)((\\/\\w+)*\\/)([\\w\\-\\.]+[^#?\\s]+)(.*)?(#[\\w\\-]+)?$';
+
+const Url = {
+    type: 'string',
+    pattern: imageUrlPattern,
+};
 
 const ImageBase = {
     alt: {
@@ -27,16 +33,16 @@ const ImageBase = {
             {
                 type: 'object',
                 properties: {
-                    mobile: {type: 'boolean'},
-                    tablet: {type: 'boolean'},
-                    desktop: {type: 'boolean'},
+                    [Device.Mobile]: {type: 'boolean'},
+                    [Device.Tablet]: {type: 'boolean'},
+                    [Device.Desktop]: {type: 'boolean'},
                 },
             },
         ],
     },
 };
 
-const StyleBase = {
+const Style = {
     type: 'object',
     additionalProperties: false,
     required: [],
@@ -51,18 +57,13 @@ const StyleBase = {
 export const ImageDeviceProps = {
     type: 'object',
     additionalProperties: false,
-    required: ['desktop', 'mobile'],
+    required: [Device.Desktop],
+    anyOf: [{required: [Device.Tablet]}, {required: [Device.Mobile]}],
     properties: {
         ...ImageBase,
-        desktop: {type: 'string', pattern: imageUrlPattern},
-        tablet: {
-            type: 'string',
-            pattern: imageUrlPattern,
-        },
-        mobile: {
-            type: 'string',
-            pattern: imageUrlPattern,
-        },
+        [Device.Desktop]: Url,
+        [Device.Tablet]: Url,
+        [Device.Mobile]: Url,
     },
 };
 
@@ -71,11 +72,8 @@ export const ImageBaseObjectProps = {
     additionalProperties: false,
     properties: {
         ...ImageBase,
-        src: {
-            type: 'string',
-            pattern: imageUrlPattern,
-        },
-        style: StyleBase,
+        src: Url,
+        style: Style,
     },
 };
 
@@ -87,8 +85,7 @@ export const ImageObjectProps = {
 export const ImageProps = {
     oneOf: [
         {
-            type: 'string',
-            pattern: imageUrlPattern,
+            ...Url,
             optionName: 'url',
         },
         filteredItem({
@@ -117,13 +114,17 @@ export const ImageProps = {
 };
 
 export const BackgroundImageProps = {
-    anyOf: [
+    oneOf: [
         {
             ...ImageBaseObjectProps,
             optionName: 'options',
         },
         {
             ...ImageDeviceProps,
+            properties: {
+                ...ImageDeviceProps.properties,
+                style: Style,
+            },
             optionName: 'device options',
         },
     ],

@@ -15,6 +15,7 @@ node_modules
 /coverage
 /widget
 /schema
+.storybook/generated/component-map.json
 
 *.tgz
 .env
@@ -34,3 +35,5 @@ playwright-report*
 # Skill eval artifacts (workspaces are local-only test outputs)
 .agents/skills/*-workspace/
 .claude/skills/*-workspace/
+
+*.local.md

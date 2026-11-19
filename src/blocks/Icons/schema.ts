@@ -3,7 +3,7 @@ import {
     BlockBaseProps,
     containerSizesObject,
 } from '../../schema/validators/common';
-import {AnalyticsEventSchema} from '../../schema/validators/event';
+import {AnalyticsEvents} from '../../schema/validators/event';
 
 export const IconsProps = {
     additionalProperties: false,
@@ -30,7 +30,7 @@ export const IconsProps = {
             items: {
                 type: 'object',
                 additionalProperties: false,
-                required: ['url', 'text', 'src'],
+                required: ['src'],
                 properties: {
                     url: {
                         type: 'string',
@@ -42,19 +42,7 @@ export const IconsProps = {
                     src: {
                         type: 'string',
                     },
-                },
-                analyticsEvents: {
-                    oneOf: [
-                        {
-                            ...AnalyticsEventSchema,
-                            optionName: 'single',
-                        },
-                        {
-                            type: 'array',
-                            items: AnalyticsEventSchema,
-                            optionName: 'list',
-                        },
-                    ],
+                    analyticsEvents: AnalyticsEvents,
                 },
             },
         },

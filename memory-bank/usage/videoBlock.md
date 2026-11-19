@@ -4,7 +4,7 @@ This document outlines how the VideoBlock component is used across blocks, sub-b
 
 ## Overview
 
-The VideoBlock component is a utility component that renders video content with support for YouTube videos, custom video iframes, and preview images. It provides a unified interface for displaying video content with play controls, autoplay functionality, and responsive sizing. The component supports both streaming and recorded YouTube videos, custom iframe sources, and includes analytics tracking capabilities.
+The VideoBlock component is a utility component that renders video content with support for YouTube videos, custom video iframes, and preview images. It provides a unified interface for displaying video content with play controls, autoplay functionality, and responsive sizing. Its preview control delegates to the shared internal `VideoButton`, so project-level play-button theming also applies here.
 
 ## Usage Graph
 
@@ -12,6 +12,7 @@ The VideoBlock component is a utility component that renders video content with 
 graph TD
     %% Main Component
     VideoBlock[VideoBlock Component]
+    VideoButton[VideoButton Component]
 
     %% Direct usage in Media component
     Media[Media Component]
@@ -36,6 +37,7 @@ graph TD
 
     %% Usage relationships
     Media --> VideoBlock
+    VideoBlock --> VideoButton
 
     %% Direct Media usage
     MediaBlock --> Media
@@ -53,6 +55,7 @@ graph TD
 
     %% Style classes
     style VideoBlock fill:#f9d77e,stroke:#f9bc02,stroke-width:2px,color:#000
+    style VideoButton fill:#a8d5ba,stroke:#1a936f,stroke-width:1px,color:#000
 
     %% Component styles
     style Media fill:#a8d5ba,stroke:#1a936f,stroke-width:1px,color:#000
@@ -84,8 +87,8 @@ graph TD
   - `attributes`: Additional URL parameters for the video (e.g., color, rel)
   - `className`: Optional CSS class name for the container
   - `previewImg`: Preview image URL shown before video plays
-  - `playButton`: Custom play button component (optional)
-  - `playButtonId`: ID for the play button element
+  - `playButton`: Custom `ReactNode` or a `VideoButtonProps` configuration object (optional)
+  - `playButtonId`: ID referenced by `aria-labelledby` when `playButton` is a custom node
   - `height`: Fixed height for the video container
   - `fullscreen`: Boolean to enable fullscreen mode
   - `autoplay`: Boolean to enable autoplay functionality
@@ -110,8 +113,9 @@ graph TD
 #### Preview and Controls
 
 - **Preview Images**: Shows preview image before video starts playing
-- **Custom Play Buttons**: Supports custom play button components
-- **Default Controls**: Provides default play button with icon
+- **Custom Play Buttons**: Supports either a custom React node or shared button configuration
+- **Default Controls**: Renders the shared `VideoButton` with an icon
+- **Project Theme**: Uses `projectSettings.defaultVideoButtonSettings` when no local theme is supplied
 - **Click-to-Play**: Enables video playback on preview click
 
 #### Responsive Design
@@ -409,9 +413,11 @@ const onPreviewClick = React.useCallback(() => {
     onKeyDown={onPreviewKeyDown}
     role="button"
     tabIndex={0}
-    aria-labelledby={playButton ? playButtonId : buttonId}
+    aria-labelledby={buttonLabelId}
 >
 ```
+
+`buttonLabelId` is `playButtonId` for custom nodes. For a `VideoButtonProps` object it is the supplied `id`, falling back to the generated default ID.
 
 ## Best Practices
 
@@ -469,18 +475,33 @@ const onPreviewClick = React.useCallback(() => {
 <VideoBlock
   record="dQw4w9WgXcQ"
   previewImg="/path/to/preview.jpg"
-  playButton={<CustomPlayButton />}
+  playButton={<CustomPlayButton id="custom-play-btn" />}
   playButtonId="custom-play-btn"
+/>
+```
+
+### With Shared Button Configuration
+
+```tsx
+<VideoBlock
+  record="dQw4w9WgXcQ"
+  previewImg="/path/to/preview.jpg"
+  playButton={{
+    type: PlayButtonType.Text,
+    text: 'Watch video',
+    theme: PlayButtonThemes.Grey,
+  }}
 />
 ```
 
 ## Integration with Theme System
 
-The VideoBlock component integrates with the page-constructor theme system through the Media component:
+The VideoBlock component integrates directly with the shared video-button theme system:
 
-1. **Theme Processing**: Media component handles theme processing before passing props to VideoBlock
-2. **Microdata Support**: Supports video microdata for SEO optimization
-3. **Context Integration**: Works with mobile context for responsive behavior
+1. **Shared Renderer**: Preview controls are rendered by `VideoButton`
+2. **Project Defaults**: An omitted local theme falls back to `projectSettings.defaultVideoButtonSettings.theme`, then `blue`
+3. **Theme-Aware Colors**: A `custom` theme resolves project colors against `ThemeContext`
+4. **Detailed Contract**: See `usage/videoButton.md`
 
 ## Storybook Documentation
 
@@ -515,8 +536,8 @@ The component uses BEM methodology for CSS classes:
 - `.VideoBlock__preview` - Preview overlay container
 - `.VideoBlock__image` - Preview image
 - `.VideoBlock__image-wrapper` - Preview image wrapper
-- `.VideoBlock__button` - Default play button
-- `.VideoBlock__icon` - Play button icon
+
+The button no longer has `VideoBlock`-owned selectors. Its classes are under `.pc-video-button`; see `usage/videoButton.md`.
 
 ## Performance Considerations
 

@@ -2,15 +2,14 @@
 
 import * as React from 'react';
 
-import {PlayFill} from '@gravity-ui/icons';
-import {Icon, useActionHandlers, useUniqId} from '@gravity-ui/uikit';
+import {useActionHandlers, useUniqId} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
-import {v4 as uuidv4} from 'uuid';
 
 import {useAnalytics} from '../../hooks/useAnalytics';
 import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
 import {block, getPageSearchParams} from '../../utils';
 import Image from '../Image/Image';
+import VideoButton, {VideoButtonProps} from '../VideoButton/VideoButton';
 
 import {i18n} from './i18n';
 
@@ -54,6 +53,20 @@ export function getHeight(width: number): number {
     return (width / 16) * 9;
 }
 
+const isReactNode = (value: React.ReactNode | VideoButtonProps) => {
+    if (value === null || typeof value === 'boolean') return true;
+
+    if (typeof value === 'string' || typeof value === 'number') return true;
+
+    if (React.isValidElement(value)) return true;
+
+    if (Array.isArray(value)) {
+        return value.every(isReactNode);
+    }
+
+    return false;
+};
+
 export interface VideoBlockProps extends AnalyticsEventsBase {
     id?: string;
     stream?: string;
@@ -62,7 +75,7 @@ export interface VideoBlockProps extends AnalyticsEventsBase {
     attributes?: Record<string, string>;
     className?: string;
     previewImg?: string;
-    playButton?: React.ReactNode;
+    playButton?: React.ReactNode | VideoButtonProps;
     playButtonId?: string;
     height?: number;
     fullscreen?: boolean;
@@ -93,7 +106,8 @@ const VideoBlock = (props: VideoBlockProps) => {
     const ref = React.useRef<HTMLDivElement>(null);
     const [hidePreview, setHidePreview] = React.useState(false);
     const [currentHeight, setCurrentHeight] = React.useState(height || undefined);
-    const fullId = React.useMemo(() => id || uuidv4(), [id]);
+    const generatedId = useUniqId();
+    const fullId = id || generatedId;
     const buttonId = useUniqId();
 
     const [isPlaying, setIsPlaying] = React.useState(!previewImg);
@@ -165,6 +179,15 @@ const VideoBlock = (props: VideoBlockProps) => {
         setHidePreview(false);
     }, [src]);
 
+    const buttonProps = React.useMemo(
+        () =>
+            isReactNode(playButton)
+                ? {customButton: playButton as React.ReactNode}
+                : (playButton as VideoButtonProps | undefined),
+        [playButton],
+    );
+    const buttonLabelId = buttonProps?.customButton ? playButtonId : buttonProps?.id || buttonId;
+
     if (!src) {
         return null;
     }
@@ -179,7 +202,7 @@ const VideoBlock = (props: VideoBlockProps) => {
                     onKeyDown={onPreviewKeyDown}
                     role="button"
                     tabIndex={0}
-                    aria-labelledby={playButton ? playButtonId : buttonId}
+                    aria-labelledby={buttonLabelId}
                 >
                     <Image
                         src={previewImg}
@@ -187,11 +210,7 @@ const VideoBlock = (props: VideoBlockProps) => {
                         containerClassName={b('image-wrapper')}
                         onLoad={onImageLoad}
                     />
-                    {playButton || (
-                        <button title="Play" id={buttonId} className={b('button')}>
-                            <Icon className={b('icon')} data={PlayFill} size={24} />
-                        </button>
-                    )}
+                    <VideoButton id={buttonId} {...buttonProps} />
                 </div>
             )}
         </div>

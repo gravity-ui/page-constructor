@@ -8,7 +8,7 @@ import {
     Theme,
 } from '../../models';
 
-import {AnalyticsEventSchema} from './event';
+import {AnalyticsEvents} from './event';
 
 export const mediaDirection = ['media-content', 'content-media'];
 export const textSize = ['xs', 's', 'sm', 'm', 'l'];
@@ -22,12 +22,14 @@ export const playIconTypes = ['default', 'text'];
 export const playIconThemes = ['blue', 'grey'];
 export const videoControlsTypes = [MediaVideoControlsType.Default, MediaVideoControlsType.Custom];
 export const fileLinkTypes = ['vertical', 'horizontal'];
+export const linkTargets = ['_self', '_blank', '_parent', '_top'];
 
 export const dividerEnum = {enum: ['0', 'xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl']};
 export const sizeNumber = {type: 'number', maximum: 12, minimum: 1};
 export const contentThemes = ['default', 'dark', 'light'];
 export const quoteTypes = Object.values(QuoteType);
 export const mediaView = ['fit', 'full'];
+export const mediaBorders = ['shadow', 'line', 'none'];
 export const customControlsType = [
     CustomControlsType.WithMuteButton,
     CustomControlsType.WithPlayPauseButton,
@@ -280,21 +282,10 @@ export const LinkProps = {
         },
         target: {
             type: 'string',
-            enum: ['_blank', '_parent', '_top', '_self'],
+            enum: linkTargets,
         },
-        analyticsEvents: {
-            oneOf: [
-                {
-                    ...AnalyticsEventSchema,
-                    optionName: 'single',
-                },
-                {
-                    type: 'array',
-                    items: AnalyticsEventSchema,
-                    optionName: 'list',
-                },
-            ],
-        },
+        colorTheme: ThemeProps,
+        analyticsEvents: AnalyticsEvents,
     },
 };
 
@@ -432,15 +423,10 @@ export const ButtonProps = {
             },
         ],
     },
-    analyticsEvents: {
-        oneOf: [
-            {...AnalyticsEventSchema, optionName: 'single'},
-            {type: 'array', items: AnalyticsEventSchema, optionName: 'list'},
-        ],
-    },
+    analyticsEvents: AnalyticsEvents,
     target: {
         type: 'string',
-        enum: ['_self', '_blank', '_parent', '_top'],
+        enum: linkTargets,
     },
     width: {
         type: 'string',
@@ -510,7 +496,7 @@ export function withDevice<T extends object>(value: T) {
 export const AnchorProps = {
     type: 'object',
     additionalProperties: false,
-    required: ['text', 'url'],
+    required: ['url'],
     properties: {
         text: {
             type: 'string',
@@ -582,9 +568,7 @@ export const TitleProps = {
         resetMargin: {
             type: 'boolean',
         },
-        analyticsEvents: {
-            anyOf: [AnalyticsEventSchema, {type: 'array', items: AnalyticsEventSchema}],
-        },
+        analyticsEvents: AnalyticsEvents,
     },
 };
 
@@ -598,6 +582,7 @@ export const ButtonBlock = {
                 enum: ['app-store', 'google-play'],
             },
         },
+        required: ['theme'],
     },
     then: {
         required: ['url'],
@@ -666,9 +651,7 @@ export const MediaProps = {
     fullscreen: {
         type: 'boolean',
     },
-    analyticsEvents: {
-        anyOf: [AnalyticsEventSchema, {type: 'array', items: AnalyticsEventSchema}],
-    },
+    analyticsEvents: AnalyticsEvents,
     ratio: {
         type: ['number', 'string'],
         pattern: '^auto$',
@@ -836,6 +819,6 @@ export const HeaderBreadcrumbsProps = {
                 },
             },
         },
-        theme: {type: 'string', enum: ['light', 'dark']},
+        theme: ThemeProps,
     },
 };

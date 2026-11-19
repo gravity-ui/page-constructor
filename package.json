@@ -1,6 +1,6 @@
 {
   "name": "@gravity-ui/page-constructor",
-  "version": "8.14.2",
+  "version": "8.25.0",
   "description": "Gravity UI Page Constructor",
   "license": "MIT",
   "type": "commonjs",
@@ -73,6 +73,15 @@
       "types": "./build/esm/navigation/*.d.ts",
       "require": "./build/cjs/navigation/*.js",
       "import": "./build/esm/navigation/*.js"
+    "./schema": {
+      "import": {
+        "types": "./build/esm/schema/index.d.ts",
+        "default": "./build/esm/schema/index.js"
+      },
+      "require": {
+        "types": "./build/cjs/schema/index.d.ts",
+        "default": "./build/cjs/schema/index.js"
+      }
     },
     "./styles/*": "./styles/*",
     "./widget/*": "./widget/*",
@@ -103,6 +112,8 @@
       ],
       "components": [
         "./build/esm/components/index.d.ts"
+      "schema": [
+        "./build/esm/schema/index.d.ts"
       ]
     }
   },
@@ -130,6 +141,7 @@
     "lint": "run-p lint:js lint:styles lint:prettier typecheck",
     "typecheck": "tsc --noEmit",
     "dev": "npm run storybook:start",
+    "storybook:map": "node scripts/storybook-map/generate.js",
     "storybook:start": "storybook dev -p 7009",
     "storybook:build": "storybook build -c .storybook -o storybook-static",
     "start": "node dist",
@@ -159,7 +171,7 @@
     "@gravity-ui/dynamic-forms": "^5.0.0",
     "@gravity-ui/i18n": "^1.7.0",
     "@gravity-ui/icons": "^2.18.0",
-    "@react-spring/web": "^9.7.3",
+    "@react-spring/web": "^10.1.2",
     "ajv": "^8.12.0",
     "ajv-keywords": "^5.1.0",
     "final-form": "^4.20.9",
@@ -168,9 +180,9 @@
     "lodash": "^4.17.21",
     "monaco-editor": "^0.52.2",
     "react-final-form": "^6.5.9",
-    "react-monaco-editor": "^0.53.0",
+    "react-monaco-editor": "^0.59.0",
     "react-player": "^2.9.0",
-    "react-slick": "^0.29.0",
+    "react-slick": "^0.31.0",
     "react-transition-group": "^4.4.2",
     "react-waypoint": "^10.1.0",
     "sanitize-html": "2.12.1",
@@ -194,8 +206,9 @@
     "@commitlint/config-conventional": "^19.6.0",
     "@diplodoc/transform": "^4.57.1",
     "@gravity-ui/eslint-config": "^3.2.0",
-    "@gravity-ui/gulp-utils": "^1.0.3",
+    "@gravity-ui/gulp-utils": "^1.1.1",
     "@gravity-ui/prettier-config": "^1.1.0",
+    "@gravity-ui/readme-validator": "^1.3.0",
     "@gravity-ui/stylelint-config": "^4.0.1",
     "@gravity-ui/tsconfig": "^1.0.0",
     "@gravity-ui/uikit": "^7.13.1",

@@ -1,10 +1,11 @@
 import * as React from 'react';
 
-import {useUniqId} from '@gravity-ui/uikit';
+import {Link, useUniqId} from '@gravity-ui/uikit';
 
-import {FullscreenMedia, IconWrapper, Media, MetaInfo} from '../../components';
+import {FullscreenMedia, IconWrapper, Media, MetaInfo, RouterLink} from '../../components';
 import {useTheme} from '../../context/theme';
-import {ContentBlockProps, LayoutItemProps} from '../../models';
+import {useAnalytics} from '../../hooks';
+import {ContentBlockProps, DefaultEventNames, LayoutItemProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 import {mergeVideoMicrodata} from '../../utils/microdata';
 import Content from '../Content/Content';
@@ -26,11 +27,15 @@ const LayoutItem = ({
     className,
     analyticsEvents,
     controlPosition = 'content',
+    url,
+    urlTitle,
+    target,
 }: LayoutItemProps) => {
     const normalizedLinks = React.useMemo(() => getLayoutItemLinks(links), [links]);
     const areControlsInFooter = controlPosition === 'footer';
     const theme = useTheme();
     const themedIcon = getThemedValue(icon, theme);
+    const handleAnalytics = useAnalytics(DefaultEventNames.CardBase, url);
 
     const contentProps: ContentBlockProps = {
         controlPosition: areControlsInFooter ? 'bottom' : 'default',
@@ -74,8 +79,9 @@ const LayoutItem = ({
             />
         );
     };
-    return (
-        <div className={b(null, className)}>
+
+    const cardContent = (
+        <React.Fragment>
             {renderMedia()}
             {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
             <div className={b('content', {'no-media': !media, margin: contentMargin})}>
@@ -83,8 +89,32 @@ const LayoutItem = ({
                     <Content {...contentProps} titleId={titleId} />
                 </IconWrapper>
             </div>
-        </div>
+        </React.Fragment>
     );
+
+    if (url) {
+        return (
+            <RouterLink href={url}>
+                <Link
+                    href={url}
+                    target={target}
+                    rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+                    className={b(null, className)}
+                    title={urlTitle}
+                    onClick={() => handleAnalytics(analyticsEvents)}
+                    extraProps={{
+                        draggable: false,
+                        onDragStart: (event: React.DragEvent<HTMLAnchorElement>) =>
+                            event.preventDefault(),
+                    }}
+                >
+                    {cardContent}
+                </Link>
+            </RouterLink>
+        );
+    }
+
+    return <div className={b(null, className)}>{cardContent}</div>;
 };
 
 export default LayoutItem;

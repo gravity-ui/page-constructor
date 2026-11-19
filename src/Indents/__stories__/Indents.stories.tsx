@@ -32,6 +32,7 @@ export const S = Template.bind({});
 export const M = Template.bind({});
 export const L = Template.bind({});
 export const XL = Template.bind({});
+export const XXL = Template.bind({});
 
 Zero.args = {
     ...data.default,
@@ -84,5 +85,14 @@ XL.args = {
     indent: {
         top: 'xl',
         bottom: 'xl',
+    },
+} as CardLayoutBlockProps;
+
+XXL.args = {
+    ...data.default,
+    title: 'Card layout with layout items with XXL indents at the top and bottom',
+    indent: {
+        top: 'xxl',
+        bottom: 'xxl',
     },
 } as CardLayoutBlockProps;

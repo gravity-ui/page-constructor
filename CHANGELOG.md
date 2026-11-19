@@ -1,5 +1,153 @@
 # Changelog
 
+## [8.25.0](https://github.com/gravity-ui/page-constructor/compare/v8.24.2...v8.25.0) (2026-11-17)
+
+
+### Features
+
+* **Strip:** add new block ([#1552](https://github.com/gravity-ui/page-constructor/issues/1552)) ([0c6ed39](https://github.com/gravity-ui/page-constructor/commit/0c6ed39e02a603223f6d173d265db6d61604cfc6))
+
+## [8.24.2](https://github.com/gravity-ui/page-constructor/compare/v8.24.1...v8.24.2) (2026-11-10)
+
+
+### Bug Fixes
+
+* YFM styles specificity ([#1528](https://github.com/gravity-ui/page-constructor/issues/1528)) ([#1544](https://github.com/gravity-ui/page-constructor/issues/1544)) ([c788978](https://github.com/gravity-ui/page-constructor/commit/c788978f2259afb59f94d0789afcc6f107a7bcbb))
+
+## [8.24.1](https://github.com/gravity-ui/page-constructor/compare/v8.24.0...v8.24.1) (2026-10-28)
+
+
+### Bug Fixes
+
+* **FullscreenImage:** avoid stretching single-image modals ([#1524](https://github.com/gravity-ui/page-constructor/issues/1524)) ([c81107b](https://github.com/gravity-ui/page-constructor/commit/c81107bf8dd669203c21b38ddddc52dfe7c06b78))
+* repair React warnings in Media and VideoBlock ([#1545](https://github.com/gravity-ui/page-constructor/issues/1545)) ([a763e41](https://github.com/gravity-ui/page-constructor/commit/a763e414b7d91551063dddf1dd92f9f092671f18))
+
+## [8.24.0](https://github.com/gravity-ui/page-constructor/compare/v8.23.5...v8.24.0) (2026-10-21)
+
+
+### Features
+
+* **FilterBlock:** add optional collapsible card lists ([#1533](https://github.com/gravity-ui/page-constructor/issues/1533)) ([f0bc903](https://github.com/gravity-ui/page-constructor/commit/f0bc903bdc92c4a0d13d1a56a002b3c3ad0a0238))
+
+## [8.23.5](https://github.com/gravity-ui/page-constructor/compare/v8.23.4...v8.23.5) (2026-10-05)
+
+
+### Bug Fixes
+
+* **FilterBlock:** remount video correctly ([#1526](https://github.com/gravity-ui/page-constructor/issues/1526)) ([df7f4c1](https://github.com/gravity-ui/page-constructor/commit/df7f4c1198e2d74b06381db7ae0549984f1ddabc))
+
+## [8.23.4](https://github.com/gravity-ui/page-constructor/compare/v8.23.3...v8.23.4) (2026-09-22)
+
+
+### Bug Fixes
+
+* add typed schema export ([#1522](https://github.com/gravity-ui/page-constructor/issues/1522)) ([88a479e](https://github.com/gravity-ui/page-constructor/commit/88a479ed4a86129bd6d42e14b4b335f83b607ccf))
+
+## [8.23.3](https://github.com/gravity-ui/page-constructor/compare/v8.23.2...v8.23.3) (2026-09-22)
+
+
+### Bug Fixes
+
+* **styles:** use semantic shadow token for card shadows ([#1518](https://github.com/gravity-ui/page-constructor/issues/1518)) ([e52b9ed](https://github.com/gravity-ui/page-constructor/commit/e52b9edcf35c1c8f3b2fba675881f8fdff2d1349))
+
+## [8.23.2](https://github.com/gravity-ui/page-constructor/compare/v8.23.1...v8.23.2) (2026-09-09)
+
+
+### Bug Fixes
+
+* schemas & types ([#1516](https://github.com/gravity-ui/page-constructor/issues/1516)) ([b7037f9](https://github.com/gravity-ui/page-constructor/commit/b7037f96e51d924ee90bb9d04868a2d4b6f47744))
+
+## [8.23.1](https://github.com/gravity-ui/page-constructor/compare/v8.23.0...v8.23.1) (2026-09-08)
+
+
+### Bug Fixes
+
+* **Tabs, ContentLayout:** colSizes schema ([#1514](https://github.com/gravity-ui/page-constructor/issues/1514)) ([545d514](https://github.com/gravity-ui/page-constructor/commit/545d51471f48174be04964f88d8a946994a7b92e))
+
+## [8.23.0](https://github.com/gravity-ui/page-constructor/compare/v8.22.0...v8.23.0) (2026-09-04)
+
+
+### Features
+
+* add xxl indent for blocks ([#1512](https://github.com/gravity-ui/page-constructor/issues/1512)) ([180e831](https://github.com/gravity-ui/page-constructor/commit/180e8319835baa4f04fdfa49f4dc40828ba8ad4a))
+
+## [8.22.0](https://github.com/gravity-ui/page-constructor/compare/v8.21.2...v8.22.0) (2026-09-03)
+
+
+### Features
+
+* add extended analytics event config to provider ([#1509](https://github.com/gravity-ui/page-constructor/issues/1509)) ([e4b496b](https://github.com/gravity-ui/page-constructor/commit/e4b496b2d692546468364fd404831f0376d09c1c))
+
+## [8.21.2](https://github.com/gravity-ui/page-constructor/compare/v8.21.1...v8.21.2) (2026-09-03)
+
+
+### Bug Fixes
+
+* **Tabs:** schema ([#1508](https://github.com/gravity-ui/page-constructor/issues/1508)) ([9406a9d](https://github.com/gravity-ui/page-constructor/commit/9406a9d4c253d026baa40bf84531c5032c4fd4c4))
+
+## [8.21.1](https://github.com/gravity-ui/page-constructor/compare/v8.21.0...v8.21.1) (2026-08-31)
+
+
+### Bug Fixes
+
+* **deps:** prevent nested ReactDOM 18 with React 19 ([#1503](https://github.com/gravity-ui/page-constructor/issues/1503)) ([aaab401](https://github.com/gravity-ui/page-constructor/commit/aaab4017b46f9d540372fde18a348e78697d0b6f))
+
+## [8.21.0](https://github.com/gravity-ui/page-constructor/compare/v8.20.1...v8.21.0) (2026-08-31)
+
+
+### Features
+
+* **VideoButton:** add css token for video button icon size ([#1505](https://github.com/gravity-ui/page-constructor/issues/1505)) ([7ff39dd](https://github.com/gravity-ui/page-constructor/commit/7ff39dd2c09d8308d1e97d2d9194744fce592051))
+
+## [8.20.1](https://github.com/gravity-ui/page-constructor/compare/v8.20.0...v8.20.1) (2026-08-31)
+
+
+### Bug Fixes
+
+* buttom schema ([#1501](https://github.com/gravity-ui/page-constructor/issues/1501)) ([0962489](https://github.com/gravity-ui/page-constructor/commit/0962489b877cd1d9a730dd28f96e3a7dc3d69260))
+
+## [8.20.0](https://github.com/gravity-ui/page-constructor/compare/v8.19.0...v8.20.0) (2026-08-28)
+
+
+### Features
+
+* schema fixes ([#1497](https://github.com/gravity-ui/page-constructor/issues/1497)) ([988027c](https://github.com/gravity-ui/page-constructor/commit/988027cfed5fa066a9f15e0e2169b5af65f722ff))
+
+## [8.19.0](https://github.com/gravity-ui/page-constructor/compare/v8.18.0...v8.19.0) (2026-08-25)
+
+
+### Features
+
+* **Icon:** export component ([#1498](https://github.com/gravity-ui/page-constructor/issues/1498)) ([0d8958d](https://github.com/gravity-ui/page-constructor/commit/0d8958d87dc456de4e2f45eec5824d70b04473ad))
+
+## [8.18.0](https://github.com/gravity-ui/page-constructor/compare/v8.17.0...v8.18.0) (2026-08-24)
+
+
+### Features
+
+* **VideoButton:** add css token ([#1495](https://github.com/gravity-ui/page-constructor/issues/1495)) ([3d3c165](https://github.com/gravity-ui/page-constructor/commit/3d3c1656b68a6f703fa24a9a2d74c2b020d6462f))
+
+## [8.17.0](https://github.com/gravity-ui/page-constructor/compare/v8.16.0...v8.17.0) (2026-08-18)
+
+
+### Features
+
+* **LayoutItem:** add url ([#1491](https://github.com/gravity-ui/page-constructor/issues/1491)) ([98833d4](https://github.com/gravity-ui/page-constructor/commit/98833d43cd651e85a8c3fc315ab8116922b805a1))
+
+## [8.16.0](https://github.com/gravity-ui/page-constructor/compare/v8.15.0...v8.16.0) (2026-07-27)
+
+
+### Features
+
+* LLM-ready README + Validate README workflow ([#1479](https://github.com/gravity-ui/page-constructor/issues/1479)) ([f14a3ec](https://github.com/gravity-ui/page-constructor/commit/f14a3ece6a45297d4ddaea65ee85b7e43cc9ecdc))
+
+## [8.15.0](https://github.com/gravity-ui/page-constructor/compare/v8.14.2...v8.15.0) (2026-07-22)
+
+
+### Features
+
+* custom video button theme ([#1482](https://github.com/gravity-ui/page-constructor/issues/1482)) ([a99648d](https://github.com/gravity-ui/page-constructor/commit/a99648d6e8383e260ffbcb0ea5e61e37647c1e36))
+
 ## [8.14.2](https://github.com/gravity-ui/page-constructor/compare/v8.14.1...v8.14.2) (2026-07-16)
 
 

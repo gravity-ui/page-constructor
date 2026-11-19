@@ -8,7 +8,7 @@ import BlockBase, {BlockBaseFullProps} from '../BlockBase';
 
 const qa = 'block-base-component';
 
-const indentValues: IndentValue[] = ['0', 'xs', 's', 'm', 'l', 'xl'];
+const indentValues: IndentValue[] = ['0', 'xs', 's', 'm', 'l', 'xl', 'xxl'];
 
 type ComponentProps = React.PropsWithChildren<BlockBaseFullProps & ClassNameProps>;
 

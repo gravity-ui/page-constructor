@@ -6,10 +6,10 @@ import {
     BlockHeaderProps,
     LinkProps,
     MediaProps,
-    containerSizesArray,
+    containerSizesObject,
     contentSizes,
+    mediaBorders,
     mediaDirection,
-    sizeNumber,
     withTheme,
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
@@ -39,7 +39,7 @@ export const tabsItem = {
         image: withTheme(ImageProps),
         border: {
             type: 'string',
-            enum: ['shadow', 'line', 'none'],
+            enum: mediaBorders,
         },
     },
 };
@@ -51,16 +51,16 @@ export const TabsBlock = {
         properties: {
             ...BlockBaseProps,
             ...BlockHeaderProps,
-            tabsColSizes: containerSizesArray.reduce(
-                (acc, size) => ({...acc, [size]: sizeNumber}),
-                {},
-            ),
+            tabsColSizes: containerSizesObject,
             direction: {
                 type: 'string',
                 enum: mediaDirection,
             },
             centered: {type: 'boolean'},
-            items: filteredArray(tabsItem),
+            items: {
+                ...filteredArray(tabsItem),
+                minItems: 1,
+            },
             contentSize: {
                 type: 'string',
                 enum: contentSizes,

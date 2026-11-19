@@ -4,24 +4,16 @@ import {
     GravityIconProps,
     LinkProps,
     TitleProps,
-    containerSizesArray,
+    containerSizesObject,
     contentSizes,
     contentThemes,
-    sizeNumber,
     withTheme,
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
 
 export const ContentItem = {
     additionalProperties: false,
-    oneOf: [
-        {
-            required: ['icon'],
-        },
-        {
-            required: ['gravityIcon'],
-        },
-    ],
+    required: [],
     properties: {
         title: {
             type: 'string',
@@ -81,7 +73,7 @@ export const ContentBlock = {
         additionalProperties: false,
         properties: {
             ...ContentBase,
-            colSizes: containerSizesArray.reduce((acc, size) => ({...acc, [size]: sizeNumber}), {}),
+            colSizes: containerSizesObject,
             centered: {
                 type: 'boolean',
             },

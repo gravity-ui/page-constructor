@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const utils = require('@gravity-ui/gulp-utils');
+const {buildDocs, createDefaultDocsConfig} = require('@gravity-ui/readme-validator');
 const esbuild = require('esbuild');
 const {task, src, dest, series, parallel} = require('gulp');
 const replace = require('gulp-replace');
@@ -279,6 +280,34 @@ task('styles-components', () => {
         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, CJS_DIR)));
 });
 
+task('build-docs', (done) => {
+    buildDocs({
+        ...createDefaultDocsConfig(),
+        sources: [
+            {
+                title: 'Guides',
+                kind: 'markdown',
+                baseDir: 'docs',
+                outPrefix: 'guides',
+                nameFromTitle: true,
+            },
+            {
+                title: 'Blocks',
+                kind: 'readme',
+                baseDir: 'src/blocks',
+                outPrefix: 'blocks',
+            },
+            {
+                title: 'Sub-blocks',
+                kind: 'readme',
+                baseDir: 'src/sub-blocks',
+                outPrefix: 'sub-blocks',
+            },
+        ],
+    });
+    done();
+});
+
 task(
     'build',
     series([
@@ -288,6 +317,7 @@ task(
         'copy-js-declarations',
         'copy-json',
         parallel(['styles-global', 'styles-components']),
+        'build-docs',
     ]),
 );
 

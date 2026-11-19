@@ -33,6 +33,7 @@ export enum PlayButtonType {
 export enum PlayButtonThemes {
     Blue = 'blue',
     Grey = 'grey',
+    Custom = 'custom',
 }
 
 export enum CustomControlsType {
@@ -155,7 +156,7 @@ export interface ImageObjectProps extends ImageInfoProps {
 
 export interface ImageDeviceProps extends ImageInfoProps {
     [Device.Desktop]: string;
-    [Device.Mobile]: string;
+    [Device.Mobile]?: string;
     [Device.Tablet]?: string;
 }
 
@@ -254,6 +255,13 @@ export interface CustomControlsOptions {
     type?: CustomControlsType;
     muteButtonShown?: boolean;
     positioning?: CustomControlsButtonPositioning;
+}
+
+export interface PlayButtonColors {
+    circleColor?: string;
+    circleHoverColor?: string;
+    triangleColor?: string;
+    triangleHoverColor?: string;
 }
 
 export interface PlayButtonProps extends ClassNameProps {
