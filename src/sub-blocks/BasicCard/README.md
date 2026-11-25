@@ -55,13 +55,11 @@ Accepted as a child of: `card-layout-block`, `slider-block`, `slider-old-block`.
 
 `icon` and `gravityIcon` accept either a plain value or a `{light, dark}` object resolved against the active runtime theme.
 
-## Storybook
-
-[BasicCard](https://preview.gravity-ui.com/page-constructor/?path=/docs/components-cards-basiccard--docs)
-
 ## Card colors
 
-Set CSS variables on the site, section, or card wrapper. Supported by BasicCard,
+Site developers set CSS variables once on the site theme. Cards inherit these values;
+a nested section can override them for its cards. Use different values for light and dark
+themes. These are theme settings, not per-card fields in the content editor. Supported by BasicCard,
 BackgroundCard, MediaCard, PriceCard, both PriceDetailed layouts, ImageCard and Quote.
 
 | Variable                                    | Purpose                                                |
@@ -86,7 +84,9 @@ Fallback order (first defined value wins):
 | Border hover      | `--pc-card-border-color-hover` → `--pc-card-border-color` → `--g-color-line-generic`                                                        |
 
 Without overrides, both themes keep their existing appearance. Hover applies only to
-card links. `none` does not imply transparency; `line` uses its own hover variables.
+cards with a `url` set. `border="none"` removes the border and shadow, but keeps the fill. Set the
+background token to `transparent` explicitly for a transparent surface. `line` uses its
+own hover variables. An individually configured card background keeps its priority.
 
 ### Transparent outlines with the existing hover
 
@@ -123,4 +123,9 @@ Choose HEX colors separately for each theme.
 ```
 
 Inherited hover and outlined variables take priority over a local general background.
-See **ColorTokens** for color overrides and **ColorTokensOverrides** for a custom section.
+See **Lab → Tokenization → Examples → Cards** in Storybook
+for shared defaults and a nested section theme.
+
+## Storybook
+
+[BasicCard](https://preview.gravity-ui.com/page-constructor/?path=/docs/components-cards-basiccard--docs)

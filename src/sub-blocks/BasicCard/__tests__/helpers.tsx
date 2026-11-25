@@ -1,10 +1,9 @@
 import {composeStories} from '@storybook/react';
 
 import * as BasicCardStories from '../__stories__/BasicCard.stories';
+import * as CardColorsStories from '../__stories__/CardColors.stories';
 
 export const {
-    ColorTokens,
-    ColorTokensOverrides,
     Default,
     WithIcon,
     WithBorder,
@@ -15,3 +14,5 @@ export const {
     GravityIcons,
     HoverEffects,
 } = composeStories(BasicCardStories);
+
+export const {DefaultTokens, Custom} = composeStories(CardColorsStories);

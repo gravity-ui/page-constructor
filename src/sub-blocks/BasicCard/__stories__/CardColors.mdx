@@ -1,0 +1,36 @@
+import {Canvas, Meta} from '@storybook/blocks';
+
+import * as CardColorsStories from './CardColors.stories.tsx';
+
+<Meta of={CardColorsStories} />
+
+# Card color themes
+
+These CSS tokens are shared by BasicCard, BackgroundCard, ImageCard, MediaCard,
+PriceCard, PriceDetailed and Quote. The stories below use BasicCard to compare
+`shadow`, `line` and `none` borders.
+
+Site developers set tokens once on the site theme. Cards inherit them, and a nested
+section can override them for all its cards. Light and dark themes can use different
+values. These are theme settings, not per-card fields in the content editor.
+
+- Without overrides, cards keep their existing appearance.
+- `border="none"` removes the border and shadow, but keeps the fill. Set the background
+  token to `transparent` explicitly to remove the fill.
+- Hover colors apply to cards with a `url` set.
+- An individually configured card background keeps its priority.
+- Inherited hover and outlined tokens take priority over a local general background.
+  Override those tokens too when changing a section theme.
+
+## Default tokens
+
+Existing defaults without token overrides. For `none`, the default fill stays unchanged
+on hover. Switch the Storybook theme and hover over the cards to compare states.
+
+<Canvas of={CardColorsStories.DefaultTokens} withToolbar />
+
+## Custom tokens
+
+A section that overrides all six tokens for its cards, with separate light and dark values.
+
+<Canvas of={CardColorsStories.Custom} withToolbar />
