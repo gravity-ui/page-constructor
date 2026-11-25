@@ -19,20 +19,32 @@ const useHeightCalculator: (
     const [containerHeight, setContainerHeight] = React.useState<number | undefined>(undefined);
 
     const calculateContainerHeight = React.useCallback(() => {
-        if (containerRef.current && containerRef.current.offsetHeight !== containerHeight)
+        if (containerRef.current) {
             setContainerHeight(containerRef.current.offsetHeight);
-    }, [containerRef, containerHeight, setContainerHeight]);
+        }
+    }, [containerRef]);
 
     React.useEffect(() => {
         const handleResize = debounce(calculateContainerHeight, recalculateOnResizeDelay);
+        const container = containerRef.current;
+        const observer =
+            typeof ResizeObserver === 'undefined'
+                ? undefined
+                : new ResizeObserver(calculateContainerHeight);
 
-        handleResize();
+        calculateContainerHeight();
+
+        if (container) {
+            observer?.observe(container, {box: 'border-box'});
+        }
 
         window.addEventListener('resize', handleResize, {passive: true});
         return () => {
+            observer?.disconnect();
+            handleResize.cancel();
             window.removeEventListener('resize', handleResize);
         };
-    }, [calculateContainerHeight, recalculateOnResizeDelay]);
+    }, [containerRef, calculateContainerHeight, recalculateOnResizeDelay]);
 
     return containerHeight;
 };
