@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {ArrowLeft} from '@gravity-ui/icons';

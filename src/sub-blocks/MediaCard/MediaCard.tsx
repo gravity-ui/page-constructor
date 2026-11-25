@@ -1,4 +1,5 @@
-import {CardBase, Media} from '../../components';
+import CardBase from '../../components/CardBase/CardBase';
+import Media from '../../components/Media/Media';
 import {MediaCardProps} from '../../models';
 import {block} from '../../utils';
 

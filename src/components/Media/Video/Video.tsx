@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {MediaComponentVideoProps, MediaVideoType, PlayButtonProps, QAProps} from '../../../models';

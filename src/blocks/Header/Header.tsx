@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable complexity */
 import * as React from 'react';
 

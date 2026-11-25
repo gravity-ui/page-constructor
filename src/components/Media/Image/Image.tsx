@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {Interpolation, animated, config, useSpring} from '@react-spring/web';

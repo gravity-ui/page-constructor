@@ -1,6 +1,6 @@
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import {BannerBlockProps} from '../../models';
-import {BannerCard} from '../../sub-blocks';
+import BannerCard from '../../sub-blocks/BannerCard/BannerCard';
 import {block} from '../../utils';
 
 import './Banner.scss';
