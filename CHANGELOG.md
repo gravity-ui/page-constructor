@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.25.1](https://github.com/gravity-ui/page-constructor/compare/v8.25.0...v8.25.1) (2026-11-25)
+
+
+### Bug Fixes
+
+* foldable with foldable components ([#1560](https://github.com/gravity-ui/page-constructor/issues/1560)) ([6c1b58c](https://github.com/gravity-ui/page-constructor/commit/6c1b58c49c53e74afd139d14c76f6b6781e24ac4))
+
 ## [8.25.0](https://github.com/gravity-ui/page-constructor/compare/v8.24.2...v8.25.0) (2026-11-17)
 
 
