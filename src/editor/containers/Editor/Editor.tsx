@@ -1,4 +1,5 @@
 import {PageConstructor, PageConstructorProvider} from '../../../containers/PageConstructor';
+import {UIKitProvider} from '../../../containers/PageConstructor/UIKitProvider';
 import {block} from '../../../utils';
 import AddBlock from '../../components/AddBlock/AddBlock';
 import {CodeEditor} from '../../components/CodeEditor/CodeEditor';
@@ -46,51 +47,60 @@ export const Editor = (props: EditorProps) => {
     } = useEditorState(props);
 
     return (
-        <EditorContext.Provider value={context}>
-            <ControlPanel
-                viewMode={viewMode}
-                onViewModeChange={onViewModeUpdate}
-                editMode={editMode}
-                onEditModeChange={onEditModeUpdate}
-                theme={constructorTheme}
-                className={b('panel')}
-                onThemeChange={onThemeUpdate}
-            />
-            {isFormEditMode && isDesktopViewMode && (
-                <PageSettings content={content} schema={schema} onChange={onContentUpdate} />
-            )}
-            {isCodeEditMode && (
-                <CodeEditor
-                    code={code}
-                    onChange={onContentUpdate}
-                    validator={codeValidator}
-                    fullscreenModeOn={codeFullscreeModeOn}
-                    onFullscreenModeOnUpdate={onCodeFullscreeModeOnUpdate}
+        <UIKitProvider
+            theme={props.theme ?? providerProps?.theme}
+            mobile={providerProps?.isMobile}
+            lang={providerProps?.locale?.lang}
+        >
+            <EditorContext.Provider value={context}>
+                <ControlPanel
+                    viewMode={viewMode}
+                    onViewModeChange={onViewModeUpdate}
+                    editMode={editMode}
+                    onEditModeChange={onEditModeUpdate}
+                    theme={constructorTheme}
+                    className={b('panel')}
+                    onThemeChange={onThemeUpdate}
                 />
-            )}
-            <Layout editMode={editMode} viewMode={viewMode}>
                 {isFormEditMode && isDesktopViewMode && (
-                    <Layout.Left>
-                        <Form
-                            content={content}
-                            onChange={onContentUpdate}
-                            activeBlockIndex={activeBlockIndex}
-                            schema={schema}
-                            onSelect={onSelect}
-                        />
-                    </Layout.Left>
+                    <PageSettings content={content} schema={schema} onChange={onContentUpdate} />
                 )}
-                {!isCodeOnlyMode && (
-                    <Layout.Right>
-                        <ErrorBoundary key={errorBoundaryState}>
-                            <PageConstructorProvider {...providerProps} theme={constructorTheme}>
-                                <PageConstructor {...outgoingProps} />
-                            </PageConstructorProvider>
-                        </ErrorBoundary>
-                        {isFormEditMode && <AddBlock onAdd={onAdd} />}
-                    </Layout.Right>
+                {isCodeEditMode && (
+                    <CodeEditor
+                        code={code}
+                        onChange={onContentUpdate}
+                        validator={codeValidator}
+                        fullscreenModeOn={codeFullscreeModeOn}
+                        onFullscreenModeOnUpdate={onCodeFullscreeModeOnUpdate}
+                    />
                 )}
-            </Layout>
-        </EditorContext.Provider>
+                <Layout editMode={editMode} viewMode={viewMode}>
+                    {isFormEditMode && isDesktopViewMode && (
+                        <Layout.Left>
+                            <Form
+                                content={content}
+                                onChange={onContentUpdate}
+                                activeBlockIndex={activeBlockIndex}
+                                schema={schema}
+                                onSelect={onSelect}
+                            />
+                        </Layout.Left>
+                    )}
+                    {!isCodeOnlyMode && (
+                        <Layout.Right>
+                            <ErrorBoundary key={errorBoundaryState}>
+                                <PageConstructorProvider
+                                    {...providerProps}
+                                    theme={constructorTheme}
+                                >
+                                    <PageConstructor {...outgoingProps} />
+                                </PageConstructorProvider>
+                            </ErrorBoundary>
+                            {isFormEditMode && <AddBlock onAdd={onAdd} />}
+                        </Layout.Right>
+                    )}
+                </Layout>
+            </EditorContext.Provider>
+        </UIKitProvider>
     );
 };

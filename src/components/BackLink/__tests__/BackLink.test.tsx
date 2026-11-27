@@ -63,7 +63,7 @@ describe('BackLink', () => {
     test.each(new Array<Theme>('default', 'special'))('Render with given "%s" theme', (theme) => {
         const matchView: Record<Theme, string> = {
             default: 'flat-secondary',
-            special: 'flat-contrast',
+            special: 'flat',
         };
         render(<BackLink {...backLinkProps} theme={theme} />);
         const backLink = screen.getByRole('button');

@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
 
 // loading uikit styles before page constructor customisations
 // eslint-disable-next-line import/order
@@ -9,6 +9,7 @@ import {DeviceFrameMessageType} from '../editor/widget/constants';
 
 const root = document.createElement('div');
 document.body.appendChild(root);
+const reactRoot = createRoot(root);
 
 window.addEventListener('message', function (event) {
     if (event.data?.type === DeviceFrameMessageType.Update) {
@@ -16,12 +17,10 @@ window.addEventListener('message', function (event) {
             data: {constructorProps, providerProps},
         } = event.data;
 
-        // eslint-disable-next-line react/no-deprecated
-        ReactDOM.render(
+        reactRoot.render(
             <PageConstructorProvider {...providerProps}>
                 <PageConstructor {...constructorProps} />
             </PageConstructorProvider>,
-            root,
         );
     }
 });

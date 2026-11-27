@@ -21,6 +21,8 @@ import {ThemeContext} from '../../context/theme';
 import {WindowWidthProvider} from '../../context/windowWidthContext';
 import {Theme} from '../../models';
 
+import {UIKitProvider} from './UIKitProvider';
+
 export interface PageConstructorProviderProps {
     isMobile?: boolean;
     locale?: LocaleContextProps;
@@ -67,5 +69,9 @@ export const PageConstructorProvider = (
     ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);
     /* eslint-enable react/jsx-key */
 
-    return <React.Fragment>{context}</React.Fragment>;
+    return (
+        <UIKitProvider theme={theme} mobile={isMobile} lang={locale.lang}>
+            {context}
+        </UIKitProvider>
+    );
 };

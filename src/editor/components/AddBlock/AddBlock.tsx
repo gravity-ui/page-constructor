@@ -59,12 +59,12 @@ const AddBlock = ({onAdd, className}: AddBlockProps) => {
             </button>
             {isOpened && (
                 <Popup
-                    anchorRef={ref}
+                    anchorElement={ref.current}
                     open={isOpened}
                     placement="top"
                     className={b('popup')}
                     offset={{mainAxis: 0, crossAxis: 24}}
-                    onOutsideClick={() => setIsOpened(false)}
+                    onOpenChange={setIsOpened}
                 >
                     <div className={b('search')}>
                         <TextInput

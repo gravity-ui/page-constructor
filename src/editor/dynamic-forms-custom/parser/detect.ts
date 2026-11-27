@@ -1,4 +1,4 @@
-import {SpecTypes} from '@gravity-ui/dynamic-forms';
+import {SpecTypes} from '@gravity-ui/dynamic-forms/deprecated';
 
 import {Schema} from '../../../schema';
 

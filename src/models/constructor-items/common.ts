@@ -206,6 +206,9 @@ export interface FileLinkProps extends ClassNameProps, Tabbable {
 // buttons
 export type ButtonTheme =
     | ButtonView
+    | 'normal-contrast'
+    | 'outlined-contrast'
+    | 'flat-contrast'
     | 'github'
     | 'app-store'
     | 'google-play'
@@ -222,7 +225,9 @@ export interface ButtonProps extends AnalyticsEventsBase {
     target?: string;
     size?: UikitButtonProps['size'];
     width?: UikitButtonProps['width'];
-    extraProps?: UikitButtonProps['extraProps'];
+    extraProps?:
+        | React.ButtonHTMLAttributes<HTMLButtonElement>
+        | React.AnchorHTMLAttributes<HTMLAnchorElement>;
 }
 
 export type ButtonImagePosition = 'left' | 'right';

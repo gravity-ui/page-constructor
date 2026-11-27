@@ -18,7 +18,8 @@ Trivial cases (typos, one-line lookups) may skip the gate but must state so expl
 
 **Package**: `@gravity-ui/page-constructor` v8.7.1  
 **Purpose**: React library for rendering web pages from JSON/YAML data. A page is assembled from typed blocks placed in any order; each block declares its schema, types, and visual component.  
-**Peer deps**: `react ^16–19`, `@gravity-ui/uikit ^7`, `@diplodoc/transform ^4`  
+**Peer deps**: `react` and `react-dom` 18–19, `@gravity-ui/uikit ^8.2.0`, `@diplodoc/transform ^4`
+
 **Key exports**: main (CJS/ESM), `./editor`, `./server`, `./styles/*`, `./widget/*`, `./schema/*`
 
 ### Commands

@@ -1,0 +1,5 @@
+@import '../../../styles/mixins.scss';
+
+.#{$ns}back-link_special {
+    @include light-contrast-button;
+}

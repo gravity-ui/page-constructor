@@ -80,6 +80,20 @@ describe('Button', () => {
         expect(button).toHaveClass(`pc-button-block_theme_${theme}`);
     });
 
+    test.each([
+        ['normal-contrast', 'contrast-light'],
+        ['outlined-contrast', 'outlined'],
+        ['flat-contrast', 'flat'],
+    ] as const)('maps %s to the UIKit view %s', (theme, view) => {
+        render(<Button text={buttonProps.text} theme={theme} />);
+        expect(screen.getByRole('button')).toHaveClass(`g-button_view_${view}`);
+    });
+
+    test('forwards accessibility props to the link', () => {
+        render(<Button {...buttonProps} extraProps={{'aria-describedby': 'heading'}} />);
+        expect(screen.getByRole('link')).toHaveAttribute('aria-describedby', 'heading');
+    });
+
     test('add className', () => {
         testCustomClassName<ButtonProps>({
             component: Button,

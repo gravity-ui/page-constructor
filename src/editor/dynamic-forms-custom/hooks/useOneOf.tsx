@@ -5,7 +5,7 @@ import {
     ObjectIndependentInputProps,
     Spec,
     SpecTypes,
-} from '@gravity-ui/dynamic-forms';
+} from '@gravity-ui/dynamic-forms/deprecated';
 import {SegmentedRadioGroup, Select} from '@gravity-ui/uikit';
 import isObjectLike from 'lodash/isObjectLike';
 import some from 'lodash/some';
@@ -121,7 +121,9 @@ export const useOneOf = ({props, onTogglerChange}: UseOneOfParams) => {
 
     const toggler = React.useMemo(() => {
         if (Layout) {
-            return <Layout {...props}>{togglerInput}</Layout>;
+            // The editor uses synchronous layouts. Dynamic Forms also types async React 19 layouts.
+            const FieldLayout = Layout as React.FC<Parameters<typeof Layout>[0]>;
+            return <FieldLayout {...props}>{togglerInput}</FieldLayout>;
         }
 
         return togglerInput;

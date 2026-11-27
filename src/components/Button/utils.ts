@@ -14,6 +14,9 @@ export type OldButtonTheme =
     | 'accent'
     | 'websearch'
     | 'flat-special'
+    | 'normal-contrast'
+    | 'outlined-contrast'
+    | 'flat-contrast'
     | 'normal-special'
     | 'normal-dark'
     | 'pseudo-special';
@@ -29,10 +32,13 @@ const themeMap: Record<OldButtonTheme, ButtonView> = {
     link: 'outlined-info',
     accent: 'action',
     websearch: 'action',
-    'flat-special': 'flat-contrast',
-    'normal-special': 'normal-contrast',
-    'normal-dark': 'outlined-contrast',
-    'pseudo-special': 'outlined-contrast',
+    'normal-contrast': 'contrast-light',
+    'outlined-contrast': 'outlined',
+    'flat-contrast': 'flat',
+    'flat-special': 'flat',
+    'normal-special': 'contrast-light',
+    'normal-dark': 'outlined',
+    'pseudo-special': 'outlined',
 };
 
 export type OldButtonSize = 'xs' | 'ns' | 's' | 'm' | 'l' | 'n' | 'head' | 'promo';

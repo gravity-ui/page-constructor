@@ -41,7 +41,7 @@ const SocialIconItem = ({contact, theme}: SocialIconItemProps) => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <Flex direction="column" alignItems="center" gap={2}>
+                <Flex direction="column" alignItems="center" gap="spacing-2">
                     <Image
                         {...iconProps}
                         alt={contact.urlTitle ?? ''}

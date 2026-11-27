@@ -14,6 +14,8 @@ For the format of input data and list of available blocks, see the [documentatio
 npm install @gravity-ui/page-constructor
 ```
 
+Requires React and React DOM 18 or 19 and UIKit 8.2 or later in the 8.x series.
+
 ## Quick start
 
 First, we need a React project and some kind of server. For example, you can create a React project using Vite and an Express server, or you can create Next.js application - it will have a client and server side at once.

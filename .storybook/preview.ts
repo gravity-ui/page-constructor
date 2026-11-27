@@ -6,7 +6,6 @@ import * as React from 'react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
 import type {Decorator, Preview} from '@storybook/react';
 import {themeLight} from './theme/light';
-import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
 import {withPageConstructorProvider} from './decorators/withPageConstructorProvider';
 import {withContextProvider} from './decorators/withContextProvider';
@@ -16,7 +15,7 @@ import '../styles/styles.scss';
 import '../styles/root.scss';
 
 const preview: Preview = {
-    decorators: [withLang, withMobile, withContextProvider, withPageConstructorProvider],
+    decorators: [withLang, withContextProvider, withPageConstructorProvider],
 
     parameters: {
         layout: 'fullscreen',

@@ -1,6 +1,5 @@
 import {
-    MobileProvider,
-    ThemeProvider,
+    Provider,
     Toaster,
     ToasterComponent,
     ToasterProvider,
@@ -31,8 +30,7 @@ export const Providers = ({children}) => {
     }, []);
 
     return (
-        <ThemeProvider>
-            <MobileProvider>
+        <Provider theme={theme}>
                 <ToasterProvider toaster={toaster}>
                     <PageConstructorProvider
                         theme={theme}
@@ -42,7 +40,6 @@ export const Providers = ({children}) => {
                         <ToasterComponent />
                     </PageConstructorProvider>
                 </ToasterProvider>
-            </MobileProvider>
-        </ThemeProvider>
+            </Provider>
     );
 };

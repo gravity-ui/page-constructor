@@ -1,9 +1,12 @@
-import {act, fireEvent, render, screen} from '@testing-library/react';
+import {Provider} from '@gravity-ui/uikit';
+import {act, fireEvent, render as renderComponent, screen} from '@testing-library/react';
 
 import {ComponentMap} from '../ComponentMap';
 import {getCubicBezierPoint, getEdgeGeometry} from '../edgeGeometry';
 import {layoutComponentMap} from '../layout';
 import type {ComponentMapData, ComponentMapNode} from '../model';
+
+const render = (ui: React.ReactElement) => renderComponent(ui, {wrapper: Provider});
 
 const bannerNode: ComponentMapNode = {
     id: 'block:BannerBlock',

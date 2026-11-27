@@ -3,8 +3,10 @@ import JsDomEnvironmetn from 'jest-environment-jsdom';
 
 const matchMedia = (query: string) =>
     ({
-        query,
+        media: query,
         matches: false,
+        addEventListener: function () {},
+        removeEventListener: function () {},
         addListener: function () {},
         removeListener: function () {},
     }) as unknown as MediaQueryList;

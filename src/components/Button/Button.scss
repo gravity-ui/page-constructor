@@ -29,6 +29,20 @@ $block: '.#{$ns}button-block';
             @include monochrome-button();
         }
 
+        &_flat-contrast,
+        &_flat-special,
+        &_outlined-contrast,
+        &_normal-dark,
+        &_pseudo-special {
+            @include light-contrast-button;
+        }
+
+        &_outlined-contrast,
+        &_normal-dark,
+        &_pseudo-special {
+            --g-button-border-color: var(--g-color-line-light);
+        }
+
         &_normal-contrast,
         &_raised {
             &:focus::before {

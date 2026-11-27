@@ -3,12 +3,14 @@ import {IconData} from '@gravity-ui/uikit';
 
 export function getGravityIcon(iconName: string): IconData | undefined {
     if (hasGravityIcon(iconName)) {
-        return (GravityIcons as Record<string, IconData>)[iconName];
+        return GravityIcons[iconName];
     }
 
     return undefined;
 }
 
-export function hasGravityIcon(iconName: string): boolean {
-    return iconName in GravityIcons;
+export function hasGravityIcon(
+    iconName: string,
+): iconName is Exclude<keyof typeof GravityIcons, 'default'> {
+    return iconName !== 'default' && Object.prototype.hasOwnProperty.call(GravityIcons, iconName);
 }

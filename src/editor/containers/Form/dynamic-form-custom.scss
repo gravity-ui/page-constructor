@@ -64,14 +64,14 @@
             justify-content: center;
             align-items: center;
 
-            .g-button__icon-inner > svg {
+            .df-simple-vertical-accordeon__chevron {
                 width: var(--icon-size);
                 height: var(--icon-size);
                 color: var(--g-color-text-hint);
             }
 
-            .g-button__icon_side_right ~ .g-button__text {
-                margin-right: var(--icon-margin);
+            .g-button__icon_side_end ~ .g-button__text {
+                margin-inline-end: var(--icon-margin);
             }
         }
     }

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {DropdownMenuItem, useResizeObserver} from '@gravity-ui/uikit';
+import {useResizeObserver} from '@gravity-ui/uikit';
 import throttleFn from 'lodash/throttle';
 
 import {LinkProps} from '../../../models';
@@ -17,7 +17,7 @@ type UseOverflowListItemsProps = {
 
 type OverflowListItemsResult = {
     visibleItems: LinkItem[];
-    hiddenItems: DropdownMenuItem[];
+    hiddenItems: LinkItem[];
     measured: boolean;
 };
 
@@ -154,18 +154,9 @@ export function useOverflowListItems({
 
         return {
             visibleItems: items?.slice(0, visibleItemsCount) ?? [],
-            hiddenItems: transformItemsToDropdownMenuItems(items?.slice(visibleItemsCount) ?? []),
+            hiddenItems: items?.slice(visibleItemsCount) ?? [],
         };
     }, [containerWidth, isMeasured, itemGap, itemWidths, items, moreButtonWidth, isDropdown]);
 
     return {visibleItems, hiddenItems, measured: isMeasured};
-}
-
-function transformItemsToDropdownMenuItems<ItemType extends {text: string; url: string}>(
-    items: ItemType[],
-): DropdownMenuItem[] {
-    return items.map((item) => ({
-        text: item.text,
-        href: item.url,
-    }));
 }

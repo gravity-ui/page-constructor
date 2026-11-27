@@ -12,12 +12,22 @@ command_exists() {
 }
 
 run_command() {
-    $CONTAINER_TOOL run --rm --network host -it -w /work \
-        -v $(pwd):/work \
+    "$CONTAINER_TOOL" run --rm --network host -it -w /work \
+        -v "$PWD:/work" \
         -v "$NODE_MODULES_CACHE_DIR:/work/node_modules" \
         -e IS_DOCKER=1 \
         "$IMAGE_NAME:$IMAGE_TAG" \
-        /bin/bash -c "$1"
+        flock /work/node_modules /bin/bash -euc '
+            stamp=node_modules/.page-constructor-lock.sha256
+            if [[ ! -x node_modules/.bin/playwright || ! -f "$stamp" ]] ||
+                ! sha256sum --check --status "$stamp"; then
+                rm -f "$stamp"
+                npm ci --include=dev
+                test -x node_modules/.bin/playwright
+                sha256sum package-lock.json > "$stamp"
+            fi
+            exec /bin/bash -c "$1"
+        ' -- "$1"
 }
 
 if command_exists docker; then
@@ -35,9 +45,5 @@ if [[ "$1" = "clear-cache" ]]; then
     exit 0
 fi
 
-if [[ ! -d "$NODE_MODULES_CACHE_DIR" ]]; then
-    mkdir -p "$NODE_MODULES_CACHE_DIR"
-    run_command 'npm ci'
-fi
-
+mkdir -p "$NODE_MODULES_CACHE_DIR"
 run_command "$1"

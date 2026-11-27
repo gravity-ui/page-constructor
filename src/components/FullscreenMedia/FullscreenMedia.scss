@@ -24,6 +24,10 @@ $modalYoutubeWidth: min(65vw, #{$newContentWidth});
         }
     }
 
+    &__modal {
+        --g-modal-border-radius: #{$borderRadius};
+    }
+
     &__modal-content {
         position: relative;
         border-radius: $borderRadius;

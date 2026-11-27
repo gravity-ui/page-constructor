@@ -127,11 +127,9 @@ export const Layout = (props: CardBasePropsType) => {
                 className={fullClassName}
                 onClick={onClick}
                 title={urlTitle}
-                extraProps={{
-                    draggable: false,
-                    onDragStart: (e: React.DragEvent<HTMLAnchorElement>) => e.preventDefault(),
-                    ...extraProps,
-                }}
+                draggable={false}
+                onDragStart={(event) => event.preventDefault()}
+                {...extraProps}
                 qa={qa}
             >
                 {cardContent}

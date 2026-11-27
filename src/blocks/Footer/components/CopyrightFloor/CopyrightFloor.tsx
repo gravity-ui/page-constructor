@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {DropdownMenu, DropdownMenuItem, Link, useResizeObserver} from '@gravity-ui/uikit';
+import {Link, Menu, MenuItem, useResizeObserver} from '@gravity-ui/uikit';
 
 import {Image} from '../../../../components';
 import {BREAKPOINTS} from '../../../../constants';
@@ -11,6 +11,7 @@ import type {FooterBlockProps} from '../../../../models';
 import {block, getThemedValue} from '../../../../utils';
 import {useLogoImageProps} from '../../hooks/useLogoImageProps';
 import {LinkItem, useOverflowListItems} from '../../hooks/useOverflowListItems';
+import {i18n} from '../../i18n';
 import {LangSwitcher} from '../LangSwitcher';
 
 import './CopyrightFloor.scss';
@@ -117,7 +118,7 @@ const VisibleLinks = ({items, isLinksOverflowDropdown}: VisibleLinksProps) => {
 
 type OverflowDropdownProps = {
     isLinksOverflowDropdown: boolean;
-    items: DropdownMenuItem[];
+    items: LinkItem[];
 };
 
 const OverflowDropdown = ({isLinksOverflowDropdown, items}: OverflowDropdownProps) => {
@@ -126,13 +127,23 @@ const OverflowDropdown = ({isLinksOverflowDropdown, items}: OverflowDropdownProp
     }
 
     return (
-        <DropdownMenu
-            items={items}
-            switcherWrapperClassName={b('more-button', {
-                visible: isLinksOverflowDropdown && items.length > 0,
-            })}
+        <Menu
             size="l"
-        />
+            trigger={
+                <Menu.Trigger
+                    size="l"
+                    view="flat"
+                    aria-label={i18n('more-links')}
+                    className={b('more-button', {visible: true})}
+                />
+            }
+        >
+            {items.map((item, index) => (
+                <MenuItem key={index} href={item.url}>
+                    {item.text}
+                </MenuItem>
+            ))}
+        </Menu>
     );
 };
 

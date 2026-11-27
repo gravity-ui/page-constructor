@@ -20,7 +20,7 @@ module.exports = {
         ],
     },
     transformIgnorePatterns: [
-        'node_modules/(?!(@gravity-ui|react-github-btn|tinygesture|swiper)/)',
+        'node_modules/(?!(@gravity-ui|colors-named|colors-named-hex|react-github-btn|tinygesture|swiper)/)',
     ],
     coverageDirectory: './coverage',
     collectCoverageFrom: [

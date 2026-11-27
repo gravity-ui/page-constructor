@@ -45,15 +45,15 @@ $closeButtonSize: 36px;
         }
     }
 
+    &__modal {
+        --g-modal-border-radius: #{$borderRadius};
+    }
+
     &__modal-content {
         position: relative;
         border-radius: $borderRadius;
 
         width: 100%;
-
-        &-wrapper {
-            width: 100%;
-        }
 
         &_loaded {
             max-width: fit-content;
@@ -61,12 +61,9 @@ $closeButtonSize: 36px;
     }
 
     &__modal_with-slider {
-        & .g-modal__content-wrapper {
-            width: 100%;
-            height: 100vh;
-            margin: 0;
-            justify-content: center;
-        }
+        --g-modal-height: 100vh;
+        --g-modal-margin: 0px;
+        --g-modal-width: 100%;
 
         #{$block}__modal-content {
             background-color: transparent;
@@ -146,12 +143,8 @@ $closeButtonSize: 36px;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
-        &__modal .g-modal__content-wrapper {
-            margin: $fullscreenImageMobilePadding;
-        }
-
-        &__modal_with-slider .g-modal__content-wrapper {
-            margin: 0;
+        &__modal:not(&__modal_with-slider) {
+            --g-modal-margin: #{$fullscreenImageMobilePadding};
         }
     }
 }

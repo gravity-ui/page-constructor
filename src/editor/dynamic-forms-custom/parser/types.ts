@@ -1,4 +1,4 @@
-import {Spec as DynamicFormSpec, ObjectSpec} from '@gravity-ui/dynamic-forms';
+import type {Spec as DynamicFormSpec, ObjectSpec} from '@gravity-ui/dynamic-forms/deprecated';
 
 import {Schema} from '../../../schema';
 
