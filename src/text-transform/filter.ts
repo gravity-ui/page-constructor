@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign */
 
-import evalExp from '@diplodoc/transform/lib/liquid/evaluation';
+import {evalExp} from '@diplodoc/transform/lib/liquid/evaluation';
 
 import {ContentVariables} from './transformers';
 
@@ -58,7 +58,7 @@ function checkWhenCondition(whenValue: WhenValue, vars: ContentVariables) {
     return (
         whenValue === true ||
         whenValue === undefined ||
-        (typeof whenValue === 'string' && (!whenValue || evalExp(whenValue, vars)))
+        (typeof whenValue === 'string' && (!whenValue || Boolean(evalExp(whenValue, vars))))
     );
 }
 

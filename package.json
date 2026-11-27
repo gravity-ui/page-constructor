@@ -99,6 +99,7 @@
     "prepublishOnly": "npm run lint && npm run build",
     "prepare": "husky install",
     "test": "jest",
+    "test:transform": "npm run build:server && node --test test-utils/transform.test.cjs",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watchAll",
     "playwright": "playwright test --config=playwright/playwright.config.ts",
@@ -141,7 +142,7 @@
     "uuid": "^9.0.0"
   },
   "peerDependencies": {
-    "@diplodoc/transform": "^4.28.2",
+    "@diplodoc/transform": "^5.0.0",
     "@gravity-ui/uikit": "^8.0.0",
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0",
@@ -154,7 +155,7 @@
     "@babel/preset-typescript": "^7.26.0",
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
-    "@diplodoc/transform": "^4.57.1",
+    "@diplodoc/transform": "^5.0.0",
     "@gravity-ui/eslint-config": "^3.2.0",
     "@gravity-ui/gulp-utils": "^1.1.1",
     "@gravity-ui/prettier-config": "^1.1.0",

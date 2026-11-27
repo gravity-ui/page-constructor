@@ -14,13 +14,6 @@ For the format of input data and list of available blocks, see the [documentatio
 npm install @gravity-ui/page-constructor
 ```
 
-## UIKit 8 compatibility
-
-UIKit 8 and React 18 or 19 are required. UIKit 7 and React 16 or 17 are no longer supported.
-Use UIKit's `Provider` around Page Constructor to provide the theme, layout, language, and mobile contexts.
-Replace an existing UIKit `ThemeProvider` with `Provider` when migrating.
-Existing Page Constructor button data, including the `normal-contrast`, `outlined-contrast`, and `flat-contrast` themes, remains supported.
-
 ## Quick start
 
 First, we need a React project and some kind of server. For example, you can create a React project using Vite and an Express server, or you can create Next.js application - it will have a client and server side at once.
