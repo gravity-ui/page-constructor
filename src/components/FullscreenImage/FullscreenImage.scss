@@ -49,8 +49,6 @@ $closeButtonSize: 36px;
         position: relative;
         border-radius: $borderRadius;
 
-        width: 100%;
-
         &-wrapper {
             width: 100%;
         }
@@ -69,6 +67,7 @@ $closeButtonSize: 36px;
         }
 
         #{$block}__modal-content {
+            width: 100%;
             background-color: transparent;
 
             &:hover {

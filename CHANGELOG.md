@@ -14,6 +14,42 @@
 * Preserve Markdown attributes and optional Highlight.js integration when using Transform 5.
 
 
+## [8.25.1](https://github.com/gravity-ui/page-constructor/compare/v8.25.0...v8.25.1) (2026-11-25)
+
+
+### Bug Fixes
+
+* foldable with foldable components ([#1560](https://github.com/gravity-ui/page-constructor/issues/1560)) ([6c1b58c](https://github.com/gravity-ui/page-constructor/commit/6c1b58c49c53e74afd139d14c76f6b6781e24ac4))
+
+## [8.25.0](https://github.com/gravity-ui/page-constructor/compare/v8.24.2...v8.25.0) (2026-11-17)
+
+
+### Features
+
+* **Strip:** add new block ([#1552](https://github.com/gravity-ui/page-constructor/issues/1552)) ([0c6ed39](https://github.com/gravity-ui/page-constructor/commit/0c6ed39e02a603223f6d173d265db6d61604cfc6))
+
+## [8.24.2](https://github.com/gravity-ui/page-constructor/compare/v8.24.1...v8.24.2) (2026-11-10)
+
+
+### Bug Fixes
+
+* YFM styles specificity ([#1528](https://github.com/gravity-ui/page-constructor/issues/1528)) ([#1544](https://github.com/gravity-ui/page-constructor/issues/1544)) ([c788978](https://github.com/gravity-ui/page-constructor/commit/c788978f2259afb59f94d0789afcc6f107a7bcbb))
+
+## [8.24.1](https://github.com/gravity-ui/page-constructor/compare/v8.24.0...v8.24.1) (2026-10-28)
+
+
+### Bug Fixes
+
+* **FullscreenImage:** avoid stretching single-image modals ([#1524](https://github.com/gravity-ui/page-constructor/issues/1524)) ([c81107b](https://github.com/gravity-ui/page-constructor/commit/c81107bf8dd669203c21b38ddddc52dfe7c06b78))
+* repair React warnings in Media and VideoBlock ([#1545](https://github.com/gravity-ui/page-constructor/issues/1545)) ([a763e41](https://github.com/gravity-ui/page-constructor/commit/a763e414b7d91551063dddf1dd92f9f092671f18))
+
+## [8.24.0](https://github.com/gravity-ui/page-constructor/compare/v8.23.5...v8.24.0) (2026-10-21)
+
+
+### Features
+
+* **FilterBlock:** add optional collapsible card lists ([#1533](https://github.com/gravity-ui/page-constructor/issues/1533)) ([f0bc903](https://github.com/gravity-ui/page-constructor/commit/f0bc903bdc92c4a0d13d1a56a002b3c3ad0a0238))
+
 ## [8.23.5](https://github.com/gravity-ui/page-constructor/compare/v8.23.4...v8.23.5) (2026-10-05)
 
 

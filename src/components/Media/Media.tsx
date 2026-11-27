@@ -14,6 +14,8 @@ import Video, {VideoAdditionProps} from './Video/Video';
 
 import './Media.scss';
 
+const VIDEO_KEY = 'video';
+
 const b = block('Media');
 
 export interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAdditionProps, QAProps {
@@ -91,7 +93,6 @@ export const Media = (props: MediaAllProps) => {
 
         if (video) {
             const videoProps = {
-                key: 'video',
                 video,
                 videoClassName,
                 height,
@@ -108,9 +109,11 @@ export const Media = (props: MediaAllProps) => {
             };
 
             if (fullscreen) {
-                result.push(<FullscreenVideo {...videoProps} qa={qaAttributes.video} />);
+                result.push(
+                    <FullscreenVideo key={VIDEO_KEY} {...videoProps} qa={qaAttributes.video} />,
+                );
             } else {
-                result.push(<Video {...videoProps} qa={qaAttributes.video} />);
+                result.push(<Video key={VIDEO_KEY} {...videoProps} qa={qaAttributes.video} />);
             }
         }
 

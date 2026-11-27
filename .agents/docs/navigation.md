@@ -38,6 +38,7 @@ Full-width page sections rendered by `PageConstructor`. Each block is a director
 | `Share`              | Social share buttons           |
 | `Slider`             | Content slider (Swiper-based)  |
 | `SliderOld`          | Legacy slider (react-slick)    |
+| `Strip`              | Card strip or marquee          |
 | `Table`              | Data table                     |
 | `Tabs`               | Tabbed content                 |
 
