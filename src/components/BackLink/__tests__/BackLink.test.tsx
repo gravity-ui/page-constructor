@@ -1,5 +1,5 @@
 import {ButtonSize} from '@gravity-ui/uikit';
-import {render, screen} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {History, LocationContext} from '../../../context/locationContext';
@@ -20,6 +20,26 @@ describe('BackLink', () => {
         render(<BackLink {...backLinkProps} />);
         const backLink = screen.getByRole('button');
         expect(backLink).toBeInTheDocument();
+    });
+
+    test('should preserve native click handlers and tabIndex from extraProps', () => {
+        const onClick = jest.fn((event) => event.preventDefault());
+        render(
+            <BackLink
+                {...backLinkProps}
+                shouldHandleBackAction={false}
+                extraProps={{onClick, tabIndex: -1}}
+            />,
+        );
+        const link = screen.getByRole('link');
+        fireEvent.click(link);
+        expect(onClick).toHaveBeenCalledTimes(1);
+        expect(link).toHaveAttribute('tabindex', '-1');
+    });
+
+    test('should prefer the root tabIndex over extraProps', () => {
+        render(<BackLink {...backLinkProps} tabIndex={0} extraProps={{tabIndex: -1}} />);
+        expect(screen.getByRole('button')).toHaveAttribute('tabindex', '0');
     });
 
     test('Has custom class', async () => {
@@ -63,7 +83,7 @@ describe('BackLink', () => {
     test.each(new Array<Theme>('default', 'special'))('Render with given "%s" theme', (theme) => {
         const matchView: Record<Theme, string> = {
             default: 'flat-secondary',
-            special: 'flat-contrast',
+            special: 'flat',
         };
         render(<BackLink {...backLinkProps} theme={theme} />);
         const backLink = screen.getByRole('button');

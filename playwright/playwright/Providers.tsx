@@ -1,10 +1,4 @@
-import {
-    MobileProvider,
-    ThemeProvider,
-    Toaster,
-    ToasterComponent,
-    ToasterProvider,
-} from '@gravity-ui/uikit';
+import {Provider, Toaster, ToasterComponent, ToasterProvider} from '@gravity-ui/uikit';
 import * as React from 'react';
 
 import {PageConstructorProvider} from '../../src/containers/PageConstructor';
@@ -31,18 +25,16 @@ export const Providers = ({children}) => {
     }, []);
 
     return (
-        <ThemeProvider>
-            <MobileProvider>
-                <ToasterProvider toaster={toaster}>
-                    <PageConstructorProvider
-                        theme={theme}
-                        projectSettings={{isAnimationEnabled: false}}
-                    >
-                        {children}
-                        <ToasterComponent />
-                    </PageConstructorProvider>
-                </ToasterProvider>
-            </MobileProvider>
-        </ThemeProvider>
+        <Provider>
+            <ToasterProvider toaster={toaster}>
+                <PageConstructorProvider
+                    theme={theme}
+                    projectSettings={{isAnimationEnabled: false}}
+                >
+                    {children}
+                    <ToasterComponent />
+                </PageConstructorProvider>
+            </ToasterProvider>
+        </Provider>
     );
 };

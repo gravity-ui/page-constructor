@@ -1,4 +1,5 @@
 import transformYFM, {Options, Output} from '@diplodoc/transform';
+import {createLegacyHighlighter} from '@diplodoc/transform/lib/highlighter/legacy';
 import sanitize from 'sanitize-html';
 import Typograf, {TypografRule} from 'typograf';
 
@@ -84,11 +85,23 @@ export function typografToText(text: string, lang: Lang) {
 }
 
 const DEFAULT_MARKDOWN_OPTIONS: Partial<TransformOptions> = {
+    enableMarkdownAttrs: true,
     useCommonAnchorButtons: true,
 };
 
 export const transformMarkdown = (input: string, options: TransformOptions): Output['result'] => {
-    const {result} = transformYFM(input ?? '', {...DEFAULT_MARKDOWN_OPTIONS, ...options});
+    // The optional Highlight.js peer is loaded through Node's module resolver.
+    const {
+        highlighter = typeof window === 'undefined'
+            ? createLegacyHighlighter({}, options)
+            : undefined,
+        ...rest
+    } = options;
+    const {result} = transformYFM(input ?? '', {
+        ...DEFAULT_MARKDOWN_OPTIONS,
+        highlighter,
+        ...rest,
+    });
     return result;
 };
 

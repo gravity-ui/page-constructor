@@ -89,10 +89,8 @@ const ImageCard = (props: ImageCardProps) => {
             onClick={onClick}
             title={urlTitle}
             style={{backgroundColor}}
-            extraProps={{
-                draggable: false,
-                onDragStart: (e: React.DragEvent<HTMLAnchorElement>) => e.preventDefault(),
-            }}
+            draggable={false}
+            onDragStart={(e) => e.preventDefault()}
         >
             {cardContent}
         </Link>

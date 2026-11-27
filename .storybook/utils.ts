@@ -2,7 +2,8 @@ import yfm from '@diplodoc/transform';
 import {ConstructorBlock} from '../src';
 import {contentTransformer} from '../src/text-transform';
 
-export const yfmTransform = (content: string) => yfm(content).result.html;
+export const yfmTransform = (content: string) =>
+    yfm(content, {enableMarkdownAttrs: true}).result.html;
 
 export const blockListTransform = (blocksList: ConstructorBlock[]) =>
     contentTransformer({content: {blocks: blocksList}, options: {lang: 'en'}}).blocks;
@@ -12,7 +13,7 @@ export const blockTransform = (block: ConstructorBlock) =>
 import {TitleItemProps} from '../src';
 
 export const yfmTransformInline = (content: string) =>
-    yfm(content, {renderInline: true}).result.html;
+    yfm(content, {renderInline: true, enableMarkdownAttrs: true}).result.html;
 export const transformTitle = (title: string | TitleItemProps) => {
     if (!title) {
         return undefined;
