@@ -1,0 +1,36 @@
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}card-colors-story';
+
+#{$block} {
+    overflow-x: auto;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(280px, 1fr));
+        align-items: center;
+        gap: 40px;
+        min-width: 968px;
+        padding: 24px;
+
+        &_tokens {
+            align-items: start;
+            padding-block: 24px 0;
+
+            > div {
+                min-width: 0;
+                margin: 0;
+            }
+
+            pre,
+            code {
+                font-size: 10px;
+                line-height: 1.5;
+            }
+        }
+    }
+
+    &_custom &__grid_cards {
+        background: var(--card-colors-section-background);
+    }
+}
