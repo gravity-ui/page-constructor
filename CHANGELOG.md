@@ -1,29 +1,20 @@
 # Changelog
 
-## Unreleased
-
-### Breaking changes
-
-* UIKit 8 and React 18 or 19 are required. UIKit 7 and React 16 or 17 are no longer supported.
-* `@diplodoc/transform` 5 and Node.js 24 or newer are required. Development and CI use Node.js 24.
-* Replace the root UIKit `ThemeProvider` with `Provider` to supply theme, layout, language, and mobile contexts.
-
-### Compatibility
-
-* Existing Page Constructor button data, including `normal-contrast`, `outlined-contrast`, and `flat-contrast`, remains supported. Custom Button CSS variables preserve the removed outlined and flat contrast appearances, including disabled states and the special BackLink theme.
-* Preserve Markdown attributes and optional Highlight.js integration when using Transform 5.
-
-
 ## [9.0.0](https://github.com/gravity-ui/page-constructor/compare/v8.25.1...v9.0.0) (2026-11-27)
 
 
 ### ⚠ BREAKING CHANGES
 
-* 9 major ([#1439](https://github.com/gravity-ui/page-constructor/issues/1439))
-
-### Features
-
-* 9 major ([#1439](https://github.com/gravity-ui/page-constructor/issues/1439)) ([74720e7](https://github.com/gravity-ui/page-constructor/commit/74720e7e335daece4e6d01130cf91126453153bb))
+* update @gravity-ui/uikit up to 8.0.0
+* update @diplodoc/transform up to 5.0.0
+* update @gravity-ui/components up to 5.0.0
+* update Node.js up to 24
+* **HeaderBlock:** remove paddings ([#1422](https://github.com/gravity-ui/page-constructor/issues/1422)) ([722c42a](https://github.com/gravity-ui/page-constructor/commit/722c42a6f9f85c3da44a5ce13c345d99c8d90dea))
+* **VideoButton:** change text style with mixin ([#1529](https://github.com/gravity-ui/page-constructor/issues/1529)) ([92bb532](https://github.com/gravity-ui/page-constructor/commit/92bb5328f73765b158cd0ce43bf9db8ece44a0c0))
+* **VideoButton:** replace Blue theme with Brand theme ([#1529](https://github.com/gravity-ui/page-constructor/issues/1529)) ([92bb532](https://github.com/gravity-ui/page-constructor/commit/92bb5328f73765b158cd0ce43bf9db8ece44a0c0))
+* **LayoutItem:** remove contentMargin prop ([#1534](https://github.com/gravity-ui/page-constructor/issues/1534)) ([37d48a1](https://github.com/gravity-ui/page-constructor/commit/37d48a1e8c3fe47fb4cfe6ee81a5e4e4d35dc595))
+* **PriceDetailed:** remove block ([#1530](https://github.com/gravity-ui/page-constructor/issues/1530)) ([63f229c](https://github.com/gravity-ui/page-constructor/commit/63f229cc1bcf5a6446fb086f5b3202217b2232e3))
+* **ReactPlayer:** change default button theme ([#1540](https://github.com/gravity-ui/page-constructor/issues/1540)) ([ce97674](https://github.com/gravity-ui/page-constructor/commit/ce976745e65d44fc97abe6833ac553b32d9c7263))
 
 ## [8.25.1](https://github.com/gravity-ui/page-constructor/compare/v8.25.0...v8.25.1) (2026-11-25)
 
