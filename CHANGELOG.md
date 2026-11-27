@@ -8,6 +8,7 @@
 * update @gravity-ui/uikit up to 8.0.0
 * update @diplodoc/transform up to 5.0.0
 * update @gravity-ui/components up to 5.0.0
+* update @gravity-ui/dynamic-forms up to 6.0.0
 * update Node.js up to 24
 * **HeaderBlock:** remove paddings ([#1422](https://github.com/gravity-ui/page-constructor/issues/1422)) ([722c42a](https://github.com/gravity-ui/page-constructor/commit/722c42a6f9f85c3da44a5ce13c345d99c8d90dea))
 * **VideoButton:** change text style with mixin ([#1529](https://github.com/gravity-ui/page-constructor/issues/1529)) ([92bb532](https://github.com/gravity-ui/page-constructor/commit/92bb5328f73765b158cd0ce43bf9db8ece44a0c0))
