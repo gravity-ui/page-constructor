@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased
+
+### Breaking changes
+
+* UIKit 8 and React 18 or 19 are required. UIKit 7 and React 16 or 17 are no longer supported.
+* `@diplodoc/transform` 5 and Node.js 24 or newer are required. Development and CI use Node.js 24.
+* Replace the root UIKit `ThemeProvider` with `Provider` to supply theme, layout, language, and mobile contexts.
+
+### Compatibility
+
+* Existing Page Constructor button data, including `normal-contrast`, `outlined-contrast`, and `flat-contrast`, remains supported. Custom Button CSS variables preserve the removed outlined and flat contrast appearances, including disabled states and the special BackLink theme.
+* Preserve Markdown attributes and optional Highlight.js integration when using Transform 5.
+
+
 ## [8.25.1](https://github.com/gravity-ui/page-constructor/compare/v8.25.0...v8.25.1) (2026-11-25)
 
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {DynamicField, Spec} from '@gravity-ui/dynamic-forms';
+import {DynamicField, Spec} from '@gravity-ui/dynamic-forms/deprecated';
 import {Disclosure} from '@gravity-ui/uikit';
 import {JSONSchema4} from 'json-schema';
 import noop from 'lodash/noop';

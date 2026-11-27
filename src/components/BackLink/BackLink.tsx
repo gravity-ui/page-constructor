@@ -6,6 +6,11 @@ import {Button, ButtonSize, Icon, ButtonProps as UIKitButtonProps} from '@gravit
 import {LocationContext} from '../../context/locationContext';
 import {useAnalytics} from '../../hooks';
 import {DefaultEventNames, Tabbable} from '../../models';
+import {block} from '../../utils';
+
+import './BackLink.scss';
+
+const b = block('back-link');
 
 export type Theme = 'default' | 'special';
 
@@ -55,17 +60,17 @@ export default function BackLink(props: BackLinkProps) {
 
     const buttonProps = {
         href: shouldHandleBackAction ? undefined : url,
-        extraProps,
+        onClick: shouldHandleBackAction ? backActionHandler : undefined,
+        ...extraProps,
+        tabIndex: tabIndex ?? extraProps?.tabIndex,
     } as UIKitButtonProps;
 
     return (
         <Button
-            className={className}
-            view={theme === 'special' ? 'flat-contrast' : 'flat-secondary'}
-            size={size}
-            onClick={shouldHandleBackAction ? backActionHandler : undefined}
-            tabIndex={tabIndex}
             {...buttonProps}
+            className={b({theme}, className)}
+            view={theme === 'special' ? 'flat' : 'flat-secondary'}
+            size={size}
         >
             <Icon data={ArrowLeft} size={20} />
             <span>{title}</span>

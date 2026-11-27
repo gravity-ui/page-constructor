@@ -49,11 +49,6 @@ export const LayoutItem = {
             required: [],
             properties: ContentBase,
         },
-        contentMargin: {
-            type: 'string',
-            enum: ['m', 'l'],
-            default: 'm',
-        },
         metaInfo: metaInfo,
         border: {
             type: 'boolean',

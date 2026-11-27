@@ -4,6 +4,9 @@ export const ICON_QA = 'button-icon';
 
 export type OldButtonTheme =
     | 'normal'
+    | 'normal-contrast'
+    | 'outlined-contrast'
+    | 'flat-contrast'
     | 'action'
     | 'flat'
     | 'light'
@@ -20,6 +23,9 @@ export type OldButtonTheme =
 
 const themeMap: Record<OldButtonTheme, ButtonView> = {
     normal: 'normal',
+    'normal-contrast': 'contrast-light',
+    'outlined-contrast': 'outlined',
+    'flat-contrast': 'flat',
     action: 'action',
     flat: 'flat',
     light: 'flat-secondary',
@@ -29,10 +35,10 @@ const themeMap: Record<OldButtonTheme, ButtonView> = {
     link: 'outlined-info',
     accent: 'action',
     websearch: 'action',
-    'flat-special': 'flat-contrast',
-    'normal-special': 'normal-contrast',
-    'normal-dark': 'outlined-contrast',
-    'pseudo-special': 'outlined-contrast',
+    'flat-special': 'flat',
+    'normal-special': 'contrast-light',
+    'normal-dark': 'outlined',
+    'pseudo-special': 'outlined',
 };
 
 export type OldButtonSize = 'xs' | 'ns' | 's' | 'm' | 'l' | 'n' | 'head' | 'promo';

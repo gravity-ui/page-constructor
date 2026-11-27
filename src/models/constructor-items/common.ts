@@ -12,26 +12,13 @@ export enum AuthorType {
     Line = 'line',
 }
 
-export enum PriceDetailsType {
-    MARKED_LIST = 'marked-list',
-    SETTINGS = 'settings',
-}
-
-export enum PriceLabelColor {
-    BLUE = 'blue',
-    GREEN = 'green',
-    YELLOW = 'yellow',
-    PURPLE = 'purple',
-    RED = 'red',
-}
-
 export enum PlayButtonType {
     Default = 'default',
     Text = 'text',
 }
 
 export enum PlayButtonThemes {
-    Blue = 'blue',
+    Brand = 'brand',
     Grey = 'grey',
     Custom = 'custom',
 }
@@ -74,14 +61,14 @@ export type ColumnsCount = 1 | 2 | 3 | 4;
 export type LegendTableMarkerType = 'disk' | 'tick';
 export type LinkTheme = 'file-link' | 'normal' | 'back' | 'underline';
 export type MediaDirection = 'media-content' | 'content-media';
-export type PriceDescriptionColor = 'cornflower' | 'black';
 export type ContentSize = 's' | 'm' | 'l' | 'xl';
 export type ContentTextSize = 's' | 'm' | 'l';
 export type ContentTheme = 'default' | 'dark' | 'light';
 export type FileLinkType = 'vertical' | 'horizontal';
 export type ImageCardMargins = 's' | 'm';
-export type LayoutItemContentMargin = 'm' | 'l';
-export type GravityIconProps = string | {name: keyof typeof icons; color: 'brand' | 'text-color'};
+export type GravityIconProps =
+    | string
+    | {name: Exclude<keyof typeof icons, 'default'>; color: 'brand' | 'text-color'};
 
 // modifiers
 export interface Themable {
@@ -221,6 +208,9 @@ export interface FileLinkProps extends ClassNameProps, Tabbable {
 // buttons
 export type ButtonTheme =
     | ButtonView
+    | 'normal-contrast'
+    | 'outlined-contrast'
+    | 'flat-contrast'
     | 'github'
     | 'app-store'
     | 'google-play'
@@ -237,7 +227,9 @@ export interface ButtonProps extends AnalyticsEventsBase {
     target?: string;
     size?: UikitButtonProps['size'];
     width?: UikitButtonProps['width'];
-    extraProps?: UikitButtonProps['extraProps'];
+    extraProps?:
+        | React.ButtonHTMLAttributes<HTMLButtonElement>
+        | React.AnchorHTMLAttributes<HTMLAnchorElement>;
 }
 
 export type ButtonImagePosition = 'left' | 'right';
@@ -456,62 +448,6 @@ export interface CardBaseProps {
 export type CardLayoutProps = {
     controlPosition?: ControlPosition;
 };
-
-//price
-export interface PriceDescriptionProps {
-    title: string;
-    detailedTitle?: string;
-    description: string;
-    label?: {
-        color: PriceLabelColor;
-        text?: string;
-        size?: TextSize;
-    };
-}
-
-export interface PriceDetailsSettingsProps {
-    title: string;
-    description: string;
-}
-
-export interface PriceDetailsListProps {
-    text: string;
-}
-
-export interface PriceDetailsProps {
-    items?: PriceDetailsSettingsProps[] | PriceDetailsListProps[];
-}
-
-export interface PriceItemProps
-    extends PriceDetailsProps,
-        PriceDescriptionProps,
-        AnalyticsEventsBase {}
-
-export interface PriceFoldableDetailsProps {
-    title: string;
-    size?: TextSize;
-    titleColor?: PriceDescriptionColor;
-}
-
-/** @deprecated */
-export interface PriceDetailedProps extends CardBaseProps {
-    items: PriceItemProps[];
-    description?: {
-        titleSize?: TextSize;
-        descriptionSize?: TextSize;
-        titleColor?: PriceDescriptionColor;
-    };
-    details?: {
-        titleSize?: TextSize;
-        descriptionSize?: TextSize;
-    };
-    priceType?: PriceDetailsType;
-    numberGroupItems?: 3 | 4 | 5;
-    isCombined?: boolean;
-    useMixedView?: boolean;
-    foldable?: PriceFoldableDetailsProps;
-    labelsDefaultText?: Record<PriceLabelColor, string>;
-}
 
 export interface AuthorProps extends QAProps {
     author: AuthorItem;

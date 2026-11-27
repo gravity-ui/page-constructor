@@ -23,7 +23,7 @@ const AddBlock = ({onAdd, className}: AddBlockProps) => {
     const [search, setSearch] = React.useState('');
     const [editorBlocksData, setEditorBlocksData] = React.useState<EditorBlocksData | null>(null);
 
-    const ref = React.useRef(null);
+    const [anchorElement, setAnchorElement] = React.useState<HTMLDivElement | null>(null);
     const blocks = React.useMemo(() => {
         if (!editorBlocksData) {
             return [];
@@ -46,7 +46,7 @@ const AddBlock = ({onAdd, className}: AddBlockProps) => {
     }, []);
 
     return (
-        <div className={b(null, className)} ref={ref}>
+        <div className={b(null, className)} ref={setAnchorElement}>
             <button
                 className={b('button')}
                 type="button"
@@ -59,12 +59,14 @@ const AddBlock = ({onAdd, className}: AddBlockProps) => {
             </button>
             {isOpened && (
                 <Popup
-                    anchorRef={ref}
+                    anchorElement={anchorElement}
                     open={isOpened}
                     placement="top"
                     className={b('popup')}
                     offset={{mainAxis: 0, crossAxis: 24}}
-                    onOutsideClick={() => setIsOpened(false)}
+                    onOpenChange={(open, _event, reason) => {
+                        if (!open && reason === 'outside-press') setIsOpened(false);
+                    }}
                 >
                     <div className={b('search')}>
                         <TextInput

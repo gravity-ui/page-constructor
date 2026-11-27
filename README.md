@@ -27,6 +27,7 @@ npm install @gravity-ui/page-constructor @diplodoc/transform @gravity-ui/uikit
 Insert the `Page Constructor` to the page. To work correctly, it must be wrapped in a `PageConstructorProvider`:
 
 ```tsx
+import {Provider} from '@gravity-ui/uikit';
 import {PageConstructor, PageConstructorProvider} from '@gravity-ui/page-constructor';
 import '@gravity-ui/page-constructor/styles/styles.scss';
 
@@ -44,9 +45,11 @@ const App = () => {
   };
 
   return (
-    <PageConstructorProvider>
-      <PageConstructor content={content} />
-    </PageConstructorProvider>
+    <Provider>
+      <PageConstructorProvider>
+        <PageConstructor content={content} />
+      </PageConstructorProvider>
+    </Provider>
   );
 };
 
@@ -90,6 +93,7 @@ app.listen(3000);
 On the client, add an endpoint call to receive content:
 
 ```tsx
+import {Provider} from '@gravity-ui/uikit';
 import {PageConstructor, PageConstructorProvider} from '@gravity-ui/page-constructor';
 import '@gravity-ui/page-constructor/styles/styles.scss';
 import {useEffect, useState} from 'react';
@@ -105,9 +109,11 @@ const App = () => {
   }, []);
 
   return (
-    <PageConstructorProvider>
-      <PageConstructor content={content} />
-    </PageConstructorProvider>
+    <Provider>
+      <PageConstructorProvider>
+        <PageConstructor content={content} />
+      </PageConstructorProvider>
+    </Provider>
   );
 };
 

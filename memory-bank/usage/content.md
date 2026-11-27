@@ -425,7 +425,7 @@ graph TD
 - **Usage**: Used to display content with optional media, meta information, and icon.
 - **Implementation**:
   ```tsx
-  <div className={b('content', {'no-media': !media, margin: contentMargin})}>
+  <div className={b('content', {'no-media': !media})}>
     <IconWrapper icon={themedIcon} className={b('wrapper')}>
       <Content {...contentProps} titleId={titleId} />
     </IconWrapper>

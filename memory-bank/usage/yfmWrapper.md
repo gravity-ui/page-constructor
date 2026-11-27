@@ -20,10 +20,6 @@ graph TD
     Title[Title Component]
 
     %% Sub-blocks that use YFMWrapper
-    PriceDetailed[PriceDetailed Sub-block]
-    PriceDescription[PriceDescription Sub-block]
-    PriceDetailsList[PriceDetails List Sub-block]
-    PriceDetailsSettings[PriceDetails Settings Sub-block]
     Content[Content Sub-block]
     BannerCard[BannerCard Sub-block]
     Quote[Quote Sub-block]
@@ -47,10 +43,6 @@ graph TD
     ContentList --> YFMWrapper
     Table --> YFMWrapper
     Title --> YFMWrapper
-    PriceDetailed --> YFMWrapper
-    PriceDescription --> YFMWrapper
-    PriceDetailsList --> YFMWrapper
-    PriceDetailsSettings --> YFMWrapper
     Content --> YFMWrapper
     BannerCard --> YFMWrapper
     Quote --> YFMWrapper
@@ -71,10 +63,6 @@ graph TD
     style ContentList fill:#c6def1,stroke:#2274a5,stroke-width:1px,color:#000
     style Table fill:#c6def1,stroke:#2274a5,stroke-width:1px,color:#000
     style Title fill:#c6def1,stroke:#2274a5,stroke-width:1px,color:#000
-    style PriceDetailed fill:#d4e6f1,stroke:#5dade2,stroke-width:1px,color:#000
-    style PriceDescription fill:#d4e6f1,stroke:#5dade2,stroke-width:1px,color:#000
-    style PriceDetailsList fill:#d4e6f1,stroke:#5dade2,stroke-width:1px,color:#000
-    style PriceDetailsSettings fill:#d4e6f1,stroke:#5dade2,stroke-width:1px,color:#000
     style Content fill:#d4e6f1,stroke:#5dade2,stroke-width:1px,color:#000
     style BannerCard fill:#d4e6f1,stroke:#5dade2,stroke-width:1px,color:#000
     style Quote fill:#d4e6f1,stroke:#5dade2,stroke-width:1px,color:#000
@@ -213,23 +201,6 @@ graph TD
 
   ```tsx
   <YFMWrapper className={b('subtitle')} content={subtitle} modifiers={{constructor: true}} />
-  ```
-
-#### PriceDetailed Sub-blocks
-
-- **Files**: Various PriceDetailed sub-components
-- **Usage**: Renders pricing descriptions and details.
-- **Implementation**:
-
-  ```tsx
-  // In PriceDescription
-  <YFMWrapper content={description} modifiers={{constructor: true}} />
-
-  // In PriceDetails List
-  <YFMWrapper content={item.text} modifiers={{constructor: true}} />
-
-  // In PriceDetails Settings
-  <YFMWrapper content={item.description} modifiers={{constructor: true}} />
   ```
 
 ### In Blocks

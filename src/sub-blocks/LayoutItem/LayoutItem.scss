@@ -3,9 +3,6 @@
 
 $block: '.#{$ns}layout-item';
 
-$contentMarginM: 40px;
-$contentMarginL: 80px;
-
 #{$block} {
     display: flex;
     flex-direction: column;
@@ -29,21 +26,10 @@ $contentMarginL: 80px;
         display: flex;
 
         flex: auto;
-        margin-top: $indentXS;
-        margin-left: 0;
-        margin-bottom: 0;
+        margin: $indentXS 40px 0 0;
 
         &_no-media {
             margin-top: 0;
-        }
-
-        &_margin {
-            &_m {
-                margin-right: $contentMarginM;
-            }
-            &_l {
-                margin-right: $contentMarginL;
-            }
         }
     }
 

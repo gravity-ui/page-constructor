@@ -1,4 +1,3 @@
-export * from '../../sub-blocks/PriceDetailed/schema';
 export * from '../../sub-blocks/BackgroundCard/schema';
 export * from '../../sub-blocks/Content/schema';
 export * from '../../sub-blocks/MediaCard/schema';

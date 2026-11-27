@@ -2,10 +2,11 @@
 
 set -euo pipefail
 
-IMAGE_NAME="mcr.microsoft.com/playwright"
-IMAGE_TAG="v1.45.3-jammy" # This version have to be synchronized with playwright version from package.json
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+IMAGE_NAME="page-constructor-playwright"
+IMAGE_TAG="v1.45.3-node24" # This version have to be synchronized with playwright version from package.json
 
-NODE_MODULES_CACHE_DIR="$HOME/.cache/page-constructor-playwright-docker-node-modules"
+NODE_MODULES_CACHE_DIR="$HOME/.cache/page-constructor-playwright-docker-node-modules-$IMAGE_TAG"
 
 command_exists() {
   command -v "$1" >/dev/null 2>&1
@@ -34,6 +35,8 @@ if [[ "$1" = "clear-cache" ]]; then
     rm -rf "./playwright/.cache-docker"
     exit 0
 fi
+
+$CONTAINER_TOOL build -t "$IMAGE_NAME:$IMAGE_TAG" - < "$SCRIPT_DIR/../playwright/Dockerfile"
 
 if [[ ! -d "$NODE_MODULES_CACHE_DIR" ]]; then
     mkdir -p "$NODE_MODULES_CACHE_DIR"

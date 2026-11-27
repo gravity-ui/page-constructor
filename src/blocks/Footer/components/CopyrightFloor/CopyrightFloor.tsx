@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import {DropdownMenu, DropdownMenuItem, Link, useResizeObserver} from '@gravity-ui/uikit';
+import {Link, useResizeObserver} from '@gravity-ui/uikit';
+import {DropdownMenu, DropdownMenuItem} from '@gravity-ui/uikit/legacy';
 
 import {Image} from '../../../../components';
 import {BREAKPOINTS} from '../../../../constants';

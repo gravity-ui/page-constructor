@@ -45,6 +45,7 @@ const Button = (props: ButtonProps) => {
         onClick: onClickOrigin,
         text,
         width,
+        extraProps,
         ...rest
     } = props;
     const defaultImgPosition = 'left';
@@ -84,6 +85,8 @@ const Button = (props: ButtonProps) => {
         ...rest,
         href: url ? setUrlTld(url, tld) : undefined,
         onClick,
+        title: urlTitle,
+        ...extraProps,
     };
 
     if (theme === 'app-store' || theme === 'google-play') {
@@ -136,12 +139,11 @@ const Button = (props: ButtonProps) => {
 
     return (
         <CommonButton
+            {...(buttonProps as UIKitButtonProps)}
             className={buttonClass}
             view={toCommonView(buttonTheme as OldButtonTheme)}
             size={toCommonSize(size as OldButtonSize)}
-            title={urlTitle}
             width={width}
-            {...(buttonProps as UIKitButtonProps)}
         >
             {icon && position === 'left' ? icon : null}
             <span className={b('content')}>

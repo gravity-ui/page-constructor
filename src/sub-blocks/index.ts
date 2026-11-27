@@ -1,6 +1,5 @@
 export {default as Divider} from './Divider/Divider';
 export {default as Quote} from './Quote/Quote';
-export {default as PriceDetailed} from './PriceDetailed/PriceDetailed';
 export {default as MediaCard} from './MediaCard/MediaCard';
 export {default as BannerCard} from './BannerCard/BannerCard';
 export {default as LayoutItem} from './LayoutItem/LayoutItem';

@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
       - name: Install Packages
         run: npm ci
@@ -38,9 +38,11 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
       - name: Install Packages
         run: npm ci
       - name: Unit Tests
         run: npm run test
+      - name: Transform Integration Tests
+        run: npm run test:transform

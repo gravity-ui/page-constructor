@@ -50,11 +50,7 @@ const FullscreenMedia = ({children, showFullscreenIcon = true}: FullscreenMediaP
             <div className={b('media-wrapper')} onClickCapture={openModal}>
                 {children({className: b('inline-media')})}
                 {showFullscreenIcon && (
-                    <Button
-                        className={b('icon-wrapper')}
-                        extraProps={{onClickCapture: openModal}}
-                        size={'l'}
-                    >
+                    <Button className={b('icon-wrapper')} onClickCapture={openModal} size={'l'}>
                         <Icon
                             data={ChevronsExpandUpRight}
                             width={FULL_SCREEN_ICON_SIZE}
@@ -67,7 +63,9 @@ const FullscreenMedia = ({children, showFullscreenIcon = true}: FullscreenMediaP
             {isOpened && (
                 <Modal
                     open={isOpened}
-                    onClose={closeModal}
+                    onOpenChange={(open) => {
+                        if (!open) closeModal();
+                    }}
                     className={b('modal')}
                     contentClassName={b('modal-content')}
                 >

@@ -1,1 +1,1 @@
-export {CustomCard, CustomCardProps} from './CustomCard';
+export {CustomCard, type CustomCardProps} from './CustomCard';
