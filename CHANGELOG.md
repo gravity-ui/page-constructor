@@ -14,6 +14,17 @@
 * Preserve Markdown attributes and optional Highlight.js integration when using Transform 5.
 
 
+## [9.0.0](https://github.com/gravity-ui/page-constructor/compare/v8.25.1...v9.0.0) (2026-11-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* 9 major ([#1439](https://github.com/gravity-ui/page-constructor/issues/1439))
+
+### Features
+
+* 9 major ([#1439](https://github.com/gravity-ui/page-constructor/issues/1439)) ([74720e7](https://github.com/gravity-ui/page-constructor/commit/74720e7e335daece4e6d01130cf91126453153bb))
+
 ## [8.25.1](https://github.com/gravity-ui/page-constructor/compare/v8.25.0...v8.25.1) (2026-11-25)
 
 
